@@ -1,0 +1,14 @@
+services:
+  app:
+    build: .
+    ports:
+      - "${PORT:-5050}:5050"
+    volumes:
+      - mummys-mask-data:/data
+    environment:
+      - PORT=5050
+      - DB_PATH=/data/mummys_mask.db
+    restart: unless-stopped
+
+volumes:
+  mummys-mask-data:

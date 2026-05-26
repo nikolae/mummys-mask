@@ -1,0 +1,348 @@
+/* ── Blessing Deck ────────────────────────────────────────────────────────── */
+
+.blessing-deck {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-shrink: 0;
+}
+
+.blessing-count {
+  font-size: 13px;
+  font-weight: 700;
+  white-space: nowrap;
+  min-width: 52px;
+  text-align: right;
+}
+.blessing-count .num { font-size: 20px; color: var(--gold); }
+.blessing-count .denom { color: var(--text-dim); }
+
+.blessing-bar-track {
+  flex: 1;
+  min-width: 80px;
+  max-width: 220px;
+  height: 10px;
+  background: var(--tomb-light);
+  border-radius: 100px;
+  overflow: hidden;
+  position: relative;
+}
+.blessing-bar-fill {
+  height: 100%;
+  border-radius: 100px;
+  transition: width 0.4s ease, background 0.4s ease;
+}
+.blessing-bar-fill.safe   { background: var(--green-light); }
+.blessing-bar-fill.warn   { background: var(--gold); }
+.blessing-bar-fill.danger { background: var(--red-light); }
+
+/* ── Location Card ────────────────────────────────────────────────────────── */
+
+.location-card {
+  background: var(--tomb-card);
+  border: 1px solid var(--gold-dark);
+  border-radius: var(--radius-lg);
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  transition: border-color 0.2s, box-shadow 0.2s;
+  position: relative;
+}
+.location-card:hover { border-color: var(--gold); }
+.location-card.closed {
+  opacity: 0.45;
+  border-color: var(--tomb-light);
+  border-style: dashed;
+}
+.location-card.temp-closed {
+  border-color: var(--blue-light);
+  opacity: 0.7;
+}
+
+.location-card-header {
+  padding: 10px 12px 8px;
+  border-bottom: 1px solid var(--tomb-light);
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 8px;
+}
+.location-name {
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--gold-light);
+  line-height: 1.2;
+  flex: 1;
+}
+.location-status-badge {
+  font-size: 10px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  padding: 2px 6px;
+  border-radius: 4px;
+  white-space: nowrap;
+}
+.location-status-badge.open   { background: rgba(74,155,90,0.2); color: var(--green-light); }
+.location-status-badge.closed { background: rgba(139,32,32,0.2); color: var(--red-light); }
+.location-status-badge.temp   { background: rgba(58,107,171,0.2); color: var(--blue-light); }
+
+.location-card-body {
+  flex: 1;
+  padding: 10px 12px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.location-deck-count {
+  display: flex;
+  align-items: baseline;
+  gap: 4px;
+}
+.deck-num {
+  font-size: 28px;
+  font-weight: 700;
+  color: var(--text-bright);
+  line-height: 1;
+}
+.deck-label {
+  font-size: 12px;
+  color: var(--text-dim);
+}
+
+.location-tokens {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px;
+  min-height: 24px;
+}
+.char-token {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  padding: 2px 8px;
+  background: rgba(201,162,39,0.15);
+  border: 1px solid var(--gold-dark);
+  border-radius: 100px;
+  font-size: 11px;
+  font-weight: 600;
+  color: var(--gold-light);
+  cursor: pointer;
+  transition: background 0.15s;
+}
+.char-token:hover { background: rgba(201,162,39,0.25); }
+.char-token.current { border-color: var(--gold); background: rgba(201,162,39,0.25); }
+
+.location-card-footer {
+  padding: 8px 12px;
+  border-top: 1px solid var(--tomb-light);
+}
+
+.location-closed-overlay {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 13px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: var(--text-dim);
+  pointer-events: none;
+}
+.location-closed-overlay::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: repeating-linear-gradient(
+    -45deg,
+    transparent,
+    transparent 12px,
+    rgba(0,0,0,0.15) 12px,
+    rgba(0,0,0,0.15) 14px
+  );
+}
+
+/* ── Phase & Turn indicator ───────────────────────────────────────────────── */
+
+.phase-indicator {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 4px 10px;
+  border-radius: 100px;
+  background: rgba(201,162,39,0.1);
+  border: 1px solid var(--gold-dark);
+  font-size: 12px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--gold-light);
+  white-space: nowrap;
+}
+.phase-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--gold);
+  animation: pulse 1.5s ease-in-out infinite;
+}
+@keyframes pulse {
+  0%, 100% { opacity: 1; }
+  50%       { opacity: 0.3; }
+}
+
+.turn-num {
+  font-size: 12px;
+  color: var(--text-dim);
+  white-space: nowrap;
+}
+.turn-num span { color: var(--text-mid); font-weight: 600; }
+
+/* ── Modal ────────────────────────────────────────────────────────────────── */
+
+.modal-backdrop {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.75);
+  z-index: 1000;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  padding-bottom: env(safe-area-inset-bottom, 0);
+}
+
+@media (min-width: 600px) {
+  .modal-backdrop { align-items: center; }
+}
+
+.modal {
+  background: var(--tomb-mid);
+  border: 1px solid var(--gold-dark);
+  border-radius: var(--radius-lg) var(--radius-lg) 0 0;
+  width: 100%;
+  max-width: 560px;
+  max-height: 85vh;
+  display: flex;
+  flex-direction: column;
+  box-shadow: var(--shadow-lg);
+  animation: slide-up 0.22s ease;
+}
+@media (min-width: 600px) {
+  .modal { border-radius: var(--radius-lg); }
+}
+@keyframes slide-up {
+  from { transform: translateY(100%); opacity: 0; }
+  to   { transform: translateY(0); opacity: 1; }
+}
+
+.modal-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 16px 20px 12px;
+  border-bottom: 1px solid var(--tomb-light);
+}
+.modal-title { font-size: var(--font-lg); font-weight: 700; color: var(--gold); }
+.modal-close {
+  background: none;
+  border: none;
+  font-size: 22px;
+  color: var(--text-dim);
+  min-height: 40px;
+  min-width: 40px;
+  cursor: pointer;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+}
+.modal-close:hover { color: var(--text-mid); background: var(--tomb-light); }
+
+.modal-body {
+  flex: 1;
+  overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
+  padding: 16px 20px;
+}
+.modal-footer {
+  padding: 12px 20px;
+  border-top: 1px solid var(--tomb-light);
+  display: flex;
+  gap: 10px;
+  justify-content: flex-end;
+}
+
+/* ── Campaign cards ───────────────────────────────────────────────────────── */
+
+.campaign-card {
+  background: var(--tomb-card);
+  border: 1px solid var(--gold-dark);
+  border-radius: var(--radius-lg);
+  padding: 16px 18px;
+  cursor: pointer;
+  transition: border-color 0.15s, background 0.15s;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  min-height: 100px;
+}
+.campaign-card:hover { border-color: var(--gold); background: rgba(201,162,39,0.04); }
+.campaign-card h3 { font-size: 17px; color: var(--text-bright); }
+.campaign-card .campaign-meta {
+  font-size: 12px;
+  color: var(--text-dim);
+  display: flex;
+  gap: 12px;
+}
+
+/* ── Character list in setup ──────────────────────────────────────────────── */
+
+.char-row {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px 0;
+  border-bottom: 1px solid var(--tomb-light);
+}
+.char-row:last-child { border-bottom: none; }
+.char-avatar {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: var(--tomb-light);
+  border: 1px solid var(--gold-dark);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  color: var(--gold);
+  font-size: 16px;
+  flex-shrink: 0;
+}
+.char-info { flex: 1; }
+.char-info .char-name-big { font-weight: 600; }
+.char-info .char-type-label { font-size: 12px; color: var(--text-dim); }
+
+/* ── Status overlays ──────────────────────────────────────────────────────── */
+
+.status-won, .status-lost {
+  position: fixed;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+  z-index: 2000;
+  text-align: center;
+  padding: 40px;
+}
+.status-won  { background: rgba(42,107,58,0.92); }
+.status-lost { background: rgba(139,32,32,0.92); }
+.status-icon { font-size: 72px; }
+.status-title { font-size: 36px; font-weight: 800; color: #fff; }
+.status-sub   { font-size: 16px; color: rgba(255,255,255,0.8); }

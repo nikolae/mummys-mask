@@ -1,0 +1,1164 @@
+type: ally
+cards:
+- name: Apprentice
+  category: boon
+  type: ally
+  source: WOTR-B, MM-2, ALCH-2, DRUID-B, ORACLE-B, SORCERER-2, SUMMONER-B, UM-B, WITCH-1,
+    WIZARD-2
+  traits:
+  - Half-Elf
+  checks:
+  - difficulty: '8'
+    skills:
+    - Arcane
+    - Divine
+    - Charisma
+    - Diplomacy
+  powers: |-
+    Recharge this card to add 1d6 to your Arcane or Divine check.
+
+    Discard this card to explore your location.
+- name: Aunty
+  category: boon
+  type: ally
+  source: MM-C
+  traits:
+  - Human
+  - Cleric
+  checks:
+  - difficulty: '8'
+    skills:
+    - Divine
+    - Charisma
+    - Diplomacy
+  powers: |-
+    Recharge this card to add your Wisdom skill to your check that invokes the Cold or Undead trait.
+
+    Discard this card to examine the top 3 cards of your location deck, then you may explore your location.
+- name: Ausetitha
+  category: boon
+  type: ally
+  source: MM-4
+  traits:
+  - Undead
+  - Incorporeal
+  - Banshee
+  checks:
+  - difficulty: '15'
+    skills:
+    - Combat
+  powers: Display this card next to your deck. While displayed, when you play a card
+    of your favored card type on a check, after the roll, you may add or subtract
+    5 from the result. When you suffer a scourge, bury this card.
+- name: Azaz Arafe and Zazu
+  category: boon
+  type: ally
+  source: MM-1, OA1-2
+  traits:
+  - Human
+  - Evoker
+  - and
+  - Animal
+  checks:
+  - difficulty: '7'
+    skills:
+    - Charisma
+    - Diplomacy
+    - Arcane
+    - Divine
+  powers: |-
+    If you fail to acquire this card, banish a card that has the Magic trait from your hand or discard pile.
+
+    Recharge this card to examine the top card of your location deck.
+
+    Discard this card to add the Magic trait to a combat check by a character at your location.
+
+    Discard this card to explore your location.
+- name: Bal Themm
+  category: boon
+  type: ally
+  source: MM-2
+  traits:
+  - Human
+  - Cleric
+  checks:
+  - difficulty: '10'
+    skills:
+    - Charisma
+    - Diplomacy
+  powers: |-
+    Recharge this card to add 1d6 and the Magic trait to your check to defeat a bane that has the Undead trait.
+
+    Discard this card to explore your location. During this exploration, add 1d6 and the Magic trait to your checks to defeat a bane that has the Undead trait.
+- name: Basif Iosep
+  category: boon
+  type: ally
+  source: MM-2
+  traits:
+  - Half-Elf
+  - Shopkeeper
+  - Aspis
+  checks:
+  - difficulty: '6'
+    skills:
+    - Charisma
+    - Diplomacy
+  powers: |-
+    At the start of your turn, recharge this card to draw 2 cards. If either card drawn has the Aspis trait, you may draw an additional card.
+
+    Discard this card to explore your location.
+- name: Black Kiss
+  category: boon
+  type: ally
+  source: MM-1
+  traits:
+  - Half-Elf
+  checks:
+  - difficulty: '10'
+    skills:
+    - Intelligence
+    - Craft
+    - Charisma
+    - Diplomacy
+  powers: |-
+    If you fail to acquire this card, you are dealt 1d4 Poison damage.
+
+    Recharge this card to add your Craft skill and the Poison trait to a combat check by a character at your location.
+
+    Discard this card to explore your location.
+- name: Camel
+  category: boon
+  type: ally
+  source: MM-B, MM-C, UC-B, WARPRIEST-B
+  traits:
+  - Animal
+  - Mount
+  - Basic
+  checks:
+  - difficulty: '7'
+    skills:
+    - Wisdom
+    - Survival
+  powers: |-
+    Bury this card to evade a monster you encounter.
+
+    At the end of your turn, discard this card to move.
+
+    Discard this card to explore your location. During this exploration, add 1d6 to your Survival checks.
+- name: Caravan Guard
+  category: boon
+  type: ally
+  source: WOTR-B, MM-B, PALADIN-B, WARPRIEST-1
+  traits:
+  - Human
+  - Hireling
+  - Elite
+  checks:
+  - skills:
+    - Bury an armor
+  - difficulty: '8'
+    skills:
+    - Charisma
+    - Diplomacy
+  powers: |-
+    Recharge this card to add 1d4 to your Melee or Ranged combat check.
+
+    Banish this card to reduce Combat damage dealt to you by 3.
+
+    Discard this card to explore your location.
+- name: Cleric of Nethys
+  category: boon
+  type: ally
+  source: MM-2, OA2-2, UM-2
+  traits:
+  - Human
+  - Cleric
+  checks:
+  - difficulty: '9'
+    skills:
+    - Charisma
+    - Diplomacy
+    - Divine
+    - Knowledge
+  powers: |-
+    On your check, after the roll, recharge this card to add or subtract 2 from the result.
+
+    Discard this card to examine the top 2 cards of your location deck and put them back in any order, then explore your location.
+- name: Clockwork Menial
+  category: boon
+  type: ally
+  source: MM-3
+  traits:
+  - Automaton
+  checks:
+  - difficulty: '9'
+    skills:
+    - Intelligence
+    - Craft
+  powers: |-
+    Discard this card to add 1 die to any check against a barrier, or any check to acquire a boon.
+
+    Discard this card to explore your location.
+- name: Cloud Elemental
+  category: boon
+  type: ally
+  source: MM-5
+  traits:
+  - Outsider
+  - Elemental
+  - Electricity
+  checks:
+  - difficulty: '11'
+    skills:
+    - Wisdom
+    - Survival
+  powers: |-
+    Display this card next to your location. While displayed, you may add 1d8 and the Electricity trait to a combat check or a check that invokes the Electricity trait by a character at that location, then roll 1d6; on a 1, banish this card.
+
+    When the scenario ends, if this card is displayed, discard it.
+- name: Commander Abdallah
+  category: boon
+  type: ally
+  source: MM-3
+  traits:
+  - Human
+  - Fighter
+  checks:
+  - difficulty: '11'
+    skills:
+    - Combat
+  powers: |-
+    When you encounter this card, you may reveal a blessing that has the Abadar trait to automatically acquire it.
+
+    Bury this card to recharge any number of blessings that have the Abadar trait from your discard pile.
+
+    Discard this card to explore your location. During this exploration, add 1d8 to your combat checks.
+- name: Dhabba
+  category: boon
+  type: ally
+  source: MM-B, MM-C
+  traits:
+  - Animal
+  - Poison
+  - Basic
+  checks:
+  - difficulty: '6'
+    skills:
+    - Wisdom
+    - Survival
+  powers: |-
+    Recharge this card to add 1d4 and the Poison trait to your combat check.
+
+    Discard this card to explore your location.
+- name: Dredge
+  category: boon
+  type: ally
+  source: MM-B, UI-B
+  traits:
+  - Halfling
+  - Rogue
+  - Aspis
+  checks:
+  - difficulty: '8'
+    skills:
+    - Charisma
+    - Diplomacy
+  powers: |-
+    When you would encounter a boon, recharge this card to exchange that boon with a random boon of the same type from the box and encounter that boon instead.
+
+    Discard this card to explore your location. During this exploration, add 1d4 to your checks to acquire items.
+- name: Druid of the Hive
+  category: boon
+  type: ally
+  source: MM-B
+  traits:
+  - Thriae
+  - Druid
+  - Poison
+  - Veteran
+  checks:
+  - difficulty: '7'
+    skills:
+    - Charisma
+    - Diplomacy
+  powers: |-
+    Discard this card to ignore a bane's immunity to the Acid and Poison traits.
+
+    Discard this card to explore your location. During this exploration, add 2 plus the scenario's adventure deck number to your combat checks; if your combat check invokes the Poison or Swarm trait, add another 1d4.
+- name: Druid of the Storm
+  category: boon
+  type: ally
+  source: WOTR-2, MM-2, DRUID-2
+  traits:
+  - Human
+  - Druid
+  - Veteran
+  checks:
+  - difficulty: '7'
+    skills:
+    - Divine
+  - difficulty: '9'
+    skills:
+    - Charisma
+    - Diplomacy
+  powers: |-
+    Discard this card to add 1d4 and the Electricity trait to your combat check.
+
+    Discard this card to explore your location. During this exploration, ignore banes' immunity to the Electricity trait; add 2 plus the scenario's adventure deck number and the Electricity trait to your combat checks.
+- name: Embalmer
+  category: boon
+  type: ally
+  source: MM-B, MM-C, ALCH-B, MAGUS-B
+  traits:
+  - Human
+  - Hireling
+  - Basic
+  checks:
+  - difficulty: '5'
+    skills:
+    - Charisma
+    - Diplomacy
+  powers: |-
+    Recharge this card to add 1d4 to your Intelligence check.
+
+    Bury this card to evade a monster you encounter that has the Undead trait.
+
+    Discard this card to explore your location.
+- name: Falto
+  category: boon
+  type: ally
+  source: MM-C
+  traits:
+  - Human
+  - Rogue
+  - Hireling
+  checks:
+  - difficulty: '10'
+    skills:
+    - Charisma
+    - Diplomacy
+  powers: |-
+    If you fail to acquire this card, move to a random location, then examine the top card of your location deck.
+
+    Recharge this card to add 1 die to any Diplomacy check.
+
+    Recharge this card to add 1 die to a check to acquire an item by a character at your location.
+
+    Discard this card to explore your location.
+- name: Fire Gecko
+  category: boon
+  type: ally
+  source: MM-B, UW-1
+  traits:
+  - Animal
+  - Elemental
+  - Fire
+  checks:
+  - difficulty: '4'
+    skills:
+    - Wisdom
+    - Survival
+  powers: |-
+    Reveal this card to add 1d4 and the Fire trait to your combat check. If you fail to defeat the bane, discard this card before you take damage.
+
+    Discard this card to explore your location. During this exploration, add 1d4 and the Fire trait to your combat checks.
+- name: Fortune-Teller
+  category: boon
+  type: ally
+  source: WOTR-1, MM-6, BARD-6, INQUIS-4, ORACLE-6, UI-5, WITCH-6
+  traits:
+  - Human
+  - Oracle
+  checks:
+  - difficulty: '11'
+    skills:
+    - Charisma
+    - Diplomacy
+  powers: |-
+    At the end of your move step, reveal this card and choose a category: bane or boon. Then examine the top card of your location deck. If that card matches your choice, encounter it.
+
+    Discard this card to explore your location.
+- name: Freed Soul
+  category: boon
+  type: ally
+  source: MM-5
+  traits:
+  - Undead
+  - Incorporeal
+  - Ghost
+  checks:
+  - difficulty: '13'
+    skills:
+    - Charisma
+    - Diplomacy
+  powers: Display this card. While displayed, at the end of your turn, you may recharge
+    a blessing from your discard pile. When you suffer a scourge, bury this card.
+- name: Giant Slug
+  category: boon
+  type: ally
+  source: MM-B, ALCH-B, GOBB-1, WITCH-B
+  traits:
+  - Animal
+  - Acid
+  checks:
+  - difficulty: '6'
+    skills:
+    - Wisdom
+    - Survival
+  powers: |-
+    Recharge this card to add 1d4 and the Acid trait to your combat check.
+
+    Recharge this card and discard a card from the blessings deck to explore your location. During this exploration, you may add 1d4 and the Acid trait to your combat checks.
+- name: Hearth Elemental
+  category: boon
+  type: ally
+  source: MM-4
+  traits:
+  - Outsider
+  - Elemental
+  - Fire
+  checks:
+  - skills:
+    - See below
+  powers: |-
+    You may automatically acquire this card; if you do, you are dealt 1d6+1 Fire damage.
+
+    Recharge this card to draw a weapon or an armor from your discard pile.
+
+    Bury this card to add 2d12 and the Fire trait to a combat check by a character at your location.
+- name: Hippopotamus Mud Elemental
+  category: boon
+  type: ally
+  source: MM-6, UW-6
+  traits:
+  - Outsider
+  - Elemental
+  - Acid
+  checks:
+  - difficulty: '14'
+    skills:
+    - Wisdom
+    - Survival
+  powers: "Put this card on top of your deck to reduce Acid, Electricity, or Fire\
+    \ damage dealt to you by 4. \n\nPut this card on top of your deck to add 1d6 to\
+    \ a check that invokes the Acid or Bludgeoning trait by a character at your location.\
+    \ \n\nDiscard this card to explore your location. During this exploration, add\
+    \ 2d6 to checks that invoke the Acid or Bludgeoning trait."
+- name: Hyaenodon
+  category: boon
+  type: ally
+  source: MM-B
+  traits:
+  - Trigger
+  - Animal
+  - Elite
+  checks:
+  - difficulty: '7'
+    skills:
+    - Wisdom
+    - Survival
+  powers: |-
+    When you examine this card, you may reveal an ally that has the Animal trait to acquire this card.
+
+    When you defeat a monster, you may reveal this card to recharge a random card from your discard pile.
+
+    Discard this card to examine the top card of your location deck. Then you may explore your location.
+- name: Idorii
+  category: boon
+  type: ally
+  source: MM-1, OA1-1
+  traits:
+  - Half-Elf
+  - Fighter
+  checks:
+  - difficulty: '9'
+    skills:
+    - Melee
+    - Charisma
+    - Diplomacy
+  powers: |-
+    If you fail to acquire this card, you are dealt 1d4 Combat damage.
+
+    Recharge this card to add 1d4 to a combat check by a character at your location.
+
+    Discard this card to explore your location. During this exploration, add 2d4 to all combat checks.
+- name: Kafar
+  category: boon
+  type: ally
+  source: MM-B
+  traits:
+  - Trigger
+  - Human
+  - Aspis
+  checks:
+  - difficulty: '9'
+    skills:
+    - Wisdom
+    - Charisma
+    - Diplomacy
+  powers: |-
+    When you examine this card, succeed at a Charisma Diplomacy 4 check to acquire this card. If you fail to acquire this card, banish a non-Basic boon.
+
+    Discard this card to explore your location. During this exploration, add 1d4 to your Charisma checks and checks to acquire boons.
+- name: Khelru
+  category: boon
+  type: ally
+  source: MM-1
+  traits:
+  - Human
+  - Cleric
+  checks:
+  - difficulty: '9'
+    skills:
+    - Knowledge
+    - Divine
+    - Charisma
+    - Diplomacy
+  powers: |-
+    If you fail to acquire this card, discard the top card of the blessings deck.
+
+    Reveal this card to shuffle 1d4 random cards from your discard pile into your deck, then discard this card.
+
+    Discard this card to examine the top card of your location deck, then you may explore your location.
+- name: Library Curator
+  category: boon
+  type: ally
+  source: MM-3, OA2-3
+  traits:
+  - Human
+  - Cleric
+  checks:
+  - difficulty: '8'
+    skills:
+    - Intelligence
+    - Knowledge
+  - difficulty: '9'
+    skills:
+    - Charisma
+    - Diplomacy
+  powers: |-
+    Recharge this card to add 1 die to your Intelligence or Knowledge check. If you fail the check, bury this card instead of recharging it and discard a card.
+
+    Discard this card to explore your location.
+- name: Mad Dog Marrn
+  category: boon
+  type: ally
+  source: MM-1
+  traits:
+  - Halfling
+  - Barbarian
+  - Hireling
+  checks:
+  - difficulty: '9'
+    skills:
+    - Survival
+    - Charisma
+    - Diplomacy
+  powers: |-
+    If you fail to acquire this card, banish an ally that has the Animal trait from your hand or discard pile or you are dealt 1d4 Combat damage.
+
+    Recharge this card to add 1d8 to a Survival check by a character at your location.
+
+    Discard this card to explore your location. During this exploration, if you encounter a card that has the Trigger trait, you may evade it.
+- name: Maftet Hunter
+  category: boon
+  type: ally
+  source: MM-4
+  traits:
+  - Maftet
+  - Hunter
+  checks:
+  - difficulty: '11'
+    skills:
+    - Charisma
+    - Diplomacy
+  powers: |-
+    Discard this card to add 2d6 and the Melee trait to a combat check by a character at any location.
+
+    Discard this card to recharge any number of cards, then explore your location. During this exploration, when you encounter a monster, you may add 2d6 to your combat checks.
+- name: Mahga Threefingers
+  category: boon
+  type: ally
+  source: MM-B
+  traits:
+  - Half-Orc
+  - Ranger
+  checks:
+  - difficulty: '8'
+    skills:
+    - Charisma
+    - Diplomacy
+  powers: |-
+    On your check, after the roll, recharge this card to add 3 or subtract 2 from the result.
+
+    Discard this card to explore your location.
+- name: Marianix Karn
+  category: boon
+  type: ally
+  source: MM-B, UI-B
+  traits:
+  - Human
+  - Sage
+  - Aspis
+  checks:
+  - difficulty: '9'
+    skills:
+    - Charisma
+    - Diplomacy
+  powers: |-
+    Reveal this card to add 1 to your check to acquire a boon.
+
+    Recharge this card to add 1d6 to your check to defeat a barrier.
+
+    Discard this card to explore your location.
+- name: Meehr Zet
+  category: boon
+  type: ally
+  source: MM-B
+  traits:
+  - Dwarf
+  - Aristocrat
+  - Hireling
+  checks:
+  - difficulty: '7'
+    skills:
+    - Charisma
+    - Diplomacy
+  powers: |-
+    Bury this card to draw 1d4+1 allies that do not have the Animal trait from your discard pile.
+
+    Discard this card to explore your location. During this exploration, add 1d8 to your Diplomacy checks.
+- name: Minnothet
+  category: boon
+  type: ally
+  source: MM-2
+  traits:
+  - Human
+  - Shopkeeper
+  - Aspis
+  checks:
+  - difficulty: '8'
+    skills:
+    - Fortitude
+    - Charisma
+    - Diplomacy
+  powers: |-
+    Recharge this card to recharge a random armor or item from your discard pile.
+
+    Discard this card to explore your location. During this exploration, add 2 dice to your checks to acquire armors.
+- name: Mumia Smuggler
+  category: boon
+  type: ally
+  source: MM-B
+  traits:
+  - Human
+  - Rogue
+  - Hireling
+  - Aspis
+  checks:
+  - difficulty: '8'
+    skills:
+    - Charisma
+    - Diplomacy
+  powers: |-
+    Recharge this card to add 1d4 to your check against a card that has the Alchemical trait.
+
+    Bury this card to draw all cards that have the Alchemical trait from your discard pile.
+
+    Discard this card to explore your location.
+- name: Neb-At
+  category: boon
+  type: ally
+  source: MM-1
+  traits:
+  - Human
+  - Smuggler
+  checks:
+  - difficulty: '6'
+    skills:
+    - Charisma
+    - Diplomacy
+  powers: |-
+    Recharge a card to add 1 die to your check against a card that has the Animal trait.
+
+    Discard this card to explore your location.
+- name: Nefti the Bard
+  category: boon
+  type: ally
+  source: MM-B
+  traits:
+  - Human
+  - Bard
+  - Aspis
+  checks:
+  - difficulty: '8'
+    skills:
+    - Charisma
+    - Diplomacy
+  powers: |-
+    If you fail to acquire Nefti, banish an ally that does not have the Animal trait from your hand or discard pile.
+
+    Recharge this card to add your Diplomacy or Stealth skill to your check to acquire a weapon, an armor, or an item.
+
+    During the explore step of a character at your location, discard this card to allow her to explore your location.
+- name: Osirion Ancestor
+  category: boon
+  type: ally
+  source: MM-B
+  traits:
+  - Undead
+  - Incorporeal
+  - Ghost
+  checks:
+  - difficulty: '8'
+    skills:
+    - Divine
+    - Charisma
+    - Diplomacy
+  powers: Display this card. While displayed, you may recharge this card to examine
+    the top card of your location deck, then put that card on top or bottom of its
+    deck. While displayed, you may recharge this card to add 1d6 and the Cold, Magic,
+    and Undead traits to your check against a card that has the Outsider or Undead
+    trait.
+- name: Pahmet Clansman
+  category: boon
+  type: ally
+  source: MM-B, MM-C
+  traits:
+  - Dwarf
+  - Cleric
+  - Basic
+  checks:
+  - difficulty: '6'
+    skills:
+    - Charisma
+    - Diplomacy
+    - Divine
+  powers: |-
+    Recharge this card to add 1d6 to your check against a card that has the Trigger trait.
+
+    Discard this card to explore your location. If the top card of the blessings discard pile is Blessing of the Ancients, you may recharge this card instead.
+- name: Pakesket
+  category: boon
+  type: ally
+  source: MM-5
+  traits:
+  - Animal
+  - Phoenix
+  - Fire
+  checks:
+  - difficulty: '8'
+    skills:
+    - Charisma
+    - Diplomacy
+  - difficulty: '12'
+    skills:
+    - Charisma
+    - Diplomacy
+  powers: |-
+    Banish this card to banish all cards that have the Curse trait displayed next to the decks of characters at your location.
+
+    Discard this card to explore your location. During this exploration, if you defeat a monster, recharge 2 random cards from your discard pile.
+- name: Pard
+  category: boon
+  type: ally
+  source: MM-C
+  traits:
+  - Animal
+  checks:
+  - difficulty: '7'
+    skills:
+    - Wisdom
+    - Survival
+  - difficulty: '10'
+    skills:
+    - Charisma
+    - Diplomacy
+  powers: |-
+    Recharge this card to add your Charisma skill to your combat check.
+
+    Recharge this card to add 1d4 to a combat check by a character at another location.
+
+    Discard this card to examine the top card of another location deck. If it is a non-villain, non-henchman monster, you may put it on the top or bottom of its location deck.
+- name: Porcupine
+  category: boon
+  type: ally
+  source: MM-B, MM-C, UW-B
+  traits:
+  - Animal
+  - Basic
+  checks:
+  - difficulty: '7'
+    skills:
+    - Wisdom
+    - Survival
+  powers: |-
+    Recharge this card to add 1d8 to your check against a bane that has the Animal trait.
+
+    Discard this card to explore your location.
+- name: Ptemenib
+  category: boon
+  type: ally
+  source: MM-2
+  traits:
+  - Human
+  - Cleric
+  checks:
+  - difficulty: '8'
+    skills:
+    - Charisma
+    - Diplomacy
+    - Divine
+  powers: |-
+    Recharge this card to examine the top card of up to 2 location decks.
+
+    Bury this card to shuffle 1d4+2 cards from your discard pile into your deck.
+- name: Pyromaniac Mage
+  category: boon
+  type: ally
+  source: ROTR-5, MM-5, BARD-5, SORCERER-5, SUMMONER-5, WIZARD-5
+  traits:
+  - Human
+  - Wizard
+  checks:
+  - difficulty: '13'
+    skills:
+    - Intelligence
+    - Arcane
+    - Charisma
+    - Diplomacy
+  powers: |-
+    Recharge this card to add 1d6+1 to your Arcane or Divine check; if it is a combat check, also add the Fire trait.
+
+    Discard this card to explore your location.
+- name: Qasin
+  category: boon
+  type: ally
+  source: MM-2, MAGUS-2
+  traits:
+  - Outsider
+  - Psychopomp
+  checks:
+  - difficulty: '10'
+    skills:
+    - Charisma
+    - Diplomacy
+    - Divine
+  powers: |-
+    Recharge this card to examine the top card of your deck. You may then draw or recharge that card.
+
+    Recharge this card to evade a bane you encounter.
+- name: Reed Moccasin
+  category: boon
+  type: ally
+  source: MM-3, UW-3
+  traits:
+  - Animal
+  - Elemental
+  - Acid
+  - Poison
+  checks:
+  - difficulty: '10'
+    skills:
+    - Wisdom
+    - Survival
+  powers: |-
+    Recharge this card to add 1d10 to your Stealth non-combat check.
+
+    Discard this card to examine the top card of your location deck, then you may explore your location. During this exploration, when you encounter a monster, you may add 1d6 and the Acid and Poison traits to your checks to defeat it.
+- name: Sand Elemental
+  category: boon
+  type: ally
+  source: MM-5, UM-5
+  traits:
+  - Outsider
+  - Elemental
+  checks:
+  - difficulty: '9'
+    skills:
+    - Constitution
+    - Fortitude
+  powers: "Recharge this card to reduce Cold or Fire damage dealt to any character\
+    \ to 0.\n\nRecharge this card to ignore a non-villain bane's power that happens\
+    \ before you act.  \n\nDiscard this card to explore your location."
+- name: Scribe
+  category: boon
+  type: ally
+  source: WOTR-2, MM-4, ALCH-3, PALADIN-2, SUMMONER-2, WIZARD-4
+  traits:
+  - Human
+  - Hireling
+  checks:
+  - difficulty: '9'
+    skills:
+    - Intelligence
+    - Knowledge
+    - Charisma
+    - Diplomacy
+  powers: |-
+    Recharge this card to add 2d6 to your Diplomacy or Knowledge check.
+
+    Discard this card to explore your location.
+- name: Sebti the Crocodile
+  category: boon
+  type: ally
+  source: MM-1
+  traits:
+  - Trigger
+  - Human
+  - Cleric
+  checks:
+  - difficulty: '9'
+    skills:
+    - Charisma
+    - Diplomacy
+    - Divine
+  powers: |-
+    When you examine this card, you may reveal a blessing that has the Pharasma trait to automatically acquire this card.
+
+    If you fail to acquire this card, shuffle 3 random monsters from the box into your location deck.
+
+    Recharge this card to examine the top 2 cards of any location deck.
+
+    Discard this card to explore your location. During this exploration, add 1d6 to your Diplomacy checks.
+- name: Sedja
+  category: boon
+  type: ally
+  source: MM-3, UW-2
+  traits:
+  - Animal
+  checks:
+  - difficulty: '11'
+    skills:
+    - Charisma
+    - Diplomacy
+  powers: "If you fail to acquire this card, you are dealt 1 Combat damage.\n\nRecharge\
+    \ this card to add 1d8 to your Knowledge or Survival check. \n\nBury this card\
+    \ to move any number of characters at your location together to another location.\
+    \ This power cannot be used during an encounter."
+- name: Sehela
+  category: boon
+  type: ally
+  source: MM-6
+  traits:
+  - Undead
+  - Incorporeal
+  - Ghost
+  - Alchemist
+  checks:
+  - difficulty: '15'
+    skills:
+    - Charisma
+    - Diplomacy
+  powers: Display this card. While displayed, you may add 1d6 to Craft, Disable, or
+    Perception checks by characters at your location. When you suffer a scourge, bury
+    this card.
+- name: Shock Lizard
+  category: boon
+  type: ally
+  source: MM-B, MM-C, UW-B
+  traits:
+  - Animal
+  - Electricity
+  - Basic
+  checks:
+  - difficulty: '4'
+    skills:
+    - Wisdom
+    - Survival
+  powers: |-
+    Recharge this card to add 1d4 and the Electricity trait to your combat check.
+
+    Discard this card to explore your location. During this exploration, you may add the Electricity trait to your combat checks.
+- name: Sophronia
+  category: boon
+  type: ally
+  source: MM-4
+  traits:
+  - Undead
+  - Incorporeal
+  - Ghost
+  checks:
+  - difficulty: '12'
+    skills:
+    - Charisma
+    - Diplomacy
+  powers: |-
+    Discard this card to add 2d6 and the Magic trait to a combat check by a character at your location; you may discard a card from the blessings deck to recharge this card instead.
+
+    Bury this card to explore your location. During this exploration, add 2d6 and the Magic and Undead traits to your combat checks.
+- name: Stained Glass Elemental
+  category: boon
+  type: ally
+  source: MM-B, ALCH-1
+  traits:
+  - Outsider
+  - Elemental
+  - Electricity
+  - Veteran
+  checks:
+  - difficulty: '9'
+    skills:
+    - Charisma
+    - Survival
+    - Arcane
+  powers: |-
+    Reveal this card to add 1d8 and the Electricity trait to your combat check. If the check is against a bane, and your result exceeds the difficulty by 3 or more, after the encounter, discard this card and the top card of the blessings deck.
+
+    Recharge this card to add 1 plus the scenario's adventure deck number to the result of your check.
+- name: Stone Weasel
+  category: boon
+  type: ally
+  source: MM-B, MM-C, UW-B
+  traits:
+  - Animal
+  - Elemental
+  checks:
+  - difficulty: '6'
+    skills:
+    - Wisdom
+    - Survival
+  powers: |-
+    Recharge this card to reduce Cold, Electricity, or Fire damage dealt to you by 1.
+
+    Discard this card to explore your location. During this exploration, add 1d4 to your checks to acquire items.
+- name: Tarworks Master
+  category: boon
+  type: ally
+  source: MM-B
+  traits:
+  - Dwarf
+  checks:
+  - difficulty: '10'
+    skills:
+    - Craft
+    - Charisma
+    - Diplomacy
+  powers: |-
+    Discard this card to add 1 die to your Craft check, or to your check to acquire a boon. If your check invokes the Fire trait, recharge this card instead of discarding it.
+
+    Discard this card to explore your location.
+- name: Terhk Fourwinds
+  category: boon
+  type: ally
+  source: MM-C, MAGUS-B
+  traits:
+  - Half-Orc
+  - Fighter
+  checks:
+  - difficulty: '7'
+    skills:
+    - Charisma
+    - Diplomacy
+  powers: |-
+    Recharge this card to recharge a weapon or an armor that has the Basic trait from your discard pile.
+
+    At the end of your turn, recharge this card to move.
+
+    Discard this card to explore your location.
+- name: The Viper
+  category: boon
+  type: ally
+  source: MM-3, UE-3
+  traits:
+  - Human
+  - Rogue
+  - Aspis
+  checks:
+  - difficulty: '9'
+    skills:
+    - Charisma
+    - Diplomacy
+  powers: |-
+    Recharge this card to exchange a card in your hand with a card of the same type in your discard pile.
+
+    Discard this card to explore your location.
+- name: Tomb Artisan
+  category: boon
+  type: ally
+  source: MM-6
+  traits:
+  - Undead
+  - Incorporeal
+  - Ghost
+  checks:
+  - difficulty: '14'
+    skills:
+    - Charisma
+    - Diplomacy
+  powers: Display this card. While displayed, you may add 1d6 to Knowledge, Perception,
+    or Stealth checks by characters at your location. When you suffer a scourge, bury
+    this card.
+- name: Tomb Raider
+  category: boon
+  type: ally
+  source: MM-B, MM-C
+  traits:
+  - Human
+  - Rogue
+  - Basic
+  checks:
+  - difficulty: '4'
+    skills:
+    - Charisma
+    - Diplomacy
+    - Acrobatics
+  powers: |-
+    Recharge this card to add 1d8 to your Dexterity non-combat check.
+
+    Discard this card to explore your location.
+- name: Ubashki
+  category: boon
+  type: ally
+  source: MM-B
+  traits:
+  - Undead
+  - Mummy
+  checks:
+  - skills:
+    - Bury a card
+  powers: |-
+    Recharge this card to reduce damage dealt to you by 2.
+
+    When you examine a card that has the Trigger trait, bury this card to ignore any power on that card that happens when you examine it; shuffle it back into its deck.
+
+    Discard this card to explore your location.
+- name: Unwrapped Harmony
+  category: boon
+  type: ally
+  source: MM-2
+  traits:
+  - Trigger
+  - Caligni
+  - Oracle
+  checks:
+  - difficulty: '11'
+    skills:
+    - Perception
+    - Charisma
+    - Diplomacy
+  powers: |-
+    When you examine this card, shuffle it into the deck it came from.
+
+    If you fail to acquire this card, move to a random other location and end your turn.
+
+    Discard this card to examine the top 3 cards of your location deck and put them back in any order, then explore your location.
+- name: Zereletan
+  category: boon
+  type: ally
+  source: MM-4
+  traits:
+  - Aberration
+  - Naga
+  checks:
+  - difficulty: '11'
+    skills:
+    - Charisma
+    - Diplomacy
+  - difficulty: '15'
+    skills:
+    - Combat
+  powers: |-
+    Bury this card to recharge any number of items from your discard pile.
+
+    Discard this card to explore your location.

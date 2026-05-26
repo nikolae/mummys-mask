@@ -1,0 +1,237 @@
+/* ── Page Views ───────────────────────────────────────────────────────────── */
+
+.page {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+.page-header {
+  flex: 0 0 auto;
+  padding: 16px 20px 12px;
+  border-bottom: 1px solid var(--tomb-light);
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  background: var(--tomb-mid);
+}
+
+.page-body {
+  flex: 1 1 auto;
+  overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
+  padding: 20px;
+}
+
+.page-footer {
+  flex: 0 0 auto;
+  padding: 12px 20px;
+  border-top: 1px solid var(--tomb-light);
+  background: var(--tomb-mid);
+}
+
+/* ── Play Board Layout ────────────────────────────────────────────────────── */
+
+.play-board {
+  height: 100%;
+  display: grid;
+  grid-template-rows: auto 1fr auto;
+  overflow: hidden;
+}
+
+/* Top bar */
+.play-topbar {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 10px 16px;
+  background: var(--tomb-mid);
+  border-bottom: 2px solid var(--gold-dark);
+  min-height: 64px;
+  flex: 0 0 auto;
+}
+
+.play-topbar .scenario-title {
+  flex: 1;
+  min-width: 0;
+}
+.play-topbar .scenario-name {
+  font-size: 15px;
+  font-weight: 700;
+  color: var(--gold);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.play-topbar .adventure-name {
+  font-size: 11px;
+  color: var(--text-dim);
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+}
+
+/* Location grid */
+.location-grid {
+  overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
+  padding: 12px;
+  display: grid;
+  gap: 10px;
+  align-content: start;
+  /* Adapts from 2 to 4 columns based on available width */
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+}
+
+/* iPad Pro landscape: 3–4 cols */
+@media (min-width: 900px) {
+  .location-grid {
+    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  }
+}
+
+/* Character bar */
+.character-bar {
+  display: flex;
+  align-items: stretch;
+  gap: 0;
+  border-top: 2px solid var(--gold-dark);
+  background: var(--tomb-mid);
+  min-height: 88px;
+  flex: 0 0 auto;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+}
+
+.character-chip {
+  flex: 0 0 auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 10px 16px;
+  border-right: 1px solid var(--tomb-light);
+  min-width: 130px;
+  cursor: pointer;
+  transition: background 0.15s;
+  position: relative;
+}
+.character-chip:hover { background: var(--tomb-light); }
+.character-chip.active {
+  background: rgba(201,162,39,0.12);
+  border-bottom: 3px solid var(--gold);
+}
+.character-chip .char-name {
+  font-weight: 700;
+  font-size: 14px;
+  color: var(--text-bright);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.character-chip .char-type {
+  font-size: 11px;
+  color: var(--text-dim);
+  margin-bottom: 4px;
+}
+.character-chip .char-hand {
+  font-size: 12px;
+  color: var(--text-mid);
+}
+
+.character-bar-actions {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 10px;
+  padding: 10px 16px;
+}
+
+/* ── Campaign / Setup Layouts ─────────────────────────────────────────────── */
+
+.campaign-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 14px;
+}
+
+.scenario-list {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.scenario-item {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 14px 16px;
+  background: var(--tomb-card);
+  border: 1px solid var(--tomb-light);
+  border-radius: var(--radius);
+  cursor: pointer;
+  transition: border-color 0.15s, background 0.15s;
+  min-height: var(--touch-min);
+}
+.scenario-item:hover { border-color: var(--gold-dark); }
+.scenario-item.selected {
+  border-color: var(--gold);
+  background: rgba(201,162,39,0.08);
+}
+.scenario-item .scenario-id {
+  font-size: 11px;
+  font-weight: 700;
+  color: var(--gold-dark);
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  min-width: 36px;
+}
+.scenario-item .scenario-info { flex: 1; }
+.scenario-item .scenario-item-name {
+  font-weight: 600;
+  font-size: 15px;
+}
+.scenario-item .scenario-villain {
+  font-size: 12px;
+  color: var(--text-dim);
+  margin-top: 2px;
+}
+
+/* Two-column setup layout on wide screens */
+@media (min-width: 768px) {
+  .setup-columns {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+    align-items: start;
+  }
+}
+
+/* Location chips for setup */
+.location-chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+.location-chip {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 14px;
+  border-radius: 100px;
+  background: var(--tomb-light);
+  border: 1px solid var(--tomb-light);
+  font-size: 13px;
+  cursor: pointer;
+  transition: border-color 0.15s;
+  min-height: 40px;
+}
+.location-chip.selected {
+  border-color: var(--gold);
+  background: rgba(201,162,39,0.1);
+  color: var(--gold-light);
+}
+.location-chip-count {
+  font-size: 11px;
+  color: var(--text-dim);
+}

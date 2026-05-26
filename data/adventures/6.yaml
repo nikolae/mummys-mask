@@ -1,0 +1,138 @@
+id: '6'
+name: Pyramid of the Sky Pharaoh
+reward: When you replay this Adventure Path, you may start with Adventure 1; if you
+  do, the party gains the traders Falsin Deek, Hadden Hoppert, and Smiths of Wati,
+  and starts with the loot Scarab Buckler and Game of Afterlife, and each new character
+  gains a card feat, a power feat, and a skill feat.
+during: The scourge die is 1d10. When you are dealt Cold or Poison damage, if that
+  damage is not reduced to 0, suffer the scourge Curse of the Mummy.
+scenarios:
+- id: 6-1
+  name: Crypt of Air
+  flavor: The engines driving Hakotep's pyramid harness a massive column of wind and
+    sand. Thrown into chaos by sabotage, the storm inside the pyramid threatens to
+    destroy all that surrounds it unless you protect the containment mechanisms. But
+    Shendakut, the sphinx that the Sky Pharaoh mummified to guard the engines, objects
+    to your tampering.
+  villain: None
+  henchmen:
+  - Shendakut
+  - Thundercloud of Set
+  - plural2=Thunderclouds of Set
+  locations:
+  - Hall of Winged Chaos
+  - Howling Sands
+  - Windswept Chasm
+  - Glass Pavilion
+  - Towering Obelisk
+  - Smoking Den
+  - Warehouse
+  - Shifting Dunes
+  during: |-
+    When building the location decks, set aside the henchmen, monsters, and barriers; shuffle them into a siege deck, then display the support card Defensive Stance next to this card. When creating the blessings deck, shuffle in 6 of the villain Sandstorm.
+
+    When Sandstorm causes you to move, you are dealt 1d4 Electricity damage.
+
+    To win the scenario, a location must be open while the siege deck is empty.
+  reward: The party gets all boons remaining in location decks.
+- id: 6-2
+  name: Crypt of Earth
+  flavor: Honored to spend the afterlife with the great Sky Pharaoh, his greatest
+    generals pass their days in eternal combat. No blood stains the floor, cleansed
+    by the temporal loop that ensnares all within the arena. You must prove yourselves
+    against sparring constructs to earn their respect, escape the temporal loop, and
+    gain passage to the final crypt.
+  villain: None
+  henchmen:
+  - Brass Golem
+  - plural1=Brass Golems
+  locations: []
+  during: |-
+    Build a number of Eternal Arena locations equal to the number of characters (minimum 2). After adding henchmen, shuffle the villain Eshen Theba and the henchman Mentu-Nebef into different locations.
+
+    When a location is closed, all characters there move, then that location ceases to exist; do not flip the Eternal Arena card over.
+
+    To win the scenario, defeat and corner Eshen Theba.
+  reward: Each character draws a random weapon and a random armor that each have an
+    adventure deck number of 4 or higher from the box.
+- id: 6-3
+  name: Crypt of Fire
+  flavor: The forge flames rage within the Sky Pharaoh's pyramid. Rivers of molten
+    iron and bronze flow through the ancient workshops that built the mighty tomb-fortresses.
+    Bronze statues with the twisted visage of Ra destroy intruders by plunging them
+    into the molten river. As you assail the general's wards, the entire facility
+    begins to sink into the forge.
+  villain: Sky Pharaoh's Fang
+  henchmen:
+  - Mockery of Ra
+  - plural1=Mockeries of Ra
+  locations:
+  - Forgery of Ra
+  - Tarworks
+  - Volcanic Vents
+  - Scorched Ruins
+  - Brickworks
+  - Precious Mine
+  - Earthworks
+  - Dilapidated Plaza
+  during: |-
+    After adding the villain and henchmen, shuffle the henchman Conflagration into each location deck.
+
+    At the end of your turn, if your location deck is empty, each character at your location is dealt 1d6 Fire damage. Otherwise, examine the top card of your location deck; if it is a boon, banish it and you are dealt 1d4 Fire damage.
+  reward: Each character gains a card feat.
+- id: 6-4
+  name: Crypt of Water
+  flavor: Ferried on a glass boat of exquisite design upon a channel of preserving
+    fluid, you find the Crypt of Water inviting... until Nailah takes notice. A banshee
+    that was once the Queen's sister, Nailah's soul is forever imprisoned for crimes
+    against the pharaoh. And Keshenepek, a div barbarian, guards the souls that hold
+    the most delicate of the pharaoh's secrets.
+  villain: Keshenepek
+  henchmen:
+  - Nailah
+  - Handmaiden of Nailah
+  - plural2=Handmaidens of Nailah
+  locations:
+  - Golden Lake
+  - Hall of the Crocodile Kings
+  - Hot Springs
+  - Alchemical Laboratory
+  - Sulfur Pits
+  - Oasis
+  - Embalming Parlor
+  - Surgery
+  during: |-
+    After building the location decks, display the barge Glass Boat next to a random location.
+
+    At the start of your turn, if you are not at the same location as the Glass Boat, you are dealt 1 Acid damage.
+
+    When you would win the scenario, you may instead summon and build the location Shrine of the Infinite Void. If you do, you win the scenario only when Shrine of the Infinite Void is closed.
+  reward: Each character draw a random item that has the Liquid trait from the box.
+- id: 6-5
+  name: The Sky Pharaoh's Sanctum
+  flavor: The Sky Pharaoh's Sanctum is a seat of worship for the dark god Set, from
+    which Queen Neferuset brings untold curses down upon you. Embrace death, and the
+    last thing you see will be Ain-Mekh, Herald of Hakotep. That is, until your eyes
+    reopen and you find yourself bound in eternal servitude to Hakotep in his new
+    reign as the undead pharaoh of all Osirion.
+  villain: '[[The Sky Pharaoh'
+  henchmen:
+  - Ain-Mekh
+  - Forgotten Pharaoh Cultist
+  - plural2=Forgotten Pharaoh Cultists
+  locations:
+  - Mausoleum
+  - Shrine of the Infinite Void
+  - Sky Pharaoh's Throne
+  - Catacombs
+  - Hall of Blessed Rebirth
+  - Embalming Parlor
+  - Peasant Tombs
+  - Ruined Temple
+  during: Before building the location decks, set aside all monsters in the box that
+    do not have the Mummy or Undead trait. Return them to the box after building the
+    decks.When creating the blessing deck, replace 15 blessings with random scourges
+    that do not have the Mummy trait.When you discard a scourge from the blessing
+    deck, suffer it, or banish it and you are dealt 1 Cold damage.
+  reward: When you build a new deck to replay this Adventure Path, you may choose
+    1 boon that has the Elite trait and a set indicator of B or C.

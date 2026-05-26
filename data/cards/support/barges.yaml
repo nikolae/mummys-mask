@@ -1,0 +1,12 @@
+type: barge
+cards:
+- name: Glass Boat
+  category: support
+  type: barge
+  source: MM-6
+  powers: |-
+    You may recharge a card to examine the top card of your location deck.
+
+    If the result of each check to defeat a bane you encounter does not exceed the difficulty by at least 3, after the encounter, draw a random item that has the Alchemical or Liquid trait from the box.
+
+    When you move, display this card next to the location you move to.

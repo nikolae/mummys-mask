@@ -1,0 +1,120 @@
+type: trader
+cards:
+- name: Agymah
+  category: support
+  type: trader
+  source: MM-3
+  traits:
+  - None
+  powers: |-
+    Agymah offers spells that have the Arcane trait. Cost: 3 boons.
+
+    "Nseema, my bodyguard, do let these wanderers in! Do you take your coffee black? Of course you do! What other way is there to take coffee? I know you are thirsty, for these Southern Parched Dunes could drain a man's blood from his bones. I have stumbled across some eldritch scrolls which might ease your burden. Come see?"
+- name: Auction House
+  category: support
+  type: trader
+  source: MM-2
+  traits:
+  - None
+  powers: |-
+    The Auction House offers allies. Cost: 2 boons.
+
+    "'Slavery'? Oh, no no no. That is such an indelicate term. Here, we like to think of what we provide as a second lease on life for those who've fallen on hard times. We match these unfortunates with those blessed personages who can lead them to new freedoms. It is all for the best! Of course, we must have a finder's fee."
+- name: Efni Raan
+  category: support
+  type: trader
+  source: MM-4
+  traits:
+  - None
+  powers: |-
+    Efni Raan offers weapons that have the Ranged trait. Cost: 3 boons.
+
+    "I have come to seek assistance against the gnoll raiders that plague the hidden village of Safani. Our fight goes poorly, so we hope to upgrade our strategies from mere bows and arrows. I have weapons which I can trade for other things to use in our defense. We can hide only for so long."
+- name: Falsin Deek
+  category: support
+  type: trader
+  source: MM-B
+  traits:
+  - None
+  powers: |-
+    Falsin Deek offers items. Cost: 2 boons.
+
+    "We in the Aspis Consortium maintain order among the many traders here in Osirion. Why, if we did not oversee the mines of the Shining Mountains, simply anyone could be as rich as I am! And we can't allow that. Come, see what my servants have brought back from the mines. I'm sure it will enrich your soul—and my pockets."
+- name: Ghoul Market
+  category: support
+  type: trader
+  source: MM-1
+  traits:
+  - None
+  powers: |-
+    The Ghoul Market offers armors. Cost: 2 boons.
+
+    "Venture not here without symbols of your faiths. For this place, once called the Gulla Market, stands on the edge of the necropolis, overrun by our colony of ghouls. You clad yourselves in metal from head to toe, lest one of us touch you and seal your doom. You may try, anyway. We have some protections taken from fallen heroes for you, at a price."
+- name: Hadden Hoppert
+  category: support
+  type: trader
+  source: MM-B
+  traits:
+  - None
+  powers: |-
+    Hadden Hoppert offers spells. Cost: 2 boons.
+
+    "Welcome to Hoppert's emporium of the strange and mystical! Uh, let's see, I'm sure I've got what you're looking for in one of these books. Or maybe in these holy scrolls. I should get a slightly better system of organization. Oh, I know! There's a spell for organizing your shelves. Now, let's see, where did I put that?"
+- name: Naheeba
+  category: support
+  type: trader
+  source: MM-4
+  traits:
+  - None
+  powers: |-
+    Naheeba offers spells that have the Divine trait. Cost: 3 boons.
+
+    "You have set my people on edge, but it is I who must apologize. We nomads do not trust many foreigners. Quiet down out there! Now, how may I help you? Oh, you seek remedies from the many scourges that plague the lands? The nomad faith acknowledges many gods, and thankfully many gods desire to be acknowledged."
+- name: Shardizhad
+  category: support
+  type: trader
+  source: MM-2
+  traits:
+  - None
+  powers: |-
+    Shardizhad offers weapons that have the Melee trait. Cost: 3 boons.
+
+    "Oooh! Tasty people with tasty baubles! If you bare those swords to test your mettle against a dragon, I'm happy to oblige! Feeding time is so late in the day here. But if you brandish them to trade for those I've collected, we can perhaps strike a bargain. I seek jewels and treasures for my new hoard. I'll have yours one way or another, yes?"
+- name: Smiths of Wati
+  category: support
+  type: trader
+  source: MM-B
+  traits:
+  - None
+  powers: |-
+    Smiths of Wati offers weapons. Cost: 2 boons.
+
+    "Oh, so you're looking to raid the necropolis? Of course you are. Like so many before you. Did you know that the supplies of skeletons are replenished with those of unprepared adventurers? It is truth. Now, you would not like to be among these undead, I take it? Then you will need well-forger weapons. Thankfully, these we have."
+- name: Sunburst Market
+  category: support
+  type: trader
+  source: MM-1
+  traits:
+  - None
+  powers: |-
+    When you draw cards from the box to display on Sunburst Market, instead of the usual method, each character that is visiting Sunburst Market chooses a non-loot that has the Basic trait. Cost: 1 boon.
+
+    "Have you paid your fees to Abadar's Sanctum of Silver and Gold? No? You may leave them with me... oh, look, the Marketwives. They patrol for pickpockets and other untrustworthy sorts. Which reminds me, I must take my leave of you."
+- name: Trove of Tef-Naju
+  category: support
+  type: trader
+  source: MM-5
+  powers: |-
+    When you draw cards from the box to display on Trove of Tef-Naju, instead of the usual method, draw 1 random weapon, spell, armor, item, ally, and blessing that have the same adventure deck number as the scenario. Cost: 4 boons.
+
+    "I am the mighty genie Tef-Naju, and this is my trove of wonders! I suspect I can be convinced to part with one or two of them. How much convincing did you bring with you?"
+- name: Udjebet
+  category: support
+  type: trader
+  source: MM-3
+  traits:
+  - None
+  powers: |-
+    Udjebet offers items that have the Magic trait. Cost: 3 boons.
+
+    "Of course I belong here! I am merely seeking education about magical artifacts here at the Great Library. Just like any other normal human might do. Say, as one seeker of knowledge to another, do you know about magical rings? I know that they can contain great power, and so I hope to increase my collection. Can you help?"

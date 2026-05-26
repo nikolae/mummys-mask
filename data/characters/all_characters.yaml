@@ -1,0 +1,188 @@
+characters:
+- name: Ahmotep
+  category: character
+  skills:
+    Melee:
+      derived_from: Strength +2
+    Arcane:
+      derived_from: Intelligence +2
+    Diplomacy:
+      derived_from: Charisma +2
+  hand_size: 6
+  proficiencies:
+  - Light Armors
+  - Weapons
+  roles:
+  - Eldritch Scion
+  - Staff Magus
+- name: Alahazra
+  category: character
+  skills:
+    Knowledge:
+      derived_from: Intelligence +2
+    Divine:
+      derived_from: Charisma +2
+  hand_size: 6
+  proficiencies:
+  - ☐ Light Armors
+  roles:
+  - Stargazer
+  - Tempest
+  - Wandering Prophet
+  - Bride of the Sun
+  - Recursor
+  - Seeker
+- name: Channa Ti
+  category: character
+  skills:
+    Craft:
+      derived_from: Intelligence +3
+    Divine:
+      derived_from: Wisdom +2
+    Survival:
+      derived_from: Wisdom +2
+  hand_size: 6
+  proficiencies:
+  - Light Armors
+  roles:
+  - Tsunami Caster
+  - Oasis Caller
+- name: Damiel
+  category: character
+  skills:
+    Disable:
+      derived_from: Dexterity +2
+    Ranged:
+      derived_from: Dexterity +2
+    Craft:
+      derived_from: Intelligence +3
+  hand_size: 6
+  proficiencies:
+  - Light Armors | ☐ Weapons
+  roles:
+  - Chirurgeon
+  - Grenadier
+  - Toxicologist
+  - Mad Scientist
+  - Mindchemist
+  - Miscibility Master
+- name: Drelm
+  category: character
+  skills:
+    Melee:
+      derived_from: Strength +2
+    Disable:
+      derived_from: Wisdom +2
+    Divine:
+      derived_from: Wisdom +3
+  hand_size: 5
+  proficiencies:
+  - Light Armors
+  - Heavy Armors
+  - Weapons
+  roles:
+  - Keymaster
+  - Vaultkeeper
+- name: Estra
+  category: character
+  skills:
+    Divine:
+      derived_from: Wisdom +2
+    Knowledge:
+      derived_from: Wisdom +2
+    Diplomacy:
+      derived_from: Charisma +1
+  hand_size: 5
+  proficiencies:
+  - Light Armors
+  roles:
+  - Ectoplasmatist Role Powers
+  - Speaker to the Dead Role Powers
+  - Spiritual Counselor Role Powers
+  - Tetherer Role Powers
+- name: Ezren
+  category: character
+  skills:
+    Arcane:
+      derived_from: Intelligence +2
+    Knowledge:
+      derived_from: Intelligence +2
+  hand_size: 6
+  proficiencies:
+  - ☐ Light Armors
+  roles:
+  - Evoker
+  - Illusionist
+  - Transmogrifier
+  - Hedge Wizard
+  - Arcane Bomber
+  - Spell Sage
+  - Mystic Diviner
+  - Wizened Explorer
+- name: Mavaro
+  category: character
+  skills:
+    Disable:
+      derived_from: Intelligence +2
+    Knowledge:
+      derived_from: Intelligence +2
+    Perception:
+      derived_from: Wisdom +2
+  hand_size: 6
+  proficiencies:
+  - Light Armors ☐ Weapons
+  roles:
+  - Acquisitor
+  - Channeler
+  - Ghost Hunter
+  - Hoarder
+- name: Simoun
+  category: character
+  skills:
+    Disable:
+      derived_from: Dexterity +1
+    Ranged:
+      derived_from: Dexterity +2
+    Craft:
+      derived_from: Intelligence +1
+    Perception:
+      derived_from: Intelligence +2
+  hand_size: 6
+  proficiencies:
+  - ☐ Light Armors
+  - Weapons
+  roles:
+  - Bladewind Role Powers
+  - Lightning Thief Role Powers
+- name: Yoon
+  category: character
+  skills:
+    Acrobatics:
+      derived_from: Dexterity +1
+    Stealth:
+      derived_from: Dexterity +2
+    Fortitude:
+      derived_from: Constitution +2
+  hand_size: 5
+  proficiencies:
+  - Light Armors {{box}} Weapons
+  roles:
+  - Firestarter Role Powers
+  - Pan-Elementalist Role Powers
+  - Elemental Annihilator Role Powers
+  - Herald of Gom-Gom Role Powers
+- name: Zadim
+  category: character
+  skills:
+    Acrobatics:
+      derived_from: Dexterity +2
+    Stealth:
+      derived_from: Dexterity +2
+    Craft:
+      derived_from: Intelligence +1
+  hand_size: 5
+  proficiencies:
+  - Light Armors Weapons
+  roles:
+  - Executioner Role Powers
+  - Outrider Role Powers

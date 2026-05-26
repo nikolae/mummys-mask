@@ -1,0 +1,1063 @@
+type: spell
+cards:
+- name: Acid Jet
+  category: boon
+  type: spell
+  source: MM-B, MM-C, PFTALES-B, OA1-B
+  traits:
+  - Magic
+  - Arcane
+  - Divine
+  - Attack
+  - Acid
+  - Basic
+  checks:
+  - difficulty: '6'
+    skills:
+    - Intelligence
+    - Arcane
+    - Wisdom
+    - Divine
+  powers: For your combat check, discard this card to use your Arcane or Divine skill
+    + 1d6. If the bane has the Construct or Ooze trait, add another 1d6.
+- name: Acid Splash
+  category: boon
+  type: spell
+  source: MM-B, MM-C, UM-B
+  traits:
+  - Magic
+  - Arcane
+  - Acid
+  - Attack
+  checks:
+  - difficulty: '4'
+    skills:
+    - Intelligence
+    - Arcane
+  powers: For your combat or Disable check, discard this card to use your Arcane skill
+    + 1d6.
+- name: Acute Senses
+  category: boon
+  type: spell
+  source: MM-B, OA1-B
+  traits:
+  - Magic
+  - Arcane
+  - Divine
+  checks:
+  - difficulty: '4'
+    skills:
+    - Intelligence
+    - Arcane
+    - Wisdom
+    - Divine
+  powers: Display this card next to a character's deck. While displayed, that character
+    adds 1 die to his Perception checks. After that character explores, he may examine
+    the top card of his location deck.
+- name: Augury
+  category: boon
+  type: spell
+  source: ROTR-B, ROTR-C, MM-B, CLERIC-1, GOBB-3, MONK-6, PFTALES-1, SUMMONER-1, WARPRIEST-1,
+    WITCH-2, WIZARD-B, WIZARD-1
+  traits:
+  - Magic
+  - Arcane
+  - Divine
+  checks:
+  - difficulty: '6'
+    skills:
+    - Intelligence
+    - Arcane
+    - Wisdom
+    - Divine
+  powers: Banish to choose a card type and examine the top 3 cards of your location.
+    Set aside all cards of the chosen type. Shuffle the location, then either recharge
+    all set-aside cards or reload all set-aside cards into the location in any order.
+- name: Boneshatter
+  category: boon
+  type: spell
+  source: CURSE-6
+  traits:
+  - Magic
+  - Arcane
+  - Divine
+  - Attack
+  checks:
+  - difficulty: '14'
+    skills:
+    - Intelligence
+    - Wisdom
+    - Arcane
+    - Divine
+  powers: For your combat check against a non-Incorporeal, non-Ooze monster, banish
+    to use Arcane or Divine + 2d12; ignore the monster's after acting powers.
+- name: Canopic Conversion
+  category: boon
+  type: spell
+  source: MM-6, HV2-6
+  traits:
+  - Magic
+  - Arcane
+  - Divine
+  - Attack
+  checks:
+  - difficulty: '14'
+    skills:
+    - Intelligence
+    - Arcane
+    - Wisdom
+    - Divine
+  powers: For your combat check against a monster that does not have the Undead trait,
+    discard this card to use your Arcane or Divine skill + 5d6. If you defeat and
+    would banish the monster, display this spell and display the monster on this spell;
+    while displayed, you may discard this card and banish the monster to add twice
+    the monster's adventure deck number and the Undead trait to any check.
+- name: Caustic Fog
+  category: boon
+  type: spell
+  source: MM-3
+  traits:
+  - Magic
+  - Divine
+  - Acid
+  checks:
+  - difficulty: '11'
+    skills:
+    - Wisdom
+    - Divine
+  powers: Display this card. While displayed, you may add 1d8 and the Acid trait to
+    a combat check by a character at your location; you may play another spell on
+    that check. After that check, you are dealt 1 Combat damage.
+- name: Chain Lightning
+  category: boon
+  type: spell
+  source: MM-3
+  traits:
+  - Magic
+  - Arcane
+  - Attack
+  - Electricity
+  checks:
+  - difficulty: '10'
+    skills:
+    - Intelligence
+    - Arcane
+  powers: For your combat check, display this card next to your deck to use your Arcane
+    skill + 3d6. While displayed, you may use the result of this check for any combat
+    check you attempt at this location.
+- name: Channel the Gift
+  category: boon
+  type: spell
+  source: MM-4, UM-4
+  traits:
+  - Magic
+  - Arcane
+  - Divine
+  checks:
+  - difficulty: '12'
+    skills:
+    - Intelligence
+    - Arcane
+    - Wisdom
+    - Divine
+  powers: Discard this card to allow a character at your location to search his deck
+    for a spell and draw it.
+- name: Clinging Venom
+  category: boon
+  type: spell
+  source: MM-B, OA2-B, UM-B
+  traits:
+  - Magic
+  - Arcane
+  - Divine
+  - Attack
+  - Poison
+  - Elite
+  checks:
+  - difficulty: '4'
+    skills:
+    - Intelligence
+    - Arcane
+    - Wisdom
+    - Divine
+  powers: For your combat check, discard this card to use your Arcane or Divine skill
+    + 1d8.  If the bane is a monster, you may use the result for any additional combat
+    checks to defeat it.
+- name: Commune
+  category: boon
+  type: spell
+  source: MM-1
+  traits:
+  - Magic
+  - Divine
+  checks:
+  - difficulty: '12'
+    skills:
+    - Wisdom
+    - Divine
+  powers: Bury this card to draw a random non-Basic blessing from the box and add
+    it to your hand.
+- name: Corrosion
+  category: boon
+  type: spell
+  source: MM-2, ALCH-1, GOBF-1, UE-1
+  traits:
+  - Magic
+  - Arcane
+  - Divine
+  - Acid
+  checks:
+  - difficulty: '7'
+    skills:
+    - Intelligence
+    - Arcane
+    - Wisdom
+    - Divine
+  powers: |-
+    Discard this card to add 1 die to any check to defeat a barrier.
+
+    Discard this card to add 1 die to any check against a monster that has the Construct or Undead trait.
+
+    After playing this card, if you do not have either the Arcane or Divine skill, banish it; otherwise, you may succeed at an Arcane or Divine 9 check to recharge this card instead of discarding it.
+- name: Cure
+  category: boon
+  type: spell
+  source: ROTR-B, ROTR-C, SS-B, SS-C, WOTR-B, WOTR-C,  MM-B, MM-C, ALCH-B, BARD-B,
+    BARD-1, CLERIC-B, DRUID-B, GOBB-B, HUNTER-B, HV1-B, HV2-B, INQUIS-B, MONK-3, OA1-B,
+    OA2-B, ORACLE-B, PALADIN-2, RANGER-B, ROGUE-B, UM-B, WARPRIEST-B, WITCH-B
+  traits:
+  - Magic
+  - Divine
+  - Healing
+  - Basic
+  checks:
+  - difficulty: '6'
+    skills:
+    - Wisdom
+    - Divine
+  powers: Reveal this card and choose a character at your location to shuffle 1d4+1
+    random cards from his discard pile into his deck, then discard this card.
+- name: Deathgrip
+  category: boon
+  type: spell
+  source: MM-2, HV2-2, OA1-2
+  traits:
+  - Magic
+  - Arcane
+  - Divine
+  - Attack
+  - Undead
+  - Cold
+  checks:
+  - difficulty: '8'
+    skills:
+    - Intelligence
+    - Arcane
+    - Wisdom
+    - Divine
+  powers: For your combat check, discard this card to use your Arcane or Divine skill
+    + 2d8; ignore any non-villain monster's power that happens after you act.
+- name: Detect Undead
+  category: boon
+  type: spell
+  source: MM-1
+  traits:
+  - Magic
+  - Divine
+  checks:
+  - difficulty: '5'
+    skills:
+    - Wisdom
+    - Divine
+  powers: During your turn, discard this card to examine the top card of your location
+    deck. If it has the Undead trait, you may encounter it.
+- name: Detonate
+  category: boon
+  type: spell
+  source: MM-3
+  traits:
+  - Magic
+  - Attack
+  - Arcane
+  checks:
+  - difficulty: '10'
+    skills:
+    - Intelligence
+    - Arcane
+  powers: For your combat check, you may discard this card to choose Acid, Cold, Electricity,
+    Fire, or Poison and use your Arcane skill + 4d6 and add the chosen trait. After
+    the check, you are dealt an amount of damage equal to the highest value you rolled;
+    the damage is of the chosen type.
+- name: Disable Mechanism
+  category: boon
+  type: spell
+  source: MM-2
+  traits:
+  - Magic
+  - Arcane
+  - Divine
+  checks:
+  - difficulty: '10'
+    skills:
+    - Intelligence
+    - Arcane
+    - Wisdom
+    - Divine
+  powers: |-
+    Discard this card to evade a bane you encounter that has the Construct, Lock, or Trap trait.
+
+    Discard this card to add 2d8 to any Disable check.
+
+    Discard this card to add 2d8 to any check against a bane that has the Construct, Lock, or Trap trait.
+- name: Dune of Doom
+  category: boon
+  type: spell
+  source: MM-5
+  traits:
+  - Magic
+  - Arcane
+  - Divine
+  - Attack
+  - Bludgeoning
+  checks:
+  - difficulty: '13'
+    skills:
+    - Intelligence
+    - Arcane
+    - Wisdom
+    - Divine
+  powers: |-
+    For your combat check, discard this card to use your Arcane or Divine skill + 3d10.
+
+    After playing this card, if you do not have either the Arcane or Divine skill, banish it; otherwise, you may succeed at an Arcane or Divine 15 check to recharge this card instead of discarding it.
+- name: Elemental Mastery
+  category: boon
+  type: spell
+  source: MM-3, UW-3
+  traits:
+  - Magic
+  - Arcane
+  - Divine
+  checks:
+  - difficulty: '11'
+    skills:
+    - Intelligence
+    - Arcane
+    - Wisdom
+    - Divine
+  powers: |-
+    Discard this card to add 1d10 to a check by a character at your location to defeat a monster that invokes the Acid, Cold, Electricity, Elemental, Fire, or Poison trait.
+
+    Discard this card to add 3 dice to a check by a character at your location to acquire an ally that has the the Acid, Cold, Electricity, Elemental, Fire, or Poison trait.
+- name: Elemental Skin
+  category: boon
+  type: spell
+  source: MM-4, PFTALES-4
+  traits:
+  - Magic
+  - Arcane
+  - Divine
+  checks:
+  - difficulty: '12'
+    skills:
+    - Intelligence
+    - Arcane
+    - Wisdom
+    - Divine
+  powers: Display this card next to your location and choose Acid, Cold, Electricity,
+    or Fire. While displayed, reduce damage of the chosen type to characters at this
+    location to 0, and you may add 1d6 and the chosen trait to Melee combat checks
+    by characters at this location.
+- name: Elemental Treaty
+  category: boon
+  type: spell
+  source: MM-B, MM-C, UW-B
+  traits:
+  - Magic
+  - Arcane
+  - Divine
+  - Basic
+  checks:
+  - difficulty: '4'
+    skills:
+    - Intelligence
+    - Arcane
+    - Wisdom
+    - Divine
+  powers: Display this card next to your location. While displayed, reduce Acid, Cold,
+    Electricity, Fire, and Poison damage dealt to characters at this location by 1.
+- name: Eruption
+  category: boon
+  type: spell
+  source: MM-4, UW-4
+  traits:
+  - Magic
+  - Arcane
+  - Divine
+  - Attack
+  - Electricity
+  - Fire
+  checks:
+  - difficulty: '11'
+    skills:
+    - Intelligence
+    - Arcane
+    - Wisdom
+    - Divine
+  powers: For your combat check, discard this card to use your Arcane or Divine skill
+    + 4d6; ignore any non-villain monster's power that happens after you act.
+- name: Fiery Glare
+  category: boon
+  type: spell
+  source: CORE-0
+  traits:
+  - Magic
+  - Arcane
+  - Divine
+  - Attack
+  - Fire
+  checks:
+  - difficulty: '5'
+    skills:
+    - Intelligence
+    - Arcane
+  - difficulty: '7'
+    skills:
+    - Wisdom
+    - Divine
+  powers: |-
+    For your combat check, banish to use Arcane or Divine + 2d4.
+
+    When you encounter a boon during your exploration, banish this spell to banish the boon and explore.
+- name: Find Traps
+  category: boon
+  type: spell
+  source: ROTR-B, ROTR-C, SS-B, MM-B, CLERIC-B, MONK-4, ROGUE-1, ORACLE-B, WARPRIEST-B
+  traits:
+  - Magic
+  - Divine
+  checks:
+  - difficulty: '6'
+    skills:
+    - Wisdom
+    - Divine
+  powers: Discard a card to add 2 dice to any check to defeat a barrier.
+- name: Fireblade
+  category: boon
+  type: spell
+  source: SS-B, WOTR-B, WOTR-C, MM-B, CLERIC-B, DRUID-B, ORACLE-B
+  traits:
+  - Magic
+  - Divine
+  - Attack
+  - Fire
+  - Basic
+  checks:
+  - difficulty: '6'
+    skills:
+    - Wisdom
+    - Divine
+  powers: On your combat check, banish to use your Divine skill + 2d4.
+- name: Flames of the Faithful
+  category: boon
+  type: spell
+  source: WOTR-1, MM-1, INQUIS-B, ORACLE-1
+  traits:
+  - Magic
+  - Divine
+  - Fire
+  - Veteran
+  checks:
+  - difficulty: '5'
+    skills:
+    - Wisdom
+    - Divine
+  powers: Display this card next to your deck. While displayed, when you play a weapon
+    on a combat check, add 1 plus the scenario's adventure deck number and the Fire
+    trait.
+- name: Foresight
+  category: boon
+  type: spell
+  source: MM-6
+  traits:
+  - Magic
+  - Arcane
+  - Divine
+  checks:
+  - difficulty: '14'
+    skills:
+    - Intelligence
+    - Arcane
+    - Wisdom
+    - Divine
+  powers: Display this card. While displayed, you may ignore any non-villain power
+    that happens when you examine a card. At the end of your turn, if you do not have
+    either the Arcane or Divine skill, banish this card; otherwise, discard it, or
+    you may succeed at an Arcane or Divine 16 check to recharge it instead.
+- name: Good Omen
+  category: boon
+  type: spell
+  source: WOTR-B, MM-C, PFTALES-B, SORCERER-1, SUMMONER-B, UE-B, WITCH-B
+  traits:
+  - Magic
+  - Arcane
+  - Divine
+  - Mental
+  - Veteran
+  checks:
+  - difficulty: '6'
+    skills:
+    - Intelligence
+    - Arcane
+    - Wisdom
+    - Divine
+  powers: Discard this card to add 1 plus the scenario's adventure deck number to
+    any check to acquire or any check to close a location.
+- name: Heat Metal
+  category: boon
+  type: spell
+  source: WOTR-2, MM-2, ALCH-2, GOBB-2, HUNTER-2, ORACLE-2
+  traits:
+  - Magic
+  - Arcane
+  - Divine
+  - Attack
+  - Fire
+  - Elite
+  checks:
+  - difficulty: '9'
+    skills:
+    - Intelligence
+    - Arcane
+  - difficulty: '7'
+    skills:
+    - Wisdom
+    - Divine
+  powers: |-
+    Discard this card to add 1d4+1 and the Fire trait to a combat check by a character at your location.
+
+    Discard this card to add 2 dice to any check by a character at your location to defeat a barrier that has the Lock or Trap trait.
+- name: Holy Light
+  category: boon
+  type: spell
+  source: ROTR-B, CLERIC-B, RANGER-B, MM-B, ORACLE-B
+  traits:
+  - Magic
+  - Divine
+  - Attack
+  - Elite
+  checks:
+  - difficulty: '8'
+    skills:
+    - Wisdom
+    - Divine
+  powers: For your combat check, discard this card to use your Divine skill + 2d6.
+    If the check is to defeat a bane that has the Undead trait, instead use your Divine
+    skill + 2d12.
+- name: Ice Storm
+  category: boon
+  type: spell
+  source: MM-4, PFTALES-4
+  traits:
+  - Magic
+  - Arcane
+  - Divine
+  - Attack
+  - Cold
+  checks:
+  - difficulty: '11'
+    skills:
+    - Intelligence
+    - Arcane
+    - Wisdom
+    - Divine
+  powers: For your combat check, discard this card to use your Arcane or Divine skill
+    + 3d8; ignore any non-villain monster's power that happens after you act.
+- name: Immolate
+  category: boon
+  type: spell
+  source: MM-B, GOBB-B
+  traits:
+  - Magic
+  - Arcane
+  - Divine
+  - Attack
+  - Fire
+  - Basic
+  checks:
+  - difficulty: '5'
+    skills:
+    - Intelligence
+    - Arcane
+    - Wisdom
+    - Divine
+  powers: For your combat check, discard this card to use your Arcane or Divine skill
+    + 2d4.
+- name: Jolting Portent
+  category: boon
+  type: spell
+  source: MM-5
+  traits:
+  - Magic
+  - Divine
+  - Attack
+  - Electricity
+  checks:
+  - difficulty: '12'
+    skills:
+    - Wisdom
+    - Divine
+  powers: |-
+    For your combat check, discard this card to use your Divine skill + 3d8. If the bane has a power that happens before you act, add another 1d8. If it has a power that happens after you act, add another 1d8.
+
+    After playing this card, if you do not have the Divine skill, banish it; otherwise, you may succeed at a Divine 14 check to recharge this card instead of discarding it.
+- name: Knock
+  category: boon
+  type: spell
+  source: MM-1
+  traits:
+  - Magic
+  - Arcane
+  checks:
+  - difficulty: '7'
+    skills:
+    - Intelligence
+    - Arcane
+  powers: For your check to defeat a barrier that has the Lock or Obstacle trait,
+    you may discard this card to use your Arcane skill + 1d10.
+- name: Lightning Bolt
+  category: boon
+  type: spell
+  source: ROTR-2, MM-2, ALCH-3, BARD-2, WITCH-3
+  traits:
+  - Magic
+  - Arcane
+  - Attack
+  - Electricity
+  checks:
+  - difficulty: '8'
+    skills:
+    - Intelligence
+    - Arcane
+  powers: For your combat check, discard this card to use your Arcane skill + 3d6.
+- name: Lightning Touch
+  category: boon
+  type: spell
+  source: CORE-0
+  traits:
+  - Magic
+  - Arcane
+  - Attack
+  - Electricity
+  checks:
+  - difficulty: '4'
+    skills:
+    - Intelligence
+    - Arcane
+  powers: For your combat check, banish to use Arcane + 2d4. If the check is against
+    a monster, ignore its after acting powers.
+- name: Locate Object
+  category: boon
+  type: spell
+  source: MM-1, UM-1
+  traits:
+  - Magic
+  - Arcane
+  - Divine
+  checks:
+  - difficulty: '6'
+    skills:
+    - Intelligence
+    - Arcane
+    - Wisdom
+    - Divine
+  powers: Discard this card to examine cards in your location deck until you find
+    a boon. Encounter that boon, then shuffle your location deck.
+- name: Mistform
+  category: boon
+  type: spell
+  source: MM-3, UI-3
+  traits:
+  - Magic
+  - Arcane
+  - Divine
+  checks:
+  - difficulty: '10'
+    skills:
+    - Intelligence
+    - Arcane
+    - Wisdom
+    - Divine
+  powers: |-
+    Discard this card to evade a non-villain, non-henchman monster you encounter that does not have the Incorporeal trait.
+
+    Discard this card to add 2 dice to any check to defeat a barrier that has the Obstacle or Trap trait.
+
+    After playing this card, if you do not have either the Arcane or Divine skill, banish it; otherwise, you may succeed at an Arcane or Divine 12 check to recharge this card instead of discarding it.
+- name: Monstrous Physique
+  category: boon
+  type: spell
+  source: MM-5
+  traits:
+  - Magic
+  - Arcane
+  checks:
+  - difficulty: '13'
+    skills:
+    - Intelligence
+    - Arcane
+  powers: Display this card next to a character's deck. While displayed, add 2 dice
+    and the Acid and Bludgeoning traits to that character's Strength and Dexterity
+    checks, and reduce Acid, Combat, and Poison damage dealt to him by 3. At the end
+    of his turn, he may move. At the end of the turn, if you do not have the Arcane
+    skill, banish this card and bury your discard pile; otherwise, bury this card
+    and your discard pile, or you may succeed at an Arcane 15 check to bury this card
+    instead.
+- name: Named Bullet
+  category: boon
+  type: spell
+  source: MM-5
+  traits:
+  - Magic
+  - Arcane
+  - Divine
+  checks:
+  - difficulty: '12'
+    skills:
+    - Intelligence
+    - Arcane
+    - Wisdom
+    - Divine
+  powers: |-
+    When you would banish a monster you encounter, display this card and put the monster on this card. While displayed, add 1d6 to your Ranged combat check against a monster that shares a trait with the monster on this card other than Basic, Elite, or Veteran.
+
+    At the end of the scenario, if you do not have the Arcane or Divine skill, banish this card.
+- name: Pillar of Life
+  category: boon
+  type: spell
+  source: WOTR-4, MM-4
+  traits:
+  - Magic
+  - Divine
+  - Healing
+  checks:
+  - difficulty: '12'
+    skills:
+    - Wisdom
+    - Divine
+  powers: Display this card next to your location. While displayed, each character
+    at this location adds 1d8 and the Magic trait to his checks against banes that
+    have the Undead trait. Instead of the first exploration of his turn, any character
+    at this location may shuffle 1d4+1 random cards from his discard pile into his
+    deck.
+- name: Remove Curse
+  category: boon
+  type: spell
+  source: MM-B, MM-C, UM-B
+  traits:
+  - Magic
+  - Arcane
+  - Divine
+  - Basic
+  checks:
+  - difficulty: '8'
+    skills:
+    - Intelligence
+    - Arcane
+  - difficulty: '6'
+    skills:
+    - Wisdom
+    - Divine
+  powers: Recharge this card to banish a displayed card that has the Curse trait.
+- name: Ride the Lightning
+  category: boon
+  type: spell
+  source: MM-6, PFTALES-6
+  traits:
+  - Magic
+  - Arcane
+  - Attack
+  - Electricity
+  checks:
+  - difficulty: '15'
+    skills:
+    - Intelligence
+    - Arcane
+  powers: Display this card. While displayed, reduce Electricity damage dealt to you
+    to 0. For your combat check, you may discard a card to use your Arcane skill +
+    4d6+4; if you do, you may move after the encounter.
+- name: Safety Bubble
+  category: boon
+  type: spell
+  source: MM-4, GOBB-5, PFTALES-5, OA1-5
+  traits:
+  - Magic
+  - Arcane
+  - Divine
+  checks:
+  - difficulty: '11'
+    skills:
+    - Intelligence
+    - Arcane
+    - Wisdom
+    - Divine
+  powers: Display this card next to your location. When a character at this location
+    is dealt damage, reduce it by 1d4.
+- name: Sands of Time
+  category: boon
+  type: spell
+  source: MM-1
+  traits:
+  - Magic
+  - Arcane
+  - Divine
+  checks:
+  - difficulty: '8'
+    skills:
+    - Intelligence
+    - Arcane
+    - Wisdom
+    - Divine
+  powers: Display this card next to your location. While displayed, add 1 die to checks
+    by characters at this location to defeat banes that have the Construct or Undead
+    trait.
+- name: Sirocco
+  category: boon
+  type: spell
+  source: MM-5, ORACLE-5
+  traits:
+  - Magic
+  - Arcane
+  - Divine
+  - Fire
+  - Attack
+  checks:
+  - difficulty: '11'
+    skills:
+    - Intelligence
+    - Arcane
+    - Wisdom
+    - Divine
+  powers: For your combat check, discard this card to use your Arcane or Divine skill
+    + 3d8, or 3d12 against a bane that has the Aquatic trait. After the encounter,
+    each other character at your location is dealt 1 Fire damage, and you may examine
+    the top 2 cards of your location deck.
+- name: Smite Abomination
+  category: boon
+  type: spell
+  source: MM-4, UM-4
+  traits:
+  - Magic
+  - Divine
+  checks:
+  - difficulty: '10'
+    skills:
+    - Wisdom
+    - Divine
+  powers: On a combat check by a character at your location against a monster that
+    has the Undead trait, discard this card to add 2d6. No other spells may be played
+    by any characters on this check.
+- name: Speak with Dead
+  category: boon
+  type: spell
+  source: MM-1
+  traits:
+  - Magic
+  - Divine
+  - Undead
+  checks:
+  - difficulty: '4'
+    skills:
+    - Wisdom
+    - Divine
+  powers: When a character at your location defeats a monster, display this card next
+    to your location. While displayed, add 1 die to your Intelligence and Wisdom checks
+    at your location.
+- name: Spite Cloud
+  category: boon
+  type: spell
+  source: MM-5, PFTALES-5
+  traits:
+  - Magic
+  - Arcane
+  - Attack
+  - Acid
+  checks:
+  - difficulty: '12'
+    skills:
+    - Intelligence
+    - Arcane
+  powers: For your combat check, discard this card to use your Arcane skill + 4d6.
+    if the bane has the Construct or Ooze trait, add another 1d6. If the bane is a
+    monster, you may use the result for any subsequent combat check against it.
+- name: Stone Skin
+  category: boon
+  type: spell
+  source: MM-1, ALCH-1, SUMMONER-1, UC-1, WITCH-1
+  traits:
+  - Magic
+  - Arcane
+  - Divine
+  checks:
+  - difficulty: '7'
+    skills:
+    - Intelligence
+    - Arcane
+    - Wisdom
+    - Divine
+  powers: Display this card next to a character's deck. While displayed, reduce all
+    damage dealt to that character by 4.
+- name: Symbol of Fortune
+  category: boon
+  type: spell
+  source: MM-6, HV1-6, UI-5
+  traits:
+  - Magic
+  - Arcane
+  - Divine
+  checks:
+  - difficulty: '14'
+    skills:
+    - Intelligence
+    - Arcane
+    - Wisdom
+    - Divine
+  powers: On any check, after the roll, discard this card to add or subtract 3 from
+    the result.
+- name: Symbol of Pain
+  category: boon
+  type: spell
+  source: MM-3
+  traits:
+  - Magic
+  - Arcane
+  - Divine
+  checks:
+  - difficulty: '9'
+    skills:
+    - Intelligence
+    - Arcane
+    - Wisdom
+    - Divine
+  powers: Display this card. While displayed, when you examine a bane that has the
+    Trigger trait, add 1 die to your checks against it; ignore any effects that increase
+    its check to defeat.
+- name: Toxic Cloud
+  category: boon
+  type: spell
+  source: ROTR-2, MM-2
+  traits:
+  - Magic
+  - Arcane
+  - Attack
+  - Poison
+  checks:
+  - difficulty: '8'
+    skills:
+    - Intelligence
+    - Arcane
+  powers: Display this card when a character encounters a monster. While displayed,
+    add 1d6 and the Poison trait to combat checks to defeat monsters.
+- name: Unshakable Chill
+  category: boon
+  type: spell
+  source: MM-B, MM-C, HV2-B
+  traits:
+  - Magic
+  - Arcane
+  - Divine
+  - Attack
+  - Cold
+  - Basic
+  checks:
+  - difficulty: '6'
+    skills:
+    - Intelligence
+    - Arcane
+    - Wisdom
+    - Divine
+  powers: For your combat check, discard this card to use your Arcane or Divine skill
+    + 1d6; if the check is against a monster, ignore any power on that monster that
+    happens after you act.
+- name: Viper Strike
+  category: boon
+  type: spell
+  source: CORE-0
+  traits:
+  - Magic
+  - Arcane
+  - Divine
+  - Attack
+  - Poison
+  checks:
+  - difficulty: '5'
+    skills:
+    - Intelligence
+    - Wisdom
+    - Arcane
+    - Divine
+  powers: |-
+    For your combat check, banish to use Arcane or Divine + 2d4.
+
+    On a local combat check, banish to add 1d12 and the Attack, Magic, and Poison traits.
+- name: Vision
+  category: boon
+  type: spell
+  source: MM-5
+  traits:
+  - Magic
+  - Arcane
+  - Divine
+  checks:
+  - difficulty: '13'
+    skills:
+    - Intelligence
+    - Arcane
+    - Wisdom
+    - Divine
+  powers: |-
+    Discard this card to examine any location deck. After you finish examining, if the location deck contains a villain, it escapes as if undefeated.
+
+    After playing this card, if you do not have either the Arcane or Divine skill, banish it; otherwise you may succeed at an Arcane or Divine 15 check to recharge this card instead of discarding it.
+- name: Volcanic Storm
+  category: boon
+  type: spell
+  source: MM-3, PFTALES-3, UM-3
+  traits:
+  - Magic
+  - Arcane
+  - Divine
+  - Attack
+  - Bludgeoning
+  - Fire
+  checks:
+  - difficulty: '11'
+    skills:
+    - Intelligence
+    - Arcane
+    - Wisdom
+    - Divine
+  powers: For your combat check, discard this card to use your Arcane or Divine skill
+    + 3d6. If you would fail this check against a monster, you may evade your encounter
+    instead.
+- name: Whip of Centipedes
+  category: boon
+  type: spell
+  source: MM-4, UC-4
+  traits:
+  - Magic
+  - Arcane
+  - Divine
+  - Attack
+  - Poison
+  checks:
+  - difficulty: '10'
+    skills:
+    - Intelligence
+    - Arcane
+    - Wisdom
+    - Divine
+  powers: For your combat check, discard this card to use your Arcane, Divine, or
+    Melee skill +3d6. You may use the result for any subsequent combat checks against
+    the same bane. If proficient with weapons, and you fail any check against the
+    bane, the bane deals no damage.

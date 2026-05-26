@@ -1,0 +1,97 @@
+id: B
+name: Cross the Pharaoh's Land
+reward: Each character gains a power feat.
+scenarios:
+- id: B-1
+  name: All That Glitters Begets Gold
+  flavor: You land on the eastern shores of Osirion, eager to join any caravan headed
+    toward the Half-Dead City of Wati. Falsin Deek, a trader with the Aspis Consortium,
+    offers you a job keeping his gold and silver safe through the desert. Trick is,
+    the shipment has yet to arrive from the mine in the Shining Mountains. Time to
+    investigate.
+  villain: Bonecrusher Master
+  henchmen:
+  - Giant Sand Eel
+  - Mining Construct
+  locations:
+  - Precious Mine
+  - Quarry
+  - Ruined Temple
+  - Stonework Passages
+  - Volcanic Vents
+  - Sulfur Pits
+  - Brickworks
+  - Windswept Chasm
+  during: When you defeat a bane that has the Construct trait, draw an item from the
+    box.
+  reward: 'Traders: Falsin Deek, Hadden Hoppert'
+- id: B-2
+  name: A Sandstorm of Malevolent Will
+  flavor: The skies rumble ominously, and your camels spit to express their displeasure
+    at your choices. But you must push the caravan through the oncoming storm. The
+    winds are unrelenting and seem to have a will to tear you apart. At the heart
+    of the sand cloud, in flashes of lightning, you glimpse the figure of something
+    large... and skeletal.
+  villain: Tukanem-Hanam
+  henchmen:
+  - Aghash
+  locations:
+  - Glass Pavilion
+  - Hot Springs
+  - Windswept Chasm
+  - Howling Sands
+  - Shifting Dunes
+  - Scorched Ruins
+  - Crypt
+  - Caravanserai
+  during: When building the blessings deck, replace 4 blessings with the villain Sandstorm.
+  reward: 'Loot: Scarab Buckler'
+- id: B-3
+  name: Dessicated Delirium
+- id: B-4
+  name: The Tainted Tower
+  flavor: You have found water, the source of all life. Jealously guarded by a skilled
+    alchemist, this oasis levies a toll upon those who taste of it. Find the Thuvian
+    Alchemist hiding in her tower and extract the secrets of the antidote. Time runs
+    short, and you must fight through the poisoning before your body becomes another
+    offering to Set, Lord of the Dark Desert.
+  villain: Thuvian Alchemist
+  henchmen:
+  - Paracletus
+  - Alchemical Golem
+  - plural2=Alchemical Golems
+  locations:
+  - Alchemical Laboratory
+  - Thornscrub
+  - Dilapidated Plaza
+  - Oasis
+  - Embalming Parlor
+  - Glass Pavilion
+  - Surgery
+  during: For your first exploration each turn, do nothing. At the end of your turn,
+    if you did not encounter a card, you may recharge a card from your discard pile,
+    then recharge any number of cards.
+  reward: Each character gains a card feat, then chooses a type of boon other than
+    loot and draws a random non-Basic boon of that type from the box.
+- id: B-5
+  name: Forged in Flames
+  flavor: At last, your caravan arrives in Wati, only to find the smithy district
+    in flames. A vengeful ifreeti and his minions dance in the blaze, mocking those
+    who desperately attempt to quench the inferno. Water brought from the river Sphinx
+    will do no good until the ifreet has been dealt with. Do you have enough strength
+    left in you to stanch the fire?
+  villain: Ifreeti
+  henchmen:
+  - Fire Spirit
+  locations:
+  - Brickworks
+  - Surgery
+  - Warehouse
+  - Smoking Den
+  - Scorched Ruins
+  - Ruined Temple
+  - Dilapidated Plaza
+  - Hot Springs
+  during: All banes gain the Fire trait. When building the blessings deck, replace
+    5 blessings with the henchman Conflagration.
+  reward: 'Trader: Smiths of Wati'

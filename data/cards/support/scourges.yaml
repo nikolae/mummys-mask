@@ -1,0 +1,122 @@
+type: scourge
+cards:
+- name: Curse of Blindness
+  category: support
+  type: scourge
+  source: MM-5
+  traits:
+  - Curse
+  powers: |-
+    While displayed, after you advance the blessings deck, discard a blessing or discard the top card of the blessings deck.
+
+    If you already have Curse of Blindness displayed, banish this card.
+
+    "On the brightest noon, darkness shall reign!"
+- name: Curse of Daybane
+  category: support
+  type: scourge
+  source: MM-B
+  traits:
+  - Curse
+  - Undead
+  powers: |-
+    While displayed, at the start of your turn, if the top card of the blessings discard pile has the Basic trait, you may explore this turn only if you play a card or use a power that allows you to do so.
+
+    If you already have Curse of Daybane displayed, banish this card.
+
+    "Know this! The Orb of Ra destroys all!"
+- name: Curse of Fevered Dreams
+  category: support
+  type: scourge
+  source: MM-3
+  traits:
+  - Curse
+  - Arcane
+  powers: |-
+    While displayed, after you reset your hand, recharge your hand, then draw 1d4+1 cards.
+
+    If you already have Curse of Fevered Dreams displayed, banish this card.
+
+    "Sir, your wakeful sanity is imperiled!"
+- name: Curse of Poisoning
+  category: support
+  type: scourge
+  source: MM-B, MM-C
+  traits:
+  - Curse
+  - Poison
+  powers: |-
+    While displayed, after you reset your hand, recharge a random card for each Curse of Poisoning next to your deck.
+
+    "Lo! The fire burns hot in your veins!"
+- name: Curse of Vulnerability
+  category: support
+  type: scourge
+  source: MM-B
+  traits:
+  - Curse
+  powers: |-
+    While displayed, Acid, Cold, Electricity, or Fire damage dealt to you may not be reduced. If you are dealt 2 or more Acid, Cold, Electricity, or Fire damage, banish this card.
+
+    If you already have Curse of Vulnerability displayed, banish this card.
+
+    "O, wretches! You stand helpless before me!"
+- name: Curse of Withering
+  category: support
+  type: scourge
+  source: MM-2
+  traits:
+  - Curse
+  powers: |-
+    While displayed, during your check, when you assemble your dice, replace all of your highest-size dice with the same number of the next lower-size dice.
+
+    If you already have Curse of Withering displayed, banish this card.
+
+    "To all your hopes, a decrepit demise!"
+- name: Curse of the Mummy
+  category: support
+  type: scourge
+  source: MM-6
+  traits:
+  - Curse
+  - Undead
+  - Mummy
+  powers: |-
+    While displayed, when you are dealt damage and would discard cards, bury 1 of those cards instead of discarding it.
+
+    If you already have Curse of the Mummy displayed, banish this card.
+
+    "Send your best raiders! All will be lost!"
+- name: Curse of the Ravenous
+  category: support
+  type: scourge
+  source: MM-1
+  traits:
+  - Curse
+  powers: |-
+    While displayed, at the end of your turn, roll 1d4 and bury all cards in your discard pile of this type:
+    ----
+    1. blessings
+    ----
+    2. allies
+    ----
+    3. spells and weapons
+    ----
+    4. items
+
+    If you already have Curse of the Ravenous displayed, banish this card.
+
+    "A plague of famine upon the nation!"
+- name: Curse of the Sphinx
+  category: support
+  type: scourge
+  source: MM-4
+  traits:
+  - Curse
+  - Sphinx
+  powers: |-
+    While displayed, before you explore, examine the top card of your location deck; if it is a boon, recharge your hand, then reset your hand, then discard a card.
+
+    If you already have the Curse of the Sphinx displayed, banish this card.
+
+    "I watch over all! There is no escaping my gaze!"

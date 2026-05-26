@@ -1,0 +1,658 @@
+type: villain
+cards:
+- name: Amadjawet
+  category: bane
+  type: villain
+  source: MM-2
+  subtype: monster
+  traits:
+  - Undead
+  - Mummy
+  checks:
+  - difficulty: '16'
+    skills:
+    - Combat
+  powers: |-
+    Amadjawet is immune to the Mental and Poison traits.
+
+    If the check to defeat has the Fire trait, add 1d8.
+
+    After you act, succeed at a Constitution or Fortitude 9 check or bury the top 1d4 cards of your deck.
+
+    If defeated, before closing the location Amadjawet came from, set aside the boons from that location deck. After closing, return them to the location deck.
+- name: Bonecrusher Master
+  category: bane
+  type: villain
+  source: MM-B
+  subtype: monster
+  traits:
+  - Gnoll
+  - Rogue
+  checks:
+  - difficulty: '11'
+    skills:
+    - Combat
+  powers: |-
+    When you are dealt damage by the Bonecrusher Master, first choose items to discard as your damage, if you have any.
+
+    "Angry, Brutish, and fifty percent fleas."—Tehrk Fourwinds
+- name: Camel Race Finish Line
+  category: bane
+  type: villain
+  source: MM-3
+  subtype: barrier
+  traits:
+  - Cache
+  checks:
+  - skills:
+    - None
+  powers: When you encounter this card, if the Camel Race location deck contains more
+    than 5 cards, the Camel Race Finish Line is evaded, and you may explore again.
+    Otherwise, for each character and the Cultist Charioteers, roll 1d8+1d6 and add
+    the number of cards in the respective trophy stack. Add this card to a trophy
+    stack associated with one of the highest rolls. Then put the loot Muminofrah's
+    Favor into one of the stack with the highest number of cards.
+- name: Cameltrops
+  category: bane
+  type: villain
+  source: MM-3
+  subtype: barrier
+  traits:
+  - Obstacle
+  checks:
+  - skills:
+    - None
+  powers: When this card is discarded from the blessings deck, determine the highest
+    number of cards in any trophy stack. If the Cultist Charioteers' trophy stack
+    has that number of cards, put its top card on top of any trophy stack that has
+    the fewest cards; otherwise, choose a character's trophy stack that has that number
+    of cards and put its top card on top of the Cultist Charioteers' trophy stack.
+    Then banish this card.
+- name: Canopic Soul
+  category: bane
+  type: villain
+  source: MM-5
+  subtype: monster
+  traits:
+  - Undead
+  - Incorporeal
+  - Sorcerer
+  checks:
+  - difficulty: '24'
+    skills:
+    - Combat
+  powers: |-
+    The Canopic Soul is immune to the Mental and Poison traits. If the check to defeat does not have the Magic trait, the Canopic Soul is undefeated.
+
+    Before you act, the Canopic Soul deals each character at your location 1 Mental damage that may not be reduced.
+
+    After you act, the Canopic Soul deals each character at your location 1d4 Mental damage that may not be reduced.
+- name: Cultist Charioteers
+  category: bane
+  type: villain
+  source: MM-3
+  subtype: barrier
+  traits:
+  - Cultist
+  checks:
+  - skills:
+    - None
+  powers: While displayed, when you encounter a card that has a check to acquire or
+    defeat, each character rolls 1d8+1d6. Add the number of characters to the highest
+    result and add 5 if the check is a combat check. This is the Cultist Charioteers'
+    result. Then attempt to acquire or defeat the card. If the Cultist Charioteers'
+    result exceeds the result of your highest check to acquire or defeat, put the
+    card on top of a trophy stack next to this card. Otherwise, if you acquired or
+    defeated the card, put it on top of a trophy stack next to your deck.
+- name: Deka An-Keret
+  category: bane
+  type: villain
+  source: MM-3
+  subtype: barrier
+  traits:
+  - Human
+  - Cleric
+  - Aristocrat
+  checks:
+  - difficulty: '14'
+    skills:
+    - Intelligence
+    - Knowledge
+  - difficulty: '16'
+    skills:
+    - Charisma
+    - Diplomacy
+  powers: |-
+    If undefeated, succeed at a Wisdom or Divine 8 check or suffer the scourge Curse of Fevered Dreams.
+
+    "Of course you can have an audience with the governor. She has time for you after she dies." - Deaconess Sekek
+- name: Devoted General
+  category: bane
+  type: villain
+  source: MM-5
+  subtype: monster
+  traits:
+  - Trigger
+  - Undead
+  - Mummy
+  - Fighter
+  checks:
+  - difficulty: '24'
+    skills:
+    - Combat
+  powers: |-
+    When you examine this card, summon and encounter the henchman Kor-Ahn-Tuk. If you defeat Kor-Ahn-Tuk, you may encounter this card.
+
+    The Devoted General is immune to the Mental and Poison traits.
+
+    If the check to defeat has the Acid trait, add 1d8.
+
+    If undefeated, bury all allies in your discard pile.
+- name: Dusk-Taker
+  category: bane
+  type: villain
+  source: MM-5
+  subtype: monster
+  traits:
+  - Trigger
+  - Aberration
+  checks:
+  - difficulty: '23'
+    skills:
+    - Combat
+  powers: |-
+    When you examine this card, encounter it.
+
+    Before you act, succeed at an Intelligence or Perception 10 check or Dusk-Taker is immune to the Melee trait and the difficulty to defeat is increased by 4.
+
+    "Hakotep kept the ancient roc Kenjuret as a pet. This is a story about keeping your pets at home while you experiment with magic." –Erayu
+- name: Eshen Theba
+  category: bane
+  type: villain
+  source: MM-6
+  subtype: monster
+  traits:
+  - Outsider
+  - Devil
+  - Sorcerer
+  checks:
+  - difficulty: '15'
+    skills:
+    - Intelligence
+    - Perception
+    - Charisma
+    - Diplomacy
+  powers: |-
+    After you act, you are dealt 1 Mental damage that may not be reduced.
+
+    If Eshen Theba would be defeated, search your location deck for a monster; if you find one, Eshen Theba is undefeated. Otherwise, if Eshen Theba would be cornered, succeed at a Combat 23 check or each character at your location is dealt 1d6 Poison damage and Eshen Theba is undefeated.
+- name: Forgotten Pharaoh
+  category: bane
+  type: villain
+  source: MM-4
+  subtype: monster
+  traits:
+  - Trigger
+  - Human
+  - Mummy
+  - Cleric
+  - Cultist
+  checks:
+  - difficulty: '24'
+    skills:
+    - Combat
+  - difficulty: '16'
+    skills:
+    - Divine
+    - Diplomacy
+  powers: |-
+    When you examine this card, encounter it and ignore the Forgotten Pharaoh's power that happens before you act.
+
+    Before you act, succeed at a Stealth 13 check or bury a card. Then the Forgotten Pharaoh is evaded; shuffle her into a random open location deck.
+
+    If undefeated, suffer the scourge Curse of Daybane.
+- name: Half-Fiend Sphinx
+  category: bane
+  type: villain
+  source: MM-4
+  subtype: monster
+  traits:
+  - Trigger
+  - Outsider
+  - Sphinx
+  - Inquisitor
+  checks:
+  - difficulty: '20'
+    skills:
+    - Combat
+  - difficulty: '14'
+    skills:
+    - Divine
+  powers: |-
+    When you examine this card, you are dealt 1d4 Poison damage, then recharge your hand, then reset your hand.
+
+    If your combat check to defeat does not have the Attack or Ranged trait, the difficulty is increased by 3.
+
+    If defeated, and the result of the check to defeat is less than 25, each other character is dealt 1d4 Poison damage.
+- name: Ifreeti
+  category: bane
+  type: villain
+  source: MM-B
+  subtype: monster
+  traits:
+  - Outsider
+  - Elemental
+  - Janni
+  - Fire
+  checks:
+  - difficulty: '12'
+    skills:
+    - Combat
+  powers: |-
+    The Ifreeti is immune to the Fire and Poison traits. All damage dealt by the Ifreeti is Fire damage.
+
+    Before you act, discard a card from the blessings deck for each other open location.
+
+    "Call upon the ifreeti in another man's house"—Ancient Osirian Proverb
+- name: Imanish
+  category: bane
+  type: villain
+  source: MM-1
+  subtype: monster
+  traits:
+  - Outsider
+  checks:
+  - difficulty: '9'
+    skills:
+    - Combat
+  powers: |-
+    Imanish is immune to the Fire and Poison traits. If the check to defeat has the Acid or Electricity trait, subtract 1 from each die.
+
+    Before you act, succeed at a Wisdom or Perception 8 check or summon and encounter the henchman Blightwing.
+
+    "A floating head always seeks a body."—Proverb
+- name: Jamirah
+  category: bane
+  type: villain
+  source: MM-3
+  subtype: monster
+  traits:
+  - Lamia
+  - Rogue
+  checks:
+  - difficulty: '18'
+    skills:
+    - Combat
+  powers: |-
+    Jamirah is immune to the Mental trait.
+
+    Before you act, succeed at a Strength or Melee 8 check or Jamirah is evaded.
+
+    After you act, if the result or your check to defeat is less than 22, each character at this location may draw a card.
+- name: Keshenepek
+  category: bane
+  type: villain
+  source: MM-6
+  subtype: monster
+  traits:
+  - Trigger
+  - Outsider
+  - Barbarian
+  - Acid
+  checks:
+  - difficulty: '22'
+    skills:
+    - Combat
+  - difficulty: '26'
+    skills:
+    - Combat
+  powers: |-
+    When you examine this card, succeed at a Constitution or Fortitude 10 check or bury an armor. Then Keshenepek deals 1d6 damage to you.
+
+    Keshenepek is immune to the Fire and Cold traits. All damage dealt by Keshenepek is Acid damage.
+
+    Before you act, succeed at a Constitution or Fortitude 10 check or bury an armor. Then Keshenepek deals 1d6 damage to you.
+- name: Khabekh-Shu
+  category: bane
+  type: villain
+  source: MM-3
+  subtype: monster
+  traits:
+  - Human
+  - Cultist
+  - Sorcerer
+  checks:
+  - difficulty: '16'
+    skills:
+    - Combat
+  powers: |-
+    Before you act, each character at your location must succeed at a Dexterity or Acrobatics 6 check. Each character that fails is dealt 1d4 Electricity damage.
+
+    After you act, each character at this location is dealt 1 Acid damage.
+
+    If Khabekh-Shu would be defeated, search the location deck he came from for the henchman Sand Kraken. If you do not find it, Khabekh-Shu is undefeated.
+- name: Meret-Hetef
+  category: bane
+  type: villain
+  source: MM-2
+  subtype: monster
+  traits:
+  - Human
+  - Bard
+  - Cultist
+  checks:
+  - difficulty: '14'
+    skills:
+    - Combat
+  powers: Before you act, each character at your location summons and encounters the
+    henchman Graven Guardian of Nethys. If any Graven Guardian of Nethys is undefeated,
+    suffer a scourge, examine all of the cards in your location deck, then shuffle
+    your location deck, then Meret-Hetef is evaded; shuffle her into a random other
+    open location deck.
+- name: Mirage
+  category: bane
+  type: villain
+  source: MM-B
+  subtype: barrier
+  traits:
+  - Trigger
+  - Obstacle
+  checks:
+  - difficulty: '7'
+    skills:
+    - Wisdom
+    - Perception
+  powers: |-
+    When you examine or encounter the Mirage, if any other location is open, the Mirage is evaded; shuffle it into a random other location deck.
+
+    "The desert is the most skilled illusionist on Golarion"—Osirion History Guide
+- name: Nebta-Khufre
+  category: bane
+  type: villain
+  source: MM-2
+  subtype: monster
+  traits:
+  - Human
+  - Necromancer
+  checks:
+  - difficulty: '15'
+    skills:
+    - Combat
+    - Divine
+  - difficulty: '16'
+    skills:
+    - Combat
+  powers: |-
+    Before you act, search Nebta-Khufre's location deck for monsters that have the Undead trait; each time you find one, a character at this location summons and encounters the henchman Natron Zombie.
+
+    "To raise an undead army, seek out a dead army."—Nebta-Khufre
+- name: Rubila
+  category: bane
+  type: villain
+  source: MM-4
+  subtype: monster
+  traits:
+  - Trigger
+  - Girtablilu
+  - Rogue
+  checks:
+  - difficulty: '23'
+    skills:
+    - Combat
+  powers: |-
+    When you examine this card, succeed at a Stealth 10 check or encounter this card; the difficult to defeat is increased by 3.
+
+    Before you act, you are dealt 1d4+1 Poison damage.
+
+    If undefeated, you are dealt 1d4 Poison damage.
+
+    If defeated, you may recharge 1d4 random cards from your discard pile.
+- name: Sandstorm
+  category: bane
+  type: villain
+  source: MM-B
+  subtype: barrier
+  traits:
+  - Trigger
+  - Obstacle
+  - Weather
+  checks:
+  - skills:
+    - None
+  powers: |-
+    When you examine this card or discard it from the blessings deck, each character moves to a random location, then examines the top card of his location deck; if it is a boon, shuffle his location deck. Then banish this card.
+
+    "A 'weather phenomenon'? Weather comes from the sky. This is the earth coming up to claim you."—Tetisurah the gynosphinx
+- name: Sensuret the Tribe-Eater
+  category: bane
+  type: villain
+  source: MM-5
+  subtype: monster
+  traits:
+  - Undead
+  - Mummy
+  checks:
+  - difficulty: '25'
+    skills:
+    - Combat
+  powers: |-
+    Sensuret the Tribe-Eater is immune to the Mental and Poison traits.
+
+    If the check to defeat has the Cold trait, add 1d8.
+
+    After you act, bury 2 cards.
+
+    "The Shory liked to train dinosaurs to serve them. Sometimes, they liked those dinosaurs too much." –Chronicle of the Tribe-Eater
+- name: Sky Pharaoh's Fang
+  category: bane
+  type: villain
+  source: MM-6
+  subtype: monster
+  traits:
+  - Trigger
+  - Undead
+  - Inquisitor
+  - Fire
+  checks:
+  - difficulty: '32'
+    skills:
+    - Combat
+  powers: |-
+    When you examine this card, examine the next card of this location deck; if it is a boon, banish it. Then encounter this card.
+
+    The Sky Pharaoh's Fang is immune to the Cold, Fire, Mental, and Poison traits. All damage dealt by the Sky Pharaoh's Fang is Fire damage.
+
+    "Bloodlust burns eternal." –Inscription on Inhetef's cartouche
+- name: Tef-Naju
+  category: bane
+  type: villain
+  source: MM-5
+  subtype: monster
+  traits:
+  - Outsider
+  - Elemental
+  - Janni
+  - Magus
+  checks:
+  - difficulty: '24'
+    skills:
+    - Combat
+  powers: |-
+    Tef-Naju is immune to the Electricity trait.
+
+    Before you act, if another character is at your location, each character at your location is dealt 1d4 Electricity damage.
+
+    If the result of the check to defeat is less than 35, check off the trader Trove of Tef-Naju on the Bazaar card.
+- name: The Sky Pharaoh
+  category: bane
+  type: villain
+  source: MM-6
+  subtype: monster
+  traits:
+  - Undead
+  - Mummy
+  - Sorcerer
+  checks:
+  - difficulty: '33'
+    skills:
+    - Combat
+  powers: |-
+    The Sky Pharaoh is immune to the Cold, Electricity, Mental, and Poison traits. While you act, damage dealt by the Sky Pharaoh is Mental damage that cannot be reduced.
+
+    Before you act, each character at your location is dealt an amount of Electricity damage equal to 1 plus the number of characters at this location.
+
+    You may bury the loot Mask of the Forgotten Pharaoh to add 2 dice to your check to defeat the Sky Pharaoh.
+
+    If undefeated, bury your discard pile.
+- name: Thuvian Alchemist
+  category: bane
+  type: villain
+  source: MM-B
+  subtype: monster
+  traits:
+  - Human
+  - Alchemist
+  - Poison
+  checks:
+  - difficulty: '12'
+    skills:
+    - Combat
+  - difficulty: '7'
+    skills:
+    - Intelligence
+    - Craft
+  powers: |-
+    All damage dealt by the Thuvian Alchemist is Poison damage. If this damage is not reduced to 0, suffer the scourge Curse of Poisoning.
+
+    Before you act, a random character at your location is dealt 1 damage.
+
+    For each card that has the Poison trait in your hand or displayed next to your deck, add 1d4 to your checks against the Thuvian Alchemist.
+- name: Trapped Sarcophagus
+  category: bane
+  type: villain
+  source: MM-1
+  subtype: barrier
+  traits:
+  - Trigger
+  - Lock
+  - Trap
+  - Construct
+  - Electricity
+  checks:
+  - difficulty: '9'
+    skills:
+    - Dexterity
+    - Acrobatics
+    - Disable
+    - Intelligence
+  powers: |-
+    When you examine this card, succeed at a Perception 9 check or you are dealt 1d4 Electricity damage.
+
+    If undefeated, each character at this location recharges 1d4 cards then is dealt 1d6 Electricity damage.
+
+    "Built so that the honored dead would have company."—Hepsikah, architect of Akhentepi's tomb
+- name: Tukanem-Hanam
+  category: bane
+  type: villain
+  source: MM-B
+  subtype: monster
+  traits:
+  - Dragon
+  - Undead
+  - Mummy
+  - Electricity
+  checks:
+  - difficulty: '10'
+    skills:
+    - Combat
+  - difficulty: '10'
+    skills:
+    - Combat
+  powers: |-
+    Tukanem-Hanam is immune to the Electricity, Mental, and Poison traits.
+
+    Before you act, succeed at a Wisdom or Perception 7 check or you are dealt 1 Electricity damage.
+
+    If the check to defeat has the Fire trait, add 1d6.
+
+    If undefeated, each character at this location is dealt 1d4 Electricity damage.
+- name: Velriana Hypaxes
+  category: bane
+  type: villain
+  source: MM-1
+  subtype: monster
+  traits:
+  - Human
+  - Wizard
+  - Aristocrat
+  checks:
+  - difficulty: '13'
+    skills:
+    - Combat
+  powers: |-
+    Before you act, succeed at a Wisdom or Perception 9 check or the difficulty to defeat is increased by 3.
+
+    "Better to seize life by the throat than surrender willingly to obscurity."—Velriana Hypaxes
+- name: Velriana Unborn
+  category: bane
+  type: villain
+  source: MM-1
+  subtype: monster
+  traits:
+  - Undead
+  - Wizard
+  - Aristocrat
+  checks:
+  - difficulty: '14'
+    skills:
+    - Combat
+  powers: |-
+    Velriana Unborn is immune to the Mental and Poison traits.
+
+    Before you act, each character at your location must succeed at a Wisdom or Perception 8 check or be dealt 1d4 Cold damage.
+
+    "I'd call that life 'seized.'"—Farhaan Jebeya, keeper of the Tooth & Hookah
+- name: Volatile Sentinel
+  category: bane
+  type: villain
+  source: MM-4
+  subtype: monster
+  traits:
+  - Construct
+  checks:
+  - difficulty: '15'
+    skills:
+    - Dexterity
+    - Disable
+    - Intelligence
+    - Craft
+  - difficulty: '24'
+    skills:
+    - Combat
+  powers: The Volatile Sentinel is immune to the Mental and Poison traits.
+- name: Zizzira
+  category: bane
+  type: villain
+  source: MM-3
+  subtype: monster
+  traits:
+  - Trigger
+  - Thriae
+  - Oracle
+  - Poison
+  checks:
+  - difficulty: '12'
+    skills:
+    - Charisma
+    - Diplomacy
+  - difficulty: '17'
+    skills:
+    - Combat
+  powers: |-
+    When you examine this card, each character at your location that does not reveal the henchman Stolen Larvae summons and encounters the henchman Thriae Soldier.
+
+    Zizzira is immune to the Poison trait. All damage dealt by Zizzira is Poison damage.
+
+    Before you act, each character at your location that does not reveal the henchman Stolen Larvae summons and encounters the henchman Thriae Soldier.
+
+    If defeated, before closing Zizzira's location, search it for the henchman Stolen Larvae and draw any you find, then banish Zizzirra.

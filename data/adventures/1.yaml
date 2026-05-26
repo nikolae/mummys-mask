@@ -1,0 +1,124 @@
+id: '1'
+name: The Half-Dead City
+reward: Each character gains a power feat.
+during: The scourge die is 1d4+1. When you are dealt Poison damage, if that damage
+  is not reduced by at least 1, suffer the scourge Curse of Poisoning.
+scenarios:
+- id: 1-1
+  name: Akhentepi's Legacy
+  flavor: The resting place of an ancient military commander, the Tomb of Akhentepi
+    promises to hold a wealth of burial goods. Having passed on to the next phase
+    of afterlife, Akhentepi does not need these valuable trinkets anymore. However,
+    ancient tomb architects were clever and loathed intrusion by grave robbers. Step
+    lightly, and take care lifting that lid.
+  villain: Trapped Sarcophagus
+  henchmen:
+  - Sand Thief
+  - Warrior Dolls
+  locations:
+  - Dye Market
+  - Hall of Blessed Rebirth
+  - Tarworks
+  - Catacombs
+  - Towering Obelisk
+  - Earthworks
+  - Sulfur Pits
+  - Precious Mine
+  during: When you build location decks, add a barrier that has the Trap trait to
+    each deck before adding the cards from each location's deck list.
+  reward: 'Each character gains a skill feat. Loot: Akhentepi''s Armor'
+- id: 1-2
+  name: Ahead of the Competition
+  flavor: The noble house of Pentheru stands untouched by humans since its residents
+    died in the Plague of Madness that fell upon Wati centuries ago. The vast manor
+    has been the family's tomb since, yet something more sinister dwells in its halls.
+    Keep your allies close, as some of the bones are new. And there is much room left
+    for more of them.
+  villain: Imanish
+  henchmen: []
+  locations:
+  - Scorched Ruins
+  - Tarworks
+  - Thornscrub
+  - Hot Springs
+  - Glass Pavilion
+  - Warehouse
+  - Crypt
+  - Peasant Tombs
+  during: After you encounter an ally, summon and encounter the henchman Beheaded;
+    if defeated, you may attempt to close the location the ally came from.
+  reward: 'Loot: Tablet of Languages Lost'
+- id: 1-3
+  name: The Pharasmin Lottery
+  flavor: The Church of Pharasma has opened the gates of the Wati necropolis for the
+    first time in centuries. Ambitious treasure hunters have much to gain, but only
+    if they can respect the dead, obey the laws, and avoid notice. Do not cross the
+    Pharasmin enforcers, the Voices of the Spire. Death is their domain and they have
+    ways of making you wish for it.
+  villain: None
+  henchmen:
+  - Voices of the Spire
+  locations:
+  - Golden Lake
+  - Tooth & Hookah
+  - Dye Market
+  - Precinct of Left Eyes
+  - Warehouse
+  - Quarry
+  - Dilapidated Plaza
+  during: |-
+    If the result of any combat check exceeds its difficulty by 7 or more, discard the top card of the blessings deck.
+
+    To win the scenario, close all of the locations.
+  reward: 'Each character gains a card feat. Trader: Sunburst Market'
+- id: 1-4
+  name: Tomb Raiders Gone Rogue
+  flavor: As the Pharasmins grant access to the tombs of old Wati, so do they take
+    it away. The Voices of the Spire offer handsome rewards for bringing in gangs
+    that have broken their laws. Even better, hunting down these rogues eliminates
+    the competition. It's a win-win. Except for Velriana Hypaxes, leader of the Scorched
+    Hand and the worst of the lot.
+  villain: None
+  henchmen:
+  - Scorched Hand
+  - Cryptfinder
+  - Daughter of the Desert
+  - Dog Soldier
+  - Sand Scorpion
+  - Voices of the Spire
+  locations:
+  - Mausoleum
+  - Precinct of Left Eyes
+  - Tooth & Hookah
+  - Smoking Den
+  - Caravanserai
+  - Surgery
+  - Oasis
+  - Glass Pavilion
+  during: When the henchman Scorched Hand is banished, shuffle the villain Velriana
+    Hypaxes and a number of monsters from the box equal to 1 fewer than the number
+    of open locations into a stack, then shuffle a card from the stack into each open
+    location. To win this scenario, defeat Velriana Hypaxes.
+  reward: 'Trader: Ghoul Market'
+- id: 1-5
+  name: Sanctum of the Erudite Eye
+  flavor: Something is stirring up the undead of the Wati necropolis. Signs point
+    to an ancient altar to Nethys in the Sanctum of the Erudite Eye. It is long guarded
+    by the undead Senenmerek, as dedicated in death as in life. A mysterious cult
+    has taken something from there, and your rival Velriana is back. If she lets you
+    get to this loot first, it'll be over her dead body.
+  villain: Velriana Unborn
+  henchmen: []
+  locations:
+  - Crypt
+  - Hall of Blessed Rebirth
+  - Oasis
+  - Catacombs
+  - Ruined Temple
+  - Stonework Passages
+  - Embalming Parlor
+  - Volcanic Vents
+  during: When you would encounter a boon, roll 1d6. On a 1, banish it instead. On
+    a 2 or 3, display it next to this card instead. On a 4, 5, or 6, encounter it.
+  reward: 'The party gets the boons displayed next to this card. Loot: Spear of the
+    Watchful Guardian'

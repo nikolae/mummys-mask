@@ -1,0 +1,1424 @@
+type: henchman
+cards:
+- name: Acid Pool
+  category: bane
+  type: henchman
+  source: MM-B, MM-C
+  subtype: barrier
+  traits:
+  - Obstacle
+  - Acid
+  - Veteran
+  checks:
+  - difficulty: '9'
+    skills:
+    - Intelligence
+    - Craft
+    - Wisdom
+    - Survival
+  powers: |-
+    The difficulty to defeat is increased by the scenario's adventure deck number.
+
+    If undefeated, the Acid Pool deals an amount of Acid damage to you equal to the difference between its difficulty to defeat and your result.
+
+    If defeated, you may immediately attempt to close the location this henchman came from.
+- name: Aghash
+  category: bane
+  type: henchman
+  source: MM-B, MM-C
+  subtype: monster
+  traits:
+  - Trigger
+  - Curse
+  - Outsider
+  - Electricity
+  - Veteran
+  checks:
+  - difficulty: '11'
+    skills:
+    - Combat
+  - difficulty: '8'
+    skills:
+    - Divine
+  powers: |-
+    When you examine this card, discard a card from the blessings deck, then shuffle the villain Sandstorm into the blessings deck.
+
+    The difficulty to defeat is increased by twice the scenario's adventure deck number.
+
+    If undefeated, suffer a scourge.
+
+    If defeated, you may immediately attempt to close the location this henchman came from.
+- name: Ain-Mekh
+  category: bane
+  type: henchman
+  source: MM-6
+  subtype: monster
+  traits:
+  - Undead
+  checks:
+  - difficulty: '30'
+    skills:
+    - Combat
+  powers: |-
+    Ain-Mekh is immune to the Mental and Poison traits.
+
+    Before you act, succeed at a Wisdom or Knowledge 9 check or you are dealt 1d4 Mental damage that may not be reduced, then Ain-Mekh is evaded.
+
+    If undefeated, bury an armor, then suffer the scourges Curse of Vulnerability and Curse of Withering.
+
+    If defeated, you may immediately attempt to close the location this henchman came from.
+- name: Aiveria
+  category: bane
+  type: henchman
+  source: MM-5
+  subtype: monster
+  traits:
+  - Outsider
+  - Elemental
+  - Janni
+  - Bard
+  checks:
+  - difficulty: '23'
+    skills:
+    - Combat
+  powers: |-
+    Aiveria is immune to the Cold, Electricity, Fire, and Poison traits.
+
+    Before you act, succeed at a Wisdom or Divine 9 check or you may not play weapons or spells during this encounter.
+
+    If the check to defeat has the Acid or Bludgeoning trait, add 1d8.
+
+    If defeated, you may immediately attempt to close the location this henchman came from.
+- name: Ajin Ra Baqa
+  category: bane
+  type: henchman
+  source: MM-2
+  subtype: monster
+  traits:
+  - Outsider
+  - Psychopomp
+  checks:
+  - difficulty: '12'
+    skills:
+    - Combat
+    - Divine
+  - difficulty: '12'
+    skills:
+    - Combat
+    - Divine
+  powers: |-
+    When you fail a check to defeat, Ajin Ra Baqa does not deal damage as usual; instead you are dealt 1 Cold damage for each die rolled on that check.
+
+    If defeated, you may immediately attempt to close the location the henchman came from.
+- name: Akitar
+  category: bane
+  type: henchman
+  source: MM-3
+  subtype: monster
+  traits:
+  - Trigger
+  - Sphinx
+  checks:
+  - difficulty: '16'
+    skills:
+    - Combat
+  powers: |-
+    When you examine this card, succeed at a Constitution or Fortitude 6 check or recharge your hand and reset your hand. Then you are dealt 1 Mental damage that may not be reduced.
+
+    On your check to defeat, you may bury any number of allies; for each ally buried, add 4.
+
+    If defeated, you may immediately attempt to close the location this henchman came from.
+- name: Alchemical Golem
+  category: bane
+  type: henchman
+  source: MM-B, MM-C
+  subtype: monster
+  traits:
+  - Construct
+  - Alchemical
+  checks:
+  - difficulty: '10'
+    skills:
+    - Combat
+  powers: |-
+    The Alchemical Golem is immune to the Attack, Mental, and Poison traits.
+
+    If undefeated, roll 1d4. All damage dealt by the Alchemical Golem is:
+    ----
+    1. Fire damage.
+    ----
+    2. Poison damage.
+    ----
+    3. Acid damage; then discard a weapon or an armor.
+    ----
+    4. Electricity damage; after the encounter, end your turn.
+
+    If defeated, you may immediately attempt to close the location this henchman came from.
+- name: Beheaded
+  category: bane
+  type: henchman
+  source: MM-1
+  subtype: monster
+  traits:
+  - Undead
+  checks:
+  - difficulty: '12'
+    skills:
+    - Combat
+  - difficulty: '10'
+    skills:
+    - Arcane
+    - Divine
+  powers: |-
+    The Beheaded is immune to the Mental and Poison traits. Before you act, roll 1d4. Each character at your location is dealt 1 damage of the type:
+    ----
+    1. Fire
+    ----
+    2. Acid
+    ----
+    3. Cold
+    ----
+    4. Electricity
+
+    If defeated, you may immediately attempt to close the location this henchman came from.
+- name: Bheg
+  category: bane
+  type: henchman
+  source: MM-2
+  subtype: monster
+  traits:
+  - Undead
+  - Ghoul
+  - Alchemist
+  - Poison
+  checks:
+  - difficulty: '12'
+    skills:
+    - Combat
+  - difficulty: '14'
+    skills:
+    - Combat
+  powers: |-
+    Bheg is immune to the Mental and Poison traits. All damage dealt by Bheg is Poison damage.
+
+    Before you act, succeed at a Constitution, Fortitude, Dexterity, or Stealth 7 check or you are dealt 1 Poison damage.
+
+    If undefeated, end your turn.
+
+    If defeated, you may draw a random item that has the Alchemical trait from the box.
+- name: Blightwing
+  category: bane
+  type: henchman
+  source: MM-1
+  subtype: monster
+  traits:
+  - Curse
+  - Outsider
+  - Poison
+  - Veteran
+  checks:
+  - difficulty: '11'
+    skills:
+    - Combat
+  powers: |-
+    The difficulty to defeat is increased by twice the scenario's adventure deck number.
+
+    If undefeated, suffer the scourge Curse of Vulnerability.
+
+    If defeated, you may immediately attempt to close the location this henchman came from.
+- name: Brass Golem
+  category: bane
+  type: henchman
+  source: MM-6
+  subtype: monster
+  traits:
+  - Construct
+  - Golem
+  checks:
+  - difficulty: '24'
+    skills:
+    - Combat
+  powers: |-
+    The Brass Golem is immune to the Attack, Fire, and Mental traits.
+
+    Before you act, the Brass Golem deals 1d4 Fire damage to a random character at your location.
+
+    If defeated, the Brass Golem deals 1d4 Fire damage to each character at your location.
+- name: Conflagration
+  category: bane
+  type: henchman
+  source: MM-B, MM-C
+  subtype: barrier
+  traits:
+  - Trigger
+  - Obstacle
+  - Weather
+  - Fire
+  - Veteran
+  checks:
+  - difficulty: '9'
+    skills:
+    - Dexterity
+    - Disable
+    - Constitution
+    - Craft
+    - Survival
+  powers: |-
+    When you examine or encounter this card or discard it from the blessings deck, if there is an open location that does not have a barrier displayed, display this card next to a random such location.
+
+    The difficulty to defeat is increased by the scenario's adventure deck number.
+
+    While displayed, this location may not be closed. When you end your turn at this location, you are dealt 1 Fire damage. When you start your turn at this location, you may succeed at a check to defeat this card to banish it.
+- name: Crawling Hands
+  category: bane
+  type: henchman
+  source: MM-2
+  subtype: monster
+  traits:
+  - Undead
+  - Swarm
+  checks:
+  - difficulty: '13'
+    skills:
+    - Combat
+  powers: |-
+    Crawling Hands is immune to the Mental and Poison traits.
+
+    If you do not defeat Crawling Hands by at least 4, each character at your location rolls 1d4, 1d6, 1d8, 1d10, and 1d12. For each value of 1, that character buries a card.
+- name: Cryptfinder
+  category: bane
+  type: henchman
+  source: MM-1
+  subtype: monster
+  traits:
+  - Human
+  - Rogue
+  checks:
+  - difficulty: '12'
+    skills:
+    - Combat
+  powers: |-
+    Before you act, succeed at a Wisdom, Perception, Charisma, or Diplomacy 8 check to decrease the difficulty to defeat by 4.
+
+    If defeated by less than 5, you may immediately attempt to close the location this henchman came from; if you succeed, before closing, you may draw any number of the boons in the location deck.
+- name: Cultist of Areshkagal
+  category: bane
+  type: henchman
+  source: MM-4
+  subtype: monster
+  traits:
+  - Trigger
+  - Maftet
+  - Cultist
+  - Ranger
+  checks:
+  - difficulty: '19'
+    skills:
+    - Combat
+  powers: |-
+    When you examine this card or before you act, succeed at an Intelligence, Wisdom, Stealth, or Perception 8 check or recharge 1d4 cards, reset your hand, and you are dealt 1d6 Combat damage.
+
+    After you act, if the result of the check to defeat is greater than 27, each character at your location is dealt 1d4 Cold damage.
+
+    If defeated, you may immediately attempt to close your location.
+- name: Dark Slayer
+  category: bane
+  type: henchman
+  source: MM-2
+  subtype: monster
+  traits:
+  - Caligni
+  - Rogue
+  - Poison
+  checks:
+  - difficulty: '8'
+    skills:
+    - Wisdom
+    - Charisma
+    - Diplomacy
+  - difficulty: '11'
+    skills:
+    - Combat
+  powers: |-
+    Before you act, succeed at an Intelligence or Perception 6 check or the Dark Slayer deals 1 Poison damage to each character at your location.
+
+    If defeated, display this card next to the scenario. Any character may banish this card to add 1d12 to any Craft check.
+- name: Daughter of the Desert
+  category: bane
+  type: henchman
+  source: MM-1
+  subtype: monster
+  traits:
+  - Human
+  - Bard
+  checks:
+  - difficulty: '12'
+    skills:
+    - Combat
+  powers: |-
+    If defeated, each character at this location may draw a random non-Basic item from the box.
+
+    If defeated by less than 5, you may immediately attempt to close the location this henchman came from; if you succeed, before closing, you may draw any number of the boons in the location deck.
+- name: Disciple of the Forgotten Pharaoh
+  category: bane
+  type: henchman
+  source: MM-4
+  subtype: monster
+  traits:
+  - Human
+  - Cultist
+  checks:
+  - difficulty: '22'
+    skills:
+    - Combat
+  powers: |-
+    Before you act, each character at your location summons and encounters the henchman Forgotten Pharaoh Cultist.
+
+    If undefeated, each character at your location suffers a scourge. Then discard a card from the blessings deck.
+
+    If defeated, you may immediately attempt to close the location this henchman came from.
+- name: Dog Soldier
+  category: bane
+  type: henchman
+  source: MM-1
+  subtype: monster
+  traits:
+  - Halfling
+  - Barbarian
+  checks:
+  - difficulty: '11'
+    skills:
+    - Combat
+  powers: |-
+    During this encounter, when a character plays an ally that has the Animal trait, that character may put it on top of her deck.
+
+    If defeated by less than 5, you may immediately attempt to close the location this henchman came from; if you succeed, before closing, you may draw any number of the boons in the location deck.
+- name: Ekram Iffek
+  category: bane
+  type: henchman
+  source: MM-2
+  subtype: monster
+  traits:
+  - Human
+  - Cultist
+  - Ranger
+  checks:
+  - difficulty: '14'
+    skills:
+    - Combat
+  - difficulty: '11'
+    skills:
+    - Charisma
+    - Diplomacy
+  powers: |-
+    Before you act, you may draw a random non-Basic item from the box. If you do, Ekram Iffek is evaded; shuffle him into the location deck listed after the deck he came from on the scenario's deck list. (If he came from the last location on the list, shuffle him into the first location on the list.)
+
+    If you succeed at a combat check to defeat Ekram Iffek, draw the loot Natron Fang.
+- name: Elegiac Compass
+  category: bane
+  type: henchman
+  source: MM-2
+  subtype: barrier
+  traits:
+  - Object
+  checks:
+  - difficulty: '11'
+    skills:
+    - Intelligence
+    - Craft
+  - difficulty: '13'
+    skills:
+    - Disable
+  powers: |-
+    If undefeated, display this card next to your location. Instead of the first exploration of your turn, you may encounter the Elegiac Compass.
+
+    If defeated, display this card next to the scenario.
+- name: Esobok
+  category: bane
+  type: henchman
+  source: MM-2
+  subtype: monster
+  traits:
+  - Outsider
+  - Psychopomp
+  checks:
+  - difficulty: '13'
+    skills:
+    - Combat
+  powers: |-
+    When you encounter the Esobok, you may discard a card that has the Pharasma trait to automatically defeat it.
+
+    Before you act, succeed at Dexterity, Stealth, or Survival 8 check or the difficulty to defeat is increased by 3.
+
+    If defeated, you may immediately attempt to close the location this henchman came from.
+- name: Fire Spirit
+  category: bane
+  type: henchman
+  source: MM-B, MM-C
+  subtype: monster
+  traits:
+  - Outsider
+  - Elemental
+  - Fire
+  checks:
+  - difficulty: '10'
+    skills:
+    - Combat
+  powers: |-
+    The Fire Spirit is immune to the Fire trait. If the check to defeat has the Cold trait, add 1 die. All damage dealt by the Fire Spirit is Fire damage.
+
+    If undefeated, draw the henchman Conflagration from the box and examine it.
+
+    If defeated, you may immediately attempt to close the location this henchman came from.
+- name: Forgotten Pharaoh Cultist
+  category: bane
+  type: henchman
+  source: MM-B, MM-C
+  subtype: monster
+  traits:
+  - Human
+  - Cultist
+  - Veteran
+  checks:
+  - difficulty: '10'
+    skills:
+    - Combat
+  - difficulty: '7'
+    skills:
+    - Charisma
+    - Diplomacy
+  powers: |-
+    The difficulty to defeat is increased by twice the scenario's adventure deck number.
+
+    If undefeated, examine all the cards in your location deck, then roll on the Scourge Table and shuffle the corresponding scourge into your location deck.
+
+    If defeated, you may immediately attempt to close the location this henchman came from.
+- name: Gaunt Cadaver
+  category: bane
+  type: henchman
+  source: MM-2
+  subtype: monster
+  traits:
+  - Undead
+  - Ghoul
+  checks:
+  - difficulty: '13'
+    skills:
+    - Combat
+  powers: |-
+    Gaunt Cadaver is immune to the Mental and Poison traits.
+
+    Before you act, Gaunt Cadaver deals 1 Poison damage to you.
+
+    After you act, suffer the scourge Curse of Withering. If you explore again during this turn, banish a Curse of Withering displayed next to your deck.
+- name: Giant Sand Eel
+  category: bane
+  type: henchman
+  source: MM-B
+  subtype: monster
+  traits:
+  - Animal
+  - Veteran
+  checks:
+  - difficulty: '11'
+    skills:
+    - Combat
+  powers: |-
+    The difficulty to defeat is increased by twice the scenario's adventure deck number.
+
+    If undefeated, shuffle this card into a random open location deck and discard a card.
+
+    If defeated, shuffle this card into a random other open location deck, and you may immediately attempt to close the location this henchman came from.
+- name: Girtablilu
+  category: bane
+  type: henchman
+  source: MM-4
+  subtype: monster
+  traits:
+  - Trigger
+  - Girtablilu
+  checks:
+  - difficulty: '19'
+    skills:
+    - Combat
+  powers: |-
+    When you examine this card, succeed at a Stealth 7 check or encounter it; the difficulty to defeat is increased by 3.
+
+    Before you act, if you have any cards that have the Attack trait in your hand, you are dealt 1d4 Poison damage.
+
+    If defeated, you may immediately attempt to close the location this henchman came from.
+- name: Graven Guardian of Nethys
+  category: bane
+  type: henchman
+  source: MM-1
+  subtype: monster
+  traits:
+  - Construct
+  - Inquisitor
+  - Nethys
+  - Veteran
+  checks:
+  - difficulty: '9'
+    skills:
+    - Arcane
+    - Divine
+  - difficulty: '12'
+    skills:
+    - Combat
+  powers: |-
+    The Graven Guardian of Nethys is immune to the Mental and Poison traits. The difficulty to defeat is increased by the scenario's adventure deck number.
+
+    You may discard a card that has the Nethys trait to automatically defeat the Graven Guardian of Nethys.
+
+    If defeated, you may immediately attempt to close the location this henchman came from.
+- name: Handmaiden of Nailah
+  category: bane
+  type: henchman
+  source: MM-6
+  subtype: monster
+  traits:
+  - Trigger
+  - Undead
+  - Incorporeal
+  - Banshee
+  checks:
+  - difficulty: '20'
+    skills:
+    - Combat
+  - difficulty: '15'
+    skills:
+    - Divine
+  powers: |-
+    When you examine this card, encounter it and ignore its power that happens after you act.
+
+    The Handmaiden of Nailah is immune to the Mental and Poison traits.
+
+    After you act, if the check to defeat does not have the Acid or Magic trait, the Handmaiden of Nailah is undefeated.
+
+    If defeated, you may immediately attempt to close the location this henchman came from.
+- name: Heqet
+  category: bane
+  type: henchman
+  source: MM-4
+  subtype: monster
+  traits:
+  - Trigger
+  - Undead
+  - Cleric
+  - Cultist
+  checks:
+  - difficulty: '18'
+    skills:
+    - Combat
+  - difficulty: '13'
+    skills:
+    - Divine
+  powers: |-
+    When you examine this card, encounter it; the difficulty to defeat is increased by 5.
+
+    Heqet is immune to the Mental and Poison traits.
+
+    After you act, if the result of the check to defeat is greater than 24, summon and encounter the henchman Natron Zombie.
+
+    If defeated, you may attempt to close the location this henchman came from.
+- name: Keferuzagra
+  category: bane
+  type: henchman
+  source: MM-4
+  subtype: monster
+  traits:
+  - Dragon
+  - Electricity
+  checks:
+  - difficulty: '11'
+    skills:
+    - Combat
+  - difficulty: '11'
+    skills:
+    - Combat
+  powers: |-
+    Keferuzagra is immune to the Electricity trait. All damage dealt by Keferuzagra is Electricity damage.
+
+    Before you act, succeed at a Dexterity or Acrobatics 7 check or you are dealt 1d6 Electricity damage.
+
+    After you act, bury all allies in your discard pile and recharge all allies in your hand.
+- name: Kixexa
+  category: bane
+  type: henchman
+  source: MM-4
+  subtype: monster
+  traits:
+  - Outsider
+  - Elemental
+  - Janni
+  - Aristocrat
+  - Fire
+  checks:
+  - difficulty: '22'
+    skills:
+    - Combat
+  powers: |-
+    Kixexa is immune to the Fire trait. All damage dealt by Kixexa is Fire damage.
+
+    If the check to defeat has the Cold trait, add 1d8.
+
+    If undefeated, each other character is dealt 1d4 Fire damage.
+
+    If defeated, you may immediately attempt to close the location this henchman came from.
+- name: Kor-Ahn-Tuk
+  category: bane
+  type: henchman
+  source: MM-5
+  subtype: monster
+  traits:
+  - Undead
+  - Gorgon
+  - Mummy
+  checks:
+  - difficulty: '23'
+    skills:
+    - Combat
+  powers: |-
+    Kor-Ahn-Tuk is immune to the Mental and Poison traits.
+
+    Before you act, succeed at a Dexterity or Acrobatics 9 check or bury a card and you may not play cards during this encounter.
+
+    If the check to defeat has the Acid trait, add 1d8.
+
+    After you act, if the check to defeat has the Melee trait, you are dealt 1d6 Combat damage.
+
+    If defeated, you may immediately attempt to close the location this henchman came from.
+- name: Lamia Sisters
+  category: bane
+  type: henchman
+  source: MM-3
+  subtype: monster
+  traits:
+  - Trigger
+  - Lamia
+  checks:
+  - difficulty: '14'
+    skills:
+    - Combat
+  - difficulty: '16'
+    skills:
+    - Combat
+  powers: |-
+    When you examine this card, succeed at a Stealth 7 check or summon and encounter the henchman Forgotten Pharaoh Cultist.
+
+    All damage dealt by the Lamia Sisters is Cold damage.
+
+    If defeated, you may draw a non-Basic item from the box.
+
+    If defeated, you may immediately attempt to close the location this henchman came from.
+- name: Memory Cenovath
+  category: bane
+  type: henchman
+  source: MM-5
+  subtype: barrier
+  traits:
+  - Vermin
+  - Mental
+  checks:
+  - difficulty: '12'
+    skills:
+    - Constitution
+    - Fortitude
+  powers: |-
+    Before you act, you are dealt 1 Mental damage that may not be reduced.
+
+    If undefeated, shuffle this card into a random open location deck and discard the top 1d4 cards from the blessing deck.
+
+    If defeated, shuffle the villain Canopic Soul into a random open location deck; banish this card.
+- name: Mentu-Nebef
+  category: bane
+  type: henchman
+  source: MM-6
+  subtype: monster
+  traits:
+  - Human
+  - Rogue
+  - Poison
+  checks:
+  - difficulty: '20'
+    skills:
+    - Combat
+  - difficulty: '25'
+    skills:
+    - Combat
+  powers: |-
+    All damage dealt by Mentu-Nebef is Poison damage.
+
+    Before you act, search your location deck. If you find a non-villain monster, Mentu-Nebef is evaded.
+
+    If defeated, draw the loot Cartouche of Protection from the box, then you may immediately attempt to close the location this henchman came from.
+- name: Mining Construct
+  category: bane
+  type: henchman
+  source: MM-B, MM-C
+  subtype: monster
+  traits:
+  - Construct
+  checks:
+  - difficulty: '10'
+    skills:
+    - Combat
+  powers: |-
+    The Mining Construct is immune to the Mental and Poison traits.
+
+    If defeated, you may immediately attempt to close the location this henchman came from; if defeated by less than 6, you may also draw an item from the box.
+- name: Mockery of Ra
+  category: bane
+  type: henchman
+  source: MM-6
+  subtype: monster
+  traits:
+  - Construct
+  - Fire
+  checks:
+  - difficulty: '22'
+    skills:
+    - Combat
+  powers: |-
+    The Mockery of Ra is immune to the Fire, Mental, and Poison traits. All damage dealt by Mockery of Ra is Fire damage.
+
+    Before you act, succeed at a Dexterity or Disable 12 check or the Mockery of Ra is undefeated.
+
+    If undefeated, the Mockery of Ra does not deal Combat damage. Instead you are dealt 1d6 Fire damage; if you would discard cards as damage, discard them from the top of your deck instead.
+
+    If defeated, you may immediately attempt to close the location this henchman came from.
+- name: Nailah
+  category: bane
+  type: henchman
+  source: MM-6
+  subtype: monster
+  traits:
+  - Undead
+  - Incorporeal
+  - Banshee
+  - Acid
+  checks:
+  - difficulty: '22'
+    skills:
+    - Combat
+  powers: |-
+    Nailah is immune to the Mental and Poison traits. All damage dealt by Nailah is Acid damage.
+
+    Before you act, each character at your location must succeed at a Constitution or Fortitude 8 check or be dealt 1d6 Acid damage.
+
+    If the check to defeat does not have the Acid or Electricity trait, Nailah is undefeated.
+
+    If defeated, you may immediately attempt to close the location this henchman came from.
+- name: Natron Zombie
+  category: bane
+  type: henchman
+  source: MM-B
+  subtype: monster
+  traits:
+  - Undead
+  - Mummy
+  - Veteran
+  checks:
+  - difficulty: '12'
+    skills:
+    - Combat
+  powers: |-
+    The Natron Zombie is immune to the Mental and Poison traits. The difficulty to defeat is increased by the scenario's adventure deck number.
+
+    After you act, if the check to defeat does not have the Electricity trait, bury a random card from your discard pile.
+- name: Old Eye-Taker
+  category: bane
+  type: henchman
+  source: MM-2
+  subtype: monster
+  traits:
+  - Undead
+  - Skeleton
+  - Aristocrat
+  checks:
+  - difficulty: '9'
+    skills:
+    - Wisdom
+    - Charisma
+    - Diplomacy
+  - difficulty: '13'
+    skills:
+    - Combat
+  powers: |-
+    Old Eye-Taker is immune to the Cold, Mental, and Poison traits. During the encounter, recharge a card before you play a card.
+
+    If the check to defeat has the Piercing or Slashing trait, the difficulty is increased by 1d6.
+
+    If defeated, you may immediately attempt to close the location this henchman came from.
+- name: Orchamus
+  category: bane
+  type: henchman
+  source: MM-4
+  subtype: monster
+  traits:
+  - Trigger
+  - Girtablilu
+  checks:
+  - difficulty: '21'
+    skills:
+    - Combat
+  powers: |-
+    When you examine this card, succeed at a Stealth 8 check or encounter it; the difficulty to defeat is increased by 3.
+
+    All damage dealt by Orchamus is Poison damage.
+
+    Before you act, you are dealt 1d4 Poison damage.
+
+    If defeated, you may immediately attempt to close the location this henchman came from.
+- name: Ossumental Swarm
+  category: bane
+  type: henchman
+  source: MM-5
+  subtype: monster
+  traits:
+  - Undead
+  - Swarm
+  checks:
+  - difficulty: '20'
+    skills:
+    - Combat
+  powers: |-
+    The Ossumental Swarm is immune to the Mental and Poison traits.
+
+    If the check to defeat has the Acid or Bludgeoning trait, add 1d8.
+
+    If the result of the check to defeat the Ossumental Swarm is greater than 30, draw a blessing from the box.
+
+    If you do not defeat the Ossumental Swarm by at least 4, you are dealt 2 Cold damage.
+- name: Paracletus
+  category: bane
+  type: henchman
+  source: MM-B
+  subtype: monster
+  traits:
+  - Outsider
+  - Elemental
+  checks:
+  - difficulty: '11'
+    skills:
+    - Combat
+  - difficulty: '9'
+    skills:
+    - Wisdom
+    - Knowledge
+  powers: |-
+    Before you act, choose a card that has the Acid, Bludgeoning, Cold, Electricity, Fire, or Poison trait and roll 1d6. On a 1 or 2, bury that card. On a 3 or 4, discard it.
+
+    If defeated, you may immediately attempt to close the location this henchman came from.
+- name: Picasi
+  category: bane
+  type: henchman
+  source: MM-4
+  subtype: monster
+  traits:
+  - Outsider
+  - Elemental
+  - Janni
+  - Monk
+  checks:
+  - difficulty: '20'
+    skills:
+    - Combat
+  - difficulty: '16'
+    skills:
+    - Combat
+  powers: |-
+    Before you act, succeed at a Wisdom, Stealth, Perception, or Survival 9 check or you are dealt 2 Combat damage.
+
+    If the check to defeat has the Acid or Bludgeoning trait, add 1d6.
+
+    If defeated, you may immediately attempt to close the location this henchman came from.
+- name: Queen Neferuset
+  category: bane
+  type: henchman
+  source: MM-6
+  subtype: monster
+  traits:
+  - Undead
+  - Mummy
+  - Oracle
+  - Cold
+  checks:
+  - difficulty: '27'
+    skills:
+    - Combat
+  - difficulty: '20'
+    skills:
+    - Divine
+  powers: |-
+    Queen Neferuset is immune to the Fire, Mental, and Poison traits. All damage dealt by Queen Neferuset is Cold damage.
+
+    If undefeated, examine the top card of your deck; if it does not have the Divine trait, bury the top 1d4 cards of your deck.
+
+    If defeated, draw a random spell that has the Divine trait from the box.
+
+    After the encounter, bury all weapons and armors played during the encounter.
+- name: Rathos
+  category: bane
+  type: henchman
+  source: MM-4
+  subtype: monster
+  traits:
+  - Trigger
+  - Human
+  - Fighter
+  checks:
+  - difficulty: '20'
+    skills:
+    - Combat
+  powers: |-
+    When you examine this card, succeed at a Stealth 8 check or encounter it; the difficulty to defeat is increased by 3.
+
+    If the check to defeat has the Cold trait, add 1d8.
+
+    If defeated, you may immediately attempt to close the location this henchman came from.
+- name: Sand Kraken
+  category: bane
+  type: henchman
+  source: MM-3
+  subtype: monster
+  traits:
+  - Aberration
+  checks:
+  - difficulty: '20'
+    skills:
+    - Combat
+  - difficulty: '10'
+    skills:
+    - Survival
+    - Dexterity
+    - Acrobatics
+  powers: |-
+    When you encounter the Sand Kraken, each character at your location attempts a check to defeat it. If any character fails, the Sand Kraken is undefeated; display it next to your location, and each character that fails shuffles his token card into the location deck. When all tokens have been returned to the location, the Sand Kraken is undefeated.
+
+    If defeated, automatically close the location this henchman came from.
+- name: Sand Scorpion
+  category: bane
+  type: henchman
+  source: MM-1
+  subtype: monster
+  traits:
+  - Half-Elf
+  - Alchemist
+  checks:
+  - difficulty: '12'
+    skills:
+    - Combat
+  powers: |-
+    Before you act, each character at this location is dealt 1 Poison damage.
+
+    If defeated by less than 5, you may immediately attempt to close the location this henchman came from; if you succeed, before closing, you may draw any number of the boons in the location deck.
+- name: Sand Thief
+  category: bane
+  type: henchman
+  source: MM-1
+  subtype: monster
+  traits:
+  - Outsider
+  - Elemental
+  checks:
+  - difficulty: '13'
+    skills:
+    - Combat
+  powers: |-
+    Before you act, succeed at a Wisdom, Perception, or Survival 6 check or the Sand Thief is undefeated.
+
+    If undefeated, when the Sand Thief would deal damage to you, shuffle an item into your location deck instead.
+
+    If defeated, you may immediately attempt to close the location this henchman came from.
+- name: Scorched Hand
+  category: bane
+  type: henchman
+  source: MM-1
+  subtype: monster
+  traits:
+  - Human
+  - Wizard
+  - Nethys
+  checks:
+  - difficulty: '13'
+    skills:
+    - Combat
+  powers: |-
+    Each character may reveal a blessing that has the Nethys trait; for each blessing revealed, add 1 die to your check to defeat.
+
+    If defeated by less than 5, search the location deck this henchman came from; you may draw any number of its boons.
+- name: Sekrephere
+  category: bane
+  type: henchman
+  source: MM-5
+  subtype: barrier
+  traits:
+  - Construct
+  - Lock
+  checks:
+  - skills:
+    - See Below
+  powers: |-
+    The check to defeat is the same as the highest check to acquire a random blessing from the box.
+
+    If defeated, display this card next to the location deck it came from. When all open locations have a Sekrephere displayed, automatically close all locations.
+
+    While displayed, when you end your turn at this location, recharge a blessing or an ally; if you cannot, put this card facedown on top of its location deck.
+- name: Senenmerek
+  category: bane
+  type: henchman
+  source: MM-1
+  subtype: monster
+  traits:
+  - Undead
+  - Skeleton
+  - Cleric
+  checks:
+  - difficulty: '11'
+    skills:
+    - Combat
+  - difficulty: '8'
+    skills:
+    - Charisma
+    - Diplomacy
+  powers: |-
+    Senenmerek is immune to the Cold, Mental, and Poison traits. If the check to defeat has the Piercing or Slashing trait, the difficulty is increased by 4.
+
+    If defeated, you may immediately attempt to close the location this henchman came from; if you succeed, display this card next to the scenario. While displayed, any character may banish this card to add 2d12 to any Wisdom check or to any check to defeat a barrier.
+- name: Sentinel Part
+  category: bane
+  type: henchman
+  source: MM-4
+  subtype: barrier
+  traits:
+  - Construct
+  - Club
+  - Bludgeoning
+  - 2-Handed
+  checks:
+  - difficulty: '4'
+    skills:
+    - Strength
+  - difficulty: '6'
+    skills:
+    - Dexterity
+    - Disable
+    - Intelligence
+    - Craft
+  powers: |-
+    If defeated, draw this card. Then you may immediately attempt to close the location this henchman came from.
+
+    While in hand, for your combat check, shuffle this card into your location deck to use your Strength skill + 2d10. If this is not your first combat check of the turn, add 2d12 instead. This counts as playing a weapon.
+
+    While in hand, when you defeat a barrier that has the Lock, Obstacle, or Trap trait, reveal this card to draw a weapon, an armor, or an item from your discard pile.
+- name: Shendakut
+  category: bane
+  type: henchman
+  source: MM-6
+  subtype: monster
+  traits:
+  - Undead
+  - Mummy
+  - Sphinx
+  - Cleric
+  checks:
+  - difficulty: '16'
+    skills:
+    - Divine
+  - difficulty: '26'
+    skills:
+    - Combat
+  powers: |-
+    Shendakut is immune to the Mental and Poison traits. If your check against Shendakut has the Fire trait, add 1d8.
+
+    Before you act, attempt an Intelligence, Charisma, or Diplomacy 20 check. If you succeed, Shendakut is defeated; if you fail, recharge your hand, then reset your hand, then bury a card.
+- name: Silver Chain Smuggler
+  category: bane
+  type: henchman
+  source: MM-2
+  subtype: monster
+  traits:
+  - Human
+  - Rogue
+  checks:
+  - difficulty: '12'
+    skills:
+    - Combat
+  powers: |-
+    Before you act, each other character at your location must summon and encounter the Silver Chain Smuggler; it is defeated or undefeated based solely on your encounter.
+
+    Before you act, succeed at a Stealth or Diplomacy 5 check or you are dealt 1 Poison damage.
+
+    After you act, if the check to defeat does not have the Attack trait, examine the top card of your location deck. If it is a boon, banish it.
+
+    If defeated, you may immediately attempt to close the location this henchman came from.
+- name: Sky Pharaoh Guardian
+  category: bane
+  type: henchman
+  source: MM-5
+  subtype: monster
+  traits:
+  - Construct
+  checks:
+  - difficulty: '21'
+    skills:
+    - Combat
+  powers: |-
+    The Sky Pharaoh Guardian is immune to the Mental and Poison traits.
+
+    When you encounter the Sky Pharaoh Guardian, roll 1d6. During this encounter, characters may not play cards of the corresponding type:
+    1. Weapons3. Armors5. Allies
+    2. Spells4. Items6. Blessings
+
+
+    If defeated, you may immediately attempt to close the location this henchman came from.
+- name: Stolen Larvae
+  category: bane
+  type: henchman
+  source: MM-3
+  subtype: monster
+  traits:
+  - Thriae
+  checks:
+  - difficulty: '5'
+    skills:
+    - Strength
+  - difficulty: '4'
+    skills:
+    - Constitution
+  powers: |-
+    Before you act, summon and encounter the henchman Thriae Dancer.
+
+    If defeated, draw this card.
+- name: Tephu Librarian
+  category: bane
+  type: henchman
+  source: MM-3
+  subtype: monster
+  traits:
+  - Construct
+  checks:
+  - difficulty: '12'
+    skills:
+    - Combat
+    - Wisdom
+    - Knowledge
+    - Diplomacy
+  powers: |-
+    The Tephu Librarian is immune to the Mental and Poison traits.
+
+    Before you act, succeed at a Stealth 8 check or the difficulty of the combat check to defeat is increased by 4.
+
+    If undefeated, move to a random other location.
+
+    If defeated, draw an item from the box, then you may immediately attempt to close the location this henchman came from.
+- name: Theletos
+  category: bane
+  type: henchman
+  source: MM-3
+  subtype: monster
+  traits:
+  - Trigger
+  - Outsider
+  checks:
+  - difficulty: '18'
+    skills:
+    - Combat
+  - difficulty: '14'
+    skills:
+    - Knowledge
+    - Diplomacy
+    - Divine
+  powers: |-
+    When you examine this card, if any cards that have the Curse trait are displayed next to your deck, banish 1 of them; otherwise, suffer the scourge Curse of Fevered Dreams.
+
+    All damage dealt by Theletos is Mental damage that may not be reduced.
+
+    If defeated, you may immediately attempt to close the location this henchman came from.
+- name: Thmei
+  category: bane
+  type: henchman
+  source: MM-4
+  subtype: monster
+  traits:
+  - Trigger
+  - Human
+  - Oracle
+  - Cultist
+  checks:
+  - difficulty: '24'
+    skills:
+    - Combat
+  powers: |-
+    When you examine this card, you are dealt 1d4 Poison damage; if this damage is not reduced to 0, suffer the scourge Curse of the Sphinx. Then shuffle Thmei into a random open location.
+
+    If defeated, draw the loot Golden Serpent Armband from the box. Then you may immediately attempt to close the location this henchman came from.
+- name: Thriae Dancer
+  category: bane
+  type: henchman
+  source: MM-3
+  subtype: monster
+  traits:
+  - Thriae
+  - Bard
+  checks:
+  - difficulty: '10'
+    skills:
+    - Charisma
+    - Diplomacy
+  - difficulty: '16'
+    skills:
+    - Combat
+  powers: |-
+    Thriae Dancer is immune to the Poison trait. All damage dealt by Thriae Dancer is Poison damage.
+
+    If each character at your location reveals the henchman Stolen Larvae, you may evade Thriae Dancer.
+
+    If defeated, you may examine the top card of any location deck.
+- name: Thriae Soldier
+  category: bane
+  type: henchman
+  source: MM-3
+  subtype: monster
+  traits:
+  - Thriae
+  - Soldier
+  checks:
+  - difficulty: '13'
+    skills:
+    - Combat
+  - difficulty: '13'
+    skills:
+    - Combat
+  powers: |-
+    The Thriae Soldier is immune to the Poison trait. All damage dealt by Thriae Soldier is Poison damage.
+
+    If the result of the check to defeat is greater than 17, you are dealt 1 Poison damage.
+- name: Thundercloud of Set
+  category: bane
+  type: henchman
+  source: MM-6
+  subtype: monster
+  traits:
+  - Elemental
+  - Electricity
+  checks:
+  - difficulty: '21'
+    skills:
+    - Combat
+  powers: |-
+    The Thundercloud of Set is immune to the Electricity and Poison traits. All damage dealt by the Thundercloud of Set is Electricity damage.
+
+    After you act, if the check to defeat does not have the Bludgeoning, Dexterity, or Ranged trait, recharge your hand.
+
+    If undefeated, each character is dealt 1d4 damage.
+
+    If defeated, you may immediately attempt to close the location this henchman came from.
+- name: Userib
+  category: bane
+  type: henchman
+  source: MM-4
+  subtype: monster
+  traits:
+  - Trigger
+  - Maftet
+  - Cleric
+  - Cultist
+  checks:
+  - difficulty: '15'
+    skills:
+    - Combat
+  - difficulty: '17'
+    skills:
+    - Combat
+  powers: |-
+    When you examine this card or before you act, succeed at an Arcane or Divine 7 check or recharge 1d6 cards, then reset your hand, then you are dealt 1d4 Mental damage that may not be reduced.
+
+    After you act, if the result of either check to defeat is greater than 26, each character at your location is dealt 1d4 Fire damage.
+
+    If defeated, you may immediately attempt to close the location this henchman came from.
+- name: Voices of the Spire
+  category: bane
+  type: henchman
+  source: MM-B, MM-C
+  subtype: monster
+  traits:
+  - Human
+  - Inquisitor
+  - Veteran
+  checks:
+  - difficulty: '8'
+    skills:
+    - Combat
+  - difficulty: '7'
+    skills:
+    - Charisma
+    - Diplomacy
+  powers: |-
+    The difficulty to defeat is increased by twice the scenario's adventure deck number.
+
+    If defeated by a combat check, or if undefeated, suffer the scourge Curse of Vulnerability.
+
+    If defeated, you may immediately attempt to close the location this henchman came from.
+- name: Warrior Dolls
+  category: bane
+  type: henchman
+  source: MM-1
+  subtype: monster
+  traits:
+  - Construct
+  - Swarm
+  - Veteran
+  checks:
+  - difficulty: '10'
+    skills:
+    - Combat
+  powers: |-
+    The Warrior Dolls are immune to the Mental and Poison traits. The difficulty to defeat is increased by twice the current scenario's adventure deck number. If the check to defeat has the Fire trait, add 1 die.
+
+    If you do not defeat the Warrior Dolls by at least 2, shuffle a barrier from the box into a random open location deck.
+
+    If defeated, you may immediately attempt to close the location this henchman came from.
+- name: Widow and Dearly Departed
+  category: bane
+  type: henchman
+  source: MM-2
+  subtype: monster
+  traits:
+  - Half-Elf
+  - Sorcerer
+  - And
+  - Undead
+  - Mummy
+  checks:
+  - difficulty: '10'
+    skills:
+    - Charisma
+    - Diplomacy
+  - difficulty: '14'
+    skills:
+    - Combat
+    - Divine
+  powers: |-
+    During the check against Dearly Departed, this monster is immune to the Mental and Poison traits.
+
+    If defeated, you may immediately succeed at an Intelligence, Wisdom, or Charisma check with a difficulty equal to the number of cards in the panic deck to close the location this henchman came from.
+- name: Xerippe
+  category: bane
+  type: henchman
+  source: MM-3
+  subtype: monster
+  traits:
+  - Thriae
+  - Soldier
+  checks:
+  - difficulty: '18'
+    skills:
+    - Combat
+  powers: |-
+    Xerippe is immune to the Poison trait. All damage dealt by Xerippe is Poison damage.
+
+    If you reveal the henchman Stolen Larvae, you may evade Xerippe.
+
+    Before you act, each character at your location that does not reveal Stolen Larvae summons and encounters the henchman Thriae Soldier.

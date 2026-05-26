@@ -1,0 +1,123 @@
+id: '3'
+name: Shifting Sands
+reward: Each character chooses a role card and gains a power feat.
+during: The scourge die is 1d6+1. When you are dealt Poison damage, if that damage
+  is not reduced by at least 1, suffer the scourge Curse of Poisoning.
+scenarios:
+- id: 3-1
+  name: Muminofrah's Amusement
+  flavor: Only power can pry open some doors long held shut. The best way to get passage
+    into the deepest records at the Great Library of Tephu is to impress the city's
+    most obstreperous noblewoman, Muminofrah. Her whim this week? Win a camel race!
+    The Cult of the Forgotten Pharaoh will do their best to embarrass you before Muminofrah's
+    gaze.
+  villain: Camel Race Finish Line
+  henchmen: []
+  locations: []
+  during: |-
+    After creating the blessings deck, shuffle 3 copies of the villain Cameltrops into it. Display the villain Cultist Charioteers next to the scenario.
+
+    You win the scenario only when the loot Muminofrah's Favor is in a trophy stack.
+  reward: Each character gets the boons in the trophy stack next to her deck.
+- id: 3-2
+  name: Quiet, Please
+  flavor: The Great Library of Tephu has stood for more than a thousand years because
+    curators like Deka An-Keret protect its records. In vaults long disremembered
+    by the living, clockwork guardians patrol uncounted miles of papyrus. If the name
+    of the Forgotten Pharaoh is to be found, it will be here. Make yourself a whisper,
+    as any disturbance will alert the curators.
+  villain: Deka An-Keret
+  henchmen:
+  - Theletos
+  - Tephu Librarian
+  locations:
+  - Great Library of Tephu
+  - Pleasure Barge
+  - Vault of Hidden Wisdom
+  - Ruined Temple
+  - Dilapidated Plaza
+  - Glass Pavilion
+  - Mausoleum
+  - Warehouse
+  during: If the result of your combat check is greater than 19, bury a random card
+    then summon and encounter the henchman Voices of the Spire.
+  reward: "Each character gains a card feat. \nTrader: Udjebet"
+- id: 3-3
+  name: Sting Operation
+  flavor: The Cult of the Forgotten Pharaoh has hopes of raising thriae colonies loyal
+    to the Pharaoh. To this end, they have killed the queen of a colony deep in the
+    Parched Dune Desert and stolen the royal larvae. Recover the stolen larvae for
+    the thriae and impress their seer Zizzira, and you'll have resourceful allies
+    who can guide you to the tombs you seek.
+  villain: Zizzira
+  henchmen:
+  - Xerippe
+  - :Category:Monster
+  - plural2=Random Monsters
+  locations:
+  - Dilapidated Plaza
+  - Thornscrub
+  - Thriae Hive
+  - Volcanic Vents
+  - Howling Sands
+  - Towering Obelisk
+  - Precious Mine
+  - Shifting Dunes
+  during: After adding villains and henchmen, shuffle 1 henchman Stolen Larvae into
+    each location deck.When you discard cards as damage, first choose Stolen Larvae
+    if you have any. When you would banish Stolen Larvae or put it into a deck or
+    pile, shuffle it into a random open location deck instead.You win the scenario
+    when all of the Stolen Larvae are in characters' hands. (You do not have to defeat
+    and corner the villain.)
+  reward: 'Each character gains a skill feat. Loot: Scarab of Mummy Defense'
+- id: 3-4
+  name: Devouring Dunes
+  flavor: A powerful wizard in the service of the Forgotten Pharaoh and his charmed
+    hieracosphinx pursue you. Fleeing across the Dunes of Death, you hope the sinister
+    cultists will lose your trail. The dunes rumble and shift with the sound of something
+    colossal moving the hills. It waits for fresh prey. Perhaps one problem can take
+    care of the other.
+  villain: Khabekh-Shu
+  henchmen:
+  - Sand Kraken
+  - Akitar
+  - Forgotten Pharaoh Cultist
+  locations:
+  - Shifting Dunes
+  - Sulfur Pits
+  - Windswept Chasm
+  - Howling Sands
+  - Hot Springs
+  - Scorched Ruins
+  - Earthworks
+  - Thornscrub
+  during: |-
+    After you move, you are dealt 1 Electricity damage.
+
+    When you would banish the henchman Sand Kraken, shuffle it into or put it on the bottom of any open location deck instead.)
+  reward: 'Loot: Scarab Brooch Trader: Agymah'
+- id: 3-5
+  name: In Search of Chisisek
+  flavor: Chisisek, great architect of the Forgotten Pharaoh, lies entombed in a remote
+    desert valley. Tetisurah, the powerful sphinx that guards the valley, is held
+    captive by a spell. As lamias scour the tombs, the stone guardians at the tomb's
+    doors stand firm. There is a chance yet to find the ancient architect before Jamirah,
+    the lamia matriarch, hunts you down.
+  villain: Jamirah
+  henchmen:
+  - Lamia Sisters
+  - Warrior Dolls
+  locations:
+  - Chisisek's Tomb
+  - Great Library of Tephu
+  - Tarworks
+  - Shifting Dunes
+  - Thriae Hive
+  - Scorched Ruins
+  - Pleasure Barge
+  - Windswept Chasm
+  during: |-
+    When you create the blessings deck, replace 5 blessings with the henchmen Forgotten Pharaoh Cultist. When a Forgotten Pharaoh Cultist is discarded from the blessings deck, summon and encounter it; if defeated, display the Forgotten Pharaoh Cultist next to the scenario.
+
+    You may add 2 to your check to defeat the henchman Warrior Dolls for each Forgotten Pharaoh Cultist displayed.)
+  reward: 'Loot: Tetisurah, Sun Falcon Pectoral'

@@ -1,0 +1,1173 @@
+type: monster
+cards:
+- name: Acid Mantis
+  category: bane
+  type: monster
+  source: MM-1
+  traits:
+  - Trigger
+  - Vermin
+  - Acid
+  - Elite
+  checks:
+  - difficulty: '9'
+    skills:
+    - Combat
+  powers: |-
+    When you examine this card, either banish a card that has the Animal or Mount trait or you are dealt 1d4 Acid damage. Then encounter this card.
+
+    If the check to defeat has the Acid or Poison trait, add 3. All damage dealt by the Acid Mantis is Acid damage.
+- name: Ammut
+  category: bane
+  type: monster
+  source: MM-6
+  traits:
+  - Outsider
+  - Fire
+  checks:
+  - difficulty: '24'
+    skills:
+    - Combat
+  powers: |-
+    The Ammut is immune to the Fire and Poison traits.
+
+    Before you act, each character at your location is dealt 1d4 Fire damage.
+
+    If undefeated, suffer the scourge Curse of the Mummy.
+- name: Blasphemous Priest
+  category: bane
+  type: monster
+  source: WOTR-B, MM-B, MM-C
+  traits:
+  - Undead
+  - Cleric
+  - Elite
+  checks:
+  - difficulty: '10'
+    skills:
+    - Combat
+  powers: The Blasphemous Priest is immune to the Mental and Poison traits. If the
+    check to defeat has the Divine trait, the difficulty is increased by 2d4.
+- name: Bonecrusher Chieftain
+  category: bane
+  type: monster
+  source: MM-2
+  traits:
+  - Trigger
+  - Gnoll
+  - Veteran
+  checks:
+  - difficulty: '12'
+    skills:
+    - Combat
+  powers: |-
+    When you examine this card, encounter it; the difficulty to defeat is increased by 3.
+
+    The difficulty to defeat is increased by the scenario's adventure deck number.
+
+    When you play a weapon on your check to defeat, discard it.
+- name: Bonecrusher Hunter
+  category: bane
+  type: monster
+  source: MM-B
+  traits:
+  - Trigger
+  - Gnoll
+  - Veteran
+  checks:
+  - difficulty: '9'
+    skills:
+    - Combat
+  powers: |-
+    When you examine this card, encounter it; the difficulty to defeat is increased by 3.
+
+    The difficulty to defeat is increased by the scenario's adventure deck number.
+- name: Bonecrusher Hyenamaster
+  category: bane
+  type: monster
+  source: MM-B
+  traits:
+  - Trigger
+  - Gnoll
+  - Basic
+  checks:
+  - difficulty: '9'
+    skills:
+    - Combat
+  - difficulty: '9'
+    skills:
+    - Combat
+  powers: When you examine this card, encounter it; the difficulty to defeat is increased
+    by 3.
+- name: Bonecrusher Wizard
+  category: bane
+  type: monster
+  source: MM-B
+  traits:
+  - Trigger
+  - Gnoll
+  - Wizard
+  - Elite
+  checks:
+  - difficulty: '9'
+    skills:
+    - Combat
+  powers: |-
+    When you examine this card, encounter it; the difficulty to defeat is increased by 3.
+
+    Before you act, the Bonecrusher Wizard deals 1 Cold damage to you.
+
+    After you act, the Bonecrusher Wizard deals 1 Poison damage to you.
+- name: Bonestorm
+  category: bane
+  type: monster
+  source: MM-4
+  traits:
+  - Undead
+  - Swarm
+  checks:
+  - difficulty: '17'
+    skills:
+    - Combat
+  powers: |-
+    The Bonestorm is immune to the Mental and Poison traits.
+
+    Damage dealt by the Bonestorm may only be reduced by no more than half (round up).
+
+    If you defeat the Bonestorm by less than 4, shuffle it into the deck it came from.
+- name: Brain Ooze
+  category: bane
+  type: monster
+  source: MM-2
+  traits:
+  - Ooze
+  - Electricity
+  - Elite
+  checks:
+  - difficulty: '12'
+    skills:
+    - Combat
+  powers: |-
+    The Brain Ooze is immune to the Mental and Poison traits. All damage dealt by the Brain Ooze is Electricity damage.
+
+    The difficulty of the check to defeat the Brain Ooze is increased by the adventure deck number of a random monster from the box.
+
+    If undefeated, discard a spell.
+- name: Burning Child
+  category: bane
+  type: monster
+  source: MM-3
+  traits:
+  - Undead
+  - Fire
+  checks:
+  - difficulty: '16'
+    skills:
+    - Combat
+  - difficulty: '10'
+    skills:
+    - Charisma
+  powers: |-
+    The Burning Child is immune to the Fire, Mental, and Poison traits.
+
+    If the check to defeat the Burning Child has the Cold trait, add 1d8.
+
+    If defeated with a combat check, shuffle the Burning Child into a random other open location. If defeated with a Charisma check, you are dealt 1d4 Fire damage.
+- name: Caravan Raider
+  category: bane
+  type: monster
+  source: MM-B
+  traits:
+  - Human
+  - Veteran
+  checks:
+  - difficulty: '7'
+    skills:
+    - Stealth
+  - difficulty: '9'
+    skills:
+    - Combat
+  powers: |-
+    The difficulty to defeat is increased by the scenario's adventure deck number.
+
+    If undefeated, the Caravan raider deals no damage; instead, banish a boon.
+- name: Carrion Golem
+  category: bane
+  type: monster
+  source: WOTR-B, WOTR-C, MM-2
+  traits:
+  - Construct
+  - Golem
+  - Elite
+  checks:
+  - difficulty: '14'
+    skills:
+    - Combat
+  powers: |-
+    The Carrion Golem is immune to the Attack and Mental traits.
+
+    Before you act, discard the top card of your deck.
+
+    If undefeated, discard the top 2 cards of your deck.
+- name: Caryatid Column
+  category: bane
+  type: monster
+  source: MM-1
+  traits:
+  - Construct
+  - Elite
+  checks:
+  - difficulty: '10'
+    skills:
+    - Combat
+  powers: The Caryatid Column is immune to the Attack, Mental, and Poison traits.
+    If the check to defeat does not have the Bludgeoning trait, the difficulty is
+    increased by 2.
+- name: Cenovath Swarm
+  category: bane
+  type: monster
+  source: MM-5
+  traits:
+  - Vermin
+  - Swarm
+  - Poison
+  checks:
+  - difficulty: '18'
+    skills:
+    - Combat
+  powers: |-
+    Before you act, bury a random ally. You are dealt an amount of Mental damage equal to its adventure deck number; this damage cannot be reduced.
+
+    If you do not defeat the Cenovath Swarm by at least 4, shuffle it into the deck it came from; it is still defeated.
+- name: Coffer Corpse
+  category: bane
+  type: monster
+  source: MM-1
+  traits:
+  - Undead
+  checks:
+  - difficulty: '8'
+    skills:
+    - Combat
+  - difficulty: '10'
+    skills:
+    - Combat
+  powers: |-
+    The Coffer Corpse is immune to the Mental and Poison traits.
+
+    If undefeated, move to a random location.
+- name: Crystal Stalker
+  category: bane
+  type: monster
+  source: MM-1
+  traits:
+  - Trigger
+  - Outsider
+  - Elemental
+  - Elite
+  checks:
+  - difficulty: '9'
+    skills:
+    - Combat
+  powers: |-
+    When you examine this card, you may banish a card that has the Budgeoning trait to banish this card; otherwise, encounter it.
+
+    If the check to defeat has the Acid trait, add 3.
+- name: Dark Stalker
+  category: bane
+  type: monster
+  source: MM-2
+  traits:
+  - Caligni
+  - Veteran
+  checks:
+  - difficulty: '12'
+    skills:
+    - Combat
+  powers: |-
+    The difficulty to defeat is increased by the scenario's adventure deck number.
+
+    After you act, if the result of the check to defeat did not exceed the difficulty by at least 3, each character at your location must succeed at a Dexterity or Acrobatics 8 check or be dealt 1d4 Fire damage.
+
+    If undefeated, the Dark Stalker deals 2 Poison damage to you.
+- name: Death Hound
+  category: bane
+  type: monster
+  source: MM-B, MM-C
+  traits:
+  - Animal
+  - Curse
+  - Basic
+  checks:
+  - difficulty: '7'
+    skills:
+    - Combat
+  - difficulty: '7'
+    skills:
+    - Combat
+  powers: |-
+    If the results of both checks to defeat are greater than 11, you may banish a scourge displayed next to your deck; if not, suffer the scourse Curse of Vulnerability.
+
+    After you act, succeed at a Constitution or Fortitude 8 check or discard a card.
+- name: Desert Trapper
+  category: bane
+  type: monster
+  source: MM-B
+  traits:
+  - Human
+  - Veteran
+  checks:
+  - difficulty: '7'
+    skills:
+    - Combat
+  powers: |-
+    The difficulty to defeat is increased by the scenario's adventure deck number.
+
+    Each character may play no more than 1 card on the check to defeat.
+- name: Earth Ossumental
+  category: bane
+  type: monster
+  source: MM-5
+  traits:
+  - Trigger
+  - Undead
+  checks:
+  - difficulty: '19'
+    skills:
+    - Combat
+  powers: |-
+    When you examine this card, each character at your location is dealt 1d4 Acid damage. Shuffle this monster into a random open location deck.
+
+    The Earth Ossumental is immune to the Mental and Poison traits.
+
+    Before you act, each character at your location must succeed at a Dexterity or Acrobatics 13 check or that character is dealt 1d4 Acid damage.
+- name: Ecorche
+  category: bane
+  type: monster
+  source: MM-6
+  traits:
+  - Undead
+  checks:
+  - difficulty: '20'
+    skills:
+    - Combat
+  powers: |-
+    The Ecorche is immune to the Mental and Poison traits.
+
+    If undefeated, bury an armor, then suffer the scourges Curse of Vulnerability and Curse of Withering
+- name: Elder Ice Elemental
+  category: bane
+  type: monster
+  source: MM-4
+  traits:
+  - Outsider
+  - Elemental
+  - Cold
+  checks:
+  - difficulty: '16'
+    skills:
+    - Combat
+  powers: |-
+    The Ice Elemental is immune to the Cold and Poison traits. All damage dealt by the Ice Elemental is Cold damage.
+
+    Before you act, succeed at a Constitution or Fortitude 8 check or you may play no more than 1 card on the check to defeat.
+
+    If the check to defeat has the Electricity trait, you may reroll the dice; take the new result.
+- name: Elder Ifreeti
+  category: bane
+  type: monster
+  source: MM-4
+  traits:
+  - Outsider
+  - Elemental
+  - Janni
+  - Fire
+  checks:
+  - difficulty: '19'
+    skills:
+    - Combat
+  powers: |-
+    The Elder Ifreeti is immune to the Fire trait. All damage dealt by the Elder Ifreeti is Fire damage.
+
+    If the check to defeat has the Cold trait, add 1d8.
+
+    If defeated, choose a type of boon other than loot and draw a boon of that type from the box.
+- name: Elemental Arachnid
+  category: bane
+  type: monster
+  source: MM-4
+  traits:
+  - Construct
+  checks:
+  - difficulty: '17'
+    skills:
+    - Combat
+  powers: |-
+    The Elemental Arachnid is immune to the Mental and Poison traits. You may play any number of armors during this encounter.
+
+    Before you act, you are dealt 1 Acid damage, then 1 Cold damage, then 1 Electricity damage, then 1 Fire damage.
+
+    If undefeated, the Elemental Arachnid does not deal damage as usual; instead you are dealt 1d4 Acid damage, then 1d4 Cold damage, then 1d4 Electricity damage, then 1d4 Fire damage.
+- name: Emperor Cobra
+  category: bane
+  type: monster
+  source: MM-B
+  traits:
+  - Animal
+  - Poison
+  - Basic
+  checks:
+  - difficulty: '6'
+    skills:
+    - Stealth
+  - difficulty: '8'
+    skills:
+    - Combat
+  powers: |-
+    If the check to defeat has the Cold or Fire trait, add 1d8.
+
+    When the Emperor Cobra would deal damage to you, it deals 1 Poison damage instead.
+- name: Enchanter
+  category: bane
+  type: monster
+  source: ROTR-B, MM-C
+  traits:
+  - Human
+  - Sorcerer
+  - Veteran
+  checks:
+  - difficulty: '8'
+    skills:
+    - Combat
+  powers: |-
+    The difficulty to defeat is increased by the scenario's adventure deck number.
+
+    Before you act, the Enchanter deals 1 Force damage to you.
+
+    After you act, the Enchanter deals 1 Fire damage to you.
+- name: Fire Hydra
+  category: bane
+  type: monster
+  source: MM-B
+  traits:
+  - Aberration
+  - Fire
+  - Basic
+  checks:
+  - difficulty: '7'
+    skills:
+    - Combat
+  powers: |-
+    Before you act, each character at your location must succeed at a Dexterity or Acrobatics 8 check or be dealt 1d4-1 Fire damage.
+
+    If the check to defeat does not have the Acid, Cold, Electricity, Fire, or Poison trait, the Fire Hydra is undefeated.
+- name: Fury of the Drowned Desert
+  category: bane
+  type: monster
+  source: MM-6
+  traits:
+  - Outsider
+  - Elemental
+  - Acid
+  checks:
+  - difficulty: '21'
+    skills:
+    - Combat
+  powers: |-
+    The Fury of the Drowned Desert may not be evaded and is immune to the Acid, Mental, and Poison traits. All damage dealt by the Fury of the Drowned Desert is Acid damage.
+
+    Before you act, succeed at a Strength 9 check or you may play no more than 1 card on the check to defeat.
+- name: Geniekin
+  category: bane
+  type: monster
+  source: MM-B
+  traits:
+  - Trigger
+  - Outsider
+  - Elemental
+  - Janni
+  - Veteran
+  checks:
+  - difficulty: '8'
+    skills:
+    - Combat
+  powers: |-
+    When you examine this card, summon and encounter a monster that has the Acid, Cold, Electricity, Fire, or Poison trait.
+
+    The difficulty to defeat is increased by twice the scenario's adventure deck number.
+- name: Ghost Scorpion
+  category: bane
+  type: monster
+  source: MM-B
+  traits:
+  - Trigger
+  - Animal
+  - Poison
+  - Basic
+  checks:
+  - difficulty: '9'
+    skills:
+    - Combat
+  powers: |-
+    When you examine this card, you are dealt 1 Poison damage. Then encounter this card.
+
+    If the check to defeat has the Fire trait, add 1 die.
+- name: Ghoul
+  category: bane
+  type: monster
+  source: ROTR-B, ROTR-2, WOTR-B, MM-1
+  traits:
+  - Undead
+  - Ghoul
+  - Elite
+  checks:
+  - difficulty: '11'
+    skills:
+    - Combat
+  powers: |-
+    The Ghoul is immune to the Mental and Poison traits.
+
+    If undefeated, end your turn.
+- name: Giant Crocodile
+  category: bane
+  type: monster
+  source: MM-3
+  traits:
+  - Animal
+  - Elite
+  checks:
+  - difficulty: '16'
+    skills:
+    - Combat
+  powers: |-
+    If the check to defeat has the Cold trait, add 1d8.
+
+    If undefeated, shuffle this card into a random open location.
+- name: Giant Mummified Crocodile
+  category: bane
+  type: monster
+  source: MM-5
+  traits:
+  - Undead
+  - Mummy
+  checks:
+  - difficulty: '21'
+    skills:
+    - Combat
+  powers: |-
+    The Giant Mummified Crocodile is immune to the Mental and Poison traits.
+
+    If the check to defeat has the Cold or Electricity trait, add 1d8.
+
+    If undefeated, bury your discard pile and shuffle this card into a random open location deck.
+- name: Girtablilu Ranger
+  category: bane
+  type: monster
+  source: MM-4
+  traits:
+  - Trigger
+  - Girtablilu
+  - Poison
+  checks:
+  - difficulty: '17'
+    skills:
+    - Combat
+  powers: |-
+    When you examine this card, succeed at a Stealth 7 check or encounter it; the difficulty is increased by 3.
+
+    Before you act, you are dealt 1d4 Poison damage.
+- name: Graven Guardian of Set
+  category: bane
+  type: monster
+  source: MM-5
+  traits:
+  - Construct
+  checks:
+  - difficulty: '21'
+    skills:
+    - Combat
+  powers: |-
+    The Graven Guardian of Set is immune to the Mental and Poison traits.
+
+    If the Graven Guardian of Set would be defeated, reroll the dice; take the new result.
+- name: Guardian Scroll
+  category: bane
+  type: monster
+  source: MM-1
+  traits:
+  - Construct
+  - Elite
+  checks:
+  - difficulty: '8'
+    skills:
+    - Stealth
+  - difficulty: '11'
+    skills:
+    - Combat
+  powers: The Guardian Scroll is immune to the Bludgeoning, Mental, and Poison traits.
+    If the check to defeat has the Fire trait, add 1 die.
+- name: Guardian Thunderbird
+  category: bane
+  type: monster
+  source: MM-6
+  traits:
+  - Animal
+  - Electricity
+  checks:
+  - difficulty: '22'
+    skills:
+    - Combat
+  powers: |-
+    The Guardian Thunderbird is immune to the Electricity trait. All damage dealt by the Guardian Thunderbird is Electricity damage.
+
+    Before you act, a random character at your location is dealt 1d4 Electricity damage.
+
+    If the check to defeat has the Ranged trait, the difficulty is increased by 3.
+- name: Guecubu
+  category: bane
+  type: monster
+  source: MM-3
+  traits:
+  - Undead
+  checks:
+  - difficulty: '15'
+    skills:
+    - Combat
+  powers: |-
+    The Guecubu is immune to the Electricity, Mental, and Poison traits.
+
+    After you act, suffer a scourge.
+- name: Hanshepsu
+  category: bane
+  type: monster
+  source: MM-5
+  traits:
+  - Construct
+  checks:
+  - difficulty: '20'
+    skills:
+    - Combat
+  powers: |-
+    The Hanshepsu is immune to the Attack, Mental, and Poison traits.
+
+    Before you act, roll 1d4:
+    1. You are dealt 1d4 Poison daamge.
+    2. The difficulty to defeat is increased by 3.
+    3. The Hanshepsu is evaded.
+    4. Bury the top card of your deck.
+- name: Hollow Serpent
+  category: bane
+  type: monster
+  source: MM-6
+  traits:
+  - Undead
+  checks:
+  - difficulty: '16'
+    skills:
+    - Combat
+  - difficulty: '12'
+    skills:
+    - Stealth
+  powers: |-
+    The Hollow Serpent is immune to the Mental and Poison traits.
+
+    Before you act, discard a random card. If it is an ally, the difficulty to defeat is increased by 3.
+
+    While you act, other characters may not play cards. You may play no more than 1 card on the check to defeat. If the check to defeat has the Cold trait, add 1d8.
+- name: Hyena
+  category: bane
+  type: monster
+  source: MM-B
+  traits:
+  - Trigger
+  - Animal
+  - Basic
+  checks:
+  - difficulty: '9'
+    skills:
+    - Combat
+  powers: When you examine this card, you are dealt 2 Combat damage. Then encounter
+    this card.
+- name: Ice Elemental
+  category: bane
+  type: monster
+  source: MM-2
+  traits:
+  - Outsider
+  - Elemental
+  - Cold
+  - Elite
+  checks:
+  - difficulty: '12'
+    skills:
+    - Combat
+  powers: |-
+    The Ice Elemental is immune to the Cold and Poison traits. All damage dealt by the Ice Elemental is Cold damage.
+
+    Before you act, succeed at a Constitution or Fortitude 7 check or you may only play 1 card on the check to defeat.
+- name: Kalnaka
+  category: bane
+  type: monster
+  source: MM-5
+  traits:
+  - Undead
+  - Mummy
+  checks:
+  - difficulty: '22'
+    skills:
+    - Combat
+  powers: |-
+    The Kalnaka is immune to the Cold, Mental, and Poison traits.
+
+    If the check to defeat has the Electricity trait, add 1d8.
+
+    If undefeated, bury your discard pile.
+- name: Living Sandstorm
+  category: bane
+  type: monster
+  source: MM-5
+  traits:
+  - Trigger
+  - Outsider
+  - Elemental
+  checks:
+  - difficulty: '18'
+    skills:
+    - Combat
+  powers: |-
+    When you examine this card, each character at your location must succeed at a Dexterity or Stealth 13 check or that character is dealt 1d4 Combat damage.
+
+    The Living Sandstorm is immune to the Mental, Poison and Ranged traits.
+
+    Before you act, discard a card from the blessings, deck, then shuffle the villain Sandstorm from the box into the blessings deck.
+- name: Magma Spirit
+  category: bane
+  type: monster
+  source: MM-B
+  traits:
+  - Outsider
+  - Elemental
+  - Fire
+  - Basic
+  checks:
+  - difficulty: '9'
+    skills:
+    - Combat
+  powers: |-
+    The Magma Spirit is immune to the Fire trait. If the check to defeat has the Cold trait, add 1 die.
+
+    Before you act, each character at your location is dealt 1 Fire damage.
+- name: Mummified Sphinx
+  category: bane
+  type: monster
+  source: MM-3
+  traits:
+  - Undead
+  - Sphinx
+  - Mummy
+  checks:
+  - difficulty: '17'
+    skills:
+    - Combat
+  powers: |-
+    The Mummified Sphinx is immune to the Mental and Poison traits.
+
+    Before you act, recharge your hand, reset your hand, and bury a card.
+
+    If the check to defeat has the Fire trait, add 1d8.
+- name: Mummy
+  category: bane
+  type: monster
+  source: ROTR-5, MM-4
+  traits:
+  - Undead
+  - Mummy
+  checks:
+  - difficulty: '21'
+    skills:
+    - Combat
+  powers: |-
+    The Mummy is immune to the Cold, Mental, and Poison traits.
+
+    If the check to defeat has the Fire trait, add 1d8.
+
+    If undefeated, bury your discard pile.
+- name: Mummy Golem
+  category: bane
+  type: monster
+  source: MM-4
+  traits:
+  - Construct
+  - Golem
+  - Mummy
+  checks:
+  - difficulty: '18'
+    skills:
+    - Combat
+  powers: |-
+    The Mummy is immune to the Attack, Cold, Mental, and Poison traits.
+
+    If the check to defeat has the Fire trait, add 1d8.
+- name: Mummy Lord
+  category: bane
+  type: monster
+  source: MM-6
+  traits:
+  - Undead
+  - Mummy
+  checks:
+  - difficulty: '23'
+    skills:
+    - Combat
+  powers: |-
+    The Mummy Lord is immune to the Cold, Electricity, Mental, and Poison traits.
+
+    Before you act, summon and encounter a random monster that has the Undead trait from the box.
+
+    If undefeated, bury your discard pile, then shuffle this card into a random open location deck.
+- name: Plague Zombie
+  category: bane
+  type: monster
+  source: ROTR-B, ROTR-C, MM-1
+  traits:
+  - Undead
+  - Zombie
+  - Elite
+  checks:
+  - difficulty: '11'
+    skills:
+    - Combat
+  powers: |-
+    The Plague Zombie is immune to the Mental and Poison traits.
+
+    If undefeated, banish the Plague Zombie, and each character at this location must succeed at a Constitution or Fortitude 6 check or be dealt 1d4 Acid damage.
+- name: Plasma Ooze
+  category: bane
+  type: monster
+  source: MM-5
+  traits:
+  - Ooze
+  - Electricity
+  - Fire
+  checks:
+  - difficulty: '20'
+    skills:
+    - Combat
+  powers: |-
+    The Plasma Ooze is immune to the Acid, Bludgeoning, Mental, Piercing, and Poison traits. Damage dealt by the Plasma Ooze is dealt to each character at your location.
+
+    Before you act, succeed at a Strength 13 check or discard a weapon.
+- name: Quicksand Bunyip
+  category: bane
+  type: monster
+  source: MM-C
+  traits:
+  - Trigger
+  - Bunyip
+  checks:
+  - difficulty: '12'
+    skills:
+    - Combat
+  powers: |-
+    When you examine this card, either discard a card that has the Bludgeoning or Liquid trait or you are dealt 1d4 Electricity damage. Then shuffle the Quicksand Bunyip into your location deck.
+
+    Damage dealt by the Quicksand Bunyip may not be reduced.
+- name: Royal Naga
+  category: bane
+  type: monster
+  source: MM-4
+  traits:
+  - Aberration
+  checks:
+  - difficulty: '16'
+    skills:
+    - Combat
+  - difficulty: '16'
+    skills:
+    - Combat
+  powers: |-
+    You may succeed at a Stealth 8 check to evade the Royal Naga.
+
+    For each combat check, randomly choose a card that you can play that is a weapon or has the Attack trait and play it.
+
+    If the check to defeat has the Cold trait, add 1d8.
+- name: Rukh
+  category: bane
+  type: monster
+  source: MM-3
+  traits:
+  - Acid
+  - Animal
+  checks:
+  - difficulty: '13'
+    skills:
+    - Combat
+  - difficulty: '13'
+    skills:
+    - Combat
+  powers: |-
+    All damage dealt by the Rukh is Acid damage.
+
+    If the check to defeat does not have the Attack or Ranged trait, the difficulty is increased by 4.
+
+    If undefeated, move to a random location.
+- name: Sand Creeper
+  category: bane
+  type: monster
+  source: MM-B
+  traits:
+  - Trigger
+  - Outsider
+  - Elemental
+  - Basic
+  checks:
+  - difficulty: '9'
+    skills:
+    - Combat
+  powers: |-
+    When you encounter this card, succeed at a Perception 8 check or encounter this card.
+
+    The Sand Creeper is immune to the Piercing and Slashing traits.
+
+    Before you act, recharge any cards that have the Electricity trait.
+- name: Sard
+  category: bane
+  type: monster
+  source: MM-6
+  traits:
+  - Plant
+  - Electricity
+  - Poison
+  checks:
+  - difficulty: '23'
+    skills:
+    - Combat
+  powers: |-
+    The Sard is immune to the Electricity, Mental, and Poison traits.
+
+    After you act, each character at your location is dealt 1d4+1 Electricity damage, then 1d4 Poison damage.
+- name: Scarab Swarm
+  category: bane
+  type: monster
+  source: MM-B
+  traits:
+  - Trigger
+  - Vermin
+  - Swarm
+  - Poison
+  - Veteran
+  checks:
+  - difficulty: '6'
+    skills:
+    - Combat
+  powers: |-
+    When you examine this card, you are dealt 1 Poison damage. Then encounter this card.
+
+    The difficulty to defeat is increased by twice the adventure deck number.
+
+    If defeated by less than 4, and the check to defeat does not have the Fire trait, shuffle the Scarab swarm into the deck it came from.
+- name: Shaitan Ghul
+  category: bane
+  type: monster
+  source: MM-5
+  traits:
+  - Elemental
+  - Undead
+  - Janni
+  checks:
+  - difficulty: '20'
+    skills:
+    - Combat
+  powers: |-
+    The Shaitan Ghul is immune to the Mental and Poison traits.
+
+    If the check to defeat has the Fire trait, the difficulty is increased by 3.
+
+    Before you act, discard a weapon or an armor.
+- name: Shasalqu
+  category: bane
+  type: monster
+  source: MM-1
+  traits:
+  - Animal
+  - Cold
+  - Elite
+  checks:
+  - difficulty: '9'
+    skills:
+    - Combat
+  powers: |-
+    The Shasalqu is immune to the Cold and Fire traits.
+
+    Before you act, each character at your location must succeed at a Wisdom 6 check or recharge 1d4 cards.
+
+    If the result of your check to defeat is greater than 15; after you act, each character at your location is dealt 1 Cold damage.
+- name: Shock Elemental
+  category: bane
+  type: monster
+  source: MM-B
+  traits:
+  - Outsider
+  - Elemental
+  - Electricity
+  - Basic
+  checks:
+  - difficulty: '9'
+    skills:
+    - Combat
+  powers: |-
+    The Shock Elemental is immune to the Electricity, Mental, and Poison traits. All damage dealt by the Shock Elemental is Electricity damage.
+
+    If you play a weapon that does not have the Bludgeoning trait, the difficulty to defeat is increased by 2.
+- name: Shock Toad
+  category: bane
+  type: monster
+  source: MM-B
+  traits:
+  - Animal
+  - Electricity
+  - Basic
+  checks:
+  - difficulty: '6'
+    skills:
+    - Combat
+  powers: |-
+    The Shock Toad is immune to the Electricity trait.
+
+    Before you act, the Shock Toad deals 1 Electricity damage to each character at your location.
+- name: Skeletal Jackal
+  category: bane
+  type: monster
+  source: MM-B
+  traits:
+  - Undead
+  - Skeleton
+  - Basic
+  checks:
+  - difficulty: '8'
+    skills:
+    - Combat
+  powers: |-
+    The Skeletal Jackal is immune to the Cold, Mental, and Poison traits.
+
+    If the check to defeat has the Piercing or Slashing trait, the difficulty is increased by 3.
+- name: Skull Ripper
+  category: bane
+  type: monster
+  source: ROTR-3, MM-3
+  traits:
+  - Construct
+  checks:
+  - difficulty: '14'
+    skills:
+    - Combat
+  powers: |-
+    The Skull Ripper is immune to the Attack and Mental traits.
+
+    If undefeated, succeed at a Dexterity or Acrobatics 7 check or when you are dealt damage, discard cards from the top of your deck instead of your hand; this damage may not be reduced.
+- name: Sun Falcon
+  category: bane
+  type: monster
+  source: MM-1
+  traits:
+  - Animal
+  - Fire
+  checks:
+  - difficulty: '11'
+    skills:
+    - Combat
+  powers: |-
+    The Sun Falcon is immune to the Fire trait. If the check to defeat has the Cold trait, add 1d8. All damage dealt by the Sun Falcon is Fire damage.
+
+    If defeated, shuffle the Sun Falcon into the blessings deck.
+
+    When this card is discarded from the blessings deck, banish it and draw a blessing from the box.
+- name: Tekenu
+  category: bane
+  type: monster
+  source: MM-2
+  traits:
+  - Undead
+  - Elite
+  checks:
+  - difficulty: '13'
+    skills:
+    - Combat
+  powers: |-
+    The Tekenu is immune to the Mental and Poison traits.
+
+    You may succeed at a Stealth 7 check to evade the Tekenu.
+
+    If the check to defeat has the Divine trait, add 1d6.
+
+    After you act, roll 1d4. On a 4, you are dealt 2 Acid damage.
+- name: Thunder Lizard
+  category: bane
+  type: monster
+  source: MM-3
+  traits:
+  - Dragon
+  - Electricity
+  checks:
+  - difficulty: '13'
+    skills:
+    - Combat
+  powers: |-
+    The Thunder Lizard is immune to the Electricity trait.
+
+    Before you act, the Thunder Lizard deals 1d4 Electricity damage to each character at your location.
+- name: Ubashki Swarm
+  category: bane
+  type: monster
+  source: MM-1
+  traits:
+  - Trigger
+  - Undead
+  - Mummy
+  - Swarm
+  checks:
+  - difficulty: '8'
+    skills:
+    - Combat
+  - difficulty: '8'
+    skills:
+    - Combat
+  powers: |-
+    When you examine this card, succeed at a Stealth 6 check or each character at your location summons and encounters the Ubashki Swarm.
+
+    The Ubashki Swarm is immune to the Mental and Poison traits.
+
+    If you do not exceed the difficulty of each check to defeat by at least 2, after you act, succeed at a Constitution or Fortitude check 7 check or bury a card.
+- name: Vanth
+  category: bane
+  type: monster
+  source: MM-2
+  traits:
+  - Outsider
+  - Psychopomp
+  checks:
+  - difficulty: '13'
+    skills:
+    - Combat
+  powers: |-
+    The Vanth is immune to the Poison trait.
+
+    Before you act, suffer a scourge.
+- name: Yellow Jelly
+  category: bane
+  type: monster
+  source: MM-B, MM-C
+  traits:
+  - Ooze
+  - Acid
+  - Basic
+  checks:
+  - difficulty: '8'
+    skills:
+    - Combat
+  powers: |-
+    The Yellow Jelly is immune to the Mental, Piercing, Poison, and Slashing traits.
+
+    If the check to defeat has the Acid or Cold trait, add 3.
+
+    After you act, if the result of the check to defeat is greater than 12, you are dealt 1d4 Acid damage.

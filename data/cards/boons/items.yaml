@@ -1,0 +1,1290 @@
+type: item
+cards:
+- name: Acid Flask
+  category: boon
+  type: item
+  source: MM-B, MM-C, ALCH-B
+  traits:
+  - Liquid
+  - Attack
+  - Acid
+  - Alchemical
+  - Basic
+  checks:
+  - difficulty: '5'
+    skills:
+    - Intelligence
+    - Craft
+  powers: For your combat check or your check against a barrier, banish this card
+    to use your Disable or Ranged skill + 2d6. If the bane invokes the Acid trait,
+    add another 1d12.
+- name: Alchemist's Kit
+  category: boon
+  type: item
+  source: MM-B, ALCH-1, UE-B
+  traits:
+  - Tool
+  - Alchemical
+  checks:
+  - difficulty: '6'
+    skills:
+    - Intelligence
+    - Craft
+  powers: |-
+    Display this card. While displayed, when you would banish a card that has the Alchemical trait for its power, discard it instead.
+
+    While displayed, bury this card to draw 1d4+1 random cards that have the Alchemical trait from your discard pile. Then you may shuffle any number of cards that have the Alchemical trait into your deck.
+- name: Antitoxin
+  category: boon
+  type: item
+  source: MM-B
+  traits:
+  - Liquid
+  - Poison
+  - Alchemical
+  - Basic
+  checks:
+  - difficulty: '5'
+    skills:
+    - Intelligence
+    - Knowledge
+    - Craft
+  powers: |-
+    Banish this card to reduce Poison damage dealt to a character at your location to 0.
+
+    Banish this card to add 1d8 to a check by a character at your location against a card that has the Poison trait.
+- name: Anubis Staff
+  category: boon
+  type: item
+  source: MM-1, MAGUS-1
+  traits:
+  - Staff
+  - Attack
+  - Magic
+  - Arcane
+  - Divine
+  - Anubis
+  checks:
+  - difficulty: '6'
+    skills:
+    - Arcane
+    - Divine
+  powers: |-
+    For your combat check, reveal this card and discard a spell to use your Arcane or Divine skill + 1d6; this counts as playing a spell. If the bane has the Construct or Undead trait, add another 1d6.
+
+    Bury this card to evade a monster you encounter that has the Undead trait.
+- name: Bird Feather Tokens
+  category: boon
+  type: item
+  source: MM-3, OA2-3
+  traits:
+  - Object
+  - Magic
+  checks:
+  - difficulty: '9'
+    skills:
+    - Intelligence
+    - Arcane
+  powers: |-
+    Recharge this card to reroll 1 die on a check by a character at your location.
+
+    On your turn, you may give this card to a character at another location; that character recharges it. You may additionally give that character a weapon, an armor, or an item.
+- name: Black Marsh Spider Venom
+  category: boon
+  type: item
+  source: ROGUE-2, MM-2
+  traits:
+  - Liquid
+  - Poison
+  checks:
+  - difficulty: '8'
+    skills:
+    - Intelligence
+    - Craft
+  powers: If you played a weapon on your combat check, reveal this card to add 3 and
+    the Poison trait. After the check, succeed at a Craft or Disable 8 check or bury
+    the top card of your deck.
+- name: Bladeguard
+  category: boon
+  type: item
+  source: MM-B, MM-C, ALCH-B
+  traits:
+  - Liquid
+  - Acid
+  - Alchemical
+  - Basic
+  checks:
+  - difficulty: '6'
+    skills:
+    - Intelligence
+    - Craft
+  powers: |-
+    Banish this card to allow a character at your location to draw a weapon or an armor from her discard pile.
+
+    Banish this card to reduce Acid damage dealt to a character at your location to 0.
+
+    Banish this card to add 1d12 to a check by a character at your location against a bane that invokes the Acid trait.
+- name: Bloodroot Poison
+  category: boon
+  type: item
+  source: MM-3, HV2-3, ROGUE-3, UE-3
+  traits:
+  - Liquid
+  - Poison
+  checks:
+  - difficulty: '9'
+    skills:
+    - Intelligence
+    - Craft
+  powers: If you played a weapon on your combat check, reveal this card to add 1d8
+    and the Poison trait. After the check, succeed at a Craft or Disable 10 check
+    or bury the top card of your deck.
+- name: Bottled Lightning
+  category: boon
+  type: item
+  source: SS-5, MM-5, ALCH-5, GOBB-5, SORCERER-5
+  traits:
+  - Liquid
+  - Attack
+  - Electricity
+  - Ranged
+  - Alchemical
+  checks:
+  - difficulty: '12'
+    skills:
+    - Intelligence
+    - Craft
+  powers: For your combat check, banish this card to use your Dexterity or Ranged
+    skill + 3d8. You may additionally discard another card to add your Craft skill;
+    succeed at a Craft 16 check to recharge that card instead of discarding it.
+- name: Brilliance of Ra
+  category: boon
+  type: item
+  source: MM-B
+  traits:
+  - Trigger
+  - Object
+  - Magic
+  - Ra
+  checks:
+  - difficulty: '5'
+    skills:
+    - Strength
+    - Knowledge
+    - Divine
+  powers: |-
+    When you examine this card, you may reveal a blessing that has the Ra trait to acquire this card.
+
+    Recharge this card to add 1 die to your Strength non-Combat check.
+
+    Recharge this card to add 1 die to your check against a bane that invokes the Fire trait.
+
+    Recharge this card to add the Fire trait to your check.
+- name: Burglar's Bracers
+  category: boon
+  type: item
+  source: MM-C, ALCH-1
+  traits:
+  - Accessory
+  - Tool
+  checks:
+  - difficulty: '6'
+    skills:
+    - Intelligence
+    - Craft
+    - Disable
+  powers: Recharge this card to add 1d8 to your Craft or Disable check.
+- name: Canopic Jar
+  category: boon
+  type: item
+  source: MM-6
+  traits:
+  - Object
+  - Magic
+  - Undead
+  - Mummy
+  checks:
+  - difficulty: '12'
+    skills:
+    - Intelligence
+    - Arcane
+    - Wisdom
+    - Divine
+  powers: |-
+    Recharge this card to draw a card that has the undead trait from your discard pile.
+
+    Banish this card to add 3d12 to your check against a monster that has the Undead trait.
+- name: Canteen
+  category: boon
+  type: item
+  source: MM-B, ALCH-1
+  traits:
+  - Object
+  - Alchemical
+  checks:
+  - difficulty: '6'
+    skills:
+    - Intelligence
+    - Craft
+  powers: Display this card. While displayed, when you would banish an item that has
+    the Liquid trait for its power, you may put it on this card instead. You may bury
+    this card to bury all the items on this card; if you have the Craft skill, you
+    may draw all the items on this card instead of burying them.
+- name: Carpet of Flying
+  category: boon
+  type: item
+  source: MM-6, UM-6
+  traits:
+  - Object
+  - Magic
+  checks:
+  - difficulty: '13'
+    skills:
+    - Intelligence
+    - Craft
+    - Survival
+    - Charisma
+  powers: |-
+    Recharge this card to evade a bane you encounter, then move all characters at your location together to another location.
+
+    Display this card. While displayed, Electricity or Fire damage dealt to characters at your location is reduced by 2. At the end of your turn, recharge this card.
+- name: Cenovath
+  category: boon
+  type: item
+  source: MM-5
+  traits:
+  - Object
+  - Magic
+  - Mummy
+  checks:
+  - difficulty: '14'
+    skills:
+    - Intelligence
+    - Wisdom
+    - Survival
+  powers: Remove this card from the game and bury the top 5 cards of your deck to
+    gain an Intelligence or Wisdom skill feat or choose and draw a spell from the
+    box.
+- name: Chest of Keeping
+  category: boon
+  type: item
+  source: MM-5, ALCH-5, GUNS-5, OA2-5
+  traits:
+  - Object
+  - Magic
+  checks:
+  - difficulty: '9'
+    skills:
+    - Intelligence
+    - Craft
+    - Knowledge
+    - Wisdom
+  powers: Display this card. While displayed, at the start of your turn, you may put
+    a card on top of this card. At the end of your turn, you may draw a card from
+    this card.
+- name: Compass
+  category: boon
+  type: item
+  source: MM-B, MM-C, HUNTER-B, MAGUS-B, OA2-B, PFTALES-B, UE-B
+  traits:
+  - Object
+  - Basic
+  checks:
+  - difficulty: '4'
+    skills:
+    - Wisdom
+    - Survival
+  powers: |-
+    Recharge this card to move, then you may examine the top card of your location deck. You may not use this power during an encounter.
+
+    Discard this card to explore your location.
+- name: Crowbar
+  category: boon
+  type: item
+  source: ROTR-B, MM-B, MM-C, BARB-B, FIGHTER-B, GUNS-B
+  traits:
+  - Tool
+  - Basic
+  checks:
+  - difficulty: '3'
+    skills:
+    - Strength
+  powers: |-
+    Reveal this card to add 1 die to your Strength non-combat check, or to your check to defeat a barrier you encounter that has the Lock or Obstacle trait; you may additionally discard this card to add another die.
+
+    After playing this card, you may succeed at a Strength 3 check to recharge this card instead of discarding it.
+- name: Deliquescent Gloves
+  category: boon
+  type: item
+  source: MM-3, ALCH-3
+  traits:
+  - Accessory
+  - Acid
+  - Alchemical
+  checks:
+  - difficulty: '8'
+    skills:
+    - Dexterity
+    - Intelligence
+    - Craft
+  powers: |-
+    Reveal this card to add the Acid trait to your Melee check. You may play another item on this check.
+
+    Recharge this card to add 1d8 to your check that invokes the Acid trait. You may play another item on this check.
+- name: Djinn Favor Amulet
+  category: boon
+  type: item
+  source: MM-1, OA1-2
+  traits:
+  - Accessory
+  - Magic
+  - Healing
+  checks:
+  - difficulty: '4'
+    skills:
+    - Constitution
+    - Fortitude
+  - difficulty: '7'
+    skills:
+    - Wisdom
+  powers: Recharge this card to reduce all damage dealt to you by 2. If it is Acid,
+    Cold, Electricity, or Fire damage, you may then recharge a random card from your
+    discard pile.
+- name: Effigy of Anubis
+  category: boon
+  type: item
+  source: MM-3
+  traits:
+  - Trigger
+  - Object
+  - Magic
+  - Anubis
+  checks:
+  - difficulty: '10'
+    skills:
+    - Intelligence
+  - difficulty: '7'
+    skills:
+    - Charisma
+    - Diplomacy
+  powers: When you examine this card, you may reveal a blessing that has the [[:Category:Anubis_trait
+- name: Effigy of Maat
+  category: boon
+  type: item
+  source: MM-2
+  traits:
+  - Trigger
+  - Object
+  - Magic
+  - Maat
+  checks:
+  - difficulty: '8'
+    skills:
+    - Constitution
+    - Fortitude
+    - Divine
+  powers: |-
+    When you examine this card, you may reveal a blessing that has the Maat trait to automatically acquire this card.
+
+    On your check, after the roll, reveal this card and bury a card, then remove any number of dice. For each die removed, add or subtract 5; take the new result.
+- name: Embalming Fluid
+  category: boon
+  type: item
+  source: MM-1, ALCH-1, UE-1
+  traits:
+  - Liquid
+  - Cold
+  - Poison
+  - Alchemical
+  checks:
+  - difficulty: '7'
+    skills:
+    - Intelligence
+    - Craft
+    - Knowledge
+  powers: |-
+    On your combat check, reveal this card to add 2 and the Poison trait; if the bane has the Undead trait, ignore its immunities. After the check, succeed at a Craft or Disable 7 check or bury the top card of your deck.
+
+    Banish this card to reduce Cold or Poison damage dealt to you to 0, then bury 1d4 random cards from your discard pile.
+- name: Evocation Staff
+  category: boon
+  type: item
+  source: WOTR-5, MM-5, SUMMONER-5, UM-5, WITCH-5
+  traits:
+  - Staff
+  - Attack
+  - Magic
+  - Arcane
+  checks:
+  - difficulty: '14'
+    skills:
+    - Intelligence
+    - Arcane
+  powers: "For your combat check, reveal this card and discard a spell to use your\
+    \ Arcane skill + 1d10; this counts as playing a spell. You may additionally discard\
+    \ this card to add another 2d10 and the Cold, Electricity, Fire, or Force trait.\
+    \ \n\nWhen a character at your location encounters a monster, reveal this card\
+    \ and discard a spell. The monster is evaded; put it on top its location deck."
+- name: Feather of Maat
+  category: boon
+  type: item
+  source: MM-B, DRUID-B
+  traits:
+  - Object
+  - Magic
+  - Maat
+  checks:
+  - difficulty: '5'
+    skills:
+    - Constitution
+    - Knowledge
+    - Divine
+  powers: |-
+    Recharge this card to add 1 die to your Constitution non-Combat check.
+
+    After your roll the dice on your check, recharge this card to add or subtract 1 from the result.
+- name: Fire Ward Gel
+  category: boon
+  type: item
+  source: MM-B, OA2-B
+  traits:
+  - Liquid
+  - Fire
+  - Alchemical
+  - Basic
+  checks:
+  - difficulty: '5'
+    skills:
+    - Intelligence
+    - Craft
+  powers: |-
+    Banish this card to reduce Fire damage dealt to a character at your location to 0.
+
+    Banish this card to add 1d8 to a check that invokes the Fire trait by a character at your location.
+- name: Flame Staff
+  category: boon
+  type: item
+  source: MM-B, MM-C, HV2-B, MAGUS-B, ORACLE-B, UM-B, WITCH-B
+  traits:
+  - Staff
+  - Attack
+  - Fire
+  - Magic
+  - Basic
+  checks:
+  - difficulty: '4'
+    skills:
+    - Arcane
+    - Divine
+  powers: For your combat check, recharge this card and discard a spell to use your
+    Arcane or Divine skill + 1d8; this counts as playing a spell.
+- name: Flash Freeze
+  category: boon
+  type: item
+  source: MM-B, ALCH-B
+  traits:
+  - Liquid
+  - Cold
+  - Alchemical
+  - Basic
+  checks:
+  - difficulty: '5'
+    skills:
+    - Intelligence
+    - Craft
+  powers: |-
+    Banish this card to add 1d12 and the Cold trait to a check that invokes the Construct or Fire trait by a character at your location.
+
+    Discard this card to allow a character at your location to add his Strength or Melee skill to his Disable check.
+- name: Frost Staff
+  category: boon
+  type: item
+  source: MM-B, UW-B
+  traits:
+  - Staff
+  - Attack
+  - Cold
+  - Magic
+  checks:
+  - difficulty: '6'
+    skills:
+    - Arcane
+    - Divine
+  powers: |-
+    For your combat check, recharge this card and discard a spell to use your Arcane or Divine skill + 2d4; this counts as playing a spell.
+
+    Bury this card to evade a non-villain, non-henchman monster you encounter.
+- name: Ghost Battling Ring
+  category: boon
+  type: item
+  source: MM-B, MM-C
+  traits:
+  - Accessory
+  - Magic
+  - Pharasma
+  - Veteran
+  checks:
+  - difficulty: '8'
+    skills:
+    - Arcane
+    - Divine
+    - Knowledge
+  powers: Recharge this card to add 1d8 plus the scenario's adventure deck number
+    to your check that invokes the Undead trait. If the top card of the blessings
+    discard pile has the Pharasma trait, add 1d8 plus twice the scenario's adventure
+    deck number instead.
+- name: Glyphbane Gloves
+  category: boon
+  type: item
+  source: MM-2
+  traits:
+  - Accessory
+  - Magic
+  checks:
+  - difficulty: '7'
+    skills:
+    - Intelligence
+    - Disable
+    - Arcane
+    - Wisdom
+    - Divine
+  powers: Recharge this card to add 2 dice to your check against a barrier that has
+    the Arcane or Magic trait.
+- name: Hand of Glory
+  category: boon
+  type: item
+  source: MM-6
+  traits:
+  - Accessory
+  - Magic
+  - Gambling
+  - Mummy
+  checks:
+  - difficulty: '11'
+    skills:
+    - Intelligence
+    - Arcane
+    - Wisdom
+    - Divine
+  powers: |-
+    Display this card next to the deck of a character at your location. While displayed, add 1d8 to that character's Stealth check, and he may evade non-villain, non-henchman monsters he encounters.
+
+    At the end of the turn, roll 1d6. On 1–3, bury this card and suffer a scourge; on 4–6, recharge this card.
+- name: Hand of the Guilty Man
+  category: boon
+  type: item
+  source: MM-2
+  traits:
+  - Accessory
+  - Magic
+  - Mummy
+  checks:
+  - difficulty: '7'
+    skills:
+    - Wisdom
+    - Divine
+  powers: Bury this card to allow a character at your location to banish a displayed
+    card that has the Curse trait.
+- name: Healer's Kit
+  category: boon
+  type: item
+  source: MM-B, UW-B
+  traits:
+  - Tool
+  - Healing
+  checks:
+  - difficulty: '6'
+    skills:
+    - Wisdom
+    - Survival
+    - Divine
+  powers: Bury this card to draw 1d4+1 cards that have the Healing trait from your
+    discard pile. Then you may shuffle any number of cards that have the Healing trait
+    into your deck.
+- name: Helpful Haversack
+  category: boon
+  type: item
+  source: SS-1, FIGHTER-1, ROGUE-1, MM-1, OA2-1, ORACLE-2
+  traits:
+  - Accessory
+  - Magic
+  checks:
+  - difficulty: '6'
+    skills:
+    - Dexterity
+    - Intelligence
+  powers: At the start of your turn, reveal this card to examine the top card of your
+    deck. You may additionally discard this card to add the examined card to your
+    hand; otherwise, put the examined card on the top or bottom of your deck.
+- name: Holy Water Grenade
+  category: boon
+  type: item
+  source: WOTR-B, MM-B, MM-C, PALADIN-B
+  traits:
+  - Liquid
+  - Magic
+  - Divine
+  - Basic
+  checks:
+  - difficulty: '6'
+    skills:
+    - Wisdom
+    - Divine
+  powers: |-
+    Discard this card to evade a bane you encounter that has the Outsider or Undead trait.
+
+    Banish this card to defeat a bane you encounter that has the Outsider or Undead trait and whose highest difficulty to defeat is 12 or lower.
+- name: Jet of Anubis
+  category: boon
+  type: item
+  source: MM-4
+  traits:
+  - Object
+  - Magic
+  - Anubis
+  checks:
+  - difficulty: '11'
+    skills:
+    - Charisma
+    - Diplomacy
+    - Stealth
+  powers: On your Charisma check or your check that invokes the [[:Category:Poison_trait
+- name: Key of the Second Vault
+  category: boon
+  type: item
+  source: MM-C
+  traits:
+  - Object
+  - Magic
+  - Abadar
+  checks:
+  - difficulty: '10'
+    skills:
+    - Disable
+    - Perception
+    - Arcane
+    - Divine
+  powers: |-
+    Bury this card to banish a non-villain barrier that has the Lock, Obstacle, or Trap trait that you encounter or is displayed next to your location.
+
+    After playing this card, you may discard a card that has the Abadar trait or succeed at a Disable, Arcane, or Divine 12 check to recharge this card instead of burying it.
+- name: Knot of Isis
+  category: boon
+  type: item
+  source: MM-3
+  traits:
+  - Trigger
+  - Object
+  - Magic
+  - Isis
+  checks:
+  - difficulty: '11'
+    skills:
+    - Intelligence
+    - Arcane
+  powers: |-
+    When you examine this card, you may reveal a blessing that has the Isis trait to automatically acquire this card.
+
+    Recharge this card to add 1 die to your Intelligence non-combat check or your check that invokes the Acid trait.
+
+    Recharge this card to add the Acid trait to your check.
+- name: Kohl of Uncanny Discernment
+  category: boon
+  type: item
+  source: MM-B, ALCH-2, MONK-1
+  traits:
+  - Accessory
+  - Alchemical
+  checks:
+  - difficulty: '6'
+    skills:
+    - Intelligence
+    - Perception
+  powers: |-
+    Reveal this card to add 1d4 to your Perception check.
+
+    Discard this card to examine the top 2 cards of your location deck and put them back in any order.
+- name: Lamp of Fiery Visions
+  category: boon
+  type: item
+  source: MM-5, OA1-5
+  traits:
+  - Object
+  - Magic
+  checks:
+  - difficulty: '9'
+    skills:
+    - Intelligence
+    - Perception
+  powers: Display this card next to a location. While displayed, you may recharge
+    this card to examine the top 2 cards of this location deck.
+- name: Lottery Urn
+  category: boon
+  type: item
+  source: MM-1
+  traits:
+  - Object
+  - Magic
+  - Gambling
+  checks:
+  - difficulty: '6'
+    skills:
+    - Wisdom
+  powers: On your check, after you roll, recharge this card to choose a number. Reroll
+    all dice that have a value equal to that number; take the new result.
+- name: Magic Carpet
+  category: boon
+  type: item
+  source: MM-2
+  traits:
+  - Object
+  - Magic
+  checks:
+  - difficulty: '9'
+    skills:
+    - Intelligence
+    - Craft
+    - Charisma
+    - Survival
+  powers: |-
+    Recharge this card to evade a bane that has the Trigger trait, then move all characters at this location together to another location.
+
+    Recharge this card to move all characters at this location together to another location. This power cannot be used during an encounter.
+- name: Magnifying Glass
+  category: boon
+  type: item
+  source: HV1-B, MM-B, MM-C, OA2-B, UI-B
+  traits:
+  - Tool
+  - Basic
+  checks:
+  - difficulty: '4'
+    skills:
+    - Intelligence
+    - Perception
+  powers: |-
+    Reveal this card to add 1d4 to your Disable or Perception check against a barrier or a boon.
+
+    Recharge this card to examine the top card of your deck, then you may shuffle your deck.
+- name: Mumia
+  category: boon
+  type: item
+  source: MM-2
+  traits:
+  - Liquid
+  - Alchemical
+  - Mummy
+  checks:
+  - difficulty: '8'
+    skills:
+    - Intelligence
+    - Craft
+  powers: |-
+    Display this card next to the deck of a character at your location. While displayed, add 1d8 to his Arcane, Constitution, and Fortitude skills. At the end of the turn, banish this card; that character buries 1d4-1 random cards from his discard pile.
+
+    Banish this card to banish a displayed card that has the Curse trait.
+- name: Mummified Cat
+  category: boon
+  type: item
+  source: MM-1
+  traits:
+  - Object
+  - Magic
+  - Mummy
+  checks:
+  - difficulty: '6'
+    skills:
+    - Wisdom
+    - Divine
+    - Survival
+  powers: |-
+    Recharge this card to examine the top card of your location deck. If the card has the Undead trait, you may evade or encounter it.
+
+    Banish this card to reduce all damage dealt to you by a monster that has the Undead trait to 0.
+- name: Necklace of Fireballs
+  category: boon
+  type: item
+  source: ROTR-4, MM-4, FIGHTER-4, PFTALES-4
+  traits:
+  - Accessory
+  - Attack
+  - Fire
+  - Magic
+  checks:
+  - difficulty: '9'
+    skills:
+    - Intelligence
+    - Arcane
+  powers: For your combat check, banish this card to roll 3d6+12. You may succeed
+    at an Arcane 9 check to recharge this card instead of banishing it.
+- name: Noxious Bomb
+  category: boon
+  type: item
+  source: SS-C, MM-B, MM-C, ALCH-B, UE-B
+  traits:
+  - Liquid
+  - Attack
+  - Poison
+  - Ranged
+  - Alchemical
+  - Basic
+  checks:
+  - difficulty: '5'
+    skills:
+    - Intelligence
+    - Craft
+  powers: For your combat check, banish this card to use your Dexterity or Ranged
+    skill + 2d6. You may additionally discard another card to add your Craft skill;
+    you may succeed at a Craft 9 check to recharge that card instead of discarding
+    it.
+- name: Osirion History Guide
+  category: boon
+  type: item
+  source: MM-B
+  traits:
+  - Book
+  - Basic
+  checks:
+  - difficulty: '3'
+    skills:
+    - Intelligence
+    - Wisdom
+    - Knowledge
+  powers: Recharge this card to add 1 die to a Wisdom, Knowledge, or Survival non-combat
+    check by a character at your location.
+- name: Potion of Energy Resistance
+  category: boon
+  type: item
+  source: ROTR-B, MM-B, ALCH-B, ROGUE-B
+  traits:
+  - Liquid
+  - Alchemical
+  checks:
+  - difficulty: '4'
+    skills:
+    - Intelligence
+    - Craft
+  powers: Banish this card to reduce Acid, Cold, Electricity, or Fire damage dealt
+    to a character at your location by 4.
+- name: Potion of Healing
+  category: boon
+  type: item
+  source: ROTR-B, ROTR-C, SS-B, SS-C, WOTR-B, MM-B, ALCH-B, BARB-B, GOBB-1, GOBF-B,
+    MAGUS-B, SUMMONER-B
+  traits:
+  - Liquid
+  - Alchemical
+  - Healing
+  checks:
+  - difficulty: '5'
+    skills:
+    - Intelligence
+    - Craft
+  powers: Banish this card to allow a character at your location to shuffle 1d4 random
+    cards from his discard pile into his deck.
+- name: Pure Holy Water
+  category: boon
+  type: item
+  source: WOTR-3, MM-5, CLERIC-5, MONK-3, RANGER-5
+  traits:
+  - Liquid
+  - Magic
+  - Divine
+  checks:
+  - difficulty: '12'
+    skills:
+    - Craft
+    - Wisdom
+    - Divine
+  powers: |-
+    Discard this card to evade a bane that has the Outsider or Undead trait.
+
+    Banish this card to add 2d12 to your check to defeat a bane that has the Outsider or Undead trait.
+- name: Ring of Energy Resistance
+  category: boon
+  type: item
+  source: CURSE-6
+  traits:
+  - Accessory
+  - Magic
+  checks:
+  - difficulty: '8'
+    skills:
+    - Constitution
+    - Fortitude
+  - difficulty: '9'
+    skills:
+    - Intelligence
+    - Arcane
+  powers: When you suffer Acid, Cold, Electricity, or Fire damage, reveal to reduce
+    it by 4.
+- name: Ring of Stony Flesh
+  category: boon
+  type: item
+  source: MM-5, OA2-5, UC-5
+  traits:
+  - Accessory
+  - Magic
+  checks:
+  - difficulty: '10'
+    skills:
+    - Strength
+    - Melee
+  - difficulty: '8'
+    skills:
+    - Constitution
+    - Fortitude
+  powers: |-
+    Put this card on top of your deck to add 1d6 and the Bludgeoning trait to your Strength or Melee combat check.
+
+    Put this card on top of your deck to add 1 die to your Constitution non-combat check.
+
+    Put this card on top of your deck to reduce all damage dealt to you by 2.
+- name: Ring of the Godless
+  category: boon
+  type: item
+  source: MM-B
+  traits:
+  - Accessory
+  - Magic
+  checks:
+  - difficulty: '5'
+    skills:
+    - Wisdom
+  powers: |-
+    During your encounter, recharge this card to gain the skill Divine: Wisdom +2; characters may not play blessings that have the Divine trait.
+
+    Recharge this card to add the Magic trait to your check.
+- name: Ring of the Grasping Grave
+  category: boon
+  type: item
+  source: MM-3
+  traits:
+  - Accessory
+  - Magic
+  - Pharasma
+  - Veteran
+  checks:
+  - difficulty: '12'
+    skills:
+    - Arcane
+    - Divine
+    - Knowledge
+  powers: Reveal this card to add 1d4 plus the scenario's adventure deck number to
+    your check that invokes the Undead trait. If the top card of the blessings discard
+    pile has the Pharasma trait, add 1d4 plus twice the scenario's adventure deck
+    number instead.
+- name: Sandstorm Dust
+  category: boon
+  type: item
+  source: MM-4, UI-3
+  traits:
+  - Object
+  - Alchemical
+  checks:
+  - difficulty: '9'
+    skills:
+    - Intelligence
+    - Craft
+  powers: Shuffle this card into your location deck to evade your encounter. You may
+    succeed at a Craft 10 check to recharge this card instead of shuffling it into
+    your location deck.
+- name: Scarab Sand
+  category: boon
+  type: item
+  source: MM-3, OA2-2
+  traits:
+  - Object
+  - Alchemical
+  - Mummy
+  checks:
+  - difficulty: '9'
+    skills:
+    - Intelligence
+    - Craft
+    - Arcane
+  powers: Banish this card and bury a card to add 1d12 to a check against a monster
+    by a character at your location. Add another 1d6 if the monster has the Undead
+    trait; if it has the Mummy trait, add another 2d6 instead. If the character fails
+    the check, he may ignore the result and evade the monster.
+- name: Scarab of Khepri
+  category: boon
+  type: item
+  source: MM-6, UW-6
+  traits:
+  - Object
+  - Magic
+  - Khepri
+  checks:
+  - difficulty: '10'
+    skills:
+    - Wisdom
+    - Survival
+  powers: |-
+    Reveal this card to add 1 die to your check against a card that has the Animal or Vermin trait.
+
+    Reveal this card and recharge a card that has the Animal or Vermin trait to add 1d6 to any Survival check.
+
+    Bury this card to add 1d8 and the Poison trait to your combat check.
+- name: Scarab of Ptah
+  category: boon
+  type: item
+  source: MM-6, UE-6
+  traits:
+  - Trigger
+  - Object
+  - Magic
+  - Ptah
+  checks:
+  - difficulty: '12'
+    skills:
+    - Constitution
+    - Fortitude
+  powers: |-
+    When you examine this card, you may reveal a blessing that has the Ptah trait to automatically acquire this card.
+
+    Recharge this card to reduce Acid, Cold, Electricity, Fire, or Poison damage dealt to you to 0.
+- name: Scroll of Thoth
+  category: boon
+  type: item
+  source: MM-1
+  traits:
+  - Trigger
+  - Object
+  - Magic
+  - Thoth
+  checks:
+  - difficulty: '7'
+    skills:
+    - Wisdom
+    - Divine
+    - Knowledge
+  powers: |-
+    When you examine this card, you may reveal a blessing that has the Thoth trait to automatically acquire this card.
+
+    Recharge this card to add 1 die to your Wisdom non-combat check.
+
+    Recharge this card to add 1 die to your check against a bane that invokes the Cold trait.
+
+    Recharge this card to add the Cold trait to your check.
+- name: Seer's Tea
+  category: boon
+  type: item
+  source: MM-B, WITCH-1, ORACLE-1
+  traits:
+  - Liquid
+  - Magic
+  checks:
+  - difficulty: '4'
+    skills:
+    - Intelligence
+    - Wisdom
+  powers: Banish this card to examine the top 3 cards of your location deck. You may
+    succeed at a Wisdom or Divine 5 check to put them back in any order; otherwise,
+    shuffle your location deck.
+- name: Smoke Stick
+  category: boon
+  type: item
+  source: MM-1
+  traits:
+  - Tool
+  - Alchemical
+  checks:
+  - difficulty: '8'
+    skills:
+    - Intelligence
+    - Craft
+  powers: |-
+    At the start of your turn, discard this card to move any number of characters to your location.
+
+    Display this card next to your location. While displayed, add 1d8 to Stealth checks by characters at this location. At the end of the turn, banish this card.
+- name: Smoked Glass Goggles
+  category: boon
+  type: item
+  source: MM-B, ALCH-1, GOBF-B, ORACLE-B
+  traits:
+  - Accessory
+  checks:
+  - difficulty: '6'
+    skills:
+    - Intelligence
+    - Craft
+    - Wisdom
+    - Survival
+  powers: Recharge this card to add 1 die to your check that invokes the Electricity
+    or Fire trait.
+- name: Soul Stimulant
+  category: boon
+  type: item
+  source: MM-2
+  traits:
+  - Liquid
+  - Alchemical
+  checks:
+  - difficulty: '9'
+    skills:
+    - Intelligence
+    - Craft
+  powers: |-
+    Recharge this card to ignore a power that happens before or after you act on a non-villain bane that has the Undead trait.
+
+    Banish this card to banish a displayed card that has the Curse trait.
+- name: Spellbottle
+  category: boon
+  type: item
+  source: WOTR-3, MM-3, ALCH-3, DRUID-3, WITCH-3
+  traits:
+  - Object
+  - Magic
+  - Arcane
+  - Divine
+  checks:
+  - difficulty: '10'
+    skills:
+    - Arcane
+    - Divine
+  powers: Display this card and put a spell from your hand faceup on this card. You
+    may bury this card to draw the spell; you may succeed at a Craft 12 check to recharge
+    this card instead of burying it.
+- name: Staff of Minor Healing
+  category: boon
+  type: item
+  source: ROTR-1, MM-1, FIGHTER-1, MAGUS-2, RANGER-2, SUMMONER-1, UE-B, WITCH-3, WIZARD-2
+  traits:
+  - Staff
+  - Magic
+  - Divine
+  - Healing
+  checks:
+  - difficulty: '7'
+    skills:
+    - Wisdom
+    - Divine
+  powers: Recharge this card and choose a character at your location to recharge a
+    random card from his discard pile.
+- name: Staff of Revelations
+  category: boon
+  type: item
+  source: MM-3, OA1-3
+  traits:
+  - Staff
+  - Magic
+  - Arcane
+  checks:
+  - difficulty: '10'
+    skills:
+    - Intelligence
+    - Arcane
+  powers: |-
+    Reveal this card and recharge a spell to examine the top 2 cards of your location deck. If a card has the Elemental or Undead trait, you may encounter it; otherwise, put the cards back in any order.
+
+    At the start of your turn, reveal this card to examine the top card of your deck. You may return the examined card to the top or bottom of your deck.
+- name: Sunrod
+  category: boon
+  type: item
+  source: MM-4, ALCH-4
+  traits:
+  - Staff
+  - Attack
+  - Alchemical
+  checks:
+  - difficulty: '10'
+    skills:
+    - Strength
+    - Melee
+  - difficulty: '12'
+    skills:
+    - Intelligence
+    - Craft
+  powers: For your combat check, reveal this card and recharge an item that has the
+    Alchemical trait to use your Melee or Craft skill + 3d6. If the bane has the Poison
+    or Undead trait, add another 1d6.
+- name: Tears of Death
+  category: boon
+  type: item
+  source: MM-6, ALCH-6, UE-5
+  traits:
+  - Liquid
+  - Poison
+  - Alchemical
+  checks:
+  - difficulty: '13'
+    skills:
+    - Intelligence
+    - Craft
+  powers: If you used a weapon on your combat check, reveal this card to add 2d8 and
+    the Acid, Cold, or Poison trait. After the check, succeed at a Craft or Disable
+    12 check or Tears of Death deals 1d4+1 Poison damage to you then bury your discard
+    pile.
+- name: Twitch Tonic
+  category: boon
+  type: item
+  source: MM-B, ALCH-3, GOBF-3
+  traits:
+  - Liquid
+  - Alchemical
+  checks:
+  - difficulty: '6'
+    skills:
+    - Intelligence
+    - Craft
+  powers: |-
+    Discard this card to examine the top card of your location deck, then explore your location.
+
+    Banish this card to draw 1d4+1 random allies from your discard pile. Then you may shuffle any number of allies into your deck.
+- name: Wand of Scorching Ray
+  category: boon
+  type: item
+  source: ROTR-3, MM-3, SUMMONER-3, WIZARD-3
+  traits:
+  - Wand
+  - Attack
+  - Fire
+  - Ranged
+  - Magic
+  - Arcane
+  checks:
+  - difficulty: '8'
+    skills:
+    - Intelligence
+    - Arcane
+  powers: For your combat check, bury this card to roll 4d6.
+- name: Wing of Horus
+  category: boon
+  type: item
+  source: MM-B
+  traits:
+  - Trigger
+  - Object
+  - Magic
+  - Horus
+  checks:
+  - difficulty: '6'
+    skills:
+    - Dexterity
+    - Knowledge
+    - Divine
+  powers: |-
+    When you examine this card, you may reveal a blessing that has the Horus trait to acquire this card.
+
+    Recharge this card to add 1 die to your Dexterity non-combat check.
+
+    Recharge this card to add 1 die to your check against a bane that invokes the Electricity check.
+
+    Recharge this card to add the Electricity trait to your check.
+- name: Wyvern Poison
+  category: boon
+  type: item
+  source: CURSE-5
+  traits:
+  - Liquid
+  - Alchemical
+  - Poison
+  checks:
+  - difficulty: '12'
+    skills:
+    - Intelligence
+    - Craft
+  powers: |-
+    Display. While displayed:
+    * On your Melee or Ranged combat check, you may bury to add 1d12 and the Poison trait. If proficient, or if you have the Craft or Disable skill, you may reload instead.

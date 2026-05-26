@@ -1,0 +1,1183 @@
+type: weapon
+cards:
+- name: Axe of the Imperative
+  category: boon
+  type: weapon
+  source: MM-5
+  traits:
+  - Axe
+  - Melee
+  - Slashing
+  - Magic
+  checks:
+  - difficulty: '12'
+    skills:
+    - Strength
+    - Melee
+    - Perception
+  powers: For your combat check, reveal this card to use your Strength or Melee skill
+    +1d6+2; you may additionally discard this card to add another 1d8. If proficient
+    with weapons and the bane has a power thta happens before or after you act, add
+    another 1d8.
+- name: Blowgun
+  category: boon
+  type: weapon
+  source: MM-B, ALCH-B, GOBF-B, UE-B
+  traits:
+  - Blowgun
+  - Dart
+  - Ranged
+  - Piercing
+  - Poison
+  - Basic
+  checks:
+  - difficulty: '5'
+    skills:
+    - Dexterity
+    - Ranged
+    - Knowledge
+  powers: |-
+    For your combat check, reveal this card to use your Dexterity, Ranged, or Stealth skill + 1d4; you may additionally recharge this card to add another 1d6.
+
+    When playing another weapon that has the Ranged trait, you may discard this card to add 1d4 and the Poison trait to your combat check.
+- name: Bolas
+  category: boon
+  type: weapon
+  source: WOTR-B, WOTR-C, MM-C
+  traits:
+  - Chain
+  - Ranged
+  - Bludgeoning
+  - Basic
+  checks:
+  - difficulty: '5'
+    skills:
+    - Dexterity
+    - Ranged
+  powers: |-
+    For your combat check, reveal this card to use your Dexterity or Ranged skill + 1d4-1; you may additionally discard this card to add another 1d4-1. If you fail this check to defeat a non-villain monster and are proficient with weapons, you may put the monster on top of its location deck.
+
+    Discard this card to evade a monster you encounter whose highest difficulty to defeat is 12 or lower.
+- name: Chakram
+  category: boon
+  type: weapon
+  source: MM-B, UC-B
+  traits:
+  - Knife
+  - Ranged
+  - Slashing
+  - Elite
+  checks:
+  - difficulty: '6'
+    skills:
+    - Dexterity
+    - Ranged
+  powers: |-
+    If proficient with weapons, discard this card to ignore a non-villain monster's power that happens before you act.
+
+    For your combat check, reveal this card to use your Dexterity or Ranged skill + 1d8.
+
+    On your combat check, if you played another weapon, discard this card to add 1d4.
+- name: Chakram of Ruin
+  category: boon
+  type: weapon
+  source: MM-6, UW-6
+  traits:
+  - Knife
+  - Ranged
+  - Slashing
+  - Acid
+  - Magic
+  checks:
+  - difficulty: '13'
+    skills:
+    - Dexterity
+    - Ranged
+  powers: "For your combat check or your check against a barrier that has the Obstacle\
+    \ trait, reveal this card to use your Dexterity or Ranged skill + 1d8+3; you may\
+    \ additionally discard this card to add another 1d6+1. \n\nDuring your encounter,\
+    \ discard this card to ignore a non-villain monster's power that happens before\
+    \ you act.\n\nOn your combat check, if you played another weapon, discard this\
+    \ card to add 1d4+3 and the Acid trait."
+- name: Corrosive Dagger +1
+  category: boon
+  type: weapon
+  source: WOTR-B, MM-B, ALCH-B, HV2-B
+  traits:
+  - Knife
+  - Ranged
+  - Piercing
+  - Magic
+  - Elite
+  checks:
+  - difficulty: '7'
+    skills:
+    - Dexterity
+    - Ranged
+  powers: |-
+    For your combat check, reveal this card to use your Dexterity or Ranged skill + 1d4+1; you may additionally recharge this card to add another 1d4 and the Acid trait.
+
+    On your combat check, if you played another weapon, discard this card to add 1d4+1.
+- name: Crook and Flail of Kings
+  category: boon
+  type: weapon
+  source: MM-6, OA2-6
+  traits:
+  - Mace
+  - Staff
+  - Melee
+  - Blugeoning
+  - 2-Handed
+  - Magic
+  checks:
+  - difficulty: '13'
+    skills:
+    - Strength
+    - Melee
+    - Arcane
+    - Divine
+  powers: "For your combat check, reveal this card to use your Strength or Melee skill\
+    \ + 1d8+3; you may additionally discard this card to add another 1d6+3 and the\
+    \ Electricity trait. \n\nRecharge this card to add 1 die to your combat check\
+    \ that has the Attack trait."
+- name: Dagger of Doubling
+  category: boon
+  type: weapon
+  source: MM-3, GOBF-4
+  traits:
+  - Knife
+  - Ranged
+  - Piercing
+  - Magic
+  checks:
+  - difficulty: '10'
+    skills:
+    - Dexterity
+    - Ranged
+  powers: |-
+    For your combat check, reveal this card to use your Dexterity or Ranged skill + 1d4+1; you may additionally discard this card to add another 1d4, then search your deck for a weapon that has the Knife trait and add it to your hand.
+
+    When playing another weapon, you may discard this card to add 2d4 to your combat check.
+- name: Dancing Scimitar +2
+  category: boon
+  type: weapon
+  source: ROTR-5, MM-6, CLERIC-6, INQUIS-5, WARPRIEST-4
+  traits:
+  - Sword
+  - Melee
+  - Slashing
+  - Finesse
+  - Magic
+  checks:
+  - difficulty: '12'
+    skills:
+    - Strength
+    - Melee
+  powers: |-
+    For your combat check, reveal this card to use your Strength or Melee skill + 1d6+2; you may additionally recharge this card to add another 1d6+2. If not proficient with weapons, the difficulty of this check is increased by 4.
+
+    On your combat check, if you played another weapon, discard this card to add 1d6+2.
+- name: Disrupting Rapier +1
+  category: boon
+  type: weapon
+  source: MM-3, INQUIS-3, ORACLE-3, PFTALES-2, RANGER-3, ROGUE-3
+  traits:
+  - Sword
+  - Melee
+  - Piercing
+  - Finesse
+  - Swashbuckling
+  - Magic
+  checks:
+  - difficulty: '10'
+    skills:
+    - Strength
+    - Melee
+  powers: For your combat check, reveal this card to use your Strength or Melee skill
+    + 2d4+1; you may additionally discard this card to add another 1d4. Add 1d8 if
+    the bane has the Undead trait. If you aren't proficient with weapons, the difficulty
+    of this check is increased by 4.
+- name: Djinni Quarterstaff
+  category: boon
+  type: weapon
+  source: MM-B, MM-C, MAGUS-1, UM-1
+  traits:
+  - Staff
+  - Melee
+  - Bludgeoning
+  - 2-Handed
+  - Magic
+  - Elite
+  checks:
+  - difficulty: '6'
+    skills:
+    - Strength
+    - Melee
+  - difficulty: '8'
+    skills:
+    - Arcane
+    - Divine
+  powers: |-
+    For your combat check, reveal this card to use your Strength or Melee skill + 1d6+1; you may additionally discard this card to add another 1d6.
+
+    Discard this card to shuffle your location deck; you may succeed at an Arcane or Divine 10 check to recharge this card instead.
+- name: Explorer's Staff
+  category: boon
+  type: weapon
+  source: MM-C, MAGUS-B
+  traits:
+  - Staff
+  - Melee
+  - Bludgeoning
+  - 2-Handed
+  - Basic
+  checks:
+  - difficulty: '2'
+    skills:
+    - Strength
+    - Melee
+  powers: |-
+    For your combat check, reveal this card to use your Strength or Melee skill + 1d6; you may additionally discard this card to add another 1d6.
+
+    Discard this card to add 2 dice to your Disable check.
+- name: Falcata
+  category: boon
+  type: weapon
+  source: SS-B, MM-B, UC-B
+  traits:
+  - Sword
+  - Melee
+  - Slashing
+  - Elite
+  checks:
+  - difficulty: '7'
+    skills:
+    - Strength
+    - Melee
+  powers: For your combat check, reveal this card to use your Strength or Melee skill
+    + 2d4; you may additionally discard this card to add another 2d4. If not proficient
+    with weapons, the difficulty of this check is increased by 4. If any d4s rolled
+    on this check is a 4, count it as a 5.
+- name: Fate Blade
+  category: boon
+  type: weapon
+  source: MM-4
+  traits:
+  - Knife
+  - Ranged
+  - Piercing
+  - Magic
+  - Pharasma
+  checks:
+  - difficulty: '11'
+    skills:
+    - Dexterity
+    - Ranged
+    - Wisdom
+    - Divine
+  powers: |-
+    For your combat check, reveal this card to use your Dexterity or Ranged skill + 1d4+1; you may additionally recharge this card to add another 1d4. If you reveal a blessing that has the Pharasma trait, or if the bane has the Undead trait, add another 1d8.
+
+    On your combat check, if you played another weapon, discard this card to add 1d4+1.
+- name: Fighting Crook
+  category: boon
+  type: weapon
+  source: MM-C
+  traits:
+  - Club
+  - Melee
+  - Bludgeoning
+  - Elite
+  checks:
+  - difficulty: '9'
+    skills:
+    - Strength
+    - Melee
+  powers: For your combat check, reveal this card to use your Strength or Melee skill
+    + 2d4. If proficient with weapons, and the check is to defeat a monster that does
+    not have the Incorporeal or Ooze trait, you may additionally discard this card
+    to add your Dexterity skill. After the check, reveal an armor or you are dealt
+    1 Combat damage.
+- name: Fire Kukri +1
+  category: boon
+  type: weapon
+  source: MM-1
+  traits:
+  - Knife
+  - Melee
+  - Slashing
+  - Fire
+  - Finesse
+  - Magic
+  - Elite
+  checks:
+  - difficulty: '6'
+    skills:
+    - Strength
+    - Melee
+  powers: |-
+    For your combat check, reveal this card to use your Strength or Melee skill + 1d4+1. If proficient with weapons, you may additionally recharge this card to add another 2d4.
+
+    On your combat check, if you played another weapon, discard this card to add 1d4.
+- name: Fire Lance
+  category: boon
+  type: weapon
+  source: SS-B, MM-B, ALCH-1
+  traits:
+  - Firearm
+  - Ranged
+  - Piercing
+  - 2-Handed
+  - Alchemical
+  - Elite
+  checks:
+  - difficulty: '5'
+    skills:
+    - Dexterity
+    - Ranged
+    - Craft
+  powers: |-
+    For your combat check, bury this card to roll 2d12.
+
+    For your combat check, banish this card to roll 4d8.
+- name: Flaming Heavy Pick +1
+  category: boon
+  type: weapon
+  source: WOTR-C, MM-B, GOBB-1
+  traits:
+  - Pick
+  - Melee
+  - Piercing
+  - Magic
+  - Elite
+  checks:
+  - difficulty: '12'
+    skills:
+    - Strength
+    - Melee
+  powers: For your combat check, reveal this card to use your Strength or Melee skill
+    + 1d6+1; you may additionally discard this card to add another 1d6 and the Fire
+    trait. If any d6 rolled on this check is a 6, count it as 7.
+- name: Flaming Ranseur +3
+  category: boon
+  type: weapon
+  source: ROTR-5, MM-5, BARB-5, FIGHTER-5
+  traits:
+  - Polearm
+  - Melee
+  - Slashing
+  - 2-Handed
+  - Magic
+  checks:
+  - difficulty: '12'
+    skills:
+    - Strength
+    - Melee
+  powers: For your combat check, reveal this card to use your Strength or Melee skill
+    + 2d4+3; you may additionally discard this card to add another 1d10 and the Fire
+    trait. If not proficient with weapons, the difficulty of this check is increased
+    by 4. If you fail this check, you may discard this card to ignore the result and
+    reroll the dice; take the new result.
+- name: Flaming Spear +1
+  category: boon
+  type: weapon
+  source: WOTR-2, MM-2
+  traits:
+  - Spear
+  - Ranged
+  - Piercing
+  - Magic
+  - Elite
+  checks:
+  - difficulty: '9'
+    skills:
+    - Dexterity
+    - Ranged
+  powers: |-
+    For your combat check, reveal this card to use your Dexterity or Ranged skill + 1d8+1; you may additionally recharge this card to add another 1d6 and the Fire trait.
+
+    If proficient with weapons, discard this card to add 1d4+1 to a combat check by a character at another location.
+- name: Flask Thrower
+  category: boon
+  type: weapon
+  source: MM-2, ALCH-3, GOBB-4
+  traits:
+  - Sling
+  - Ranged
+  - Bludgeoning
+  - Elite
+  checks:
+  - difficulty: '8'
+    skills:
+    - Dexterity
+    - Ranged
+  powers: |-
+    For your combat check, reveal this card to use your Dexterity or Ranged skill + 1d6. You may additionally discard an item that has the Alchemical trait to add another 2d6 and that item's traits.
+
+    If proficient with weapons, you may discard this card and banish an item that has the Alchemical trait to add 2d6 and that item's traits to a combat check by a character at another location.
+- name: Frost Sling +1
+  category: boon
+  type: weapon
+  source: SORCERER-1, MM-1
+  traits:
+  - Sling
+  - Ranged
+  - Bludgeoning
+  - Magic
+  checks:
+  - difficulty: '6'
+    skills:
+    - Dexterity
+    - Ranged
+  powers: For your combat check, reveal this card to use your Dexterity or Ranged
+    skill + 1d6+1; you may additionally discard this card to add another 2d4 and the
+    Cold trait.
+- name: Galvanic Chakram +1
+  category: boon
+  type: weapon
+  source: MM-1, ALCH-1, HV2-1, UE-1
+  traits:
+  - Knife
+  - Ranged
+  - Slashing
+  - Electricity
+  - Magic
+  - Elite
+  checks:
+  - difficulty: '8'
+    skills:
+    - Dexterity
+    - Ranged
+  powers: |-
+    For your combat check, reveal this card to use your Dexterity or Ranged skill + 1d8+1; you may additionally discard this card to add another 1d6.
+
+    If proficient with weapons, discard this card to ignore a non-villain monster's power that happens before you act.
+
+    When playing another weapon, if proficient with weapons, you may discard this card to add 1d4+1 and the Electricity trait to your combat check.
+- name: Galvanic Kopis +2
+  category: boon
+  type: weapon
+  source: MM-5, ALCH-5
+  traits:
+  - Knife
+  - Ranged
+  - Slashing
+  - Electricity
+  - Magic
+  checks:
+  - difficulty: '10'
+    skills:
+    - Dexterity
+    - Ranged
+  powers: |-
+    For your combat check, reveal this card to use your Dexterity or Ranged skill + 1d4+2; you may additionally recharge this card to add another 2 to your check for each die rolled.
+
+    When playing another weapon, you may discard this card to add 1d4+2 and the Electricity trait to your combat check.
+- name: Garrote
+  category: boon
+  type: weapon
+  source: GOBF-B, MM-B
+  traits:
+  - Chain
+  - Melee
+  - Slashing
+  - Gambling
+  - Veteran
+  checks:
+  - difficulty: '7'
+    skills:
+    - Strength
+    - Melee
+  powers: For your combat check, discard this card to use your Strength or Melee skill
+    + 1d4. If proficient with weapons, you may add 10 to your result. If the value
+    of any die is a 1, the bane is undefeated; otherwise, add the scenario's adventure
+    deck number to the result.
+- name: Glacial Hunga Munga
+  category: boon
+  type: weapon
+  source: MM-6
+  traits:
+  - Axe
+  - Ranged
+  - Piercing
+  - Cold
+  - Magic
+  checks:
+  - difficulty: '13'
+    skills:
+    - Dexterity
+    - Ranged
+  powers: |-
+    For your combat check, reveal this card to use your Strength skill + 1d6+2. You may additionally discard this card to add your Ranged skill.
+
+    If proficient with weapons, reveal this card to ignore a non-villain, non-henchman monster's power that happens before you act.
+
+    On your combat check, if you played another weapon, discard this card to add your Strength or Melee skill.
+- name: Glacial Khopesh +1
+  category: boon
+  type: weapon
+  source: MM-1
+  traits:
+  - Sword
+  - Melee
+  - Slashing
+  - Cold
+  - Magic
+  - Elite
+  checks:
+  - difficulty: '9'
+    skills:
+    - Strength
+    - Melee
+  powers: |-
+    For your combat check, reveal this card to use your Strength or Melee skill + 1d8+1. If proficient with weapons, you may additionally discard this card to add 2 and the Bludgeoning trait to your check for each die you roll.
+
+    Recharge this card to ignore a non-villain bane's power that happens after you act.
+- name: Greatclub +1
+  category: boon
+  type: weapon
+  source: MM-2, BARB-1, CLERIC-2, DRUID-3, RANGER-2, WARPRIEST-2
+  traits:
+  - Club
+  - Melee
+  - Bludgeoning
+  - 2-Handed
+  - Magic
+  checks:
+  - difficulty: '8'
+    skills:
+    - Strength
+    - Melee
+  powers: For your combat check, reveal this card to use your Strength or Melee skill
+    + 1d10+1; you may additionally discard this card to add your Strength die. If
+    not proficient with weapons, the difficulty of this check is increased by 4.
+- name: Hunga Munga
+  category: boon
+  type: weapon
+  source: MM-B
+  traits:
+  - Axe
+  - Ranged
+  - Piercing
+  - Elite
+  checks:
+  - difficulty: '9'
+    skills:
+    - Dexterity
+    - Ranged
+  powers: |-
+    For your combat check, reveal this card to use your Strength skill + 1d6. You may additionally disccard this card to add your Ranged skill.
+
+    If you are proficient with weapons, on your combat check, if you played another weapon, discard this card to add your Strength or Melee skill.
+- name: Iceblade Spelldagger
+  category: boon
+  type: weapon
+  source: MM-5, UM-5, OA1-5
+  traits:
+  - Knife
+  - Ranged
+  - Piercing
+  - Cold
+  - Magic
+  checks:
+  - difficulty: '12'
+    skills:
+    - Dexterity
+    - Ranged
+  - difficulty: '10'
+    skills:
+    - Arcane
+    - Divine
+  powers: "For your combat check, reveal this card to use your Dexterity or Ranged\
+    \ skill + 1d4+3. \n\nOn your combat check, if you played a spell, recharge this\
+    \ card to add 1d4+2 and the Cold trait."
+- name: Icy Longspear +1
+  category: boon
+  type: weapon
+  source: ROTR-C, MM-C
+  traits:
+  - Spear
+  - Melee
+  - Piercing
+  - 2-Handed
+  - Magic
+  checks:
+  - difficulty: '10'
+    skills:
+    - Strength
+    - Melee
+  powers: For your combat check, reveal this card to use your Strength or Melee skill
+    + 1d8+1 and add the Cold trait. If you would fail this check, you may discard
+    this card to reroll the dice; take the new result.
+- name: Javelin of Lightning
+  category: boon
+  type: weapon
+  source: WOTR-2, MM-2, ALCH-2, GOBF-2, INQUIS-2, UW-2, OA1-1
+  traits:
+  - Spear
+  - Ranged
+  - Piercing
+  - Magic
+  - Elite
+  checks:
+  - difficulty: '10'
+    skills:
+    - Dexterity
+    - Ranged
+  powers: "For your combat check, bury this card to use your Dexterity or Ranged skill\
+    \ + 2d6+1; you may additionally banish this card to add another 4d6+2 and the\
+    \ Electricity trait. \n\nAfter playing this card, you may succeed at an Arcane\
+    \ or Divine 14 check to recharge this card instead of burying or banishing it."
+- name: Khopesh
+  category: boon
+  type: weapon
+  source: MM-B, MM-C, HV1-B, ORACLE-B
+  traits:
+  - Sword
+  - Melee
+  - Slashing
+  - Basic
+  checks:
+  - difficulty: '5'
+    skills:
+    - Strength
+    - Melee
+  powers: For your combat check, reveal this card to use your Strength or Melee skill
+    + 1d8. If proficient with weapons, you may additionally discard this card to add
+    1 for each die you roll and the Bludgeoning trait.
+- name: Kopis
+  category: boon
+  type: weapon
+  source: MM-B, HV2-B, UW-B
+  traits:
+  - Knife
+  - Ranged
+  - Slashing
+  - Basic
+  checks:
+  - difficulty: '5'
+    skills:
+    - Dexterity
+    - Ranged
+  powers: |-
+    For your combat check, reveal this card to use your Dexterity or Ranged skill + 1d4; you may additionally recharge this card to add 1 for each die you roll.
+
+    On your combat check, if you played another weapon, discard this card to add 1d4.
+- name: Kukri
+  category: boon
+  type: weapon
+  source: MM-B, PFTALES-B
+  traits:
+  - Knife
+  - Melee
+  - Slashing
+  - Finesse
+  - Basic
+  checks:
+  - difficulty: '4'
+    skills:
+    - Strength
+    - Melee
+  powers: |-
+    For your combat check, reveal this card to use your Strength or Melee skill + 1d4. If proficient with weapons, you may additionally recharge this card to add another 2d4.
+
+    On your combat check, if you played another weapon, discard this card to add 1d4.
+- name: Mace of Ruin
+  category: boon
+  type: weapon
+  source: MM-4
+  traits:
+  - Mace
+  - Melee
+  - Bludgeoning
+  - Acid
+  - Magic
+  checks:
+  - difficulty: '11'
+    skills:
+    - Strength
+    - Melee
+  powers: |-
+    For your combat check, reveal this card to use your Strength or Melee skill + 1d8+1; you may additionally discard this card to add another 1d4.
+
+    Recharge this card to add your Strength or Melee skill to your check to defeat a bane that has the Obstacle trait.
+- name: Ooze Falchion +1
+  category: boon
+  type: weapon
+  source: MM-2
+  traits:
+  - Sword
+  - Melee
+  - Slashing
+  - Acid
+  - Magic
+  - Elite
+  checks:
+  - difficulty: '8'
+    skills:
+    - Strength
+    - Melee
+  powers: |-
+    For your combat check, reveal this card to use your Strength or Melee skill + 2d4+1; you may additionally discard this card to add another 1d6. If not proficient with weapons, the difficulty of this check is increased by 4. If any d4 rolled on this check is a 4, count it as 5.
+
+    Recharge this card to add your Strength or Melee skill to your check to defeat a barrier that has the Obstacle trait.
+- name: Poisoned Sand Tube
+  category: boon
+  type: weapon
+  source: MM-B, ALCH-B, GOBB-B
+  traits:
+  - Blowgun
+  - Ranged
+  - Poison
+  - Alchemical
+  - Elite
+  checks:
+  - difficulty: '4'
+    skills:
+    - Intelligence
+    - Craft
+    - Knowledge
+    - Ranged
+  powers: For your combat check, banish this card to use your Intelligence skill +
+    2d8; you may succeed at a Craft 8 check to bury this card instead. After you act,
+    each character at your location is dealt 1 Poison damage.
+- name: Returning Throwing Axe +1
+  category: boon
+  type: weapon
+  source: ROTR-B, RANGER-1, MM-1, UC-1
+  traits:
+  - Axe
+  - Ranged
+  - Slashing
+  - Magic
+  checks:
+  - difficulty: '8'
+    skills:
+    - Dexterity
+    - Ranged
+  powers: For your combat check, reveal this card to use your Dexterity or Ranged
+    skill + 1d8+1; you may additionally recharge this card to add another 1d6. If
+    not proficient with weapons, the difficulty of this check is increased by 4.
+- name: Rod of the Devoured Dawn
+  category: boon
+  type: weapon
+  source: MM-5, OA2-5
+  traits:
+  - Staff
+  - Melee
+  - Bludgeoning
+  - 2-Handed
+  - Magic
+  checks:
+  - difficulty: '12'
+    skills:
+    - Strength
+    - Melee
+  powers: "For your combat check, reveal this card to use your Strength or Melee skill\
+    \ + 1d6+2; you may additionally discard this card to add another 1d6+2. \n\nReveal\
+    \ this card and discard a card that has the Divine trait to ignore a non-villain\
+    \ monster's power that happens after you act."
+- name: Scimitar
+  category: boon
+  type: weapon
+  source: ROTR-B, ROTR-C, MM-B, CLERIC-B, CLERIC-1, DRUID-B, WARPRIEST-B
+  traits:
+  - Sword
+  - Melee
+  - Slashing
+  - Finesse
+  - Elite
+  checks:
+  - difficulty: '7'
+    skills:
+    - Strength
+    - Melee
+  powers: For your combat check, reveal this card to use your Strength or Melee skill
+    + 1d6; you may additionally discard this card to add another 1d6+1. If not proficient
+    with weapons, the difficulty of this check is increased by 4.
+- name: Scorpion Whip
+  category: boon
+  type: weapon
+  source: MM-1, UE-1
+  traits:
+  - Whip
+  - Melee
+  - Piercing
+  - Poison
+  - Finesse
+  - Elite
+  checks:
+  - difficulty: '8'
+    skills:
+    - Strength
+    - Melee
+  powers: For your combat check, reveal this card to use your Strength or Melee skill
+    + 1d8. If proficient with weapons, you may add or subtract 3 from your result.
+    If proficient with weapons and you would fail this check, you may discard this
+    card to ignore the result and evade the bane.
+- name: Shattertouch Shotel +2
+  category: boon
+  type: weapon
+  source: MM-4
+  traits:
+  - Sword
+  - Melee
+  - Slashing
+  - Finesse
+  - Magic
+  checks:
+  - difficulty: '12'
+    skills:
+    - Strength
+    - Melee
+    - Wisdom
+  powers: For your combat check, reveal this card to use your Strength or Melee skill
+    + 1d6+2. If the bane has the Construct or Golem trait, add another 1d8 and ignore
+    the bane's immunities during this check. If proficient with weapons, you may additionally
+    discard this card to add 2 to your check for each die you roll and the Cold and
+    Electricity traits.
+- name: Shock Glaive +1
+  category: boon
+  type: weapon
+  source: BARB-2, FIGHTER-1, MM-1, UC-2
+  traits:
+  - Polearm
+  - Melee
+  - Slashing
+  - 2-Handed
+  - Magic
+  checks:
+  - difficulty: '11'
+    skills:
+    - Strength
+    - Melee
+  powers: For your combat check, reveal this card to use your Strength or Melee skill
+    + 1d10+1; you may additionally discard this card to add another 1d8 and the Electricity
+    trait. If not proficient with weapons, the difficulty of this check is increased
+    by 4. If you would fail this check, you may discard this card to reroll the dice;
+    take the new result.
+- name: Shocking Scimitar +2
+  category: boon
+  type: weapon
+  source: MM-3
+  traits:
+  - Sword
+  - Melee
+  - Slashing
+  - Finesse
+  - Magic
+  checks:
+  - difficulty: '11'
+    skills:
+    - Strength
+    - Melee
+  powers: |-
+    For your combat check, reveal this card to use your Strength or Melee skill +1d6+2. If proficient with weapons, you may additionally discard this card to add another 1d6+1 and the Electricity trait.
+
+    If proficient with weapons, discard this card to ignore a non-villain monster's power that happens before you act.
+- name: Shotel
+  category: boon
+  type: weapon
+  source: MM-B
+  traits:
+  - Sword
+  - Melee
+  - Slashing
+  - Finesse
+  - Elite
+  checks:
+  - difficulty: '7'
+    skills:
+    - Strength
+    - Melee
+  powers: For your combat check, reveal this card to use your Strength or Melee skill
+    + 1d6; you may additionally discharge this card to add 2 for each die you roll.
+    If not proficient with weapons, the difficulty of this check is increased by 4.
+- name: Sling Staff
+  category: boon
+  type: weapon
+  source: MM-B, ALCH-B, GOBB-B
+  traits:
+  - Sling
+  - Staff
+  - Ranged
+  - Bludgeoning
+  - 2-Handed
+  - Elite
+  checks:
+  - difficulty: '8'
+    skills:
+    - Dexterity
+    - Ranged
+  powers: |-
+    For your combat check, reveal this card to use your Dexterity or Ranged skill + 1d6; you may additionally discard this card to add your Strength die.
+
+    If proficient with weapons, you may discard this card and banish an item that has the Alchemical trait to add 2d6 and that item's traits to a combat check by a character at another location.
+- name: Sling Staff +2
+  category: boon
+  type: weapon
+  source: MM-6, ALCH-6
+  traits:
+  - Sling
+  - Staff
+  - Ranged
+  - Bludgeoning
+  - Magic
+  - 2-Handed
+  checks:
+  - difficulty: '12'
+    skills:
+    - Dexterity
+    - Ranged
+  powers: |-
+    For your combat check, reveal this card to use your Dexterity or Ranged skill + 1d6+2; you may additionally discard this card to add your Strength or Melee skill.
+
+    If proficient with weapons, you may discard this card and banish an item that has the Alchemical trait to add 2d6 and that item's traits to any combat check.
+
+    If proficient with weapons, you may recharge this card to give an item that has the Alchemical or Liquid trait to another character.
+- name: Spelldagger
+  category: boon
+  type: weapon
+  source: MM-C, OA1-B, OA2-B, UM-B
+  traits:
+  - Knife
+  - Ranged
+  - Piercing
+  - Magic
+  - Elite
+  checks:
+  - difficulty: '4'
+    skills:
+    - Dexterity
+    - Ranged
+    - Arcane
+  powers: |-
+    For your combat check, reveal this card to use your Dexterity or Ranged skill + 1d4+1.
+
+    On your combat check, if you played a spell that has the Attack trait, discard this card to add 1d4.
+- name: Spellsword +2
+  category: boon
+  type: weapon
+  source: SS-4, MM-4, CLERIC-4, WIZARD-4, MAGUS-4, PALADIN-4, GOBB-4
+  traits:
+  - Sword
+  - Melee
+  - Slashing
+  - Magic
+  checks:
+  - difficulty: '11'
+    skills:
+    - Strength
+    - Melee
+    - Arcane
+    - Divine
+  powers: |-
+    For your combat check, reveal this card to use your Strength or Melee skill + 1d8+2; you may additionally discard this card to add another 1d6. If not proficient with weapons, the difficulty of this check is increased by 4.
+
+    Recharge this card to recharge a random spell from your discard pile.
+- name: Staff of Dark Flame
+  category: boon
+  type: weapon
+  source: MM-3, OA1-3, SUMMONER-3, UM-3
+  traits:
+  - Staff
+  - Melee
+  - Bludgeoning
+  - 2-Handed
+  - Magic
+  - Elite
+  checks:
+  - difficulty: '12'
+    skills:
+    - Strength
+    - Melee
+    - Arcane
+    - Divine
+  powers: "For your combat check, reveal this card to use your Strength or Melee skill\
+    \ + 1d6+1; you may additionally discard this card to add another 1d6 and the Fire\
+    \ trait. \n\nReveal this card and discard a spell to decrease the difficulty of\
+    \ any combat check by 1d6+1."
+- name: Staff of Focus
+  category: boon
+  type: weapon
+  source: MM-B
+  traits:
+  - Staff
+  - Melee
+  - Bludgeoning
+  - 2-Handed
+  - Magic
+  - Elite
+  checks:
+  - difficulty: '6'
+    skills:
+    - Strength
+    - Melee
+    - Arcane
+    - Divine
+  powers: |-
+    For your combat check, reveal this card to use your Strength or Melee skill + 1d6+1.
+
+    Discard this card, or reveal this card and discard a spell, to automatically succeed at your Arcane or Divine recharge check.
+- name: Staff of the Hooded Cobra
+  category: boon
+  type: weapon
+  source: MM-6, HV2-5
+  traits:
+  - Staff
+  - Melee
+  - Bludgeoning
+  - 2-Handed
+  - Magic
+  checks:
+  - difficulty: '14'
+    skills:
+    - Strength
+    - Melee
+  powers: |-
+    For your combat check, reveal this card to use your Strength or Melee skill + 1d6+3; you may additionally discard this card to add another 1d12+3 and the Poison trait. You may use the result for any subsequent combat checks against the same bane.
+
+    Reveal this card and discard a spell to reduce all Combat or Poison damage dealt to you to 0.
+- name: Staff of the Uraeus
+  category: boon
+  type: weapon
+  source: MM-3, OA2-3
+  traits:
+  - Staff
+  - Melee
+  - Bludgeoning
+  - 2-Handed
+  - Poison
+  - Magic
+  - Elite
+  checks:
+  - difficulty: '10'
+    skills:
+    - Strength
+    - Melee
+    - Charisma
+  powers: |-
+    For your combat check, reveal this card to use your Strength or Melee skill + 1d6+2; you may additionally discard this card to add another 1d6+2. During this encounter, you may use the result on any subsequent combat checks against the same bane.
+
+    Reveal this card and discard a spell to evade a monster or add 1d8 to your Diplomacy check.
+- name: Striking Wing Scimitar
+  category: boon
+  type: weapon
+  source: MM-4, INQUIS-3, PFTALES-3, WARPRIEST-5
+  traits:
+  - Sword
+  - Melee
+  - Slashing
+  - Finesse
+  - Magic
+  checks:
+  - difficulty: '12'
+    skills:
+    - Strength
+    - Melee
+  powers: |-
+    For your combat check, reveal this card to use your Strength or Melee skill + 1d6+2; you may additionally discard this card to add another 1d6+1. If not proficient with weapons, the difficulty of this check is increased by 4.
+
+    Recharge this card to move. You may not use this power during an encounter.
+- name: Thousand Stings Whip
+  category: boon
+  type: weapon
+  source: MM-4, HV2-4
+  traits:
+  - Whip
+  - Melee
+  - Piercing
+  - Finesse
+  - Poison
+  - Magic
+  checks:
+  - difficulty: '11'
+    skills:
+    - Strength
+    - Melee
+  powers: When you encounter a monster, reveal this card to ignore any powers on a
+    non-villain, non-henchman monster that happen before you act, then for your combat
+    check, use your Strength or Melee skill + 1d8+1. If proficient with weapons, you
+    may add or subtract 4 from your result. If you would fail this check, and if proficient
+    with weapons, after you roll, you may discard this card to ignore the result and
+    evade the bane instead.
+- name: Torch
+  category: boon
+  type: weapon
+  source: MM-B, GOBB-B, GOBF-B, HV1-B
+  traits:
+  - Club
+  - Melee
+  - Bludgeoning
+  - Fire
+  - Basic
+  checks:
+  - difficulty: '4'
+    skills:
+    - Strength
+    - Intelligence
+    - Wisdom
+  powers: |-
+    For your combat check, reveal this card to use your Strength or Melee skill + 1; you may additionally discard this card to add another 2d4.
+
+    Bury this card to explore your location.
+- name: Twin Serpent Quarterstaff
+  category: boon
+  type: weapon
+  source: MM-C, MAGUS-3
+  traits:
+  - Staff
+  - Melee
+  - Bludgeoning
+  - 2-Handed
+  - Magic
+  - Nethys
+  - Elite
+  checks:
+  - difficulty: '9'
+    skills:
+    - Strength
+    - Melee
+    - Arcane
+  powers: |-
+    For your combat check, reveal this card to use your Strength or Melee skill + 1d6+1; you may additionally discard this card to add another 1d6.
+
+    Reveal this card and discard a card that has the Nethys trait or a spell to add 2d4 and the Attack, Force, and Magic traits to a combat check by a character at another location.
+- name: Venomous Heavy Crossbow +2
+  category: boon
+  type: weapon
+  source: ROTR-5, MM-5, INQUIS-5, ROGUE-5, UE-5
+  traits:
+  - Bow
+  - Ranged
+  - Piercing
+  - 2-Handed
+  - Magic
+  checks:
+  - difficulty: '10'
+    skills:
+    - Dexterity
+    - Ranged
+  powers: |-
+    For your combat check, reveal this card to use your Dexterity or Ranged skill + 1d10+2; you may additionally discard this card to add another 1d12 and the Poison trait. If not proficient with weapons, the difficulty of this check is increased by 4.
+
+    If proficient with weapons, discard this card to add 1d4+2 and the Poison trait to a combat check by a character at another location.
+- name: Whip
+  category: boon
+  type: weapon
+  source: SS-B, MM-B, MM-C, HV1-B, HV2-B, INQUIS-B, ROGUE-B
+  traits:
+  - Whip
+  - Melee
+  - Slashing
+  - Finesse
+  - Swashbuckling
+  - Basic
+  checks:
+  - difficulty: '7'
+    skills:
+    - Strength
+    - Melee
+  powers: For your combat check, reveal this card to use your Strength or Melee skill
+    + 1d6. If you fail this check and are proficient with weapons, you may discard
+    this card to ignore the result and evade the bane.

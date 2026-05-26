@@ -1,0 +1,130 @@
+id: '5'
+name: The Slave Trenches of Hakotep
+reward: Each character gains a power feat.
+during: The scourge die is 1d8+1. When you are dealt Poison damage, if that damage
+  is not reduced to 0, suffer the scourge Curse of the Ravenous.
+scenarios:
+- id: 5-1
+  name: In Defense of Wati
+  flavor: The tomb of the Forgotten Pharaoh's most Devoted General rises over the
+    horizon. As it drifts over the most populated areas of Wati, it drops undead abominations
+    upon the citizens. The worst of these is Kor-An-Tuk, a fearsome mummified gorgon.
+    The Voices of the Spire call for your aid in defending the souls, both living
+    and dead, that reside in the city.
+  villain: Devoted General
+  henchmen:
+  - Ossumental Swarm
+  - Voices of the Spire
+  locations:
+  - Dye Market
+  - Sulfur Pits
+  - Tooth & Hookah
+  - Smoking Den
+  - Warehouse
+  - Dilapidated Plaza
+  - Brickworks
+  - Peasant Tombs
+  during: At the start of each turn, display the location Five-Pointed Sun next to
+    a random location. While displayed, treat that location as if it had the same
+    text as Five-Pointed Sun. At the end of each turn, if that location is unoccupied,
+    add a random monster from the box to the top of that location deck.
+  reward: Each character gains a skill feat.
+- id: 5-2
+  name: Activating the Sekrepheres
+  flavor: The flying tomb-fortresses of the Sky Pharaoh are powered by channeling
+    the elements with the giant earthworks known as the Slave Trenches of Hakotep.
+    You seek to end the Sky Pharaoh's invasion by cutting off its power at the source.
+    Each Sekrephere resonates with the energy of an element—align this power to access
+    the secret beneath the trenches.
+  villain: None
+  henchmen:
+  - Sekrephere
+  - plural1=Sekrepheres
+  locations:
+  - Earthworks
+  - Elemental Trenches
+  - Sculptors' Lair
+  - Catacombs
+  - Sulfur Pits
+  - Towering Obelisk
+  - Brickworks
+  - Quarry
+  during: After building the location decks, shuffle the villain Dusk-Taker into a
+    random location deck.If the top card of the blessings discard pile has the Acid,
+    Cold, Electricity, or Fire trait, add that trait to all checks.To win the scenario,
+    permanently close all of the locations.
+  reward: 'Loot: Khai-Utef'
+- id: 5-3
+  name: Lanterns of the Bone Fields
+  flavor: The mountain that rises over the vast Slave Trenches of Hakotep is the resting
+    place of humans and elementals worked to death during the few short years of its
+    construction. Pick through the mountain of bones to find the keys to control the
+    chambers. Take care what you may awaken, though, for the dead rest fitfully; there
+    is much anger that remains.
+  villain: Sensuret the Tribe-Eater
+  henchmen:
+  - Ossumental Swarm
+  - plural1=Ossumental Swarms
+  locations:
+  - Garden of Ossumentals
+  - Guardian Vault
+  - Peasant Tombs
+  - Shifting Dunes
+  - Mausoleum
+  - Scorched Ruins
+  - Crypt
+  - Catacombs
+  during: |-
+    After adding the villain and henchmen, make a stack of the loot Life Lantern and Pharaoh's Key and a number of the scourge Curse of Poisoning equal to the number of players. Shuffle 1 random card from this stack into each location.
+    When closing a location, before closing, automatically acquire any loot in it. When the Life Lantern and Pharaoh's Key have been acquired, summon and build the location Elemental Trenches. You win the scenario only when you close the Elemental Trenches; if you lose the scenario, return both loot cards to the box. (You do not have to defeat and corner the villain.)
+  reward: Each character gains a power feat.
+- id: 5-4
+  name: Hall of Crawling Fears
+  flavor: In the chambers beneath the trenches, many great minds once toiled for the
+    glory of the Sky Pharaoh. They are preserved by memory-consuming cenovaths confined
+    in canopic jars scattered among the chamber workshops. One of these jars holds
+    the soul of Hakotep's sorcerer Ptenoneph, keeper of many of this place's secrets.
+  villain: None
+  henchmen:
+  - Memory Cenovath
+  - Sky Pharaoh Guardian
+  - plural2=Sky Pharaoh Guardians
+  locations:
+  - Sculptors' Lair
+  - Smoking Den
+  - Stonework Passages
+  - Crypt
+  - Alchemical Laboratory
+  - Embalming Parlor
+  - Peasant Tombs
+  - Guardian Vault
+  during: |-
+    Once each turn, when you examine or encounter a card, you may be dealt 1d4 Combat damage to add 1d8 to your checks until the end of the turn.
+
+    To win the scenario, defeat and corner the villain Canopic Soul
+  reward: Each character gains a skill feat.
+- id: 5-5
+  name: Tef-Naju's Bastion
+  flavor: The secrets of the trenches unlocked and their mechanisms shut down, all
+    that remains is to track down the Sky Pharaoh's Pyramid. Yet Tef-Naju, a powerful
+    shaitan jinn bound by Hakotep, is loath to see you leave. Eons with only his companion
+    Aivera are lonely years indeed. If you won't stay willingly, perhaps his army
+    of stone golems can convince you.
+  villain: Tef-Naju
+  henchmen:
+  - Aiveria
+  - Warrior Dolls
+  locations:
+  - Elemental Trenches
+  - Five-Pointed Sun
+  - Garden of Ossumentals
+  - Guardian Vault
+  - Thornscrub
+  - Howling Sands
+  - Crypt
+  - Alchemical Laboratory
+  during: |-
+    At the end of your turn, you may bury the top card of your deck to move.
+
+    At the end of your turn, if the location Five-Pointed Sun is unoccupied, add a monster from the box to the top of that location deck.
+  reward: Each character gains a card feat.

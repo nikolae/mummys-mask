@@ -1,0 +1,137 @@
+id: '2'
+name: Empty Graves
+reward: Each character gains a power feat.
+during: The scourge die is 1d6. When you are dealt Poison damage, if that damage is
+  not reduced by at least 1, suffer the scourge Curse of Poisoning.
+scenarios:
+- id: 2-1
+  name: Evening at the Canny Jackal
+  flavor: With treasures pouring in from the necropolis, the Canny Jackal auction
+    house is the jewel of Wati's merchant district. Antiquities arrive in the hands
+    of scavengers, but when those hands are dishonest, they are mounted on the Pillar
+    of Second Thoughts as warning. All eyes are on the auctioneer. Has anyone noticed
+    that the hands seem to be twitching?
+  villain: Amadjawet
+  henchmen:
+  - Crawling Hands
+  locations:
+  - Alchemical Laboratory
+  - Canny Jackal
+  - Warehouse
+  - Dilapidated Plaza
+  - Smoking Den
+  - Dye Market
+  - Caravanserai
+  - Hot Springs
+  during: |-
+    When you would encounter a non-villain, non-henchman monster, banish it and summon and encounter the henchman Natron Zombie instead.
+
+    You may discard the top card of the blessings deck to evade a monster; if you do, you are dealt 1d4-1 Combat damage.
+
+    If Amadjawet is defeated and cannot escape, banish her.
+
+    To win the scenario, each character's hand, deck, and discard pile must total at least 21 cards.
+  reward: 'Each character gains a skill feat. Trader: Auction House'
+- id: 2-2
+  name: Panic in the Streets
+  flavor: The Embalming District suddenly got a lot more exciting. The dead are rising
+    and the citizens of Wati are in a panic. Psychopomp spirits charged with marshalling
+    the dead are moving in, but they're even more terrifying than the newly risen
+    dead! Do what you can to assert order, or Old Eye-Taker will do it—and he was
+    a nasty judge when he was alive.
+  villain: None
+  henchmen:
+  - Old Eye-Taker
+  - Ajin Ra Baqa
+  - Widow and Dearly Departed
+  - Esobok
+  locations:
+  - Hall of Blessed Rebirth
+  - Precinct of Left Eyes
+  - The Shiny Bauble
+  - Tarworks
+  - Tooth & Hookah
+  - Ghoul Square
+  - Vizier's Hill
+  - Sepulcher of the Servant
+  during: |-
+    When setting up, add 5 blessings from the box to a panic deck.
+
+    When you fail a check against a henchman, add a blessing from the box to the panic deck. When you defeat a henchman, banish a card from the panic deck. If the panic deck contains 10 or more cards, you lose the scenario. To win the scenario, close all locations.
+  reward: 'Loot: Hand of the Honest Man'
+- id: 2-3
+  name: Chains of Silver
+  flavor: Respect the dead, the Pharasmins said. Grinding up corpses to make an alchemical
+    drug doesn't make the Voices of the Spire happy. Rumor is the Silver Chain gang
+    is dabbling in Mumia production. A shipment is set to be smuggled out tonight.
+    Now's the chance to corner the gang's mysterious masked leader, said to be a member
+    of a dangerous cult.
+  villain: Meret-Hetef
+  henchmen:
+  - Silver Chain Smuggler
+  locations:
+  - '-'
+  - Mumia Lab
+  - Brickworks
+  - Warehouse
+  - Stonework Passages
+  - Alchemical Laboratory
+  - Surgery
+  - Smoking Den
+  during: |-
+    After adding henchmen, shuffle the henchman Ekram Iffek into the Mumia Lab location deck.
+
+    All characters start at the Mumia lab. If your location is open, you may not move. You may move only to the next location on the location list.
+  reward: Each character gains a card feat.
+- id: 2-4
+  name: Those Who Dwell in Darkness
+  flavor: To locate the source of the necromantic disturbance, the Elegiac Compasses
+    must be activated. Long ago broken and buried, the Compasses have been stripped
+    by the citizens of the Wati necropolis, hungry ghouls, and caligni. The shiniest
+    parts have been hoarded by Shardizhad, a young crystal dragon. None of these are
+    known for their hospitality.
+  villain: 3 Elegiac Compass, Random Blessings
+  henchmen:
+  - Bheg
+  - Gaunt Cadaver
+  - Dark Slayer
+  locations:
+  - Canny Jackal
+  - Ghoul Square
+  - Vizier's Hill
+  - Mumia Lab
+  - Sepulcher of the Servant
+  - The Shiny Bauble
+  - Dye Market
+  - Peasant Tombs
+  during: |-
+    When adding henchmen, shuffle a henchman from each henchman list into each location deck. [In this wiki, the Villain list serves as the 2nd henchman list.]
+
+    If the result of your check to acquire a boon is equal to the difficulty, gain the trader Shardizhad.
+
+    To win the scenario, 3 Elegaic Compasses must be displayed next to the scenario.
+  reward: 'Loot: Ushabti of the Willing Servant'
+- id: 2-5
+  name: The Gilded Mask
+  flavor: Nebta-Khufre, an ambitious necromancer obsessed with undeath, hides within
+    holy tombs built to honor servants of Pharasma. Raising those who have been at
+    rest is a great sacrilege to the Parasmins, who are eager to unmask all who sneak
+    among the empty graves—especially this Nebta-Khufre, whose ancient golden mask
+    radiates a strange power.
+  villain: Nebta-Khufre
+  henchmen:
+  - Forgotten Pharaoh Cultist
+  locations:
+  - Hall of Blessed Rebirth
+  - Precinct of Left Eyes
+  - Sepulcher of the Servant
+  - Ghoul Square
+  - Golden Lake
+  - Catacombs
+  - Mausoleum
+  - Crypt
+  during: |-
+    The difficulty to defeat monsters that have the Undead trait is increased by 2.
+
+    If you fail to defeat a barrier, summon and encounter the henchman Crawling Hands.
+  reward: 'Loot: Neferekhu, Mask of the Forgotten Pharaoh'

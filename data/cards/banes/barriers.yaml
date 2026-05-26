@@ -1,0 +1,1085 @@
+type: barrier
+cards:
+- name: Alchemical Gas
+  category: bane
+  type: barrier
+  source: MM-B, MM-C
+  traits:
+  - Obstacle
+  - Acid
+  - Elite
+  checks:
+  - difficulty: '7'
+    skills:
+    - Intelligence
+    - Disable
+    - Craft
+  powers: |-
+    If undefeated, display this barrier next to your location.
+
+    While displayed, if you start your turn at this location, bury a weapon or armor. Then you may succeed at a Constitution, Fortitude, Intelligence, or Craft 7 check to banish this card.
+- name: Ambush
+  category: bane
+  type: barrier
+  source: ROTR-B, SS-B, SS-C, MM-2
+  traits:
+  - Skirmish
+  - Veteran
+  checks:
+  - difficulty: '9'
+    skills:
+    - Dexterity
+    - Acrobatics
+    - Wisdom
+    - Perception
+  powers: |-
+    The difficulty to defeat is increased by the scenario's adventure deck number.
+
+    If undefeated, examine your location deck until you find a monster; encounter it, subtracting 1 from each die you roll in your checks against it. Banish this card and shuffle the remaining cards into the location deck.
+
+    If defeated, you may immediately explore again.
+- name: Baited Jewel Box
+  category: bane
+  type: barrier
+  source: MM-B
+  traits:
+  - Trigger
+  - Cache
+  - Lock
+  - Poison
+  - Veteran
+  checks:
+  - difficulty: '6'
+    skills:
+    - Disable
+  - difficulty: '8'
+    skills:
+    - Craft
+  powers: |-
+    When you examine this card, shuffle a weapon, an armor, or an item into your location deck.
+
+    The difficulty to defeat is increased by the scenario's adventure deck number.
+
+    If defeated by 4 or more, draw an item from the box.
+
+    If defeated by less than 4, you are dealt 1d4 Poison damage, then draw 2 items from the box.
+- name: Blast Glyph
+  category: bane
+  type: barrier
+  source: MM-3
+  traits:
+  - Trigger
+  - Trap
+  - Magic
+  - Arcane
+  - Cold
+  checks:
+  - difficulty: '10'
+    skills:
+    - Intelligence
+    - Arcane
+    - Knowledge
+  - difficulty: '12'
+    skills:
+    - Wisdom
+  powers: |-
+    When you examine this card, succeed at an Intelligence or Arcane 10 check or you are dealt 1d6 Cold damage.
+
+    If undefeated, each character at this location is dealt 1d4 Cold damage and moves to a random other location.
+- name: Burning Tar
+  category: bane
+  type: barrier
+  source: MM-B
+  traits:
+  - Obstacle
+  - Fire
+  - Basic
+  checks:
+  - difficulty: '6'
+    skills:
+    - Dexterity
+    - Acrobatics
+    - Perception
+    - Craft
+  powers: If undefeated, you are dealt 1d4 Fire damage; bury any cards you would discard
+    as damage.
+- name: Camouflaged Pit Trap
+  category: bane
+  type: barrier
+  source: MM-B
+  traits:
+  - Trap
+  - Basic
+  checks:
+  - difficulty: '6'
+    skills:
+    - Wisdom
+    - Perception
+  - difficulty: '7'
+    skills:
+    - Dexterity
+    - Acrobatics
+  powers: |-
+    If undefeated, each character at your location is dealt 1d4 Combat damage; then end your turn.
+
+    If defeated, you may explore your location.
+- name: Collapsing Scaffolding
+  category: bane
+  type: barrier
+  source: MM-B, MM-C
+  traits:
+  - Obstacle
+  - Basic
+  checks:
+  - difficulty: '4'
+    skills:
+    - Dexterity
+    - Acrobatics
+    - Perception
+  - difficulty: '7'
+    skills:
+    - Dexterity
+    - Acrobatics
+    - Perception
+  powers: If the result of the first check to defeat exceeds the result of the result
+    of the second check to defeat, you are dealt 1d4 Combat damage, then recharge
+    your hand and end your turn.
+- name: Collapsing Sphinx
+  category: bane
+  type: barrier
+  source: MM-4
+  traits:
+  - Trigger
+  - Obstacle
+  - Sphinx
+  checks:
+  - difficulty: '12'
+    skills:
+    - Dexterity
+    - Stealth
+    - Wisdom
+    - Perception
+  powers: |-
+    When you examine this card, recharge your hand, then reset your hand, then you are dealt 1d4 Mental damage that may not be reduced.
+
+    If undefeated, each character at your location is dealt 1d4 Combat damage. Then leave this barrier faceup on its location deck; characters at this location encounter this barrier as their first exploration each turn, attempting a Strength 14 check instead of the listed check to defeat.
+- name: Corridor Dart Trap
+  category: bane
+  type: barrier
+  source: MM-B
+  traits:
+  - Trap
+  - Construct
+  - Veteran
+  checks:
+  - difficulty: '6'
+    skills:
+    - Dexterity
+    - Disable
+    - Stealth
+    - Perception
+  powers: |-
+    The difficulty to defeat is increased by twice the scenario's adventure deck number.
+
+    If undefeated, each character at your location is dealt 1d4 Ranged Combat damage, and must first choose allies to discard as damage, if he has any.
+- name: Curse of Teeth and Fleas
+  category: bane
+  type: barrier
+  source: MM-2
+  traits:
+  - Trigger
+  - Curse
+  - Magic
+  checks:
+  - difficulty: '10'
+    skills:
+    - Wisdom
+    - Survival
+    - Divine
+  powers: |-
+    When you examine this card, banish it.
+
+    If undefeated, display this card next to your deck.
+
+    While displayed, if you encounter a card that has the Animal trait, evade it and you are dealt 1d4 Combat damage, then 1d4 Poison damage. If the Poison damage is not reduced to 0, suffer the scourge Curse of Poisoning.
+- name: Curse of the Netheshuun
+  category: bane
+  type: barrier
+  source: MM-6
+  traits:
+  - Trigger
+  - Curse
+  - Undead
+  - Magic
+  - Cold
+  checks:
+  - difficulty: '16'
+    skills:
+    - Wisdom
+    - Divine
+  - difficulty: '17'
+    skills:
+    - Dexterity
+    - Disable
+  powers: |-
+    When you examine this card, succeed at a Charisma or Diplomacy 10 check or encounter this card.
+
+    If undefeated, each character at your location is dealt 1d6 Cold damage then suffers a scourge.
+- name: Dry Quicksand
+  category: bane
+  type: barrier
+  source: MM-B, MM-C
+  traits:
+  - Obstacle
+  - Trap
+  - Elite
+  checks:
+  - difficulty: '9'
+    skills:
+    - Dexterity
+    - Acrobatics
+    - Wisdom
+    - Survival
+  powers: If undefeated, display this card next to your location and shuffle your
+    token card into your location deck. When your token is returned to the location,
+    banish this card.
+- name: Echoes of Confusion
+  category: bane
+  type: barrier
+  source: MM-1
+  traits:
+  - Trigger
+  - Curse
+  - Undead
+  - Elite
+  checks:
+  - difficulty: '8'
+    skills:
+    - Stealth
+    - Perception
+    - Charisma
+    - Diplomacy
+  powers: |-
+    When you examine this card, display it next to your deck.
+
+    If undefeated, display this card next to your deck.
+
+    While displayed, as your move step, move to a random open location. During your turn, you may not evade banes. At the end of your turn, you may succeed at a Wisdom or Divine 6 check to banish this card.
+- name: Eternal Captives
+  category: bane
+  type: barrier
+  source: MM-4
+  traits:
+  - Curse
+  - Undead
+  checks:
+  - difficulty: '10'
+    skills:
+    - Wisdom
+    - Divine
+  - difficulty: '8'
+    skills:
+    - Charisma
+    - Diplomacy
+  powers: Each character at your location attempts a check to defeat the Eternal Captives.
+    If any character fails, the barrier is undefeated; you are dealt 1d4 Cold damage
+    then suffer the scourge Curse of the Sphinx.
+- name: Falling Rubble
+  category: bane
+  type: barrier
+  source: MM-B
+  traits:
+  - Obstacle
+  - Task
+  - Trap
+  - Basic
+  checks:
+  - difficulty: '6'
+    skills:
+    - Dexterity
+    - Acrobatics
+    - Perception
+    - Survival
+  powers: |-
+    If undefeated, each character at your location is dealt 1d4 Combat damage. Then leave this barrier faceup on the location deck; characters at this location encounter this barrier as their first exploration each turn and, at the end of the turn, may succeed at a Strength 10 check to banish this barrier.
+
+    If defeated, you may explore your location.
+- name: Fiendish Sphinx
+  category: bane
+  type: barrier
+  source: MM-4
+  traits:
+  - Trigger
+  - Trap
+  - Sphinx
+  - Magic
+  - Arcane
+  checks:
+  - difficulty: '12'
+    skills:
+    - Intelligence
+    - Arcane
+    - Knowledge
+    - Wisdom
+  powers: |-
+    When you examine this card, recharge your hand, then reset your hand, then summon and encounter the henchman Warrior Dolls.
+
+    If undefeated, recharge your hand, then reset your hand, then summon and encounter the henchman Warrior Dolls.
+- name: Final Nights
+  category: bane
+  type: barrier
+  source: MM-1
+  traits:
+  - Trigger
+  - Curse
+  - Undead
+  - Elite
+  checks:
+  - difficulty: '7'
+    skills:
+    - Wisdom
+    - Intelligence
+    - Charisma
+    - Diplomacy
+  powers: |-
+    When you examine this card, suffer the scourge Curse of Daybane then banish this card.
+    If undefeated, suffer the scourge Curse of the Daybane, then banish this card.
+- name: Fireball Trap
+  category: bane
+  type: barrier
+  source: MM-2
+  traits:
+  - Trap
+  - Magic
+  - Fire
+  - Elite
+  checks:
+  - difficulty: '6'
+    skills:
+    - Constitution
+  - difficulty: '8'
+    skills:
+    - Dexterity
+    - Acrobatics
+    - Disable
+  powers: If undefeated, each character at your location is dealt 1d4 Fire damage.
+- name: Grave Goods
+  category: bane
+  type: barrier
+  source: MM-3
+  traits:
+  - Trigger
+  - Cache
+  - Curse
+  checks:
+  - difficulty: '10'
+    skills:
+    - Disable
+  - difficulty: '12'
+    skills:
+    - Dexterity
+    - Craft
+  powers: |-
+    When you examine this card, discard a blessing.
+
+    If undefeated, suffer the scourge Curse of Fevered Dreams.
+
+    If defeated, choose a type of boon other than loot and draw a card of that type from the box.
+- name: Hepsushep
+  category: bane
+  type: barrier
+  source: MM-2
+  traits:
+  - Obstacle
+  - Lamia
+  - Elite
+  checks:
+  - difficulty: '8'
+    skills:
+    - Charisma
+    - Diplomacy
+    - Stealth
+  - difficulty: '15'
+    skills:
+    - Combat
+  powers: |-
+    If undefeated, put this card on top of your location deck.
+
+    If defeated, you may examine the top 3 cards of your location deck and put them back in any order.
+- name: Holy Word Trap
+  category: bane
+  type: barrier
+  source: MM-5
+  traits:
+  - Trigger
+  - Trap
+  - Magic
+  - Divine
+  checks:
+  - difficulty: '11'
+    skills:
+    - Wisdom
+    - Divine
+  - difficulty: '13'
+    skills:
+    - Intelligence
+    - Perception
+  powers: |-
+    When you examine this card, discard all cards that have the Cold, Mummy, or Undead trait, then encounter this card.
+
+    If undefeated, each character at your location is dealt 1d4 Fire damage, then shuffle a barrier from the box into your location deck.
+- name: Hungry Fog
+  category: bane
+  type: barrier
+  source: MM-3
+  traits:
+  - Obstacle
+  - Magic
+  - Acid
+  checks:
+  - difficulty: '10'
+    skills:
+    - Wisdom
+    - Perception
+  powers: |-
+    The Hungry Fog is immune to the Acid and Electricty traits.
+
+    When you encounter this card, you may succeed at a Dexterity or Stealth 10 check to evade it.
+
+    If undefeated, bury the top card of your deck and put the Hungry Fog on top of your location deck.
+- name: Hurtling Tiles Trap
+  category: bane
+  type: barrier
+  source: MM-1
+  traits:
+  - Obstacle
+  - Trap
+  - Basic
+  checks:
+  - difficulty: '6'
+    skills:
+    - Intelligence
+    - Perception
+  - difficulty: '8'
+    skills:
+    - Dexterity
+    - Stealth
+  powers: |-
+    During this encounter, characters may not play items.
+
+    If undefeated, you are dealt 1d4 Ranged Combat damage.
+
+    If defeated, you may explore your location.
+- name: Inevitable Trap
+  category: bane
+  type: barrier
+  source: MM-3
+  traits:
+  - Trigger
+  - Skirmish
+  - Trap
+  - Magic
+  checks:
+  - difficulty: '13'
+    skills:
+    - Intelligence
+    - Arcane
+    - Knowledge
+  - difficulty: '10'
+    skills:
+    - Wisdom
+    - Divine
+  powers: |-
+    When you examine this card, encounter it.
+
+    If undefeated, each character at your location summons and encounters the henchman Blightwing. Then banish this card.
+- name: Insanity Mist
+  category: bane
+  type: barrier
+  source: MM-3
+  traits:
+  - Trigger
+  - Trap
+  - Magic
+  checks:
+  - skills:
+    - None
+  powers: |-
+    When you examine this card, succeed at a Deterity or Disable 11 check or each character at this location is dealt 2 Poison damage.
+
+    Display this card next to its location. While displayed, at the start of your turn, succeed at a Wisdom or Perception 10 check to banish this barrier or you are dealt 2 Poison damage.
+- name: Killing Box
+  category: bane
+  type: barrier
+  source: MM-5
+  traits:
+  - Obstacle
+  - Trap
+  - Magic
+  - Arcane
+  - Acid
+  checks:
+  - difficulty: '13'
+    skills:
+    - Intelligence
+    - Knowledge
+    - Perception
+  - difficulty: '15'
+    skills:
+    - Disable
+  powers: If undefeated, each character at your location is dealt 1d6 Acid damage,
+    then 1d6 Acid damage.
+- name: Lightning Storm
+  category: bane
+  type: barrier
+  source: MM-B, MM-C
+  traits:
+  - Obstacle
+  - Weather
+  - Electricity
+  checks:
+  - skills:
+    - None
+  powers: |-
+    Display this barrier next to your location.
+
+    While displayed, when you start your turn at this location, roll 1d4. On a 4, banish this barrier. On any other result, you are dealt that amount of Electricity damage; display this barrier next to a random location.
+- name: Malfunctioning Deathtrap
+  category: bane
+  type: barrier
+  source: MM-B
+  traits:
+  - Trigger
+  - Trap
+  - Magic
+  - Electricity
+  - Basic
+  checks:
+  - difficulty: '5'
+    skills:
+    - Dexterity
+    - Disable
+    - Stealth
+    - Intelligence
+  powers: |-
+    When you examine this card, succeed at a Perception 4 check or you are dealt 1 Electricity damage, then encounter this card.
+
+    If undefeated, each character at your location is dealt 1d4 Electricity damage then recharges a card.
+- name: Memories of Violence
+  category: bane
+  type: barrier
+  source: MM-1
+  traits:
+  - Trigger
+  - Curse
+  - Undead
+  - Elite
+  checks:
+  - difficulty: '8'
+    skills:
+    - Wisdom
+    - Divine
+    - Charisma
+    - Diplomacy
+  powers: |-
+    When you examine this card, display it next to your deck.
+
+    If undefeated, display this card next to your deck.
+
+    While displayed, your Intelligence and Wisdom skills are each d4. During your exploration, when you encounter a monster, evade it. When any character starts her turn at your location, she may encounter this card; if defeated, banish it.
+- name: Pharaoh's Altar
+  category: bane
+  type: barrier
+  source: MM-5
+  traits:
+  - Trigger
+  - Cache
+  - Curse
+  - Lock
+  checks:
+  - difficulty: '12'
+    skills:
+    - Dexterity
+    - Disable
+  - difficulty: '14'
+    skills:
+    - Craft
+  powers: |-
+    When you examine this card, suffer a scourge.
+
+    If defeated, choose a type of boon other than loot, then draw a random card of that type from the box that has an adventure deck number equal to the scenario's adventure deck number.
+
+    If undefeated, suffer the scourge Curse of Blindness.
+- name: Poison Blade Trap
+  category: bane
+  type: barrier
+  source: MM-B
+  traits:
+  - Trap
+  - Poison
+  - Elite
+  checks:
+  - difficulty: '5'
+    skills:
+    - Dexterity
+    - Acrobatics
+  - difficulty: '7'
+    skills:
+    - Disable
+    - Knowledge
+  powers: If undefeated, each character at your location is dealt 1d4 Poison damage.
+- name: Poison Spiked Pit Trap
+  category: bane
+  type: barrier
+  source: WOTR-1, MM-1
+  traits:
+  - Trap
+  - Poison
+  - Veteran
+  checks:
+  - difficulty: '8'
+    skills:
+    - Wisdom
+    - Perception
+  - difficulty: '10'
+    skills:
+    - Dexterity
+    - Acrobatics
+  powers: |-
+    The difficulty to defeat is increased by the scenario's adventure deck number.
+
+    If undefeated, each character at this location is dealt 1d4 Combat damage, then 1d4 Poison damage, then end your turn.
+
+    If defeated, you may explore your location.
+- name: Polymorph Gas
+  category: bane
+  type: barrier
+  source: MM-6
+  traits:
+  - Curse
+  - Trap
+  - Magic
+  - Poison
+  checks:
+  - difficulty: '14'
+    skills:
+    - Constitution
+    - Fortitude
+    - Intelligence
+    - Perception
+  powers: If undefeated, recharge your hand, then suffer the scourge Curse of the
+    Mummy.
+- name: Rolling Sphere
+  category: bane
+  type: barrier
+  source: MM-3
+  traits:
+  - Obstacle
+  - Trap
+  checks:
+  - difficulty: '12'
+    skills:
+    - Dexterity
+    - Acrobatics
+  - difficulty: '9'
+    skills:
+    - Disable
+  powers: |-
+    Before you act, each other character at your location must succeed at a Dexterity or Acrobatics 12 or Disable 9 check or bury her hand.
+
+    If you fail the check to defeat, bury your hand. If you succeed, after the encounter, you may immediately explore your location.
+
+    After you act, shuffle this card into a random other open location deck; the Rolling Sphere is defeated.
+- name: Shocking Chest
+  category: bane
+  type: barrier
+  source: MM-4
+  traits:
+  - Cache
+  - Lock
+  - Trap
+  checks:
+  - difficulty: '12'
+    skills:
+    - Dexterity
+    - Disable
+  - difficulty: '15'
+    skills:
+    - Strength
+  powers: |-
+    After you act, if the result of your check to defeat less than 17, each character at your location is dealt 1d4 Electricity damage.
+
+    If undefeated, you may banish this barrier.
+
+    If defeated, draw a weapon, a spell, and an item from the box.
+- name: Shrieking Plant
+  category: bane
+  type: barrier
+  source: MM-1
+  traits:
+  - Trigger
+  - Obstacle
+  - Plant
+  - Elite
+  checks:
+  - difficulty: '8'
+    skills:
+    - Wisdom
+    - Stealth
+    - Perception
+    - Survival
+  powers: |-
+    When you examine this card, succeed at a Stealth or Survival 9 check or the Shrieking Plant is undefeated.
+
+    If undefeated, examine the top 3 cards of your location deck and encounter the first monster you find. Then banish the Shrieking Plant.
+- name: Sightless Starvation
+  category: bane
+  type: barrier
+  source: MM-5
+  traits:
+  - Trigger
+  - Curse
+  - Undead
+  - Poison
+  checks:
+  - skills:
+    - See Below
+  powers: |-
+    When you examine this card, encounter it.
+
+    Succeed at an Intelligence, Wisdom, Survival, Charisma, or Diplomacy 12 check or suffer the scourge Curse of the Ravenous. Then succeed at an Intelligence, Wisdom, Survival, Charisma, or Diplomacy 12 check, choosing a different skill than the previous check, or usffer the scourge Curse of Blindness. Then banish this card; the barrier is defeated.
+- name: Sky Pharaoh's Curse
+  category: bane
+  type: barrier
+  source: MM-5
+  traits:
+  - Trigger
+  - Curse
+  checks:
+  - difficulty: '15'
+    skills:
+    - Intelligence
+    - Perception
+    - Arcane
+  - difficulty: '14'
+    skills:
+    - Divine
+  powers: |-
+    When you examine this card, display it next to your deck.
+
+    If undefeated, display this card next to your deck.
+
+    While displayed, damage dealt to you is dealt to each character at your location. When you suffer a scourge, each character at your location suffers that scourge.
+- name: Stabbing Spear Staircase
+  category: bane
+  type: barrier
+  source: MM-1
+  traits:
+  - Obstacle
+  - Trap
+  - Piercing
+  - Elite
+  checks:
+  - difficulty: '6'
+    skills:
+    - Disable
+    - Perception
+  - difficulty: '8'
+    skills:
+    - Dexterity
+    - Acrobatics
+  powers: |-
+    If undefeated, you are dealt 1d4 Combat damage, then examine the top card of your location deck. If it is a bane, encounter it. If it is a boon, banish it and examine the top card of your location deck.
+
+    If defeated, you may explore again.
+- name: Steel Scorpion
+  category: bane
+  type: barrier
+  source: MM-4
+  traits:
+  - Lock
+  - Trap
+  - Poison
+  checks:
+  - difficulty: '10'
+    skills:
+    - Dexterity
+    - Disable
+    - Stealth
+  - difficulty: '13'
+    skills:
+    - Strength
+  powers: If undefeated, you are dealt 1d4 Poison damage, then display this card next
+    to your deck. While displayed, you may not move. At the end of your turn, a character
+    at your location may succeed at the check to defeat this barrier to banish this
+    card.
+- name: Symbol of Fear
+  category: bane
+  type: barrier
+  source: MM-3
+  traits:
+  - Trigger
+  - Curse
+  - Trap
+  - Magic
+  checks:
+  - skills:
+    - None
+  powers: |-
+    When you examine this card, succeed at a Dexterity or Disable 12 or Perception 8 check to evade this barrier; otherwise, encounter it.
+
+    Display this card next to your deck; it is defeated. At the start of your turn, recharge your hand and draw a number of cards equal to 1 fewer than the number of cards you recharged. At the end of your turn, you may succeed at a Constitution or Fortitude 8 check to banish this card.
+- name: Tabes' Last Jest
+  category: bane
+  type: barrier
+  source: MM-6
+  traits:
+  - Curse
+  - Lock
+  - Acid
+  checks:
+  - difficulty: '15'
+    skills:
+    - Dexterity
+    - Disable
+    - Intelligence
+    - Perception
+  powers: If defeated, you may draw a spell, an item, and a blessing from the box;
+    if you do, each character at your location is dealt 1d6 Acid damage.
+- name: Tar Tomb
+  category: bane
+  type: barrier
+  source: MM-5
+  traits:
+  - Obstacle
+  - Magic
+  - Acid
+  - Fire
+  checks:
+  - difficulty: '14'
+    skills:
+    - Strength
+    - Dexterity
+  - difficulty: '13'
+    skills:
+    - Intelligence
+    - Disable
+  powers: If undefeated, you are dealt 1d6 Acid damage; display this card next to
+    your location. While displayed, if you start your turn at this location, attempt
+    a check to defeat the Tar Tomb. If defeated, banish this card; otherwise, you
+    are dealt 1d4 Fire damage.
+- name: Telekinetic Enucleation
+  category: bane
+  type: barrier
+  source: MM-5
+  traits:
+  - Trigger
+  - Curse
+  checks:
+  - difficulty: '16'
+    skills:
+    - Dexterity
+    - Disable
+    - Intelligence
+    - Perception
+  powers: |-
+    When you examine this card, encounter it.
+
+    If undefeated, each character at your location suffers the scourge Curse of Blindness.
+- name: The Evil Eye
+  category: bane
+  type: barrier
+  source: MM-B, MM-C
+  traits:
+  - Trigger
+  - Curse
+  - Arcane
+  - Veteran
+  checks:
+  - difficulty: '6'
+    skills:
+    - Stealth
+    - Knowledge
+    - Arcane
+    - Divine
+    - Diplomacy
+  powers: |-
+    When you examine this card, suffer a scourge then banish this card.
+
+    The difficulty to defeat is increased by twice the scenario's adventure deck number.
+
+    If undefeated, suffer a scourge then banish this card.
+- name: The First Law
+  category: bane
+  type: barrier
+  source: MM-1
+  traits:
+  - Trigger
+  - Curse
+  - Law
+  - Elite
+  checks:
+  - skills:
+    - None
+  powers: |-
+    When you examine this card, encounter it.
+
+    Display this card next to the scenario; it is defeated. While displayed, after a character's combat check against a monster, that character rolls her Wisdom or Knowledge skill and adds the difficulty of the combat check. If the result is less than or equal to the result of the combat check, suffer the scourge Curse of the Ravenous, then banish this card.
+- name: The Second Law
+  category: bane
+  type: barrier
+  source: MM-1
+  traits:
+  - Trigger
+  - Curse
+  - Law
+  - Elite
+  checks:
+  - skills:
+    - None
+  powers: |-
+    When you examine this card, encounter it.
+
+    Display this card next to the scenario; it is defeated. While displayed, when a character succeeds at a check to defeat a barrier, roll 1d6; if the difficulty of the check was exceeded by that amount or more, each character at that character's location banishes a card or summons and encounters the henchman Voices of the Spire, then banish this card.
+- name: The Third Law
+  category: bane
+  type: barrier
+  source: MM-1
+  traits:
+  - Trigger
+  - Curse
+  - Law
+  - Elite
+  checks:
+  - skills:
+    - None
+  powers: |-
+    When you examine this card, encounter it.
+
+    Display this card next to the scenario; it is defeated. While displayed, when a location is permanently closing, before closing, roll 1d6. If the result exceeds the number of cards remaining in that location deck, a character at that location banishes a card or each character buries a card, then banish this card.
+- name: Thousand Suns
+  category: bane
+  type: barrier
+  source: MM-6
+  traits:
+  - Trap
+  - Obstacle
+  - Magic
+  checks:
+  - difficulty: '18'
+    skills:
+    - Intelligence
+    - Disable
+    - Arcane
+    - Perception
+  powers: If undefeated, each character at your location is dealt 1d8 Fire damage,
+    then 1d8 Fire damage.
+- name: Toxic Geyser
+  category: bane
+  type: barrier
+  source: MM-B
+  traits:
+  - Trap
+  - Acid
+  - Fire
+  - Poison
+  - Veteran
+  checks:
+  - difficulty: '5'
+    skills:
+    - Dexterity
+    - Acrobatics
+    - Wisdom
+    - Survival
+  powers: |-
+    The difficulty to defeat is increased by twice the scenario's adventure deck number.
+
+    If undefeated, roll a number of d6s equal to the scenario's adventure deck number plus 1. For each:
+    ----
+    1-2. You are dealt 2 Fire damage.
+    ----
+    3-4. You are dealt 2 Acid damage; discard a weapon or armor.
+    ----
+    5-6. You are dealt 2 Poison damage.
+- name: Trapped Locker
+  category: bane
+  type: barrier
+  source: ROTR-B, SS-B, MM-B, MM-C
+  traits:
+  - Cache
+  - Lock
+  - Trap
+  - Basic
+  checks:
+  - difficulty: '9'
+    skills:
+    - Dexterity
+    - Disable
+  - difficulty: '11'
+    skills:
+    - Strength
+    - Melee
+  powers: |-
+    If undefeated, discard the top 1d4-1 cards from your deck; you may banish this barrier.
+
+    If defeated, draw an armor from the box.
+- name: Void Glyph
+  category: bane
+  type: barrier
+  source: MM-1
+  traits:
+  - Trigger
+  - Trap
+  - Arcane
+  - Cold
+  - Veteran
+  checks:
+  - difficulty: '6'
+    skills:
+    - Intelligence
+    - Arcane
+    - Knowledge
+  - difficulty: '8'
+    skills:
+    - Wisdom
+  powers: |-
+    When you examine this card, succeed at a Wisdom check with a difficulty of 8 plus the scenario's adventure deck number or you are dealt 1d4 Mental damage that may not be reduced.
+
+    The difficulty to defeat is increased by twice the scenario's adventure deck number.
+
+    If undefeated, each character at this location is dealt 1d4 Cold damage and moves to a random other location.
+- name: Wall Scythes
+  category: bane
+  type: barrier
+  source: MM-B
+  traits:
+  - Obstacle
+  - Trap
+  - Basic
+  checks:
+  - difficulty: '4'
+    skills:
+    - Dexterity
+    - Acrobatics
+  - difficulty: '6'
+    skills:
+    - Disable
+    - Knowledge
+  powers: If undefeated, you are dealt 1d4 Combat damage, then recharge your hand;
+    put this card on top of its location deck.
+- name: Word of Ra
+  category: bane
+  type: barrier
+  source: MM-6
+  traits:
+  - Lock
+  - Trap
+  - Fire
+  checks:
+  - difficulty: '17'
+    skills:
+    - Dexterity
+    - Disable
+    - Stealth
+  powers: If undefeated, banish an ally that lists Diplomacy in its check to acquire
+    or each character at your location is dealt 2d4 Fire damage.

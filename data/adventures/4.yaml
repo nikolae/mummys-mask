@@ -1,0 +1,131 @@
+id: '4'
+name: Secrets of the Sphinx
+reward: Each character gains a power feat.
+during: The scourge die is 1d8. When you are dealt Poison damage, if that damage is
+  not reduced by at least 1, suffer the scourge Curse of Daybane.
+scenarios:
+- id: 4-1
+  name: The Dragon's Garden
+  flavor: Among a rock garden rising out of the sand glints the peculiar sight of
+    bronze machinery. The parts of a wondrous bronze sentinel are cast about this
+    strangely symmetrical place. As you gather the pieces of the sentinel, you hear
+    the crackling screech of a blue dragon overhead. It seems some dragons are particular
+    about leaving things as they are.
+  villain: Volatile Sentinel
+  henchmen:
+  - Sentinel Part
+  locations:
+  - Garden of Symmetry
+  - Scorched Obelisk
+  - Stonework Passages
+  - Earthworks
+  - Ruined Temple
+  - Quarry
+  - Towering Obelisk
+  - Windswept Chasm
+  during: |-
+    On your check, after the roll, if 2 or more dice have the same value, add that number to the result.
+
+    When permanently closing a location, treat its When Closing requirement as "Summon and defeat the henchman Keferuzagra."
+
+    When you encounter the villain, each character must reveal a henchman or the villain is evaded.
+  reward: 'Loot: Bronze Sentinel, Trader: Efni Raan'
+- id: 4-2
+  name: Pride of the Dispossessed
+  flavor: A pride of maftets huddle outside a rare oasis nestled in the Parched Dunes.
+    Driven from their homes by a strange cult, the leonine people are low on supplies.
+    Under siege by cunning janni and their stone-bound brethren, the maftets beg for
+    help. Defend the camp from the invasion and you may keep what remains after the
+    blood of the last invader sinks into the earth.
+  villain: None
+  henchmen:
+  - Kixexa
+  - Picasi
+  - Warrior Dolls
+  locations:
+  - Caravanserai
+  - Catacombs
+  - Walled Oasis
+  - Thornscrub
+  - Quarry
+  - Oasis
+  - Warehouse
+  - Dilapidated Plaza
+  during: |-
+    When building the location decks, set aside the henchmen, monsters, and barriers, then shuffle them into a siege deck. Display the support card Defensive Stance next to this card.
+
+    To win the scenario, a location must be open while the siege deck is empty.
+  reward: The party gets all boons remaining in location decks.
+- id: 4-3
+  name: Shadow of the Sphinx
+  flavor: In the sunblasted sandscape, a massive, faceless statue of a sphinx casts
+    its eyeless gaze over the dunes. Rumored to be the place where the Cult of the
+    Forgotten Pharaoh is headquartered, scorpionlike girtabilus guard its entrance.
+    They are known to be quick and vicious. Defeat them quietly or you may be quickly
+    overwhelmed by their stings.
+  villain: Rubila
+  henchmen:
+  - Orchamus
+  - Rathos
+  - Girtablilu
+  locations:
+  - Glass Pavilion
+  - Silver Forge
+  - Windswept Chasm
+  - Crypt
+  - Ruined Temple
+  - Scorched Obelisk
+  - Catacombs
+  - Caravanserai
+  during: |-
+    When you examine or encounter a card, you may recharge a weapon, an armor, or an ally to gain the skill Stealth: Dexterity +2 during any check against that card.
+    If the result of any check to defeat a bane you encounter exceeds the difficulty by 3 or more, after the encounter, examine the top card of your location deck.
+  reward: 'Each character gains a card feat. Loot: Erayu'
+- id: 4-4
+  name: Cult of the Sightless Sphinx
+  flavor: Deep within the faceless sphinx, the skitter-scratch of maftet claws echo
+    off the stone walls. Here, insane members of the maftet tribe blind themselves
+    and, led by the half-fiend sphinx Areshkhesbed, they prepare rituals to their
+    insane demon god, Areshkagal. This is the cult of the Sightless Sphinx. You have
+    disturbed them at an inopportune time.
+  villain: Half-Fiend Sphinx
+  henchmen:
+  - Heqet
+  - Userib
+  - Cultist of Areshkagal
+  locations:
+  - Altar of Riddles
+  - Mausoleum
+  - Silver Forge
+  - Walled Oasis
+  - Hall of Blessed Rebirth
+  - Golden Lake
+  - Ruined Temple
+  - Sulfur Pits
+  during: When you fail a check against a card that has the Cultist or Inquisitor
+    trait, a random character at your location is dealt 1d6 Combat damage. If this
+    damage is not reduced to 0, discard the top card of the blessings deck.
+  reward: 'Each character gains a skill feat. Trader: Naheeba'
+- id: 4-5
+  name: A Woman of Entwined Souls
+  flavor: The deepest chambers of the Sightless Sphinx glitter with the golden masks
+    of the Forgotten Pharaoh's most faithful. Here the ib-soul of the pharaoh exists
+    twisted with that of a cleric of Nethys. She is desperate to raise the tomb and
+    unite the portions of the Forgotten Pharaoh's soul before the last scraps of her
+    identity are lost forever.
+  villain: Forgotten Pharaoh
+  henchmen:
+  - Thmei
+  - Disciple of the Forgotten Pharaoh
+  locations:
+  - Crypt
+  - Embalming Parlor
+  - Sulfur Pits
+  - Peasant Tombs
+  - Stonework Passages
+  - Altar of Riddles
+  - Alchemical Laboratory
+  - Glass Pavilion
+  during: At the start of your turn, you may discard the top card of the blessings
+    deck to examine the top card of your location deck.
+  reward: Each character draws a random non-Basic blessing from the box.
