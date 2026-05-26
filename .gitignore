@@ -220,3 +220,4 @@ __marimo__/
 # Mummy's Mask project
 .wiki_cache/
 data/_unparsed.yaml
+.DS_Store
