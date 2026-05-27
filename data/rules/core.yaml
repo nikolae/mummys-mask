@@ -1,0 +1,715 @@
+# PACG Mummy's Mask — Rules Reference
+# Paraphrased game mechanics for in-app quick reference.
+# Source: Mummy's Mask Base Set Rulebook & FAQ (Paizo Publishing)
+
+topics:
+
+  - id: turn_structure
+    title: "Taking Your Turn"
+    icon: "🎯"
+    tags: [turn, basics, overview]
+    short: "Six steps in order — Advance, Give, Move, Explore, Close, End"
+    steps:
+      - name: "1. Advance the Blessings Deck"
+        text: >
+          Discard the top card of the blessings deck face-up. This is mandatory — if no
+          cards remain when you need to advance, the party immediately loses. Apply any
+          effects that say they happen at the start of your turn.
+      - name: "2. Give a Card (optional)"
+        text: >
+          You may hand 1 card from your hand to another character who is at your same
+          location. Other players cannot give you cards on your turn.
+      - name: "3. Move (optional)"
+        text: >
+          Move your token card to any other location. This triggers any effects that
+          happen when you enter or leave a location. You must always pick a new location
+          (though some powers can move you to the same location). If an effect would
+          move you while another effect prevents it, you do not move.
+      - name: "4. Explore (optional)"
+        text: >
+          Flip the top card of your current location deck face-up. If it is a boon,
+          you may try to acquire it (or banish it if you choose not to try). If it is
+          a bane, you must try to defeat it. You may explore additional times if cards
+          or powers grant extra explorations — but each extra exploration counts as
+          only one additional exploration, not a chain.
+      - name: "5. Close a Location (optional)"
+        text: >
+          If your location deck has no cards remaining and has not been closed, you may
+          attempt to close it now (see Closing a Location).
+      - name: "6. End Your Turn"
+        text: >
+          Apply any end-of-turn effects. Unless a power directed you to end your turn
+          early, you may still play cards and use powers during this step. Then reset
+          your hand — discard or draw until you have exactly your hand-size number of
+          cards. Pass the turn to the player on your left.
+
+  - id: blessing_deck
+    title: "The Blessings Deck"
+    icon: "⏳"
+    tags: [blessing, timer, basics, turn]
+    short: "30-card countdown timer — when it empties, the party loses"
+    content: >
+      The blessings deck starts with 30 randomly drawn blessing cards. One card is
+      discarded at the start of every player's turn. When the deck runs out, the party
+      immediately loses the scenario.
+
+      Blessings can also be played from your hand to add dice to almost any check —
+      yours or a teammate's at your location. Each character may play at most one
+      blessing per check. Common blessings add 1d4 or 1d6; some deity-specific blessings
+      are more powerful.
+
+      Tip — When each player discards from the blessings deck, orient that card toward
+      themselves so it is easy to track who remembered to advance the deck each turn.
+
+  - id: encountering_a_card
+    title: "Encountering a Card"
+    icon: "🃏"
+    tags: [encounter, basics, boon, bane, explore]
+    short: "Flip card → optional evade → attempt check → resolve outcome"
+    steps:
+      - name: "1. Apply encounter effects"
+        text: >
+          Any powers on the card that fire when it is encountered happen now. You may
+          also use powers or cards that say they can be used when you encounter a card.
+      - name: "2. Apply evasion effects (optional)"
+        text: >
+          If you have a power or card that lets you evade this encounter, you may use
+          it now. An evaded card is shuffled back into the location deck — it was
+          neither defeated nor acquired. Any powers on the evaded card that trigger
+          after evasion fire now.
+      - name: "3. Apply before-you-act effects"
+        text: >
+          Powers that fire before you act trigger now. You may use powers and cards
+          that apply before you act.
+      - name: "4. Attempt the check"
+        text: >
+          Banes have a Check to Defeat; boons have a Check to Acquire. If a check
+          section says None or See Below, look at the card's powers and immediately
+          do whatever they say. Only the encountering character may attempt the check.
+          Other characters at your location may each play 1 blessing to help.
+      - name: "5. Attempt additional checks"
+        text: >
+          Some cards require a second check (shown with "then"). Attempt it now.
+          If multiple secondary checks are needed, resolve them in order.
+      - name: "6. Apply after-you-act effects"
+        text: >
+          Powers on the card that fire after you act happen now, whether or not you
+          succeeded at the check.
+      - name: "7. Resolve the encounter"
+        text: >
+          Bane defeated → banish it.
+          Bane not defeated → shuffle back into location deck (and take damage if monster).
+          Boon acquired → put it in your hand.
+          Boon not acquired → banish it.
+
+  - id: attempting_a_check
+    title: "Attempting a Check"
+    icon: "🎲"
+    tags: [check, dice, skills, basics]
+    short: "Roll skill die + modifiers + card bonuses — must meet or beat the difficulty"
+    steps:
+      - name: "1. Choose your skill"
+        text: >
+          The card lists one or more allowed skills. Pick one. Your character card shows
+          the die type for each skill (e.g., Strength d10). If you lack a listed skill,
+          you may still attempt the check using a d4 (no modifier).
+      - name: "2. Assemble your dice"
+        text: >
+          Start with your skill die plus any modifier shown on your character card
+          (e.g., Dexterity d8+2 means roll d8 and add 2). One character at your location
+          may add 1d4 or 1d6 via a blessing. Multiple bonuses can stack.
+      - name: "3. Play cards and use powers"
+        text: >
+          Play cards from your hand or activate powers that affect this specific type
+          of check. Each character may play at most 1 card of each type per check, and
+          may not activate the same power more than once per check.
+      - name: "4. Roll and compare"
+        text: >
+          Add all dice plus modifiers. If the total equals or exceeds the difficulty
+          number, you succeed. The result can never go below 0 no matter how many
+          penalties apply.
+    notes:
+      - "Multiple checks with 'or' — you choose which one to attempt."
+      - "Multiple checks with 'then' — you must attempt all in order, even if you fail the first."
+      - "Only the encountering character attempts the first check. Others may help with secondary checks."
+      - "Skills used for the check add their traits to the check (e.g., using Melee adds the Melee trait)."
+      - "Zero-difficulty cards — treat the difficulty as 0."
+
+  - id: damage
+    title: "Taking Damage"
+    icon: "💥"
+    tags: [damage, monster, combat, encounter]
+    short: "Failed monster check → discard cards equal to difficulty minus your roll"
+    content: >
+      When you fail a check to defeat a monster, it deals damage equal to the difference
+      between the difficulty number and your check result. Example: difficulty 10, you
+      rolled 7 — take 3 damage.
+
+      The default damage type is Combat damage. Some monsters specify a different type
+      (Fire, Acid, Electricity, Poison, etc.). You may play cards or use powers that
+      reduce damage of the specified type or any type. Each character may play at most
+      1 card of each type to reduce damage from the same source.
+
+      To absorb damage, discard that many cards from your hand. You choose which
+      cards to discard. If you do not have enough cards in hand, discard your entire
+      hand (you absorb all the damage with whatever you have).
+
+  - id: dying
+    title: "Dying"
+    icon: "💀"
+    tags: [damage, death, deck, lose]
+    short: "Can't remove required cards from your deck → character dies"
+    content: >
+      If you are ever required to remove cards from your character deck and there are
+      not enough cards remaining in it, your character dies.
+
+      When a character dies: bury your deck, your hand, and your discard pile. Your
+      turn ends immediately — you cannot move, explore, play cards, or do anything else.
+
+      Other living characters may use the dead character's cards when rebuilding decks
+      after the scenario ends. If all characters die at the same time, the party loses.
+
+      A dead character can be started fresh for the next scenario with a new deck,
+      but loses all feats gained during the failed scenario.
+
+  - id: closing_a_location
+    title: "Closing a Location"
+    icon: "🔒"
+    tags: [location, close, henchman, villain, win]
+    short: "Empty location deck or defeat henchman → attempt the When Closing requirement"
+    steps:
+      - name: "When can you try to close?"
+        text: >
+          You get an opportunity to close after defeating a henchman whose card says
+          you may attempt to close its location, or at the end of your turn when your
+          location's deck has no cards remaining. You can never attempt to close a
+          location that is already temporarily or permanently closed.
+      - name: "Fulfill the When Closing requirement"
+        text: >
+          Each location card lists a When Closing condition — usually a skill check of
+          a certain difficulty. If it lists multiple options separated by "or," you must
+          choose one option before rolling any dice or playing any cards.
+      - name: "Search for villains"
+        text: >
+          If you succeed at the requirement: search the location deck for villains. If
+          any villains are found, banish all non-villain cards and shuffle the deck.
+          The location is NOT permanently closed — but you now know where the villain
+          is hiding. Cohorts banished this way may be encountered instead.
+      - name: "Permanently close it"
+        text: >
+          If no villains were found in the deck: apply any "before closing" effects,
+          banish all remaining cards, flip the location card over (it is now permanently
+          closed), then apply the When Permanently Closed effects listed on the card.
+    notes:
+      - "Temporarily closed (during villain encounter) prevents the villain escaping — but the location re-opens after the encounter."
+      - "Characters can still move to permanently closed locations and explore any cards that may have been placed there."
+
+  - id: encountering_villain
+    title: "Encountering the Villain"
+    icon: "⚡"
+    tags: [villain, win, close, encounter]
+    short: "Defeat villain + no open locations = VICTORY"
+    steps:
+      - name: "Before the encounter — temp-close other locations"
+        text: >
+          The moment a villain is revealed, each character at any OTHER open location
+          may immediately attempt to fulfill that location's When Closing requirement.
+          A successful attempt temporarily closes that location for this encounter only,
+          preventing the villain from escaping through it. The villain's own location
+          cannot be temporarily closed.
+      - name: "Encounter the villain"
+        text: >
+          Fight the villain exactly as you would any bane. Read any special rules on
+          the villain card and the scenario card carefully — many villains have unusual
+          powers or require specific approaches.
+      - name: "If you defeat the villain"
+        text: >
+          The villain's location is automatically closed — no When Closing check needed.
+          Check for any other villains in the deck; banish non-villain cards. Then check
+          if any locations remain open (not temporarily or permanently closed).
+          No open locations remain → YOU WIN!
+          Open locations remain → villain escapes (see Villain Escapes).
+      - name: "If you fail to defeat the villain"
+        text: >
+          The villain escapes regardless of how many locations are open or closed.
+    notes:
+      - "A summoned villain or henchman cannot let you win the scenario or close a location."
+
+  - id: villain_escapes
+    title: "When the Villain Escapes"
+    icon: "💨"
+    tags: [villain, escape, open_locations]
+    short: "Villain flees to a random open location, mixed with blessings"
+    content: >
+      When the villain escapes (you failed to defeat them, or you succeeded but open
+      locations remained):
+
+      1. Count the number of open locations, then subtract 1.
+      2. Retrieve that many random blessings. If the villain was defeated, take them
+         from the box. If the villain was not defeated, take them from the blessings
+         deck instead (costing you precious time!).
+      3. Shuffle the villain together with those blessings to form a small stack.
+      4. Deal 1 card from that stack face-down to each open location, then shuffle
+         each of those location decks.
+
+      The villain is now hiding in one of those open locations — keep hunting!
+
+  - id: barriers
+    title: "Barrier Cards"
+    icon: "🚧"
+    tags: [barrier, bane, encounter, check, trap]
+    short: "Traps and obstacles — failure usually shuffles back, not damage"
+    content: >
+      Barriers are bane cards representing traps, hazards, and obstacles. You must
+      attempt to defeat them when encountered, just like monsters.
+
+      Unlike most monsters, failing a barrier check generally does NOT deal Combat
+      damage. Instead, the barrier is shuffled back into the location deck and some
+      other penalty listed on the card applies.
+
+      Barriers often require non-combat skills like Dexterity, Disable, Perception,
+      or Fortitude. Check the card carefully — a combat-focused character may struggle.
+
+      Henchman barriers work like henchman monsters: defeating one lets you attempt
+      to close that location, just as if you had defeated a henchman monster.
+
+  - id: playing_cards
+    title: "Card Fates — What Happens to Cards You Play"
+    icon: "🃏"
+    tags: [cards, reveal, display, discard, recharge, bury, banish, basics]
+    short: "Reveal, Display, Discard, Recharge, Bury, or Banish"
+    items:
+      - name: "Reveal"
+        text: "Show the card from your hand, then put it back. The card is still in your hand afterward."
+      - name: "Display"
+        text: "Place the card face-up next to your deck. Its powers stay active while displayed. It is no longer in your hand."
+      - name: "Discard"
+        text: "Put it in your discard pile (face-up stack beside your deck). You'll get it back when you reset your hand."
+      - name: "Recharge"
+        text: "Place it face-down at the bottom of your character deck. You'll draw it again in due course."
+      - name: "Bury"
+        text: "Slide it under your character card. You lose access to it for the rest of this scenario."
+      - name: "Banish"
+        text: "Return it to the game box, shuffled in with other cards of the same type. It is gone from your deck for this scenario."
+
+  - id: resetting_hand
+    title: "Resetting Your Hand"
+    icon: "✋"
+    tags: [hand, end_turn, basics]
+    short: "Apply effects → optionally discard → draw or discard to hand size"
+    content: >
+      Whenever you are instructed to reset your hand (including at the end of your turn):
+
+      1. Apply any effects that happen when you reset your hand.
+      2. Optionally discard any cards you no longer want.
+      3. If you have more cards than your hand size, discard until you reach hand size.
+      4. If you have fewer cards than your hand size, draw from your deck until you
+         reach hand size. If your deck runs out, shuffle your discard pile into your
+         deck and keep drawing.
+
+      Your hand size is printed on your character card (or role card if you have one).
+
+  - id: card_types_boons
+    title: "Boon Card Types"
+    icon: "✨"
+    tags: [boon, weapon, spell, item, ally, armor, blessing, loot, card_types]
+    short: "Weapons, Spells, Armors, Items, Allies, Blessings, Loot"
+    items:
+      - name: "Weapon"
+        text: "Used during combat checks to add dice. Some weapons require proficiency to use at full strength."
+      - name: "Spell"
+        text: "Powerful magical effects. Usually discarded or recharged when used. Many have Arcane or Divine traits."
+      - name: "Armor"
+        text: "Reduces damage or prevents harm. Often displayed to provide ongoing protection."
+      - name: "Item"
+        text: "Miscellaneous gear — potions, tools, relics. Varied effects covering many situations."
+      - name: "Ally"
+        text: "Companion cards. Often revealed to add dice to checks, then recharged — reusable helpers."
+      - name: "Blessing"
+        text: "Versatile cards adding dice to almost any check. One character may play at most 1 blessing per check."
+      - name: "Loot"
+        text: "Special scenario rewards. Loot cards count as their listed type when rebuilding your deck."
+
+  - id: card_types_banes
+    title: "Bane Card Types"
+    icon: "☠️"
+    tags: [bane, monster, barrier, henchman, villain, card_types]
+    short: "Monsters, Barriers, Henchmen, Villains"
+    items:
+      - name: "Monster"
+        text: "Enemies requiring combat checks (Strength or Melee). Failing costs you cards equal to the margin of failure."
+      - name: "Barrier"
+        text: "Traps and obstacles. Often require non-combat skills. Failure shuffles back rather than dealing damage."
+      - name: "Henchman"
+        text: "Mini-bosses guarding locations. Defeating one earns you an attempt to close that location."
+      - name: "Villain"
+        text: "The scenario's final enemy. Must be defeated AND cornered (all locations closed) to win the scenario."
+
+  - id: trigger_trait
+    title: "The Trigger Trait"
+    icon: "⚠️"
+    tags: [trigger, examine, mummys_mask, barrier, trap]
+    short: "Red-highlighted trait — fires when you EXAMINE this card, not just encounter it"
+    content: >
+      The Trigger trait is a Mummy's Mask mechanic. Cards with this trait have powers
+      that activate the moment you examine them — even if you are just peeking at the
+      location deck, not actively exploring.
+
+      The Trigger trait is always the first trait listed on a card and is highlighted
+      in red so you can spot it quickly. When you see that red highlight while examining
+      cards, stop and resolve the triggered effect before continuing.
+
+      This makes location-scouting risky. Scanning ahead for the villain might spring
+      a trap or deal unexpected damage.
+
+  - id: token_in_deck
+    title: "Tokens in Location Decks"
+    icon: "📍"
+    tags: [token, location, move, mummys_mask]
+    short: "Token shuffled into a deck — you can still explore, but you cannot move"
+    content: >
+      Some cards in Mummy's Mask instruct you to shuffle your character token into a
+      location deck. While your token is inside the deck, you may still explore,
+      encounter cards, and play cards normally — but you cannot move to a different
+      location, even if a power would normally allow you to.
+
+      When your token card is examined, encountered, or would otherwise be removed
+      from the game, take it out of the deck and place it at that location.
+
+  - id: examining_searching
+    title: "Examining and Searching"
+    icon: "🔍"
+    tags: [examine, search, location_deck, scout]
+    short: "Examine = look at specific cards and replace; Search = find a card type"
+    content: >
+      Examining lets you look at one or more specific cards in a deck, then replace
+      them in the same order. Skip any face-up cards — only face-down cards count
+      when examining. If a card has the Trigger trait and you examine it, resolve
+      its trigger before continuing. Complete all examining before any deck shuffles
+      that might be waiting.
+
+      Searching means looking through an entire deck for a card of a specific type.
+      You may inspect every card, choose one of the matching type, then shuffle the
+      remaining deck.
+
+  - id: feats
+    title: "Feats — Character Advancement"
+    icon: "⬆️"
+    tags: [feat, skill, power, card, advancement, between_games]
+    short: "Check a box to permanently improve your character"
+    items:
+      - name: "Skill Feat"
+        text: "Check a new box in the Skills section. Adds a modifier (+1, +2, +3) to a skill of your choice. Must check boxes in order — you can't skip ahead."
+      - name: "Power Feat"
+        text: "Check a new box in the Powers section. Unlocks or enhances a character power. Must check boxes in order."
+      - name: "Card Feat"
+        text: "Check a new box on the Cards List. Lets you carry one additional card of a chosen type in your deck."
+
+  - id: between_games
+    title: "Between Scenarios"
+    icon: "🏕️"
+    tags: [advancement, deck, trader, between_games]
+    short: "Rebuild deck, earn rewards, visit traders, then start the next scenario"
+    content: >
+      After each scenario (win or lose), all characters rebuild their decks:
+      combine discard pile + hand + deck, trade freely between players, then
+      construct a deck meeting your character card's Cards List requirements exactly.
+      Loot cards count as their listed card type.
+
+      After winning, characters earn the scenario reward (usually a feat or loot).
+      Each character may then visit one trader to exchange boons for cards of equal
+      or lower adventure deck number.
+
+      After losing, no reward is earned. You must replay the scenario before advancing.
+      Characters keep feats from previous scenarios, but not any gained during this one.
+
+  - id: golden_rules
+    title: "The Golden Rules"
+    icon: "📜"
+    tags: [basics, rules, priority, conflict]
+    short: "Cards beat rulebook; 'never' cannot be overruled; impossible = ignore"
+    content: >
+      When a card and the rulebook conflict, the card is correct — with one exception:
+      if the rulebook uses the word "never," no card can overrule it.
+
+      Card priority order (highest overrules lower): Adventure Path cards → Adventure
+      cards → Scenario cards → Location cards → Support cards → Characters → all
+      other card types.
+
+      If a card tells you to do something impossible (like draw from an empty deck
+      with no discard pile to shuffle), simply ignore that instruction.
+
+      If you ever need to do anything with the blessings deck and there are not enough
+      cards, the party immediately loses the scenario. For your own character deck,
+      running out means your character dies.
+
+  - id: scourges
+    title: "Scourges"
+    icon: "🪲"
+    tags: [scourge, support, mummys_mask, curse, damage]
+    short: "Lasting curse cards displayed beside your deck — a Mummy's Mask hazard"
+    content: >
+      Scourges are a new support card type unique to Mummy's Mask. They represent
+      lingering curses, poisons, and afflictions.
+
+      When a card tells you to suffer a scourge, draw that specific scourge from the
+      box and display it face-up next to your character deck. When a card tells you to
+      suffer a scourge without naming one, check the adventure card to find the scourge
+      die for the current adventure, roll it, and draw the matching scourge from the
+      scourge table below.
+
+      While a scourge is displayed, its effects are active. Some powers can remove
+      scourges; otherwise they remain until the end of the scenario. If you encounter
+      a scourge card in a location deck, immediately display it — the encounter is over.
+
+      Scourge Die by Adventure:
+        Adventure B → 1d4
+        Adventure 1 → 1d4+1
+        Adventure 2 → 1d6
+        Adventure 3 → 1d6+1
+        Adventure 4 → 1d8
+        Adventure 5 → 1d8+1
+        Adventure 6 → 1d10
+
+      Scourge Table:
+        1-2  → Curse of Poisoning
+        3    → Curse of Vulnerability
+        4    → Curse of Daybane
+        5    → Curse of the Ravenous
+        6    → Curse of Withering
+        7    → Curse of Fevered Dreams
+        8    → Curse of the Sphinx
+        9    → Curse of Blindness
+        10   → Curse of the Mummy
+
+  - id: role_cards
+    title: "Role Cards"
+    icon: "🎭"
+    tags: [role, feat, advancement, adventure3, character]
+    short: "Chosen at Adventure 3 — two specializations per character, each with new feats"
+    content: >
+      Each character has a corresponding role card with two sides, each representing
+      a different specialization path. Role cards are earned as a reward upon completing
+      the third adventure of the Mummy's Mask Adventure Path.
+
+      When you earn your role card, choose one of the two sides. From that point on,
+      whenever you gain a feat and choose to check a box on your role card, you must
+      always choose feats from the side you selected. You cannot switch sides.
+
+      Place your role card directly over the Powers section of your character card.
+      Once placed, your character card's Powers section cannot be modified further.
+      When you first receive the role card, check any boxes that match feat boxes you
+      have already checked on your character card (e.g. if "Light Armors" was checked
+      on your character card, check it on your role card too).
+
+      Role card feats apply to your character as if they were part of the original
+      character card. Your role card counts as part of your character card.
+
+  - id: invokes
+    title: "Invokes (Mummy's Mask)"
+    icon: "🔗"
+    tags: [invoke, trait, check, mummys_mask, new]
+    short: "A check invokes a trait if it has it OR if it's against a card with that trait"
+    content: >
+      Invokes is a new mechanic introduced in Mummy's Mask.
+
+      A check invokes a trait if:
+        - The check itself has that trait (e.g., you are using the Ranged skill,
+          so the check invokes the Ranged trait), OR
+        - The check is against a card that has that trait (e.g., you are attempting
+          to defeat a monster with the Fire trait, so the check invokes the Fire trait).
+
+      A bane also invokes a trait if it deals only damage of the type that matches
+      that trait. This matters for powers and card effects that trigger based on what
+      trait a check or bane invokes.
+
+  - id: scenario_setup
+    title: "Setting Up a Scenario"
+    icon: "🗺️"
+    tags: [setup, scenario, location, basics, new_game]
+    short: "Choose character → build deck → lay out locations → add villains/henchmen → draw hands"
+    steps:
+      - name: "1. Place Story Cards"
+        text: >
+          Place the Adventure Path card, the current Adventure card, and the current
+          Scenario card face-up on the table. Read the scenario card to understand
+          your goals and any special rules.
+      - name: "2. Set Out the Locations"
+        text: >
+          The back of the scenario card lists locations with required player counts
+          next to each. Use all locations listed for 1 through your player count.
+          For example, with 3 players, use locations listed for 1, 2, and 3 players.
+          Lay those location cards face-up in the centre of the table.
+      - name: "3. Build the Location Decks"
+        text: >
+          Each location card lists its own deck composition (monsters, barriers, items,
+          etc.). Shuffle together the correct number of each card type and place the
+          deck face-down beside its location card. Do NOT look at these cards.
+      - name: "4. Add Villains and Henchmen"
+        text: >
+          Make a stack: villain(s) first, then henchmen in order from the scenario card.
+          The stack must have as many cards as you have locations. If needed, add extra
+          copies of the last henchman. Shuffle this stack and place 1 card on top of
+          each location deck, then shuffle each location deck.
+      - name: "5. Create the Blessings Deck"
+        text: >
+          Draw 30 random blessing cards from the box, shuffle them together, and place
+          them face-down in the centre as the blessings deck.
+      - name: "6. Place Tokens and Draw Starting Hands"
+        text: >
+          Each player places their token card at a chosen starting location. Then each
+          player draws cards from their deck equal to their hand size. The character
+          card lists a Favored Card Type — if you draw no cards of that type, discard
+          your hand and draw again until you have at least 1 (repeating as needed).
+          If you discard enough to exhaust your deck, shuffle your discard pile and
+          keep drawing.
+      - name: "7. Decide Who Goes First"
+        text: >
+          Choose whichever player the group prefers. Turns proceed clockwise.
+
+  - id: active_optional_powers
+    title: "When Are Card Powers Active?"
+    icon: "⚙️"
+    tags: [powers, cards, active, optional, basics]
+    short: "Powers are context-specific — only active at the right moment"
+    items:
+      - name: "Cards in your hand"
+        text: "Powers are active only when you choose to play them."
+      - name: "Cards you examine"
+        text: "Only powers that say they happen when examined are active during examination."
+      - name: "Banes you encounter"
+        text: "All applicable powers are active while you are encountering the bane."
+      - name: "Boons you encounter"
+        text: "Only powers that say they happen when encountered are active, plus powers that apply if you acquire or fail to acquire."
+      - name: "Blessings deck and discard pile"
+        text: "Only powers that say they apply when discarded from the deck or while on top of the discard pile are active."
+      - name: "Location cards"
+        text: "Most location powers are active only while characters are at that location. A few affect other situations."
+      - name: "Story cards and displayed cards"
+        text: "Active whenever appropriate according to what the card says."
+      - name: "Playing from hand is always optional"
+        text: "Active powers on other cards (banes, displayed cards, etc.) are only optional if they say 'you may.'"
+
+  - id: summoning_cards
+    title: "Summoning and Adding Cards"
+    icon: "✨"
+    tags: [summon, add_cards, location_deck, encounter]
+    short: "Summoned cards come from the box — they exist only for that encounter"
+    content: >
+      When told to summon a card, retrieve it from the box. If the card being summoned
+      is already in use, imagine you have another copy — it ceases to exist at the end
+      of the encounter. A summoned card cannot summon a copy of itself or of the card
+      that summoned it.
+
+      If you are told to summon and then encounter a card, this immediately starts a
+      new encounter. If you are already in an encounter, complete that encounter with
+      the summoned card first, then continue the original encounter.
+
+      After evading or resolving a summoned encounter, put the summoned card back in
+      the box (not in any location deck) unless the card that summoned it says otherwise.
+
+      If the summoned card is a villain or henchman, defeating it does NOT let you
+      win the scenario or close a location — summoned villains and henchmen are ignored
+      for those purposes.
+
+      When told to add a card to the top or bottom of a deck, do so directly. Otherwise,
+      any card added to a deck is shuffled in. If adding a random card of a specific
+      type with additional requirements (e.g., "non-Basic"), draw cards of that type
+      from the box until you find one that qualifies, then add it and return the rest.
+
+  - id: faceup_cards
+    title: "Faceup Cards on Location Decks"
+    icon: "👁️"
+    tags: [faceup, location_deck, explore, encounter]
+    short: "Faceup cards stay on top of the deck — must be encountered first"
+    content: >
+      Sometimes a card is left face-up on top of a location deck. It is still part of
+      the deck and cannot leave the top until it is either defeated or the condition
+      that caused it to be face-up is resolved.
+
+      If a faceup card says you must encounter it on your first exploration of a turn,
+      you must encounter it the first time you explore that turn. For additional
+      explorations that same turn, ignore it for the purpose of choosing to explore —
+      but it still counts as the top card of the deck for all other purposes.
+
+      If multiple cards are face-up on the same deck, you may place them in any order.
+      Encounter them in that order, one per exploration.
+
+      If you are told to put cards on top of the deck, put them immediately below any
+      faceup cards already there. If you are told to shuffle the deck, leave any faceup
+      cards on top.
+
+  - id: traders
+    title: "Traders — Post-Scenario Shopping"
+    icon: "🛒"
+    tags: [trader, between_games, deck, advancement, boon]
+    short: "After winning, each character may visit one trader to exchange boons"
+    content: >
+      After winning a scenario, each character may visit one trader. Traders are
+      tracked using checkboxes on the Bazaar card.
+
+      How trading works:
+        1. Multiple characters may visit the same trader. Decide who visits which.
+        2. For each trader, draw (adventure deck number + 1) random cards of the
+           trader's offered type from the box. These must have an adventure deck number
+           equal to the completed scenario's adventure number, or 1 less.
+        3. Display those cards on the trader. Then characters may trade boons
+           among themselves before visiting the trader.
+        4. To trade with the trader, pay the trade cost — put the appropriate number
+           and type of cards from your deck into the box. These cards must have an
+           adventure deck number no less than 1 less than the desired card's number.
+        5. Take one displayed card from the trader. Each character may make at most
+           1 trade per trader.
+        6. After all trading, shuffle any remaining displayed boons back into the box.
+           Return traders to the box.
+
+      Loot cards count as their listed card type for trade cost purposes. You cannot
+      earn the scenario, adventure, or Adventure Path reward more than once.
+
+  - id: character_card
+    title: "Reading Your Character Card"
+    icon: "📋"
+    tags: [character, skills, powers, hand_size, basics, setup]
+    short: "Character card defines your skills, powers, hand size, and deck composition"
+    items:
+      - name: "Traits"
+        text: "Descriptors on your character card (e.g., Human, Rogue). Many card effects key off these traits."
+      - name: "Skills"
+        text: "Each skill shows a die type (e.g., Strength d10) and an optional modifier. You roll that die when using that skill. If you lack a skill, you use a d4 with no modifier."
+      - name: "Powers"
+        text: "Special abilities. A power saying 'you may' is optional and active when appropriate. Powers saying nothing about frequency can generally be used each time the trigger occurs."
+      - name: "Hand Size"
+        text: "The number of cards you draw for your starting hand and must hold at the end of each turn. If your role card changes this, use the role card number."
+      - name: "Favored Card Type"
+        text: "You must start each scenario with at least 1 card of this type in your opening hand. If your draw contains none, discard and redraw (see Setup)."
+      - name: "Cards List"
+        text: "The exact count of each boon type your deck must contain. Card feats increase one slot. Loot cards count as their listed type."
+      - name: "Proficient With"
+        text: "Weapons and armor types your character can use at full strength. Proficiency often lets you recharge armors or unlocks extra weapon effects."
+
+  - id: rules_to_remember
+    title: "Rules That Are Easy to Forget"
+    icon: "📌"
+    tags: [basics, tips, mistakes, reference]
+    short: "Common mistakes and rules that trip up even experienced players"
+    items:
+      - name: "1 card per type per check"
+        text: "During an encounter, each player may play no more than 1 card of each type per check step. No stacking two weapons, two blessings, etc."
+      - name: "Blessings add the same dice type"
+        text: "When a blessing adds dice to a check, those dice are the same type as the character is already rolling for that check."
+      - name: "No skill = d4"
+        text: "If your character doesn't have a skill listed for a check, you can still attempt it using a d4 (no modifier)."
+      - name: "Sequential checks share location"
+        text: "In a bane requiring sequential checks, the encountering character must attempt at least one. Any character at that location may attempt the others."
+      - name: "Only the encountering character acts"
+        text: "No other character can evade, defeat, or acquire a card for you. They can only play cards or use powers that help you."
+      - name: "Finish one thing before starting another"
+        text: "You do things in a specific order. Move before exploring. If a villain requires two sequential checks, finish the first before starting the second."
+      - name: "Cards do what they say — nothing more"
+        text: "If a card says it works on 'any check,' it works on anyone's check. If it says 'your check,' it only works on yours. Don't invent rules that aren't there."
+      - name: "Cards don't have memories"
+        text: "A card forgets it was played after it's done. You can reveal the same item before and during an encounter. A monster is unaffected by anything you did to it in a previous encounter."
+      - name: "Add only what you're told to add"
+        text: "If a card adds a die, that's all you get — not the skill modifier again, not the skill trait. You get exactly what the card says."
+      - name: "Impossible instructions are ignored"
+        text: "If a card tells you to do something impossible (draw from an empty deck you can't shuffle), simply skip that instruction."

@@ -1,12 +1,16 @@
 import { html } from '/static/js/html.js';
 import { useApp } from '/static/js/state.js';
 import { Modal } from '/static/js/components/common/Modal.js';
+import { NewGameGuide } from '/static/js/components/common/NewGameGuide.js';
+import { GuidedBanner } from '/static/js/components/common/GuidedBanner.js';
 import { useState, useEffect, useCallback } from '/static/js/vendor/hooks.module.js';
 import * as api from '/static/js/api.js';
 
 export function CampaignHome() {
-  const { state, patch, navigate, toast } = useApp();
+  const { state, patch, navigate, toast, toggleGuided } = useApp();
+  const { guidedMode } = state;
   const [showNew, setShowNew] = useState(false);
+  const [showGuide, setShowGuide] = useState(false);
   const [newName, setNewName] = useState('');
   const [busy, setBusy] = useState(false);
 
@@ -55,12 +59,39 @@ export function CampaignHome() {
 
   const campaigns = state.campaigns;
 
+  // Guided-mode step for this screen
+  const guidedStep = !campaigns || campaigns.length === 0
+    ? {
+        icon: '⚱',
+        title: 'Welcome — Create Your First Campaign',
+        body: 'A campaign tracks your party\'s progress across all 30 scenarios. Tap "+ New Campaign" below to begin. Give it any name you like — your party name or something thematic works well.',
+        tip: 'You only need one campaign per playthrough. Each player\'s character lives inside it.',
+      }
+    : {
+        icon: '▶',
+        title: 'Open Your Campaign',
+        body: 'Tap your campaign card to continue setting it up. You\'ll add your characters, pick your first scenario, and then start playing.',
+      };
+
   return html`
     <div class="page">
       <div class="page-header">
         <h1>⚱ Mummy's Mask</h1>
+        <button class=${'btn-ghost btn-sm guided-toggle' + (guidedMode ? ' guided-toggle--on' : '')}
+          onClick=${toggleGuided}
+          title=${guidedMode ? 'Guided mode is on — tap to turn off' : 'Turn on step-by-step guidance'}>
+          🎓 ${guidedMode ? 'Guided: On' : 'New Player?'}
+        </button>
       </div>
       <div class="page-body">
+        ${guidedMode && html`
+          <${GuidedBanner}
+            icon=${guidedStep.icon}
+            title=${guidedStep.title}
+            body=${guidedStep.body}
+            tip=${guidedStep.tip}
+          />
+        `}
         ${campaigns === null
           ? html`<div class="loading-center"><div class="spinner"></div><span>Loading…</span></div>`
           : campaigns.length === 0
@@ -76,7 +107,9 @@ export function CampaignHome() {
                   <h3>${c.name}</h3>
                   <div class="campaign-meta">
                     <span>${c.character_count} character${c.character_count !== 1 ? 's' : ''}</span>
-                    <span>Created ${new Date(c.created_at).toLocaleDateString()}</span>
+                    <span>${c.current_scenario
+                      ? `Scenario ${c.current_scenario}`
+                      : 'Not started'}</span>
                   </div>
                   <div style="margin-top:auto; display:flex; justify-content:flex-end;">
                     <button class="btn-danger btn-sm"
@@ -91,8 +124,16 @@ export function CampaignHome() {
         }
       </div>
       <div class="page-footer">
+        <button class="btn-ghost" onClick=${() => setShowGuide(true)}
+          style="margin-right:8px;">
+          🏺 New Game Guide
+        </button>
         <button class="btn-primary" onClick=${() => setShowNew(true)}>+ New Campaign</button>
       </div>
+
+      ${showGuide && html`
+        <${NewGameGuide} initialSection="characters" onClose=${() => setShowGuide(false)} />
+      `}
 
       ${showNew && html`
         <${Modal} title="New Campaign" onClose=${() => setShowNew(false)}
@@ -113,6 +154,10 @@ export function CampaignHome() {
               autofocus
             />
           </div>
+          <p style="font-size:12px; color:var(--text-dim); margin-top:10px; margin-bottom:0;">
+            First time?${' '}
+            <button class="btn-link" onClick=${() => setShowGuide(true)}>Browse characters & setup guide →</button>
+          </p>
         </${Modal}>
       `}
     </div>

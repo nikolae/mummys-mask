@@ -2,9 +2,8 @@ locations:
 - name: Alchemical Laboratory
   category: location
   source: MM-B
-  flavor: Thuvian alchemy, renowned for its masterful manipulation of the elements,
-    is practiced throughout Osirion. The alchemical laboratories, however, are often
-    carefully kept far away from residential areas. The risk of explosion is one reason;
+  flavor: Thuvian alchemy, renowned for its masterful manipulation of the elements, is practiced throughout Osirion. The alchemical
+    laboratories, however, are often carefully kept far away from residential areas. The risk of explosion is one reason;
     the disturbing smells another.
   deck_list:
     monster: 1
@@ -15,20 +14,34 @@ locations:
     item: 3
     ally: 1
     blessing: 0
-  at_location: If you defeat a bane by 4 or more, each character at this location
-    is dealt 1d4 Acid damage.
-  when_closing: Succeed at an Intelligence or Craft check with a difficulty of 5 plus
-    the scenario's adventure deck number.
-  when_closed: On closing, shuffle 3 items that have the Alchemical trait from the
-    box into this location.
+  at_location: If you defeat a bane by 4 or more, each character at this location is dealt 1d4 Acid damage.
+  when_closing: Succeed at an Intelligence or Craft check with a difficulty of 5 plus the scenario's adventure deck number.
+  when_closed: On closing, shuffle 3 items that have the Alchemical trait from the box into this location.
+  deck_sizes:
+    S:
+      monster: 1
+      barrier: 1
+      spell: 1
+      item: 2
+      ally: 1
+    M:
+      monster: 1
+      barrier: 2
+      spell: 2
+      item: 3
+      ally: 1
+    L:
+      monster: 2
+      barrier: 2
+      spell: 2
+      item: 4
+      ally: 2
 - name: Altar of Riddles
   category: location
   source: MM-4
-  flavor: A gargantuan slab of perfect, featureless granite stands at the heart of
-    the Sightless Sphinx, venerated to the unknowable. Those who see without eyes
-    may find great gifts through its polished surface. Ask the right questions and
-    you shall receive, it says, but risk the notice of the unnamed. When it asks you
-    questions, be prepared to answer.
+  flavor: A gargantuan slab of perfect, featureless granite stands at the heart of the Sightless Sphinx, venerated to the
+    unknowable. Those who see without eyes may find great gifts through its polished surface. Ask the right questions and
+    you shall receive, it says, but risk the notice of the unnamed. When it asks you questions, be prepared to answer.
   deck_list:
     monster: 1
     barrier: 2
@@ -38,19 +51,42 @@ locations:
     item: 1
     ally: 1
     blessing: 2
-  at_location: At the start of your turn, choose a type of boon, then examine the
-    top card of the location deck. If it is the chosen type,  you automatically acquire
-    it.
+  at_location: At the start of your turn, choose a type of boon, then examine the top card of the location deck. If it is
+    the chosen type,  you automatically acquire it.
   when_closing: Succeed at an Intelligence, Knowledge, or Wisdom 10 check.
   when_closed: No effect.
+  deck_sizes:
+    S:
+      monster: 1
+      barrier: 1
+      spell: 1
+      item: 1
+      ally: 1
+      blessing: 1
+    M:
+      monster: 1
+      barrier: 2
+      weapon: 1
+      spell: 1
+      item: 1
+      ally: 1
+      blessing: 2
+    L:
+      monster: 1
+      barrier: 3
+      weapon: 1
+      spell: 1
+      armor: 1
+      item: 2
+      ally: 1
+      blessing: 2
 - name: Brickworks
   category: location
   source: MM-B
-  flavor: Not long ago, the Bright River Brickworks produced a steady supply of mud
-    bricks for Wati's less glorious homes and businesses, until a fire raged through
-    the building and the surrounding shanties in the Veins. The criminal gang known
-    as the Silver Chain moved into the brickworks almost before the ashes cooled,
-    taking advantage of its easy access to the necropolis.
+  flavor: Not long ago, the Bright River Brickworks produced a steady supply of mud bricks for Wati's less glorious homes
+    and businesses, until a fire raged through the building and the surrounding shanties in the Veins. The criminal gang known
+    as the Silver Chain moved into the brickworks almost before the ashes cooled, taking advantage of its easy access to the
+    necropolis.
   deck_list:
     monster: 2
     barrier: 2
@@ -61,16 +97,31 @@ locations:
     ally: 2
     blessing: 0
   at_location: Add 1 die to checks that have the Fire trait.
-  when_closing: Succeed at a Strength check with a difficulty of 4 plus the scenario's
-    adventure deck number.
+  when_closing: Succeed at a Strength check with a difficulty of 4 plus the scenario's adventure deck number.
   when_closed: No effect.
+  deck_sizes:
+    S:
+      monster: 1
+      barrier: 2
+      weapon: 2
+      ally: 1
+    M:
+      monster: 2
+      barrier: 2
+      weapon: 3
+      ally: 2
+    L:
+      monster: 2
+      barrier: 3
+      weapon: 3
+      item: 1
+      ally: 3
 - name: Camel Race
   category: location
   source: MM-3
-  flavor: Spectators gather to cheer and laugh at Muminofrah's fools winding the thoroughfares
-    and markets of Tephu. Bright banners are hung and songs sung to the consternation
-    of the camels, who spit back in disdain. And yet the road is narrow, the corners
-    sharp, and the dangers to the chariot drivers as real as the beating desert sun.
+  flavor: Spectators gather to cheer and laugh at Muminofrah's fools winding the thoroughfares and markets of Tephu. Bright
+    banners are hung and songs sung to the consternation of the camels, who spit back in disdain. And yet the road is narrow,
+    the corners sharp, and the dangers to the chariot drivers as real as the beating desert sun.
   deck_list:
     monster: 6
     barrier: 4
@@ -80,18 +131,44 @@ locations:
     item: 2
     ally: 2
     blessing: 2
-  at_location: During your encounter, if you are dealt damage that is not reduced
-    by at least 1, banish the top card of your trophy stack.
+  at_location: During your encounter, if you are dealt damage that is not reduced by at least 1, banish the top card of your
+    trophy stack.
   when_closing: This location may not be closed.
   when_closed: No effect.
+  deck_sizes:
+    S:
+      monster: 4
+      barrier: 3
+      weapon: 1
+      spell: 1
+      armor: 1
+      item: 2
+      ally: 2
+      blessing: 2
+    M:
+      monster: 6
+      barrier: 4
+      weapon: 2
+      spell: 2
+      armor: 2
+      item: 2
+      ally: 2
+      blessing: 2
+    L:
+      monster: 8
+      barrier: 5
+      weapon: 3
+      spell: 2
+      armor: 2
+      item: 3
+      ally: 3
+      blessing: 2
 - name: Canny Jackal
   category: location
   source: MM-2
-  flavor: A throat that swallows the history of Osirion, this auction house converts
-    the ingenuity of tomb raiders into coin. Collectors and antiquities dealers from
-    far-off nations paw and squint at the remnants of forgotten people, judging their
-    price. The negotiations are whispered, out of respect for the dead and fear of
-    curses laid by clerics without names.
+  flavor: A throat that swallows the history of Osirion, this auction house converts the ingenuity of tomb raiders into coin.
+    Collectors and antiquities dealers from far-off nations paw and squint at the remnants of forgotten people, judging their
+    price. The negotiations are whispered, out of respect for the dead and fear of curses laid by clerics without names.
   deck_list:
     monster: 0
     barrier: 1
@@ -101,17 +178,37 @@ locations:
     item: 3
     ally: 2
     blessing: 0
-  at_location: When you fail a check to acquire a boon, you may bury a card to acquire
-    it.
+  at_location: When you fail a check to acquire a boon, you may bury a card to acquire it.
   when_closing: You may close this location automatically.
   when_closed: On closing, summon and encounter an ally; if you acquire it, draw it.
+  deck_sizes:
+    S:
+      barrier: 1
+      weapon: 1
+      spell: 1
+      item: 2
+      ally: 1
+    M:
+      barrier: 1
+      weapon: 1
+      spell: 1
+      armor: 1
+      item: 3
+      ally: 2
+    L:
+      monster: 1
+      barrier: 1
+      weapon: 1
+      spell: 1
+      armor: 1
+      item: 4
+      ally: 3
 - name: Caravanserai
   category: location
   source: MM-B
-  flavor: Few places in the world are more welcoming than the display of hospitality
-    that is the caravanserai. Here, your cup of mint tea is never empty and exciting
-    tales pour from travelers seeking respite from the sun. Though your stay is brief,
-    the bond between travelers can last a lifetime, if only in memory.
+  flavor: Few places in the world are more welcoming than the display of hospitality that is the caravanserai. Here, your
+    cup of mint tea is never empty and exciting tales pour from travelers seeking respite from the sun. Though your stay is
+    brief, the bond between travelers can last a lifetime, if only in memory.
   deck_list:
     monster: 0
     barrier: 2
@@ -121,18 +218,37 @@ locations:
     item: 3
     ally: 1
     blessing: 0
-  at_location: When you would encounter an item, draw an item from the box instead;
-    encounter 1 and banish 1.
+  at_location: When you would encounter an item, draw an item from the box instead; encounter 1 and banish 1.
   when_closing: Banish an item.
   when_closed: On closing, draw 2 items from the box; keep 1 and banish 1.
+  deck_sizes:
+    S:
+      barrier: 1
+      weapon: 1
+      armor: 1
+      item: 2
+      ally: 1
+    M:
+      barrier: 2
+      weapon: 1
+      spell: 1
+      armor: 1
+      item: 3
+      ally: 1
+    L:
+      monster: 1
+      barrier: 2
+      weapon: 1
+      spell: 1
+      armor: 2
+      item: 3
+      ally: 2
 - name: Catacombs
   category: location
   source: MM-B
-  flavor: Deep within the earth, it is cool and quiet. It would be peaceful were it
-    not for the unsettling presence of the dead. It is easy to get lost here, as the
-    catacombs wind with an architectural logic the living cannot understand. As the
-    flickering light of your torches passes over the bones, you pray it is only the
-    shadows that moved.
+  flavor: Deep within the earth, it is cool and quiet. It would be peaceful were it not for the unsettling presence of the
+    dead. It is easy to get lost here, as the catacombs wind with an architectural logic the living cannot understand. As
+    the flickering light of your torches passes over the bones, you pray it is only the shadows that moved.
   deck_list:
     monster: 3
     barrier: 2
@@ -143,17 +259,34 @@ locations:
     ally: 0
     blessing: 0
   at_location: On your checks that have the Cold trait, add 1 die.
-  when_closing: Succeed at a Wisdom or Survival check with a difficulty of 4 plus
-    the scenario's adventure deck number.
+  when_closing: Succeed at a Wisdom or Survival check with a difficulty of 4 plus the scenario's adventure deck number.
   when_closed: On closing, draw an ally that has the Animal trait from the box.
+  deck_sizes:
+    S:
+      monster: 2
+      barrier: 1
+      weapon: 1
+      spell: 1
+      armor: 1
+    M:
+      monster: 3
+      barrier: 2
+      weapon: 2
+      spell: 1
+      armor: 1
+    L:
+      monster: 4
+      barrier: 3
+      weapon: 2
+      spell: 1
+      armor: 1
+      blessing: 1
 - name: Chisisek's Tomb
   category: location
   source: MM-3
-  flavor: Every space within Chisisek's tomb glitters with lavish rewards, none greater
-    than the wondrous architecture itself. Gilded murals of the architects' greatest
-    accomplishments line the walls, with details of massive elemental obelisks and
-    flying pyramids recreated in painstaking detail. The Sky Pharaoh's servant has
-    been well bribed for his blood silence.
+  flavor: Every space within Chisisek's tomb glitters with lavish rewards, none greater than the wondrous architecture itself.
+    Gilded murals of the architects' greatest accomplishments line the walls, with details of massive elemental obelisks and
+    flying pyramids recreated in painstaking detail. The Sky Pharaoh's servant has been well bribed for his blood silence.
   deck_list:
     monster: 4
     barrier: 1
@@ -163,18 +296,36 @@ locations:
     item: 1
     ally: 0
     blessing: 1
-  at_location: Monsters you encounter have the Undead trait and are immune to the
-    Mental and Poison traits; all damage dealt by them is Cold damage.
+  at_location: Monsters you encounter have the Undead trait and are immune to the Mental and Poison traits; all damage dealt
+    by them is Cold damage.
   when_closing: Summon and defeat the henchman Theletos.
   when_closed: On closing, draw a spell from the box.
+  deck_sizes:
+    S:
+      monster: 3
+      spell: 1
+      item: 1
+      blessing: 1
+    M:
+      monster: 4
+      barrier: 1
+      weapon: 1
+      spell: 1
+      item: 1
+      blessing: 1
+    L:
+      monster: 5
+      barrier: 2
+      weapon: 1
+      spell: 1
+      item: 2
+      blessing: 1
 - name: Crypt
   category: location
   source: MM-B
-  flavor: Much can be gleaned from the precious items and artwork left by loved ones
-    in stone tombs built to hold their occupants for eternity. Lifetimes of accomplishment
-    are painted in once-bright colors upon the walls. You wonder if the ghosts remember
-    what these strange treasures hidden beneath layers of dust or faded with time
-    were meant for.
+  flavor: Much can be gleaned from the precious items and artwork left by loved ones in stone tombs built to hold their occupants
+    for eternity. Lifetimes of accomplishment are painted in once-bright colors upon the walls. You wonder if the ghosts remember
+    what these strange treasures hidden beneath layers of dust or faded with time were meant for.
   deck_list:
     monster: 2
     barrier: 2
@@ -184,17 +335,36 @@ locations:
     item: 1
     ally: 0
     blessing: 1
-  at_location: The difficulty of checks against banes that have the Cold or Undead
-    trait is increased by 3 plus the scenario's adventure deck number.
-  when_closing: Succeed at a Wisdom or Divine check with a difficulty of 4 plus the
-    scenario's adventure deck number.
+  at_location: The difficulty of checks against banes that have the Cold or Undead trait is increased by 3 plus the scenario's
+    adventure deck number.
+  when_closing: Succeed at a Wisdom or Divine check with a difficulty of 4 plus the scenario's adventure deck number.
   when_closed: On closing, draw a blessing from the box.
+  deck_sizes:
+    S:
+      monster: 2
+      barrier: 1
+      weapon: 1
+      armor: 1
+      blessing: 1
+    M:
+      monster: 2
+      barrier: 2
+      weapon: 1
+      armor: 2
+      item: 1
+      blessing: 1
+    L:
+      monster: 3
+      barrier: 2
+      weapon: 2
+      armor: 2
+      item: 1
+      blessing: 2
 - name: Dilapidated Plaza
   category: location
   source: MM-B
-  flavor: Nothing is so ostentatious in a land hemmed by deserts as the waste of water.
-    And nothing shows the weakness of humanity in the face of the elements so well
-    as a fountain plaza reclaimed by sand.
+  flavor: Nothing is so ostentatious in a land hemmed by deserts as the waste of water. And nothing shows the weakness of
+    humanity in the face of the elements so well as a fountain plaza reclaimed by sand.
   deck_list:
     monster: 2
     barrier: 3
@@ -204,19 +374,37 @@ locations:
     item: 0
     ally: 1
     blessing: 0
-  at_location: When you play a boon that has the Acid trait, you are dealt 1 Acid
-    damage.
-  when_closing: Succeed at a Diplomacy check with a difficulty of 4 plus the scenario's
-    adventure deck number.
-  when_closed: For the rest of the scenario, when a character at any location attempts
-    a check, after the roll, he may bury a card to reroll 1 die and take the new result.
+  at_location: When you play a boon that has the Acid trait, you are dealt 1 Acid damage.
+  when_closing: Succeed at a Diplomacy check with a difficulty of 4 plus the scenario's adventure deck number.
+  when_closed: For the rest of the scenario, when a character at any location attempts a check, after the roll, he may bury
+    a card to reroll 1 die and take the new result.
+  deck_sizes:
+    S:
+      monster: 1
+      barrier: 2
+      weapon: 1
+      armor: 1
+      ally: 1
+    M:
+      monster: 2
+      barrier: 3
+      weapon: 1
+      spell: 1
+      armor: 1
+      ally: 1
+    L:
+      monster: 3
+      barrier: 4
+      weapon: 2
+      spell: 1
+      armor: 1
+      ally: 1
 - name: Dye Market
   category: location
   source: MM-1
-  flavor: Brilliant color overwhelms the senses as light shines through miles of linen
-    and silk cloth that drape from hundreds of ropes overhead. Beauty comes at a price,
-    though. The scent of dye chemicals is acrid in the nose. A merchant warns of a
-    particularly deep green color. That one is not for touching.
+  flavor: Brilliant color overwhelms the senses as light shines through miles of linen and silk cloth that drape from hundreds
+    of ropes overhead. Beauty comes at a price, though. The scent of dye chemicals is acrid in the nose. A merchant warns
+    of a particularly deep green color. That one is not for touching.
   deck_list:
     monster: 2
     barrier: 1
@@ -229,12 +417,32 @@ locations:
   at_location: When you discard cards as damage, suffer the scourge of the Ravenous.
   when_closing: Choose 3 types of boons, then recharge 1 boon of each type.
   when_closed: No effect.
+  deck_sizes:
+    S:
+      monster: 1
+      barrier: 1
+      weapon: 1
+      armor: 2
+      ally: 1
+    M:
+      monster: 2
+      barrier: 1
+      weapon: 1
+      armor: 3
+      item: 1
+      ally: 1
+    L:
+      monster: 3
+      barrier: 1
+      weapon: 1
+      armor: 4
+      item: 1
+      ally: 2
 - name: Earthworks
   category: location
   source: MM-B
-  flavor: Even the humble desert mouse knows that you must dig into the earth for
-    safety from winds that can strip flesh from bone. Though these constructions are
-    labor intensive, every culture that has lived in Osirion since the long-forgotten
+  flavor: Even the humble desert mouse knows that you must dig into the earth for safety from winds that can strip flesh from
+    bone. Though these constructions are labor intensive, every culture that has lived in Osirion since the long-forgotten
     dawn of history has created great earthworks.
   deck_list:
     monster: 2
@@ -248,14 +456,33 @@ locations:
   at_location: On your check that has the Electricity trait, remove any 1 die.
   when_closing: Bury an armor.
   when_closed: On closing, recharge a random card from your discard pile.
+  deck_sizes:
+    S:
+      monster: 2
+      barrier: 1
+      armor: 1
+      item: 1
+      ally: 1
+    M:
+      monster: 2
+      barrier: 2
+      armor: 2
+      item: 1
+      ally: 2
+    L:
+      monster: 3
+      barrier: 2
+      armor: 2
+      item: 1
+      ally: 3
+      blessing: 1
 - name: Elemental Trenches
   category: location
   source: MM-5
-  flavor: Carved from desert rock into powerful ley lines, the trenches hum and crackle
-    with sensations at the edges of perception. Designed by the lost Shory civilization,
-    the massive pattern channel energies into technologies of unfathomable power.
-    The sorcery required to enslave this many elementals is certainly beyond modern
-    reckoning. But enslaved they were, for the trenches are deep and vast.
+  flavor: Carved from desert rock into powerful ley lines, the trenches hum and crackle with sensations at the edges of perception.
+    Designed by the lost Shory civilization, the massive pattern channel energies into technologies of unfathomable power.
+    The sorcery required to enslave this many elementals is certainly beyond modern reckoning. But enslaved they were, for
+    the trenches are deep and vast.
   deck_list:
     monster: 2
     barrier: 3
@@ -263,18 +490,39 @@ locations:
     spell: 1
     item: 1
     blessing: 1
-  at_location: |-
-    At the start of your turn, roll 1d6. Recharge all cards in your hand that have this trait:
+  at_location: 'At the start of your turn, roll 1d6. Recharge all cards in your hand that have this trait:
+
     1. Acid3. Cold5. Fire
-    2. Bludgeoning4. Electricity6. Poison
+
+    2. Bludgeoning4. Electricity6. Poison'
   when_closing: You may close this location automatically.
   when_closed: On closing, bury 1d4 cards.
+  deck_sizes:
+    S:
+      monster: 1
+      barrier: 2
+      spell: 1
+      item: 1
+      blessing: 1
+    M:
+      monster: 2
+      barrier: 3
+      weapon: 1
+      spell: 1
+      item: 1
+      blessing: 1
+    L:
+      monster: 3
+      barrier: 4
+      weapon: 1
+      spell: 1
+      item: 1
+      blessing: 2
 - name: Embalming Parlor
   category: location
   source: MM-B
-  flavor: Part sacred temple, part surgery, and part laboratory, the embalming parlors
-    of Osirion pay homage to the dead by cutting them apart. The pinnacle of the art
-    is practiced here by artisans protective of their secrets. Disturb this place
+  flavor: Part sacred temple, part surgery, and part laboratory, the embalming parlors of Osirion pay homage to the dead by
+    cutting them apart. The pinnacle of the art is practiced here by artisans protective of their secrets. Disturb this place
     at your peril—neither gods nor alchemy are known to be forgiving.
   deck_list:
     monster: 2
@@ -288,14 +536,31 @@ locations:
   at_location: Recharge an item to add the Acid, Cold, or Poison trait to any check.
   when_closing: Summon and defeat the henchman Natron Zombie.
   when_closed: No effect.
+  deck_sizes:
+    S:
+      monster: 1
+      barrier: 2
+      spell: 1
+      item: 1
+      blessing: 1
+    M:
+      monster: 2
+      barrier: 2
+      spell: 1
+      item: 2
+      blessing: 2
+    L:
+      monster: 2
+      barrier: 3
+      spell: 2
+      item: 2
+      blessing: 3
 - name: Eternal Arena
   category: location
   source: MM-6
-  flavor: Perpetually trapped in time by powerful sorcery, a thousand years of battle
-    echo from the risers. The gladiators glisten with the sweet anointing oils of
-    uncounted victories. The great beasts chained behind iron bars gnash their teeth,
-    forever hungry, forever primed for the kill. Workers who have been found lacking
-    have one more job to do before they die.
+  flavor: Perpetually trapped in time by powerful sorcery, a thousand years of battle echo from the risers. The gladiators
+    glisten with the sweet anointing oils of uncounted victories. The great beasts chained behind iron bars gnash their teeth,
+    forever hungry, forever primed for the kill. Workers who have been found lacking have one more job to do before they die.
   deck_list:
     monster: 4
     barrier: 1
@@ -306,60 +571,113 @@ locations:
   at_location: When you move during your move step, you are dealt 1d6 Combat damage.
   when_closing: Summon and defeat a monster.
   when_closed: On closing, recharge 1d4-1 random cards from your discard pile.
+  deck_sizes:
+    S:
+      monster: 3
+      weapon: 1
+      spell: 1
+      armor: 1
+    M:
+      monster: 4
+      barrier: 1
+      weapon: 1
+      spell: 1
+      armor: 1
+      ally: 1
+    L:
+      monster: 5
+      barrier: 2
+      weapon: 1
+      spell: 1
+      armor: 2
+      ally: 1
 - name: Five-Pointed Sun
   category: location
   source: MM-5
-  flavor: The shining jewel of the Sky Pharaoh's arsenal, the Five-Pointed Sun hovers
-    with a malice that blocks out the light of Ra. Smooth stone walls reflect the
-    fates of those who dare direct their siege weapons against the ancient war tower.
-    An unending stream of undead atrocities descends from its holds, voracious after
-    centuries of containment
+  flavor: The shining jewel of the Sky Pharaoh's arsenal, the Five-Pointed Sun hovers with a malice that blocks out the light
+    of Ra. Smooth stone walls reflect the fates of those who dare direct their siege weapons against the ancient war tower.
+    An unending stream of undead atrocities descends from its holds, voracious after centuries of containment
   deck_list: {}
-  at_location: When you end your turn at this location, each character at this location
-    is dealt 1d4 Cold damage.
+  at_location: When you end your turn at this location, each character at this location is dealt 1d4 Cold damage.
   when_closing: Summon and defeat the henchman Kor-Ahn-Tuk
-  when_closed: This location cannot be permanently closed unless all other locations
-    are closed.
+  when_closed: This location cannot be permanently closed unless all other locations are closed.
+  deck_sizes:
+    S: {}
+    M: {}
+    L: {}
 - name: Forgery of Ra
   category: location
   source: MM-6
-  flavor: The air writhes and burns with the heat of a molten iron river. Titanic
-    crucibles and kilns endlessly pour forth with finished metals, to be unceremoniously
-    dumped and melted down once again.
+  flavor: The air writhes and burns with the heat of a molten iron river. Titanic crucibles and kilns endlessly pour forth
+    with finished metals, to be unceremoniously dumped and melted down once again.
   deck_list:
     monster: 2
     barrier: 3
     weapon: 1
     armor: 2
     ally: 1
-  at_location: All monsters have and are immune to the Fire trait. All damage dealt
-    to you is Fire damage.
+  at_location: All monsters have and are immune to the Fire trait. All damage dealt to you is Fire damage.
   when_closing: You are dealt 1d6 Fire damage.
   when_closed: At the end of your turn, you may draw an armor from your buried cards.
+  deck_sizes:
+    S:
+      monster: 1
+      barrier: 2
+      weapon: 1
+      armor: 1
+      ally: 1
+    M:
+      monster: 2
+      barrier: 3
+      weapon: 1
+      armor: 2
+      ally: 1
+    L:
+      monster: 3
+      barrier: 3
+      weapon: 2
+      armor: 3
+      ally: 1
 - name: Garden of Ossumentals
   category: location
   source: MM-5
-  flavor: A twisted mountain of wicked brambels silhouetted against the rising moon
-    reveals itself to be the broken bones of a thousand elementals. The skeletons
-    of the enslaved were tossed into a jagged mass of snagging ribcages, skulls that
-    crack with hollow timbre, and vertebrae that tumble as loose stones. Some of them
-    are unready to rest forever.
+  flavor: A twisted mountain of wicked brambels silhouetted against the rising moon reveals itself to be the broken bones
+    of a thousand elementals. The skeletons of the enslaved were tossed into a jagged mass of snagging ribcages, skulls that
+    crack with hollow timbre, and vertebrae that tumble as loose stones. Some of them are unready to rest forever.
   deck_list:
     monster: 4
     barrier: 1
     weapon: 1
     spell: 1
     armor: 2
-  at_location: Add 1 die to your check that has the Bludgeoning trait. Remove any
-    1 die from your check that has the Fire trait.
+  at_location: Add 1 die to your check that has the Bludgeoning trait. Remove any 1 die from your check that has the Fire
+    trait.
   when_closing: Succeed at a Wisdom or Divine 9 check.
   when_closed: On closing, you are dealt 1 Cold damage.
+  deck_sizes:
+    S:
+      monster: 3
+      weapon: 1
+      spell: 1
+      armor: 1
+    M:
+      monster: 4
+      barrier: 1
+      weapon: 1
+      spell: 1
+      armor: 2
+    L:
+      monster: 5
+      barrier: 2
+      weapon: 1
+      spell: 1
+      armor: 2
+      blessing: 1
 - name: Garden of Symmetry
   category: location
   source: MM-4
-  flavor: An homage to the bleak perfection of the barren desert, the Garden of Symmetry
-    is a sterile construct of stone and sand. Placed with an inhuman precision, each
-    boulder and scrap of tin on one side finds its reflection on the other.
+  flavor: An homage to the bleak perfection of the barren desert, the Garden of Symmetry is a sterile construct of stone and
+    sand. Placed with an inhuman precision, each boulder and scrap of tin on one side finds its reflection on the other.
   deck_list:
     monster: 0
     barrier: 2
@@ -369,19 +687,35 @@ locations:
     item: 0
     ally: 0
     blessing: 2
-  at_location: On your check, after the roll, recharge a card for each die that has
-    an odd value.
+  at_location: On your check, after the roll, recharge a card for each die that has an odd value.
   when_closing: Recharge 2 boons of the same type.
-  when_closed: At the end of your turn, you may roll 1d6. If the value is odd, recharge
-    2 cards. If the value is even, recharge 2 cards from your discard pile.
+  when_closed: At the end of your turn, you may roll 1d6. If the value is odd, recharge 2 cards. If the value is even, recharge
+    2 cards from your discard pile.
+  deck_sizes:
+    S:
+      barrier: 1
+      weapon: 1
+      spell: 2
+      armor: 1
+      blessing: 1
+    M:
+      barrier: 2
+      weapon: 1
+      spell: 2
+      armor: 2
+      blessing: 2
+    L:
+      barrier: 3
+      weapon: 1
+      spell: 3
+      armor: 2
+      blessing: 3
 - name: Ghoul Square
   category: location
   source: MM-2
-  flavor: In the old market that was once the vibrant heart of Wati, the empty eye-socket
-    stalls stare with ill intent. Stashed away by merchants hopeful the plague would
-    pass over them, common goods can be found bundled away from the sight of looters
-    and those who prey on them. New residents crouch on rafters, watching the bait,
-    patiently hunting.
+  flavor: In the old market that was once the vibrant heart of Wati, the empty eye-socket stalls stare with ill intent. Stashed
+    away by merchants hopeful the plague would pass over them, common goods can be found bundled away from the sight of looters
+    and those who prey on them. New residents crouch on rafters, watching the bait, patiently hunting.
   deck_list:
     monster: 3
     barrier: 2
@@ -391,16 +725,31 @@ locations:
     item: 0
     ally: 0
     blessing: 0
-  at_location: When you defeat a non-villain, non-henchman monster that has the Undead
-    trait, shuffle it into a random other location deck.
+  at_location: When you defeat a non-villain, non-henchman monster that has the Undead trait, shuffle it into a random other
+    location deck.
   when_closing: Bury an ally or suffer the scourge Curse of the Ravenous.
   when_closed: No effect.
+  deck_sizes:
+    S:
+      monster: 2
+      barrier: 1
+      weapon: 1
+      armor: 2
+    M:
+      monster: 3
+      barrier: 2
+      weapon: 2
+      armor: 2
+    L:
+      monster: 4
+      barrier: 3
+      weapon: 3
+      armor: 2
 - name: Glass Pavilion
   category: location
   source: MM-B
-  flavor: The gift of elemental lightning, glass creates beauty from lowly sand. Broken
-    into a thousand rainbows, the harsh desert sun is tamed by the may windows of
-    the glass pavilion.
+  flavor: The gift of elemental lightning, glass creates beauty from lowly sand. Broken into a thousand rainbows, the harsh
+    desert sun is tamed by the may windows of the glass pavilion.
   deck_list:
     monster: 2
     barrier: 2
@@ -411,16 +760,33 @@ locations:
     ally: 0
     blessing: 2
   at_location: At the start of your turn, examine the top card of your location deck.
-  when_closing: Succeed at a Wisdom or Divine check with a difficulty of 5 plus the
-    scenario's adventure deck number.
+  when_closing: Succeed at a Wisdom or Divine check with a difficulty of 5 plus the scenario's adventure deck number.
   when_closed: No effect.
+  deck_sizes:
+    S:
+      monster: 2
+      barrier: 1
+      spell: 1
+      item: 1
+      blessing: 1
+    M:
+      monster: 2
+      barrier: 2
+      spell: 2
+      item: 1
+      blessing: 2
+    L:
+      monster: 3
+      barrier: 2
+      spell: 3
+      item: 1
+      blessing: 3
 - name: Golden Lake
   category: location
   source: MM-1
-  flavor: This sacred pool takes its name from the coating of gold dust cast over
-    its surface each year on the Day of Bones. The lake also houses a rare breed of
-    giant crocodiles that are sacred to Wati's Pharasmin church. Regularly fed and
-    cared for, they are less dangerous than the crocodiles found in Osirion's rivers.
+  flavor: This sacred pool takes its name from the coating of gold dust cast over its surface each year on the Day of Bones.
+    The lake also houses a rare breed of giant crocodiles that are sacred to Wati's Pharasmin church. Regularly fed and cared
+    for, they are less dangerous than the crocodiles found in Osirion's rivers.
   deck_list:
     monster: 2
     barrier: 2
@@ -433,14 +799,33 @@ locations:
   at_location: At the end of your turn, you may recharge up to 1d4+1 cards.
   when_closing: Summon and defeat the henchman Graven Guardian of Nethys.
   when_closed: No effect.
+  deck_sizes:
+    S:
+      monster: 1
+      barrier: 2
+      spell: 1
+      armor: 1
+      blessing: 1
+    M:
+      monster: 2
+      barrier: 2
+      spell: 2
+      armor: 1
+      item: 1
+      blessing: 1
+    L:
+      monster: 2
+      barrier: 3
+      spell: 3
+      armor: 1
+      item: 1
+      blessing: 2
 - name: Great Library of Tephu
   category: location
   source: MM-3
-  flavor: A fortress of knowledge, the Great Library holds sage wisdom stretching
-    back to the birth of writing itself. A cadre of librarians guards it zealously,
-    armed with keen memories and swords. Trespassers meet their end by a librarian's
-    hand or wither away in the uncountable stacks of scrolls that twist through tunnels
-    deep into the earth.
+  flavor: A fortress of knowledge, the Great Library holds sage wisdom stretching back to the birth of writing itself. A cadre
+    of librarians guards it zealously, armed with keen memories and swords. Trespassers meet their end by a librarian's hand
+    or wither away in the uncountable stacks of scrolls that twist through tunnels deep into the earth.
   deck_list:
     monster: 2
     barrier: 1
@@ -453,12 +838,30 @@ locations:
   at_location: When you fail to acquire a boon, shuffle it into this location deck.
   when_closing: Succeed at an Intelligence or Knowledge 6 check.
   when_closed: On closing, draw a spell from the box.
+  deck_sizes:
+    S:
+      monster: 1
+      barrier: 1
+      spell: 2
+      ally: 1
+      blessing: 1
+    M:
+      monster: 2
+      barrier: 1
+      spell: 3
+      ally: 2
+      blessing: 1
+    L:
+      monster: 3
+      barrier: 1
+      spell: 4
+      ally: 3
+      blessing: 1
 - name: Guardian Vault
   category: location
   source: MM-5
-  flavor: The masterwork of the Guardian Vault controls the vast elemental energies
-    harnessed above. Sealed from interference, the mechanisms of the Sky Pharaoh's
-    design still hum with power even to this day.
+  flavor: The masterwork of the Guardian Vault controls the vast elemental energies harnessed above. Sealed from interference,
+    the mechanisms of the Sky Pharaoh's design still hum with power even to this day.
   deck_list:
     monster: 1
     barrier: 2
@@ -467,18 +870,41 @@ locations:
     item: 2
     ally: 1
     blessing: 1
-  at_location: |-
-    When you move to this location, you are dealt 2 Poison damage.
+  at_location: 'When you move to this location, you are dealt 2 Poison damage.
 
-    At the end of your turn, move to a random location.
+
+    At the end of your turn, move to a random location.'
   when_closing: Suffer a scourge.
   when_closed: On closing, move to a random location.
+  deck_sizes:
+    S:
+      monster: 1
+      barrier: 1
+      weapon: 1
+      spell: 1
+      item: 1
+      blessing: 1
+    M:
+      monster: 1
+      barrier: 2
+      weapon: 1
+      spell: 1
+      item: 2
+      ally: 1
+      blessing: 1
+    L:
+      monster: 2
+      barrier: 2
+      weapon: 1
+      spell: 2
+      item: 3
+      ally: 1
+      blessing: 1
 - name: Hall of Blessed Rebirth
   category: location
   source: MM-1
-  flavor: Dedicated to Anubis, Guardian of the Dead, the Hall of Blessed Rebirth houses
-    the children of enterprising families from all Osirion. It teaches the art of
-    medicine and, for when that fails, the finer skills of embalming. Which is more
+  flavor: Dedicated to Anubis, Guardian of the Dead, the Hall of Blessed Rebirth houses the children of enterprising families
+    from all Osirion. It teaches the art of medicine and, for when that fails, the finer skills of embalming. Which is more
     profitable is for the student to decide.
   deck_list:
     monster: 3
@@ -491,50 +917,96 @@ locations:
     blessing: 2
   at_location: When you would be dealt damage, you are dealt 1 Poison damage instead.
   when_closing: Succeed at a Wisdom or Divine 7 or Intelligence or Craft8 check.
-  when_closed: On closing, banish a card that has the Curse trait displayed next to
-    any character's deck.
+  when_closed: On closing, banish a card that has the Curse trait displayed next to any character's deck.
+  deck_sizes:
+    S:
+      monster: 2
+      barrier: 1
+      spell: 1
+      ally: 1
+      blessing: 1
+    M:
+      monster: 3
+      barrier: 2
+      spell: 1
+      ally: 1
+      blessing: 2
+    L:
+      monster: 4
+      barrier: 3
+      spell: 1
+      ally: 1
+      blessing: 3
 - name: Hall of Winged Chaos
   category: location
   source: MM-6
-  flavor: A spiraling torrent threatens to pull you into the ceaseless maelstrom that
-    moves the Sky Pharaoh's pyramid. The winds steal the breath from your lungs as
-    thunderbird screeches crackle with blue lightning.
+  flavor: A spiraling torrent threatens to pull you into the ceaseless maelstrom that moves the Sky Pharaoh's pyramid. The
+    winds steal the breath from your lungs as thunderbird screeches crackle with blue lightning.
   deck_list:
     monster: 2
     barrier: 3
     item: 2
     ally: 1
     blessing: 1
-  at_location: All monsters have and are immune to the Electricity trait. All damage
-    dealt to you is Electricity damage.
+  at_location: All monsters have and are immune to the Electricity trait. All damage dealt to you is Electricity damage.
   when_closing: You may close this location automatically.
-  when_closed: On closing, examine the villain Sandstorm from the box. At the end
-    of your turn, you may shuffle a boon into this location deck, then open this location.
+  when_closed: On closing, examine the villain Sandstorm from the box. At the end of your turn, you may shuffle a boon into
+    this location deck, then open this location.
+  deck_sizes:
+    S:
+      monster: 1
+      barrier: 2
+      item: 2
+      blessing: 1
+    M:
+      monster: 2
+      barrier: 3
+      item: 2
+      ally: 1
+      blessing: 1
+    L:
+      monster: 3
+      barrier: 4
+      item: 2
+      ally: 1
+      blessing: 2
 - name: Hall of the Crocodile Kings
   category: location
   source: MM-6
-  flavor: A glittering stream of caustic vitriol laps at the feet of grand statues,
-    impervious to the acid's violent efforts. Each statue is a grotesque mockery of
-    a real person twisted with the shape of a Sphinx River crocodile. The agate eyes
-    shimmer with souls heavy with envy and betrayal, awaiting your approach. Scattered
-    bones of small animals imply your likely fate.
+  flavor: A glittering stream of caustic vitriol laps at the feet of grand statues, impervious to the acid's violent efforts.
+    Each statue is a grotesque mockery of a real person twisted with the shape of a Sphinx River crocodile. The agate eyes
+    shimmer with souls heavy with envy and betrayal, awaiting your approach. Scattered bones of small animals imply your likely
+    fate.
   deck_list:
     monster: 2
     barrier: 3
     item: 2
     ally: 1
     blessing: 1
-  at_location: Add 1 die to checks that invoke the Acid or Poison trait. All damage
-    dealt to you is Acid damage.
+  at_location: Add 1 die to checks that invoke the Acid or Poison trait. All damage dealt to you is Acid damage.
   when_closing: Summon and defeat the henchman Acid Pool.
-  when_closed: On closing, draw a random weapon that has the Magic trait from the
-    box.
+  when_closed: On closing, draw a random weapon that has the Magic trait from the box.
+  deck_sizes:
+    S:
+      monster: 1
+      barrier: 2
+      ally: 1
+      blessing: 2
+    M:
+      monster: 2
+      barrier: 3
+      ally: 1
+      blessing: 3
+    L:
+      monster: 3
+      barrier: 4
+      ally: 1
+      blessing: 4
 - name: Hot Springs
   category: location
   source: MM-B
-  flavor: Naturally occurring where the elements of fire and water touch our plane,
-    hot springs can be a comfort to weary travelers. That is, until things from below
-    the world of the living leach into the spring's waters.
+  flavor: Naturally occurring where the elements of fire and water touch our plane, hot springs can be a comfort to weary
+    travelers. That is, until things from below the world of the living leach into the spring's waters.
   deck_list:
     monster: 1
     barrier: 1
@@ -546,14 +1018,33 @@ locations:
     blessing: 2
   at_location: When you play a weapon, discard it.
   when_closing: Summon and defeat the henchman Acid Pool.
-  when_closed: At the end of your turn, you may recharge a random card from your discard
-    pile.
+  when_closed: At the end of your turn, you may recharge a random card from your discard pile.
+  deck_sizes:
+    S:
+      monster: 1
+      armor: 1
+      item: 1
+      ally: 1
+      blessing: 2
+    M:
+      monster: 1
+      barrier: 1
+      armor: 2
+      item: 1
+      ally: 2
+      blessing: 2
+    L:
+      monster: 2
+      barrier: 1
+      armor: 2
+      item: 1
+      ally: 3
+      blessing: 3
 - name: Howling Sands
   category: location
   source: MM-B
-  flavor: Swirling sand glitters in the hot sun, blinding travelers without protection
-    from the howling winds. The dunes underfoot are treacherous as sliding sands expose
-    hungry things that lurk below. Abandoned gear can be found, left by intruders
+  flavor: Swirling sand glitters in the hot sun, blinding travelers without protection from the howling winds. The dunes underfoot
+    are treacherous as sliding sands expose hungry things that lurk below. Abandoned gear can be found, left by intruders
     who either chose to leave it behind or took it to their grave.
   deck_list:
     monster: 3
@@ -565,15 +1056,34 @@ locations:
     ally: 2
     blessing: 0
   at_location: At the start of your turn, recharge any cards that have the Cold trait.
-  when_closing: Succeed at a Dexterity or Acrobatics check with a difficulty of 4
-    plus the scenario's adventure deck number.
+  when_closing: Succeed at a Dexterity or Acrobatics check with a difficulty of 4 plus the scenario's adventure deck number.
   when_closed: No effect.
+  deck_sizes:
+    S:
+      monster: 2
+      barrier: 1
+      spell: 1
+      armor: 1
+      ally: 1
+    M:
+      monster: 3
+      barrier: 1
+      spell: 1
+      armor: 1
+      item: 1
+      ally: 2
+    L:
+      monster: 3
+      barrier: 2
+      spell: 1
+      armor: 2
+      item: 2
+      ally: 2
 - name: Mausoleum
   category: location
   source: MM-B
-  flavor: Erected to honor an important official, the stonework stands firm against
-    the elements. The name upon the massive mausoleum has been worn by the winds of
-    time into obscurity. There is no way to know how long this mausoleum has stood.
+  flavor: Erected to honor an important official, the stonework stands firm against the elements. The name upon the massive
+    mausoleum has been worn by the winds of time into obscurity. There is no way to know how long this mausoleum has stood.
     That is, until you hear the gearwork of the first trap. Not long enough you think.
   deck_list:
     monster: 1
@@ -584,19 +1094,36 @@ locations:
     item: 1
     ally: 1
     blessing: 3
-  at_location: You may bury a card to add 1 die to any check that invokes the Undead
-    trait.
+  at_location: You may bury a card to add 1 die to any check that invokes the Undead trait.
   when_closing: Summon and defeat the henchman Voices of the Spire.
-  when_closed: On closing, you may recharge any number of cards that have the Divine
-    trait in your discard pile.
+  when_closed: On closing, you may recharge any number of cards that have the Divine trait in your discard pile.
+  deck_sizes:
+    S:
+      monster: 1
+      spell: 1
+      item: 1
+      ally: 1
+      blessing: 2
+    M:
+      monster: 1
+      barrier: 1
+      spell: 2
+      item: 1
+      ally: 1
+      blessing: 3
+    L:
+      monster: 2
+      barrier: 1
+      spell: 3
+      item: 1
+      ally: 1
+      blessing: 4
 - name: Mumia Lab
   category: location
   source: MM-2
-  flavor: 'Acquired only in the blackest of markets, Mumia is exorbitantly priced.
-    The alchemy is volatile, the ingredients blasphemous, the costs unthinkable to
-    mortals. Exposure carries the risk of vile transmogrification. Yet, the prevalence
-    of hastily jumbled-together labs tucked into abandoned spaces by desperate alchemists
-    attests: this drug works.'
+  flavor: 'Acquired only in the blackest of markets, Mumia is exorbitantly priced. The alchemy is volatile, the ingredients
+    blasphemous, the costs unthinkable to mortals. Exposure carries the risk of vile transmogrification. Yet, the prevalence
+    of hastily jumbled-together labs tucked into abandoned spaces by desperate alchemists attests: this drug works.'
   deck_list:
     monster: 2
     barrier: 1
@@ -606,19 +1133,38 @@ locations:
     item: 2
     ally: 1
     blessing: 0
-  at_location: At the start or end of your turn, succeed at a Constitution 4 check
-    or suffer the scourge Curse of Withering.
+  at_location: At the start or end of your turn, succeed at a Constitution 4 check or suffer the scourge Curse of Withering.
   when_closing: Summon and defeat the henchman Crawling Hands.
-  when_closed: On closing, draw a random item that has the Alchemical trait from the
-    box.
+  when_closed: On closing, draw a random item that has the Alchemical trait from the box.
+  deck_sizes:
+    S:
+      monster: 1
+      barrier: 1
+      spell: 1
+      item: 2
+      ally: 1
+    M:
+      monster: 2
+      barrier: 1
+      weapon: 1
+      spell: 1
+      armor: 1
+      item: 2
+      ally: 1
+    L:
+      monster: 3
+      barrier: 1
+      weapon: 1
+      spell: 2
+      armor: 1
+      item: 3
+      ally: 1
 - name: Oasis
   category: location
   source: MM-B
-  flavor: 'A shining beacon rests in a valley of sand, so impeccably lonely that travelers
-    are never certain if it''s actually real. The shadows from the trees cool your
-    burnt skin and the water from the lagoon wets your cracked throat until you''re
-    lulled into a satisfied slumber. But beware: that''s when this haven becomes a
-    hell.'
+  flavor: 'A shining beacon rests in a valley of sand, so impeccably lonely that travelers are never certain if it''s actually
+    real. The shadows from the trees cool your burnt skin and the water from the lagoon wets your cracked throat until you''re
+    lulled into a satisfied slumber. But beware: that''s when this haven becomes a hell.'
   deck_list:
     monster: 2
     barrier: 2
@@ -628,17 +1174,37 @@ locations:
     item: 1
     ally: 1
     blessing: 2
-  at_location: When you would succeed at a check to defeat a bane that invokes the
-    Acid trait, reroll the dice; take the new result.
+  at_location: When you would succeed at a check to defeat a bane that invokes the Acid trait, reroll the dice; take the new
+    result.
   when_closing: Recharge a card that has the Divine or Liquid trait.
-  when_closed: On closing, each character at this location may recharge any number
-    of cards that have the Liquid trait from her discard pile.
+  when_closed: On closing, each character at this location may recharge any number of cards that have the Liquid trait from
+    her discard pile.
+  deck_sizes:
+    S:
+      monster: 1
+      barrier: 2
+      item: 1
+      ally: 1
+      blessing: 1
+    M:
+      monster: 2
+      barrier: 2
+      spell: 1
+      item: 1
+      ally: 1
+      blessing: 2
+    L:
+      monster: 3
+      barrier: 2
+      spell: 1
+      item: 1
+      ally: 2
+      blessing: 3
 - name: Peasant Tombs
   category: location
   source: MM-B
-  flavor: Where do the poor go when they die? Only Pharasma knows the whereabouts
-    of the soul, but their bodies are stacked to the ceiling in pedestrian tunnels.
-    As travelers pick their way through the underpass, they would be smart to watch
+  flavor: Where do the poor go when they die? Only Pharasma knows the whereabouts of the soul, but their bodies are stacked
+    to the ceiling in pedestrian tunnels. As travelers pick their way through the underpass, they would be smart to watch
     their feet to avoid brushing against any unsavory remains.
   deck_list:
     monster: 2
@@ -652,12 +1218,33 @@ locations:
   at_location: When you play a boon that has the Fire trait, bury it.
   when_closing: Bury a card that has the Divine trait.
   when_closed: No effect.
+  deck_sizes:
+    S:
+      monster: 1
+      barrier: 1
+      weapon: 1
+      item: 1
+      ally: 1
+      blessing: 1
+    M:
+      monster: 2
+      barrier: 2
+      weapon: 2
+      item: 1
+      ally: 1
+      blessing: 1
+    L:
+      monster: 3
+      barrier: 3
+      weapon: 2
+      item: 2
+      ally: 1
+      blessing: 1
 - name: Pleasure Barge
   category: location
   source: MM-3
-  flavor: Muminofrah holds court upon a mountain of satin pillows amid gold-embroidered
-    drapes and oiled servants. Her barge is docked ostentatiously in view, a reminder
-    that her wealth and power stands well apart from the common folk of Tephu.
+  flavor: Muminofrah holds court upon a mountain of satin pillows amid gold-embroidered drapes and oiled servants. Her barge
+    is docked ostentatiously in view, a reminder that her wealth and power stands well apart from the common folk of Tephu.
   deck_list:
     monster: 0
     barrier: 0
@@ -669,14 +1256,27 @@ locations:
     blessing: 2
   at_location: When you fail to acquire an ally, you are dealt 1d4 Poison damage.
   when_closing: Succeed at an Charisma or Diplomacy 9 check.
-  when_closed: At the end of your turn, you may recharge a card from your discard
-    pile.
+  when_closed: At the end of your turn, you may recharge a card from your discard pile.
+  deck_sizes:
+    S:
+      item: 1
+      ally: 4
+      blessing: 1
+    M:
+      spell: 1
+      item: 1
+      ally: 5
+      blessing: 2
+    L:
+      spell: 1
+      item: 2
+      ally: 6
+      blessing: 3
 - name: Precinct of Left Eyes
   category: location
   source: MM-1
-  flavor: The laws of Osirion are older than recorded history and, some would deem,
-    harsh. But to hear the locals tell it, the price of forgiveness is cheap at one
-    eye.
+  flavor: The laws of Osirion are older than recorded history and, some would deem, harsh. But to hear the locals tell it,
+    the price of forgiveness is cheap at one eye.
   deck_list:
     monster: 2
     barrier: 2
@@ -687,16 +1287,36 @@ locations:
     ally: 1
     blessing: 1
   at_location: Recharge an ally or you may not move.
-  when_closing: Succeed at an Intelligence, Wisdom, or Charisma 6 check, then succeed
-    at a different one of those checks.
+  when_closing: Succeed at an Intelligence, Wisdom, or Charisma 6 check, then succeed at a different one of those checks.
   when_closed: On closing, you may draw an item from your discard pile.
+  deck_sizes:
+    S:
+      monster: 2
+      barrier: 1
+      weapon: 1
+      item: 1
+      blessing: 1
+    M:
+      monster: 2
+      barrier: 2
+      weapon: 2
+      item: 1
+      ally: 1
+      blessing: 1
+    L:
+      monster: 3
+      barrier: 2
+      weapon: 3
+      armor: 1
+      item: 1
+      ally: 1
+      blessing: 1
 - name: Precious Mine
   category: location
   source: MM-B
-  flavor: Illuminated by the mining lamps above, automatons tirelessly chip away at
-    veins of glimmering ore, wary of trespassers that may try to swipe handfuls of
-    nuggets from the piles of harvested silver. Every once in a while, the ground
-    shakes and an automaton falls, only to be replaced by another.
+  flavor: Illuminated by the mining lamps above, automatons tirelessly chip away at veins of glimmering ore, wary of trespassers
+    that may try to swipe handfuls of nuggets from the piles of harvested silver. Every once in a while, the ground shakes
+    and an automaton falls, only to be replaced by another.
   deck_list:
     monster: 2
     barrier: 2
@@ -706,17 +1326,32 @@ locations:
     item: 3
     ally: 0
     blessing: 0
-  at_location: If a bane you encounter has the Construct trait, the difficulty is
-    increased by 1d6.
-  when_closing: Succeed at a Strength or Melee check with a difficulty of 6 plus the
-    scenario's adventure deck number.
+  at_location: If a bane you encounter has the Construct trait, the difficulty is increased by 1d6.
+  when_closing: Succeed at a Strength or Melee check with a difficulty of 6 plus the scenario's adventure deck number.
   when_closed: On closing, draw an item from the box.
+  deck_sizes:
+    S:
+      monster: 2
+      barrier: 1
+      spell: 1
+      item: 2
+    M:
+      monster: 2
+      barrier: 2
+      weapon: 1
+      spell: 1
+      item: 3
+    L:
+      monster: 3
+      barrier: 3
+      weapon: 1
+      spell: 1
+      item: 4
 - name: Quarry
   category: location
   source: MM-B
-  flavor: Every great monument in Osirion began with the sweat and steel of stonecutters
-    in quarries such as this. Steps of marble seemingly cut for giants descend to
-    a gravel pit of indeterminable depth. Beware of the rocks sliding beneath your
+  flavor: Every great monument in Osirion began with the sweat and steel of stonecutters in quarries such as this. Steps of
+    marble seemingly cut for giants descend to a gravel pit of indeterminable depth. Beware of the rocks sliding beneath your
     weight, lest you fall into the ensnaring abyss.
   deck_list:
     monster: 3
@@ -728,16 +1363,35 @@ locations:
     ally: 1
     blessing: 0
   at_location: Add 3 to your check that has the Bludgeoning trait.
-  when_closing: Succeed at a Constitution or Fortitude check with a difficulty of
-    6 plus the scenario's adventure deck number.
+  when_closing: Succeed at a Constitution or Fortitude check with a difficulty of 6 plus the scenario's adventure deck number.
   when_closed: On closing, discard a weapon.
+  deck_sizes:
+    S:
+      monster: 2
+      barrier: 1
+      weapon: 1
+      armor: 1
+      item: 1
+    M:
+      monster: 3
+      barrier: 1
+      weapon: 2
+      armor: 1
+      item: 1
+      ally: 1
+    L:
+      monster: 3
+      barrier: 2
+      weapon: 3
+      armor: 1
+      item: 1
+      ally: 2
 - name: Ruined Temple
   category: location
   source: MM-B
-  flavor: Disguised by crumbling rock and scorched by the blazing sun is the temple
-    of a forgotten deity. Broken benches and buried trinkets are proof of copious
-    admirers, but the dark stain on the center platform hints that they were also
-    quite feared. Perhaps it's best that this deity has slipped from memory.
+  flavor: Disguised by crumbling rock and scorched by the blazing sun is the temple of a forgotten deity. Broken benches and
+    buried trinkets are proof of copious admirers, but the dark stain on the center platform hints that they were also quite
+    feared. Perhaps it's best that this deity has slipped from memory.
   deck_list:
     monster: 1
     barrier: 1
@@ -749,16 +1403,39 @@ locations:
     blessing: 2
   at_location: When you play a card that has the Divine trait, bury it.
   when_closing: Bury a blessing.
-  when_closed: On closing, you may banish a card that has the Curse trait next to
-    the deck of a character at this location or draw a blessing from the box.
+  when_closed: On closing, you may banish a card that has the Curse trait next to the deck of a character at this location
+    or draw a blessing from the box.
+  deck_sizes:
+    S:
+      barrier: 1
+      spell: 1
+      armor: 1
+      item: 1
+      ally: 1
+      blessing: 1
+    M:
+      monster: 1
+      barrier: 1
+      spell: 2
+      armor: 1
+      item: 1
+      ally: 1
+      blessing: 2
+    L:
+      monster: 1
+      barrier: 2
+      spell: 3
+      armor: 1
+      item: 1
+      ally: 1
+      blessing: 3
 - name: Scorched Obelisk
   category: location
   source: MM-4
-  flavor: Jutting forth from the dunes, the scorched obelisk stands as the only landmark
-    in a sea of sand. Enscribed with trails of silver script to the very top of its
-    impressive height, the structure conducts lightning for hundreds of cubits in
-    every direction. Its function long lost, the obelisk now warns intruders and provides
-    a safe haven for creatures immune to its deadly shocks.
+  flavor: Jutting forth from the dunes, the scorched obelisk stands as the only landmark in a sea of sand. Enscribed with
+    trails of silver script to the very top of its impressive height, the structure conducts lightning for hundreds of cubits
+    in every direction. Its function long lost, the obelisk now warns intruders and provides a safe haven for creatures immune
+    to its deadly shocks.
   deck_list:
     monster: 3
     barrier: 2
@@ -768,16 +1445,36 @@ locations:
     item: 0
     ally: 1
     blessing: 1
-  at_location: When you succeed at a check to defeat a bane by 4 or more, you are
-    dealt 1d4 Electricity damage.
+  at_location: When you succeed at a check to defeat a bane by 4 or more, you are dealt 1d4 Electricity damage.
   when_closing: Succeed at a Constitution or Fortitude 9 check.
   when_closed: On closing, you are dealt 1 Electricity damage.
+  deck_sizes:
+    S:
+      monster: 2
+      barrier: 1
+      weapon: 1
+      armor: 1
+      blessing: 1
+    M:
+      monster: 3
+      barrier: 2
+      weapon: 1
+      armor: 1
+      ally: 1
+      blessing: 1
+    L:
+      monster: 4
+      barrier: 3
+      weapon: 1
+      spell: 1
+      armor: 1
+      ally: 1
+      blessing: 1
 - name: Scorched Ruins
   category: location
   source: MM-B
-  flavor: The arrangement of charred stone suggests a cluster of homes, or perhaps
-    large workshops. The unnatural progression of the scorching suggests the touch
-    of a vengeful ifreeti. Best not to find out why.
+  flavor: The arrangement of charred stone suggests a cluster of homes, or perhaps large workshops. The unnatural progression
+    of the scorching suggests the touch of a vengeful ifreeti. Best not to find out why.
   deck_list:
     monster: 2
     barrier: 3
@@ -787,19 +1484,37 @@ locations:
     item: 0
     ally: 0
     blessing: 0
-  at_location: After defeating a non-villain, non-henchman monster that has the Fire
-    trait, shuffle it into a random other open location deck.
+  at_location: After defeating a non-villain, non-henchman monster that has the Fire trait, shuffle it into a random other
+    open location deck.
   when_closing: Summon and acquire a weapon.
-  when_closed: For the rest of the scenario, when a character at any location attempts
-    a check to acquire a weapon, she may bury a card to add 1 die.
-- name: Sculptor's Lair
+  when_closed: For the rest of the scenario, when a character at any location attempts a check to acquire a weapon, she may
+    bury a card to add 1 die.
+  deck_sizes:
+    S:
+      monster: 1
+      barrier: 2
+      weapon: 1
+      spell: 1
+      armor: 1
+    M:
+      monster: 2
+      barrier: 3
+      weapon: 1
+      spell: 1
+      armor: 2
+    L:
+      monster: 3
+      barrier: 4
+      weapon: 1
+      spell: 1
+      armor: 2
+      item: 1
+- name: Sculptors' Lair
   category: location
   source: MM-5
-  flavor: A hundred unfinished artifacts line the shelves and tables coated in a thick
-    dust of sand and plaster. Chisels and brushes lie where their artists set them
-    aside, fruitlessly awaiting the hands that favored them to return. Papyrus scrolls
-    blueprinting elemental channeling technology lie faded, cracked, rendered useless
-    by the withering of time.
+  flavor: A hundred unfinished artifacts line the shelves and tables coated in a thick dust of sand and plaster. Chisels and
+    brushes lie where their artists set them aside, fruitlessly awaiting the hands that favored them to return. Papyrus scrolls
+    blueprinting elemental channeling technology lie faded, cracked, rendered useless by the withering of time.
   deck_list:
     monster: 3
     barrier: 1
@@ -808,19 +1523,38 @@ locations:
     armor: 1
     item: 1
     ally: 1
-  at_location: Whe you fail a Dexterity check or exceed its difficulty by 5 or more,
-    you are dealt 1d4 Combat damage.
+  at_location: Whe you fail a Dexterity check or exceed its difficulty by 5 or more, you are dealt 1d4 Combat damage.
   when_closing: Summon and defeat the henchman Warrior Dolls.
-  when_closed: On closing, draw an ally that has the Elemental or Undead trait from
-    the box.
+  when_closed: On closing, draw an ally that has the Elemental or Undead trait from the box.
+  deck_sizes:
+    S:
+      monster: 2
+      weapon: 1
+      spell: 1
+      item: 1
+      ally: 1
+    M:
+      monster: 3
+      barrier: 1
+      weapon: 1
+      spell: 1
+      armor: 1
+      item: 1
+      ally: 1
+    L:
+      monster: 4
+      barrier: 1
+      weapon: 1
+      spell: 1
+      armor: 1
+      item: 2
+      ally: 2
 - name: Sepulcher of the Servant
   category: location
   source: MM-2
-  flavor: Hidden beneath an observatory dedicated to Maat and Thoth, the lavish tomb
-    built to hold the revered servants of Pharasma has been recently breached. The
-    customary traps and curses remain in place, yet the sacred spaces beyond the cavernous
-    entryway hold the distinctive scent of necromancy. The attendants expect to take
-    care of you for some time.
+  flavor: Hidden beneath an observatory dedicated to Maat and Thoth, the lavish tomb built to hold the revered servants of
+    Pharasma has been recently breached. The customary traps and curses remain in place, yet the sacred spaces beyond the
+    cavernous entryway hold the distinctive scent of necromancy. The attendants expect to take care of you for some time.
   deck_list:
     monster: 3
     barrier: 1
@@ -830,17 +1564,35 @@ locations:
     item: 0
     ally: 0
     blessing: 2
-  at_location: Monsters you encounter have the Undead trait and are immune to the
-    Mental and Poison traits.
-  when_closing: Bury a boon that has the Magic trait or suffer the scourge Curse of
-    Withering.
+  at_location: Monsters you encounter have the Undead trait and are immune to the Mental and Poison traits.
+  when_closing: Bury a boon that has the Magic trait or suffer the scourge Curse of Withering.
   when_closed: No effect.
+  deck_sizes:
+    S:
+      monster: 2
+      barrier: 1
+      weapon: 1
+      armor: 1
+      blessing: 1
+    M:
+      monster: 3
+      barrier: 1
+      weapon: 1
+      spell: 1
+      armor: 1
+      blessing: 2
+    L:
+      monster: 4
+      barrier: 1
+      weapon: 1
+      spell: 2
+      armor: 1
+      blessing: 3
 - name: Shifting Dunes
   category: location
   source: MM-B
-  flavor: Endless rolling hills slither across the horizon. The whoosh of sand falling
-    behind erases your footsteps heartbeats after your leave. Even the face of Ra
-    is lost behind the swirling dust that blankets the sky. With the sound of distant
+  flavor: Endless rolling hills slither across the horizon. The whoosh of sand falling behind erases your footsteps heartbeats
+    after your leave. Even the face of Ra is lost behind the swirling dust that blankets the sky. With the sound of distant
     rumbling beneath the dunes, you pray that the sand eels are as lost as you are.
   deck_list:
     monster: 2
@@ -854,15 +1606,34 @@ locations:
   at_location: At the start of your turn, shuffle any armors into your deck.
   when_closing: Summon and defeat the henchman Giant Sand Eel.
   when_closed: No effect.
+  deck_sizes:
+    S:
+      monster: 2
+      barrier: 1
+      spell: 1
+      item: 1
+      ally: 1
+    M:
+      monster: 2
+      barrier: 2
+      weapon: 1
+      spell: 1
+      item: 1
+      ally: 2
+    L:
+      monster: 3
+      barrier: 3
+      weapon: 1
+      spell: 1
+      item: 1
+      ally: 3
 - name: Shrine of the Infinite Void
   category: location
   source: MM-6
-  flavor: Your soul crawls beneath your skin, scrambling to move you away from this
-    place. A great octopoid figure, its tentacles reaching out for the sparkling waters
-    of the pool, is painted on the floor in vivid, nauseating shades of green. Three
-    green basalt statues of misshapen horrors stand in niches on three walls. At the
-    center of the shrine, a darkness that has never known light ensnares your gaze.
-    Pray that you can look away.
+  flavor: Your soul crawls beneath your skin, scrambling to move you away from this place. A great octopoid figure, its tentacles
+    reaching out for the sparkling waters of the pool, is painted on the floor in vivid, nauseating shades of green. Three
+    green basalt statues of misshapen horrors stand in niches on three walls. At the center of the shrine, a darkness that
+    has never known light ensnares your gaze. Pray that you can look away.
   deck_list:
     monster: 3
     barrier: 2
@@ -870,15 +1641,29 @@ locations:
     blessing: 2
   at_location: All damage dealt to you is Cold damage.
   when_closing: Summon and defeat the henchman Queen Neferuset.
-  when_closed: On closing, each character at this location may flip her role card
-    and, if there are no feats checked on that side, check off the same number of
-    feats as on the other side.
+  when_closed: On closing, each character at this location may flip her role card and, if there are no feats checked on that
+    side, check off the same number of feats as on the other side.
+  deck_sizes:
+    S:
+      monster: 2
+      barrier: 1
+      spell: 2
+      blessing: 1
+    M:
+      monster: 3
+      barrier: 2
+      spell: 2
+      blessing: 2
+    L:
+      monster: 4
+      barrier: 3
+      spell: 3
+      blessing: 2
 - name: Silver Forge
   category: location
   source: MM-4
-  flavor: Heated by the rage of an entrapped elemental, the forge waits ready to ring
-    with the music of hammered silver once again. Used to cast and form icons, its
-    anvils have seen the faces of a dozen pantheons lost to the ages.
+  flavor: Heated by the rage of an entrapped elemental, the forge waits ready to ring with the music of hammered silver once
+    again. Used to cast and form icons, its anvils have seen the faces of a dozen pantheons lost to the ages.
   deck_list:
     monster: 3
     barrier: 1
@@ -888,37 +1673,67 @@ locations:
     item: 0
     ally: 1
     blessing: 0
-  at_location: You may discard a card to add 1d6 and the Fire trait to your combat
-    check.
+  at_location: You may discard a card to add 1d6 and the Fire trait to your combat check.
   when_closing: Summon and acquire an armor.
-  when_closed: At the end of your turn, you may recharge an armor from your discard
-    pile.
+  when_closed: At the end of your turn, you may recharge an armor from your discard pile.
+  deck_sizes:
+    S:
+      monster: 2
+      weapon: 2
+      armor: 2
+    M:
+      monster: 3
+      barrier: 1
+      weapon: 2
+      armor: 2
+      ally: 1
+    L:
+      monster: 4
+      barrier: 1
+      weapon: 3
+      armor: 3
+      ally: 1
 - name: Sky Pharaoh's Throne
   category: location
   source: MM-6
-  flavor: The glory of a thousand-year-old empire built upon the sweat and blood of
-    a nation of slaves is extravagantly displayed in gold and elegant frescoes. Every
-    hand that built this place, you realize, was killed to keep its secrets. At the
-    seat of his power, the Sky Pharaoh plots conquest of Osirion behind his monstrous
-    guards. His conquest shall start with you.
+  flavor: The glory of a thousand-year-old empire built upon the sweat and blood of a nation of slaves is extravagantly displayed
+    in gold and elegant frescoes. Every hand that built this place, you realize, was killed to keep its secrets. At the seat
+    of his power, the Sky Pharaoh plots conquest of Osirion behind his monstrous guards. His conquest shall start with you.
   deck_list:
     monster: 4
     barrier: 2
     weapon: 1
     spell: 1
     armor: 1
-  at_location: |-
-    The difficulty of your checks against banes that have the Mummy trait is increased by 4.
+  at_location: 'The difficulty of your checks against banes that have the Mummy trait is increased by 4.
 
-    After you are dealt damage that is not reduced, bury 1 random card from your discard pile.
+
+    After you are dealt damage that is not reduced, bury 1 random card from your discard pile.'
   when_closing: Bury your discard pile.
   when_closed: Draw the loot Khepresh of Refuge.
+  deck_sizes:
+    S:
+      monster: 3
+      barrier: 1
+      spell: 1
+      armor: 1
+    M:
+      monster: 4
+      barrier: 2
+      weapon: 1
+      spell: 1
+      armor: 1
+    L:
+      monster: 5
+      barrier: 3
+      weapon: 1
+      spell: 2
+      armor: 1
 - name: Smoking Den
   category: location
   source: MM-B
-  flavor: Citizens with heavy purses speak in hushed urgency to unsavory mercenaries
-    in the smoking den. A password will guarantee you the privilege of fine pesh and
-    interesting rumors.
+  flavor: Citizens with heavy purses speak in hushed urgency to unsavory mercenaries in the smoking den. A password will guarantee
+    you the privilege of fine pesh and interesting rumors.
   deck_list:
     monster: 1
     barrier: 2
@@ -928,18 +1743,39 @@ locations:
     item: 0
     ally: 2
     blessing: 1
-  at_location: At the start of your turn, you may reveal a card that has the Poison
-    trait to examine the top card of your location deck.
-  when_closing: Summon and acquire a random ally that lists Diplomacy in its check
-    to acquire.
-  when_closed: For the rest of the scenario, when a character at any location attempts
-    a check that invokes the Human or Poison trait, she may bury a card to add 1 die.
-- name: Stonework Passaages
+  at_location: At the start of your turn, you may reveal a card that has the Poison trait to examine the top card of your
+    location deck.
+  when_closing: Summon and acquire a random ally that lists Diplomacy in its check to acquire.
+  when_closed: For the rest of the scenario, when a character at any location attempts a check that invokes the Human or Poison
+    trait, she may bury a card to add 1 die.
+  deck_sizes:
+    S:
+      monster: 1
+      barrier: 1
+      weapon: 1
+      spell: 1
+      ally: 1
+      blessing: 1
+    M:
+      monster: 1
+      barrier: 2
+      weapon: 2
+      spell: 1
+      ally: 2
+      blessing: 1
+    L:
+      monster: 2
+      barrier: 2
+      weapon: 2
+      spell: 1
+      item: 1
+      ally: 3
+      blessing: 1
+- name: Stonework Passages
   category: location
   source: MM-B
-  flavor: Constructed to defy the wear of time, the stones are fitted without mortar
-    by masons whose skills are long lost. No wind or water can enter, the passages
-    perfectly sealed against the elements. It is difficult to come away impressed
+  flavor: Constructed to defy the wear of time, the stones are fitted without mortar by masons whose skills are long lost.
+    No wind or water can enter, the passages perfectly sealed against the elements. It is difficult to come away impressed
     by the craftsmanship, however—the traps within are made to the same standard.
   deck_list:
     monster: 2
@@ -951,15 +1787,34 @@ locations:
     ally: 0
     blessing: 1
   at_location: Damage dealt to you is reduced by 1.
-  when_closing: Succeed at a Wisdom or Survival check with a difficulty of 6 plus
-    the scenario's adventure deck number.
+  when_closing: Succeed at a Wisdom or Survival check with a difficulty of 6 plus the scenario's adventure deck number.
   when_closed: On closing, you may examine the top card of any location deck.
+  deck_sizes:
+    S:
+      monster: 1
+      barrier: 2
+      weapon: 1
+      spell: 1
+      armor: 1
+    M:
+      monster: 2
+      barrier: 3
+      weapon: 1
+      spell: 1
+      armor: 1
+      blessing: 1
+    L:
+      monster: 3
+      barrier: 4
+      weapon: 2
+      spell: 1
+      armor: 1
+      blessing: 1
 - name: Sulfur Pits
   category: location
   source: MM-B
-  flavor: The stone that burns is invaluable to painters, doctors, and alchemists
-    in pursuit of explosive armament. Those that scratch the chalky yellow ore from
-    the wide, stinking pits are the only people who consider rain a curse. The acidic
+  flavor: The stone that burns is invaluable to painters, doctors, and alchemists in pursuit of explosive armament. Those
+    that scratch the chalky yellow ore from the wide, stinking pits are the only people who consider rain a curse. The acidic
     gases rise with a malice that strips flesh from bone and then consumes the bone.
   deck_list:
     monster: 3
@@ -973,13 +1828,35 @@ locations:
   at_location: On your check that has the Acid trait, add 1 die.
   when_closing: You are dealt 1 Acid damage.
   when_closed: No effect.
+  deck_sizes:
+    S:
+      monster: 2
+      weapon: 1
+      spell: 1
+      ally: 1
+      blessing: 1
+    M:
+      monster: 3
+      barrier: 1
+      weapon: 1
+      spell: 1
+      armor: 1
+      ally: 1
+      blessing: 1
+    L:
+      monster: 4
+      barrier: 1
+      weapon: 2
+      spell: 1
+      armor: 2
+      ally: 1
+      blessing: 1
 - name: Surgery
   category: location
   source: MM-B
-  flavor: As the vessel for the three parts of the soul, the body is sacred in Osirion.
-    The surgery is clean and immaculately organized, a shrine to Selket, goddess of
-    healing. Great care is taken to preserve the health of the body and Osirion doctors
-    have no qualms with cutting away disease in exchange for coin or favors.
+  flavor: As the vessel for the three parts of the soul, the body is sacred in Osirion. The surgery is clean and immaculately
+    organized, a shrine to Selket, goddess of healing. Great care is taken to preserve the health of the body and Osirion
+    doctors have no qualms with cutting away disease in exchange for coin or favors.
   deck_list:
     monster: 2
     barrier: 1
@@ -989,20 +1866,38 @@ locations:
     item: 2
     ally: 2
     blessing: 1
-  at_location: At the start of your turn, shuffle a random card from your discard
-    pile into your deck.
-  when_closing: Either succeed at an Intelligence, Craft, or Survival check with a
-    difficulty of 6 plus the scenario's adventure deck number or recharge a card that
-    has the Healing trait.
-  when_closed: On closing, shuffle 1d4+1 random cards from your discard pile into
-    your deck.
+  at_location: At the start of your turn, shuffle a random card from your discard pile into your deck.
+  when_closing: Either succeed at an Intelligence, Craft, or Survival check with a difficulty of 6 plus the scenario's adventure
+    deck number or recharge a card that has the Healing trait.
+  when_closed: On closing, shuffle 1d4+1 random cards from your discard pile into your deck.
+  deck_sizes:
+    S:
+      monster: 1
+      barrier: 1
+      spell: 1
+      item: 1
+      ally: 1
+      blessing: 1
+    M:
+      monster: 2
+      barrier: 1
+      spell: 1
+      item: 2
+      ally: 2
+      blessing: 1
+    L:
+      monster: 2
+      barrier: 2
+      spell: 2
+      item: 2
+      ally: 3
+      blessing: 1
 - name: Tarworks
   category: location
   source: MM-1
-  flavor: The black-stained hands that process tar know fire like no other. Tar clings
-    and, given enough air, will burn for eternity. Which explains why, when one tarworks
-    burns down, another is quickly built further down the road. The flow of coin demands
-    it. Every home, ship, lamp, and basket in Osirion relies on the tarworks.
+  flavor: The black-stained hands that process tar know fire like no other. Tar clings and, given enough air, will burn for
+    eternity. Which explains why, when one tarworks burns down, another is quickly built further down the road. The flow of
+    coin demands it. Every home, ship, lamp, and basket in Osirion relies on the tarworks.
   deck_list:
     monster: 2
     barrier: 2
@@ -1013,16 +1908,33 @@ locations:
     ally: 1
     blessing: 0
   at_location: All damage dealt to you is Fire damage.
-  when_closing: Succeed at a Strength, Charisma, or Diplomacy check with a difficulty
-    of 6 plus the scenario's adventure deck number.
-  when_closed: On closing, you may draw an armor from your discard pile or from your
-    buried cards.
+  when_closing: Succeed at a Strength, Charisma, or Diplomacy check with a difficulty of 6 plus the scenario's adventure deck
+    number.
+  when_closed: On closing, you may draw an armor from your discard pile or from your buried cards.
+  deck_sizes:
+    S:
+      monster: 2
+      barrier: 1
+      armor: 1
+      item: 1
+      ally: 1
+    M:
+      monster: 2
+      barrier: 2
+      armor: 2
+      item: 2
+      ally: 1
+    L:
+      monster: 3
+      barrier: 2
+      armor: 2
+      item: 3
+      ally: 2
 - name: The Shiny Bauble
   category: location
   source: MM-2
-  flavor: A dragon's hoard of glass trinkets and mosaic windows in the color spectrum
-    of imagination cover every shelf of the workshop. Conspicuously, the gaudy knickknacks
-    are meticulously free of dust.
+  flavor: A dragon's hoard of glass trinkets and mosaic windows in the color spectrum of imagination cover every shelf of
+    the workshop. Conspicuously, the gaudy knickknacks are meticulously free of dust.
   deck_list:
     monster: 2
     barrier: 2
@@ -1032,18 +1944,36 @@ locations:
     item: 2
     ally: 0
     blessing: 0
-  at_location: At the start of your turn, you may examine the top card of the blessings
-    deck; if it is a blessing, you may encounter it.
-  when_closing: If the top card of the blessings discard pile is a blessing, encounter
-    and acquire it; otherwise, the location cannot be closed.
+  at_location: At the start of your turn, you may examine the top card of the blessings deck; if it is a blessing, you may
+    encounter it.
+  when_closing: If the top card of the blessings discard pile is a blessing, encounter and acquire it; otherwise, the location
+    cannot be closed.
   when_closed: No effect.
+  deck_sizes:
+    S:
+      monster: 1
+      barrier: 1
+      weapon: 1
+      spell: 1
+      item: 2
+    M:
+      monster: 2
+      barrier: 2
+      weapon: 1
+      spell: 2
+      item: 2
+    L:
+      monster: 3
+      barrier: 2
+      weapon: 1
+      spell: 3
+      item: 3
 - name: Thornscrub
   category: location
   source: MM-B
-  flavor: 'Every living thing in the desert has vicious and ingenious ways of protecting
-    its most precious resource: the waters of life within. The plants learn the weapons
-    of prdators: stinging barbed teeth, toxic resin venom, rending thorn claws. In
-    turn, the predators grow even more ferocious.'
+  flavor: 'Every living thing in the desert has vicious and ingenious ways of protecting its most precious resource: the waters
+    of life within. The plants learn the weapons of prdators: stinging barbed teeth, toxic resin venom, rending thorn claws.
+    In turn, the predators grow even more ferocious.'
   deck_list:
     monster: 4
     barrier: 2
@@ -1056,12 +1986,30 @@ locations:
   at_location: You may not evade a bane that has the Poison trait.
   when_closing: You are dealt 1 Poison damage.
   when_closed: No effect.
+  deck_sizes:
+    S:
+      monster: 3
+      barrier: 1
+      armor: 1
+      blessing: 1
+    M:
+      monster: 4
+      barrier: 2
+      armor: 1
+      item: 1
+      blessing: 1
+    L:
+      monster: 5
+      barrier: 3
+      weapon: 1
+      armor: 1
+      item: 1
+      blessing: 1
 - name: Thriae Hive
   category: location
   source: MM-3
-  flavor: With a hexagonal rhythm that is at once pleasing and disorienting, the walls
-    of the thriae hive buzz with the dance of a thousand workers intent on an alien
-    purpose. Here, all actions server the thriae seer's unknowable desires.
+  flavor: With a hexagonal rhythm that is at once pleasing and disorienting, the walls of the thriae hive buzz with the dance
+    of a thousand workers intent on an alien purpose. Here, all actions server the thriae seer's unknowable desires.
   deck_list:
     monster: 0
     barrier: 0
@@ -1071,17 +2019,36 @@ locations:
     item: 1
     ally: 1
     blessing: 1
-  at_location: At the start of your turn, summon and encounter the henchman Thriae
-    Dancer.
+  at_location: At the start of your turn, summon and encounter the henchman Thriae Dancer.
   when_closing: Summon and defeat the henchman Thriae Soldier.
-  when_closed: At the end of your turn, you may recharge a weapon from your discard
-    pile.
+  when_closed: At the end of your turn, you may recharge a weapon from your discard pile.
+  deck_sizes:
+    S:
+      weapon: 1
+      spell: 1
+      armor: 1
+      item: 1
+      ally: 1
+      blessing: 1
+    M:
+      weapon: 2
+      spell: 2
+      armor: 2
+      item: 1
+      ally: 1
+      blessing: 1
+    L:
+      weapon: 3
+      spell: 3
+      armor: 2
+      item: 1
+      ally: 2
+      blessing: 1
 - name: Tooth & Hookah
   category: location
   source: MM-1
-  flavor: Every town in Osirion seems to have a Tooth & Hookah, even if the sign has
-    another name. Weary travelers and laborers with half-lidded eyes recline on dingy
-    pillows smoking or chewing away the harsher edges of reality. Coin and a friendly
+  flavor: Every town in Osirion seems to have a Tooth & Hookah, even if the sign has another name. Weary travelers and laborers
+    with half-lidded eyes recline on dingy pillows smoking or chewing away the harsher edges of reality. Coin and a friendly
     smile are all required to persuade such as these to escape the mundane.
   deck_list:
     monster: 1
@@ -1095,13 +2062,33 @@ locations:
   at_location: When you fail to acquire an ally, shuffle it into this location deck.
   when_closing: Summon and acquire a random ally.
   when_closed: No effect.
+  deck_sizes:
+    S:
+      monster: 1
+      barrier: 1
+      weapon: 1
+      spell: 1
+      ally: 2
+    M:
+      monster: 1
+      barrier: 2
+      weapon: 1
+      spell: 1
+      armor: 1
+      ally: 3
+    L:
+      monster: 2
+      barrier: 2
+      weapon: 2
+      spell: 1
+      armor: 1
+      ally: 4
 - name: Towering Obelisk
   category: location
   source: MM-B
-  flavor: Placed as a tribute or a warning in this wasteland, you do not know. Pieces
-    of sacred text can be read upon the worn stone faces jutting toward the sky. The
-    cartouches have been either worn by nature or chiseled away by vandals. The winds
-    that sweep past whisper the names of dead gods.
+  flavor: Placed as a tribute or a warning in this wasteland, you do not know. Pieces of sacred text can be read upon the
+    worn stone faces jutting toward the sky. The cartouches have been either worn by nature or chiseled away by vandals. The
+    winds that sweep past whisper the names of dead gods.
   deck_list:
     monster: 2
     barrier: 2
@@ -1111,19 +2098,37 @@ locations:
     item: 0
     ally: 1
     blessing: 1
-  at_location: After playing a boon that has the Electricity trait, you may put it
-    on top of your deck.
+  at_location: After playing a boon that has the Electricity trait, you may put it on top of your deck.
   when_closing: Summon and defeat the henchman Aghash.
-  when_closed: On closing, you may banish a card that has the Curse or Haunt trait
-    next to any character's deck.
+  when_closed: On closing, you may banish a card that has the Curse or Haunt trait next to any character's deck.
+  deck_sizes:
+    S:
+      monster: 1
+      barrier: 1
+      weapon: 1
+      spell: 1
+      ally: 1
+      blessing: 1
+    M:
+      monster: 2
+      barrier: 2
+      weapon: 1
+      spell: 2
+      ally: 1
+      blessing: 1
+    L:
+      monster: 3
+      barrier: 2
+      weapon: 1
+      spell: 3
+      ally: 1
+      blessing: 2
 - name: Vault of Hidden Wisdom
   category: location
   source: MM-3
-  flavor: Gaining access to this archive of dangerous secrets of Osirion's ancient
-    past is only the first trial. Built with an ingenious viciousness that only the
-    dispassionate librarians of Tephu could muster, the many traps within the Vault
-    of Hidden Wisdom keep its knowledge safe from destruction and from escape. The
-    greatest danger is wishing to know more.
+  flavor: Gaining access to this archive of dangerous secrets of Osirion's ancient past is only the first trial. Built with
+    an ingenious viciousness that only the dispassionate librarians of Tephu could muster, the many traps within the Vault
+    of Hidden Wisdom keep its knowledge safe from destruction and from escape. The greatest danger is wishing to know more.
   deck_list:
     monster: 1
     barrier: 3
@@ -1133,19 +2138,37 @@ locations:
     item: 1
     ally: 0
     blessing: 1
-  at_location: When you defeat a bane, you may succeed at a Knowledge or Perception
-    7 check to explore your location.
+  at_location: When you defeat a bane, you may succeed at a Knowledge or Perception 7 check to explore your location.
   when_closing: Summon and defeat a random barrier.
-  when_closed: On closing, you may succeed at a Knowledge or Perception 7 check to
-    recharge a card from your discard pile.
+  when_closed: On closing, you may succeed at a Knowledge or Perception 7 check to recharge a card from your discard pile.
+  deck_sizes:
+    S:
+      monster: 1
+      barrier: 2
+      weapon: 1
+      spell: 1
+      blessing: 1
+    M:
+      monster: 1
+      barrier: 3
+      weapon: 1
+      spell: 2
+      item: 1
+      blessing: 1
+    L:
+      monster: 2
+      barrier: 4
+      weapon: 1
+      spell: 3
+      item: 1
+      blessing: 1
 - name: Vizier's Hill
   category: location
   source: MM-2
-  flavor: Gazing down upon the hollowed husk of the Wati that once was, the noble
-    estates of Vizier's Hill are home to the necropolis's least violent residents.
-    The dark slayers that stalk the painted corridors are wary of strangers and fiercely
-    protective of their peace. They know what clamors beneath them, and are unafraid.
-    Few would violate their sanctum and leave intact.
+  flavor: Gazing down upon the hollowed husk of the Wati that once was, the noble estates of Vizier's Hill are home to the
+    necropolis's least violent residents. The dark slayers that stalk the painted corridors are wary of strangers and fiercely
+    protective of their peace. They know what clamors beneath them, and are unafraid. Few would violate their sanctum and
+    leave intact.
   deck_list:
     monster: 2
     barrier: 3
@@ -1155,17 +2178,33 @@ locations:
     item: 0
     ally: 0
     blessing: 1
-  at_location: If you fail to defeat a barrier, shuffle a barrier from the box into
-    this location deck.
-  when_closing: You are dealt 1 Poison damage, then succeed at an Intelligence or
-    Perception 6 check.
+  at_location: If you fail to defeat a barrier, shuffle a barrier from the box into this location deck.
+  when_closing: You are dealt 1 Poison damage, then succeed at an Intelligence or Perception 6 check.
   when_closed: No effect.
+  deck_sizes:
+    S:
+      monster: 1
+      barrier: 2
+      weapon: 1
+      spell: 1
+      blessing: 1
+    M:
+      monster: 2
+      barrier: 3
+      weapon: 2
+      spell: 1
+      blessing: 1
+    L:
+      monster: 3
+      barrier: 4
+      weapon: 2
+      spell: 2
+      blessing: 1
 - name: Volcanic Vents
   category: location
   source: MM-B
-  flavor: Even more oppressive than the ire of Ra, the heat that emerges from the
-    volcanic vents is a deadly mix of kiln-like temperatures and toxic gases. Here,
-    the elements of fire and earth wage their eternal battle of creation and destruction.
+  flavor: Even more oppressive than the ire of Ra, the heat that emerges from the volcanic vents is a deadly mix of kiln-like
+    temperatures and toxic gases. Here, the elements of fire and earth wage their eternal battle of creation and destruction.
     Few observers have the fortitude to monitor this battle for long.
   deck_list:
     monster: 3
@@ -1179,14 +2218,35 @@ locations:
   at_location: Monsters you encounter are immune to the Poison trait.
   when_closing: Each character at this location is dealt 1 Fire damage.
   when_closed: No effect.
+  deck_sizes:
+    S:
+      monster: 2
+      barrier: 1
+      weapon: 1
+      armor: 1
+      blessing: 1
+    M:
+      monster: 3
+      barrier: 1
+      weapon: 1
+      spell: 1
+      armor: 1
+      item: 1
+      blessing: 1
+    L:
+      monster: 4
+      barrier: 2
+      weapon: 2
+      spell: 1
+      armor: 1
+      item: 1
+      blessing: 1
 - name: Walled Oasis
   category: location
   source: MM-4
-  flavor: The ancestral home of a maftet tribe, this oasis nestles in the great shadow
-    of the Sightless Sphinx. Surrounded by massive stones taken from the same quarry
-    that built the Sphinx, the oasis is well-defended. What betrayal then drove the
-    maftets from their home and poisoned the precious waters? Could it be those fiery
-    forms on the battlements?
+  flavor: The ancestral home of a maftet tribe, this oasis nestles in the great shadow of the Sightless Sphinx. Surrounded
+    by massive stones taken from the same quarry that built the Sphinx, the oasis is well-defended. What betrayal then drove
+    the maftets from their home and poisoned the precious waters? Could it be those fiery forms on the battlements?
   deck_list:
     monster: 2
     barrier: 2
@@ -1196,16 +2256,37 @@ locations:
     item: 1
     ally: 1
     blessing: 1
-  at_location: Damage dealt to you is also dealt to a random other character at this
-    location.
+  at_location: Damage dealt to you is also dealt to a random other character at this location.
   when_closing: You are dealt 1d4 Acid damage.
   when_closed: On closing, you may recharge any number of weapons and armors.
+  deck_sizes:
+    S:
+      monster: 2
+      barrier: 1
+      weapon: 1
+      item: 1
+      ally: 1
+    M:
+      monster: 2
+      barrier: 2
+      weapon: 1
+      spell: 1
+      item: 1
+      ally: 1
+      blessing: 1
+    L:
+      monster: 3
+      barrier: 2
+      weapon: 2
+      spell: 1
+      item: 1
+      ally: 2
+      blessing: 1
 - name: Warehouse
   category: location
   source: MM-B
-  flavor: A maze of crates, urns, and baskets from every corner of the world fills
-    the shelves to the ceiling. Stevedores grunt as they lift seemingly impossible
-    weights upon their backs. Only the master knows the measure of the wealth here,
+  flavor: A maze of crates, urns, and baskets from every corner of the world fills the shelves to the ceiling. Stevedores
+    grunt as they lift seemingly impossible weights upon their backs. Only the master knows the measure of the wealth here,
     but you suspect smuggling dangerous goods is a matter of course.
   deck_list:
     monster: 3
@@ -1217,18 +2298,33 @@ locations:
     ally: 1
     blessing: 0
   at_location: At the end of your turn, you may recharge any number of items and weapons.
-  when_closing: Succeed at a Dexterity or Disable check with a difficulty of 4 plus
-    the scenario's adventure deck number.
-  when_closed: On closing, summon and acquire a weapon, an armor, or an item from
-    the box.
+  when_closing: Succeed at a Dexterity or Disable check with a difficulty of 4 plus the scenario's adventure deck number.
+  when_closed: On closing, summon and acquire a weapon, an armor, or an item from the box.
+  deck_sizes:
+    S:
+      monster: 2
+      barrier: 1
+      armor: 1
+      item: 1
+      ally: 1
+    M:
+      monster: 3
+      barrier: 2
+      armor: 1
+      item: 2
+      ally: 1
+    L:
+      monster: 4
+      barrier: 3
+      armor: 1
+      item: 3
+      ally: 1
 - name: Windswept Chasm
   category: location
   source: MM-B
-  flavor: Invisible and swift, the element of air carries dangerous potential. In
-    the windswept chasm, gusts powerful enough to shear rock sweep static-charged
-    sands across walls that seem to have no grounding. Those that fail to cling to
-    precarious holds are doomed to be torn apart by the chaotic eddies that gnash
-    below.
+  flavor: Invisible and swift, the element of air carries dangerous potential. In the windswept chasm, gusts powerful enough
+    to shear rock sweep static-charged sands across walls that seem to have no grounding. Those that fail to cling to precarious
+    holds are doomed to be torn apart by the chaotic eddies that gnash below.
   deck_list:
     monster: 1
     barrier: 3
@@ -1241,3 +2337,25 @@ locations:
   at_location: All damage dealt to you is Electricity damage.
   when_closing: Discard your hand.
   when_closed: On closing, draw 1d4-1 random cards from your discard pile.
+  deck_sizes:
+    S:
+      barrier: 2
+      weapon: 1
+      spell: 1
+      armor: 1
+      blessing: 1
+    M:
+      monster: 1
+      barrier: 3
+      weapon: 1
+      spell: 1
+      armor: 1
+      blessing: 2
+    L:
+      monster: 2
+      barrier: 3
+      weapon: 1
+      spell: 1
+      armor: 1
+      ally: 1
+      blessing: 3

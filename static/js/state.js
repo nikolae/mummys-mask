@@ -30,6 +30,9 @@ export function makeInitialState() {
       locationNames: [],        // string[]
     },
 
+    // Guided (new player) mode — persisted in localStorage
+    guidedMode: typeof localStorage !== 'undefined' && localStorage.getItem('mm_guided') === 'true',
+
     // Toast queue
     toasts: [],
   };
@@ -64,5 +67,13 @@ export function useAppState() {
     setState(s => ({ ...s, session: s.session ? { ...s.session, ...updates } : s.session }));
   }, []);
 
-  return { state, patch, navigate, toast, patchSetup, patchSession };
+  const toggleGuided = useCallback(() => {
+    setState(s => {
+      const next = !s.guidedMode;
+      localStorage.setItem('mm_guided', String(next));
+      return { ...s, guidedMode: next };
+    });
+  }, []);
+
+  return { state, patch, navigate, toast, patchSetup, patchSession, toggleGuided };
 }

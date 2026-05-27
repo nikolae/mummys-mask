@@ -1,14 +1,62 @@
 import { html } from '/static/js/html.js';
 import { useApp } from '/static/js/state.js';
 import { Modal } from '/static/js/components/common/Modal.js';
+import { NewGameGuide } from '/static/js/components/common/NewGameGuide.js';
+import { GuidedBanner } from '/static/js/components/common/GuidedBanner.js';
 import { useState, useEffect, useCallback } from '/static/js/vendor/hooks.module.js';
 import * as api from '/static/js/api.js';
+
+// ── Starting deck guide ───────────────────────────────────────────────────────
+
+const TYPE_ICON = { weapon:'⚔', spell:'✨', armor:'🛡', item:'🎒', ally:'👥', blessing:'🙏' };
+const TYPE_ORDER = ['weapon', 'spell', 'armor', 'item', 'ally', 'blessing'];
+
+function DeckBuildGuide({ template }) {
+  if (!template?.starting_deck) return null;
+  const deck = template.starting_deck;
+
+  // Collapse duplicates into {name, count} per type
+  const groups = TYPE_ORDER
+    .filter(t => deck[t]?.length)
+    .map(type => {
+      const counts = {};
+      for (const name of deck[type]) counts[name] = (counts[name] || 0) + 1;
+      return { type, cards: Object.entries(counts).map(([name, count]) => ({ name, count })) };
+    });
+
+  const total = Object.values(deck).reduce((s, arr) => s + arr.length, 0);
+
+  return html`
+    <div class="deck-guide">
+      <div class="deck-guide-header">
+        <span class="deck-guide-title">Starting Deck — ${total} cards</span>
+        <span class="deck-guide-hint">Find these from the physical box</span>
+      </div>
+      ${groups.map(g => html`
+        <div key=${g.type} class="deck-guide-group">
+          <span class="deck-guide-type-label">
+            ${TYPE_ICON[g.type] || '•'} ${g.type}
+          </span>
+          <div class="deck-guide-cards">
+            ${g.cards.map(({ name, count }) => html`
+              <span key=${name} class="deck-guide-card">
+                ${count > 1 ? html`<span class="deck-guide-count">×${count}</span>` : null}
+                ${name}
+              </span>
+            `)}
+          </div>
+        </div>
+      `)}
+    </div>
+  `;
+}
 
 // ── Character setup panel ────────────────────────────────────────────────────
 
 function CharacterPanel({ campaignId, characters, characterTemplates, onChange }) {
   const { toast } = useApp();
   const [showAdd, setShowAdd] = useState(false);
+  const [showGuide, setShowGuide] = useState(false);
   const [form, setForm] = useState({ name: '', type: '', hand_size: 4 });
   const [busy, setBusy] = useState(false);
 
@@ -99,7 +147,16 @@ function CharacterPanel({ campaignId, characters, characterTemplates, onChange }
                 onInput=${e => setForm(f => ({ ...f, hand_size: parseInt(e.target.value) || 4 }))} />
             </div>
           `}
+          ${selectedTemplate && html`<${DeckBuildGuide} template=${selectedTemplate} />`}
+          <p style="font-size:12px; color:var(--text-dim); margin-top:10px; margin-bottom:0;">
+            Not sure which class to pick?${' '}
+            <button class="btn-link" onClick=${() => setShowGuide(true)}>Browse character guide →</button>
+          </p>
         </${Modal}>
+      `}
+
+      ${showGuide && html`
+        <${NewGameGuide} initialSection="characters" onClose=${() => setShowGuide(false)} />
       `}
     </div>
   `;
@@ -108,7 +165,9 @@ function CharacterPanel({ campaignId, characters, characterTemplates, onChange }
 // ── Scenario selector ────────────────────────────────────────────────────────
 
 function ScenarioPanel({ adventures, selectedId, onSelect }) {
-  const [openAdv, setOpenAdv] = useState(null);
+  // Auto-expand the adventure that contains the currently selected scenario
+  const defaultOpen = selectedId ? selectedId.split('-')[0] : null;
+  const [openAdv, setOpenAdv] = useState(defaultOpen);
 
   return html`
     <div class="card">
@@ -148,9 +207,65 @@ function ScenarioPanel({ adventures, selectedId, onSelect }) {
   `;
 }
 
+// ── Location deck build guide ─────────────────────────────────────────────────
+
+const BANE_ICON  = { monster: '👹', barrier: '🚧' };
+const BOON_ICON  = { weapon: '⚔', spell: '✨', armor: '🛡', item: '🎒', ally: '👥', blessing: '🙏' };
+const DECK_ORDER = ['monster', 'barrier', 'weapon', 'spell', 'armor', 'item', 'ally', 'blessing'];
+
+function LocationDeckGuide({ detail }) {
+  if (!detail) return null;
+
+  const deckList = detail.deck_list || {};
+  const total    = Object.values(deckList).reduce((s, v) => s + (v || 0), 0);
+  const groups   = DECK_ORDER.filter(t => deckList[t] > 0);
+
+  return html`
+    <div class="loc-deck-guide">
+      <div class="loc-deck-guide-header">
+        <span class="loc-deck-guide-title">Deck: ${total} cards</span>
+        <span class="loc-deck-guide-size">pull from the box</span>
+      </div>
+
+      <div class="loc-deck-breakdown">
+        ${groups.map(type => html`
+          <span key=${type} class=${'loc-deck-type loc-deck-' + (BANE_ICON[type] ? 'bane' : 'boon')}>
+            ${BANE_ICON[type] || BOON_ICON[type]} ${deckList[type]}${' '}${type}
+          </span>
+        `)}
+      </div>
+
+      ${(detail.at_location || detail.to_close) && html`
+        <div class="loc-rules-mini">
+          ${detail.at_location && html`
+            <div class="loc-rule-mini-row">
+              <span class="loc-rule-mini-label">Here</span>
+              <span class="loc-rule-mini-text">${detail.at_location}</span>
+            </div>
+          `}
+          ${detail.to_close && html`
+            <div class="loc-rule-mini-row">
+              <span class="loc-rule-mini-label">Close</span>
+              <span class="loc-rule-mini-text">${detail.to_close}</span>
+            </div>
+          `}
+          ${detail.when_closed && detail.when_closed !== 'No effect.' && html`
+            <div class="loc-rule-mini-row">
+              <span class="loc-rule-mini-label">On close</span>
+              <span class="loc-rule-mini-text">${detail.when_closed}</span>
+            </div>
+          `}
+        </div>
+      `}
+    </div>
+  `;
+}
+
 // ── Location selector ────────────────────────────────────────────────────────
 
 function LocationPanel({ scenario, playerCount, selectedLocations, onToggle }) {
+  const [expandedLoc, setExpandedLoc] = useState(null);
+
   if (!scenario) {
     return html`<div class="card">
       <div class="card-header"><h2>Locations</h2></div>
@@ -161,6 +276,24 @@ function LocationPanel({ scenario, playerCount, selectedLocations, onToggle }) {
   // Number of locations = players + 1 (min 2, max scenario count)
   const required = Math.min(Math.max(playerCount + 1, 2), scenario.locations.length);
 
+  // Build map from location_details array
+  const detailMap = {};
+  for (const d of (scenario.location_details || [])) detailMap[d.name] = d;
+
+  function handleChipClick(loc) {
+    if (expandedLoc === loc) {
+      setExpandedLoc(null);
+    } else {
+      setExpandedLoc(loc);
+    }
+    onToggle(loc);
+  }
+
+  function handleInfoClick(e, loc) {
+    e.stopPropagation();
+    setExpandedLoc(expandedLoc === loc ? null : loc);
+  }
+
   return html`
     <div class="card">
       <div class="card-header">
@@ -169,15 +302,26 @@ function LocationPanel({ scenario, playerCount, selectedLocations, onToggle }) {
       </div>
       <p style="color:var(--text-dim); font-size:12px; margin-bottom:10px;">
         Select ${required} locations for ${playerCount} player${playerCount !== 1 ? 's' : ''}.
+        Tap a name to select/deselect, tap ℹ to see deck details.
       </p>
-      <div class="location-chips">
+      <div class="location-chip-list">
         ${(scenario.locations || []).map(loc => {
-          const sel = selectedLocations.includes(loc);
+          const sel      = selectedLocations.includes(loc);
+          const expanded = expandedLoc === loc;
+          const detail   = detailMap[loc];
           return html`
-            <div key=${loc} class=${'location-chip' + (sel ? ' selected' : '')}
-              onClick=${() => onToggle(loc)}>
-              ${loc}
-              ${sel && html`<span style="font-size:16px;">✓</span>`}
+            <div key=${loc} class=${'location-chip-row' + (sel ? ' selected' : '')}>
+              <div class="location-chip-main" onClick=${() => onToggle(loc)}>
+                <span class="location-chip-check">${sel ? '✓' : '○'}</span>
+                <span class="location-chip-name">${loc}</span>
+                ${detail && html`
+                  <button class=${'loc-chip-info-btn' + (expanded ? ' active' : '')}
+                    onClick=${(e) => handleInfoClick(e, loc)} title="Deck details">ℹ</button>
+                `}
+              </div>
+              ${expanded && detail && html`
+                <${LocationDeckGuide} detail=${detail} />
+              `}
             </div>
           `;
         })}
@@ -190,7 +334,7 @@ function LocationPanel({ scenario, playerCount, selectedLocations, onToggle }) {
 
 export function SetupView() {
   const { state, patch, navigate, toast } = useApp();
-  const { campaignId } = state;
+  const { campaignId, guidedMode } = state;
 
   const [campaign, setCampaign] = useState(null);
   const [characters, setCharacters] = useState([]);
@@ -200,28 +344,36 @@ export function SetupView() {
   const [scenarioDetail, setScenarioDetail] = useState(null);
   const [selectedLocations, setSelectedLocations] = useState([]);
   const [busy, setBusy] = useState(false);
+  const [hybridMode, setHybridMode] = useState(false);
+  const [activeSession, setActiveSession] = useState(null); // existing playing session
 
   const playerCount = characters.length;
 
   const loadCampaign = useCallback(async () => {
     try {
-      const campaigns = await api.getCampaigns();
-      const c = campaigns.find(x => x.id === campaignId);
-      setCampaign(c);
-      // Fetch full character list
-      const all = await api.getCampaigns();
-      // Re-fetch with characters embedded via the campaigns endpoint
-      // (the /api/campaigns endpoint returns character_count; we need full list)
-      // Use the campaign characters from the session state if available
-      const res = await fetch(`/api/campaigns/${campaignId}/characters`);
-      if (res.ok) {
-        const chars = await res.json();
-        setCharacters(chars);
+      // Get campaign detail (includes sessions list)
+      const detail = await fetch(`/api/campaigns/${campaignId}`).then(r => r.json());
+      setCampaign(detail);
+      // Find the most recent playing session, if any
+      const playing = (detail.sessions || []).find(s => s.status === 'playing');
+      setActiveSession(playing || null);
+      // Pre-select the campaign's tracked scenario (only if user hasn't picked one yet)
+      if (detail.current_scenario) {
+        setScenarioId(prev => prev || detail.current_scenario);
       }
+      // Load characters
+      const res = await fetch(`/api/campaigns/${campaignId}/characters`);
+      if (res.ok) setCharacters(await res.json());
     } catch (e) {
       toast('Failed to load campaign', 'error');
     }
   }, [campaignId]);
+
+  function resumeSession() {
+    if (!activeSession) return;
+    patch({ sessionId: activeSession.id });
+    navigate('play');
+  }
 
   useEffect(() => {
     loadCampaign();
@@ -229,16 +381,47 @@ export function SetupView() {
     api.getCharacters().then(setCharacterTemplates).catch(() => {});
   }, [campaignId]);
 
+  // localStorage key scoped to this campaign+scenario so it resets when either changes
+  const locStorageKey = scenarioId ? `mm_locs_${campaignId}_${scenarioId}` : null;
+
   useEffect(() => {
     if (!scenarioId) { setScenarioDetail(null); setSelectedLocations([]); return; }
-    const [aid, ...rest] = scenarioId.split('-');
+    const [aid] = scenarioId.split('-');
     api.getScenario(aid, scenarioId).then(s => {
       setScenarioDetail(s);
-      // Auto-select required number of locations
       const required = Math.min(Math.max(playerCount + 1, 2), s.locations.length);
+
+      // Restore saved picks if they're still valid for this scenario + player count
+      try {
+        const saved = JSON.parse(localStorage.getItem(`mm_locs_${campaignId}_${scenarioId}`) || 'null');
+        if (Array.isArray(saved) && saved.length === required && saved.every(l => s.locations.includes(l))) {
+          setSelectedLocations(saved);
+          return;
+        }
+      } catch {}
+
+      // Fall back to auto-selecting the first N locations
       setSelectedLocations(s.locations.slice(0, required));
     }).catch(() => toast('Failed to load scenario', 'error'));
   }, [scenarioId, playerCount]);
+
+  // Persist location picks whenever they change
+  useEffect(() => {
+    if (locStorageKey && selectedLocations.length > 0) {
+      localStorage.setItem(locStorageKey, JSON.stringify(selectedLocations));
+    }
+  }, [selectedLocations, locStorageKey]);
+
+  function selectScenario(id) {
+    setScenarioId(id);
+    // Persist the selection immediately so navigating away and back restores it
+    if (id) {
+      api.updateCampaign(campaignId, {
+        current_scenario: id,
+        current_adventure: id.split('-')[0],
+      }).catch(() => {});
+    }
+  }
 
   function toggleLocation(loc) {
     const required = Math.min(Math.max(playerCount + 1, 2), scenarioDetail?.locations.length ?? 99);
@@ -263,6 +446,7 @@ export function SetupView() {
         scenario_id: scenarioId,
         location_names: selectedLocations,
         character_locations: charLocs,
+        hybrid: hybridMode,
       });
       patch({ sessionId: session.id, session });
       navigate('play');
@@ -279,6 +463,39 @@ export function SetupView() {
   const canStart = scenarioId && characters.length > 0
     && selectedLocations.length === required;
 
+  // Guided-mode step for this screen — derived purely from current state
+  const guidedStep = (() => {
+    if (characters.length === 0) return {
+      icon: '🧙',
+      title: 'Step 1 — Add Your Characters',
+      body: 'Tap "+ Add" in the Characters panel to add each player\'s character. Choose one character class per player — you can tap "Browse character guide →" inside the form if you\'re not sure who to pick.',
+      tip: 'Starting out? Zadim (Slayer) and Yoon (Kineticist) are the easiest. Avoid Ezren and Mavaro for your first campaign.',
+    };
+    if (!scenarioId) return {
+      icon: '🗺️',
+      title: 'Step 2 — Choose Your Scenario',
+      body: 'Open the Scenario panel and pick your first scenario. Expand "Adventure B" and select B-1: All That Glitters Begets Gold. That\'s always the starting scenario for a new campaign.',
+    };
+    if (!canStart) return {
+      icon: '📍',
+      title: 'Step 3 — Confirm Your Locations',
+      body: `The app has pre-selected ${required} location${required !== 1 ? 's' : ''} for your ${playerCount}-player game. You can swap any of them by tapping a different location chip. When the count shows ${required}/${required} you\'re ready.`,
+      tip: 'For your first scenario, the default selection is fine — just leave it as-is.',
+    };
+    return {
+      icon: '✅',
+      title: 'Ready to Begin!',
+      body: [
+        'Before tapping "Begin Scenario", set up your physical cards:',
+        '1. Build each location deck from the physical cards using the deck list on each location card.',
+        '2. Shuffle the villain and henchmen into the location decks as described on the scenario card.',
+        '3. Draw 30 random blessings, shuffle them face-down — that\'s your timer deck.',
+        '4. Each player draws a starting hand equal to their hand size (include at least 1 Favored Card Type).',
+      ],
+      tip: 'Once you\'ve set up the physical cards, tap "Begin Scenario" to start tracking the game.',
+    };
+  })();
+
   return html`
     <div class="page">
       <div class="page-header">
@@ -290,6 +507,14 @@ export function SetupView() {
         </div>
       </div>
       <div class="page-body">
+        ${guidedMode && html`
+          <${GuidedBanner}
+            icon=${guidedStep.icon}
+            title=${guidedStep.title}
+            body=${guidedStep.body}
+            tip=${guidedStep.tip}
+          />
+        `}
         <div class="setup-columns">
           <div style="display:flex; flex-direction:column; gap:16px;">
             <${CharacterPanel}
@@ -301,7 +526,7 @@ export function SetupView() {
             <${ScenarioPanel}
               adventures=${adventures}
               selectedId=${scenarioId}
-              onSelect=${setScenarioId}
+              onSelect=${selectScenario}
             />
           </div>
           <div>
@@ -315,6 +540,25 @@ export function SetupView() {
         </div>
       </div>
       <div class="page-footer">
+        ${activeSession && html`
+          <div class="resume-banner">
+            <div class="resume-info">
+              <span class="resume-label">Active session</span>
+              <span class="resume-detail">Scenario ${activeSession.scenario_id} · Turn ${activeSession.current_turn} · ${activeSession.blessings_remaining} blessings</span>
+            </div>
+            <button class="btn-primary" onClick=${resumeSession}>
+              ▶ Resume
+            </button>
+          </div>
+        `}
+        <label class="hybrid-toggle">
+          <input type="checkbox" checked=${hybridMode}
+            onChange=${e => setHybridMode(e.target.checked)} />
+          <span class="hybrid-toggle-label">
+            <strong>Hybrid Mode</strong>
+            <span class="hybrid-toggle-hint">— app tracks deck contents & places villain/henchmen digitally</span>
+          </span>
+        </label>
         <button class="btn-primary btn-lg" onClick=${startSession}
           disabled=${busy || !canStart}>
           ${busy ? 'Starting…' : 'Begin Scenario'}

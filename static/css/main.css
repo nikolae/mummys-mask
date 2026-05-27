@@ -114,6 +114,22 @@ button:disabled:active { transform: none; }
 }
 .btn-ghost:hover { background: rgba(201,162,39,0.1); }
 
+/* Inline text-link style button — no box, just coloured text */
+.btn-link {
+  background: none;
+  border: none;
+  padding: 0;
+  margin: 0;
+  color: var(--gold);
+  font-size: inherit;
+  font-family: inherit;
+  cursor: pointer;
+  text-decoration: underline;
+  min-height: unset;
+  display: inline;
+}
+.btn-link:hover { color: var(--gold-light); }
+
 .btn-sm {
   min-height: 36px;
   padding: 0 14px;
@@ -262,7 +278,8 @@ label {
   white-space: nowrap;
   font-size: var(--font-sm);
 }
-.toast.error { border-color: var(--red-light); }
+.toast.error   { border-color: var(--red-light); }
+.toast.warning { border-color: var(--gold); color: var(--gold-light); }
 @keyframes toast-in {
   from { opacity: 0; transform: translateY(8px); }
   to   { opacity: 1; transform: translateY(0); }
@@ -275,4 +292,154 @@ label {
   letter-spacing: 0.3em;
   font-size: 12px;
   padding: 8px 0;
+}
+
+/* ── Guided (new player) mode ─────────────────────────────────────────────── */
+
+.guided-banner {
+  background: linear-gradient(135deg, rgba(201,162,39,0.12), rgba(201,162,39,0.06));
+  border: 1px solid var(--gold-dark);
+  border-left: 4px solid var(--gold);
+  border-radius: var(--radius);
+  padding: 14px 16px 10px;
+  margin-bottom: 16px;
+}
+
+.guided-banner-head {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 6px;
+}
+
+.guided-banner-icon {
+  font-size: 18px;
+  flex-shrink: 0;
+}
+
+.guided-banner-title {
+  font-weight: 700;
+  color: var(--gold-light);
+  font-size: 14px;
+}
+
+.guided-banner-body {
+  color: var(--text-mid);
+  font-size: 13px;
+  line-height: 1.55;
+  margin: 0 0 4px;
+}
+
+.guided-banner-tip {
+  color: var(--text-dim);
+  font-size: 12px;
+  margin: 6px 0 4px;
+  display: flex;
+  gap: 5px;
+}
+.guided-tip-icon { flex-shrink: 0; }
+
+.guided-off-link {
+  display: block;
+  font-size: 11px;
+  color: var(--text-dim);
+  margin-top: 8px;
+  text-decoration: none;
+  opacity: 0.7;
+}
+.guided-off-link:hover { opacity: 1; color: var(--text-mid); }
+
+/* Toggle button in page header */
+.guided-toggle {
+  margin-left: auto;
+  font-size: 12px;
+  padding: 0 10px;
+  min-height: 32px;
+  opacity: 0.7;
+}
+.guided-toggle:hover { opacity: 1; }
+.guided-toggle--on {
+  opacity: 1;
+  color: var(--gold-light);
+  border-color: var(--gold);
+  background: rgba(201,162,39,0.1);
+}
+
+/* Wrapper for guided banner on the play board */
+.play-guided-wrap {
+  padding: 0 12px;
+}
+
+/* ── Starting deck build guide (in Add Character modal) ───────────────────── */
+
+.deck-guide {
+  margin-top: 12px;
+  border: 1px solid var(--gold-dark);
+  border-radius: var(--radius);
+  overflow: hidden;
+  background: rgba(201,162,39,0.05);
+}
+
+.deck-guide-header {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  padding: 8px 12px 6px;
+  background: rgba(201,162,39,0.1);
+  border-bottom: 1px solid var(--gold-dark);
+}
+
+.deck-guide-title {
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--gold-light);
+}
+
+.deck-guide-hint {
+  font-size: 11px;
+  color: var(--text-dim);
+}
+
+.deck-guide-group {
+  display: flex;
+  align-items: flex-start;
+  gap: 8px;
+  padding: 5px 12px;
+  border-bottom: 1px solid rgba(201,162,39,0.08);
+}
+.deck-guide-group:last-child { border-bottom: none; }
+
+.deck-guide-type-label {
+  font-size: 11px;
+  font-weight: 700;
+  color: var(--text-dim);
+  text-transform: capitalize;
+  min-width: 64px;
+  padding-top: 3px;
+  flex-shrink: 0;
+}
+
+.deck-guide-cards {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px;
+}
+
+.deck-guide-card {
+  display: inline-flex;
+  align-items: center;
+  gap: 3px;
+  background: rgba(255,255,255,0.05);
+  border: 1px solid rgba(201,162,39,0.2);
+  border-radius: 4px;
+  padding: 2px 7px;
+  font-size: 12px;
+  color: var(--text-mid);
+  white-space: nowrap;
+}
+
+.deck-guide-count {
+  font-size: 11px;
+  font-weight: 700;
+  color: var(--gold);
 }

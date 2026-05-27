@@ -15,6 +15,29 @@ characters:
   roles:
   - Eldritch Scion
   - Staff Magus
+  starting_deck:
+    weapon:
+    - Explorer's Staff
+    - Khopesh
+    spell:
+    - Elemental Treaty
+    - Immolate
+    - Lightning Touch
+    - Remove Curse
+    armor:
+    - Armored Kilt
+    item:
+    - Bladeguard
+    - Crowbar
+    - Flame Staff
+    ally:
+    - Embalmer
+    - Pahmet Clansman
+    blessing:
+    - Blessing of the Ancients
+    - Blessing of the Elements
+    - Blessing of the Elements
+
 - name: Alahazra
   category: character
   skills:
@@ -32,6 +55,28 @@ characters:
   - Bride of the Sun
   - Recursor
   - Seeker
+  starting_deck:
+    spell:
+    - Cure
+    - Cure
+    - Elemental Treaty
+    - Fireblade
+    - Fireblade
+    armor:
+    - Crocodile Skin Armor
+    item:
+    - Flame Staff
+    - Holy Water Grenade
+    ally:
+    - Camel
+    - Pahmet Clansman
+    blessing:
+    - Blessing of the Ancients
+    - Blessing of the Ancients
+    - Blessing of the Ancients
+    - Blessing of the Ancients
+    - Blessing of the Ancients
+
 - name: Channa Ti
   category: character
   skills:
@@ -47,6 +92,29 @@ characters:
   roles:
   - Tsunami Caster
   - Oasis Caller
+  starting_deck:
+    weapon:
+    - Bolas
+    spell:
+    - Acid Jet
+    - Acid Jet
+    - Cure
+    - Unshakable Chill
+    - Unshakable Chill
+    armor:
+    - Tussah Silk Coat
+    item:
+    - Acid Flask
+    - Holy Water Grenade
+    ally:
+    - Camel
+    - Dhabba
+    - Porcupine
+    - Shock Lizard
+    blessing:
+    - Blessing of the Elements
+    - Blessing of the Elements
+
 - name: Damiel
   category: character
   skills:
@@ -66,6 +134,28 @@ characters:
   - Mad Scientist
   - Mindchemist
   - Miscibility Master
+  starting_deck:
+    weapon:
+    - Blowgun
+    - Torch
+    armor:
+    - Armored Kilt
+    - Tussah Silk Coat
+    item:
+    - Acid Flask
+    - Acid Flask
+    - Bladeguard
+    - Flash Freeze
+    - Noxious Bomb
+    ally:
+    - Dhabba
+    - Tomb Raider
+    blessing:
+    - Blessing of the Elements
+    - Blessing of the Elements
+    - Blessing of the Elements
+    - Blessing of the Elements
+
 - name: Drelm
   category: character
   skills:
@@ -83,6 +173,29 @@ characters:
   roles:
   - Keymaster
   - Vaultkeeper
+  starting_deck:
+    weapon:
+    - Explorer's Staff
+    - Khopesh
+    - Whip
+    spell:
+    - Cure
+    - Elemental Treaty
+    - Remove Curse
+    armor:
+    - Crocodile Skin Armor
+    - Crocodile Skin Shield
+    item:
+    - Crowbar
+    - Flash Freeze
+    ally:
+    - Camel
+    blessing:
+    - Blessing of the Ancients
+    - Blessing of the Ancients
+    - Blessing of the Ancients
+    - Blessing of the Ancients
+
 - name: Estra
   category: character
   skills:
@@ -100,6 +213,28 @@ characters:
   - Speaker to the Dead Role Powers
   - Spiritual Counselor Role Powers
   - Tetherer Role Powers
+  starting_deck:
+    spell:
+    - Acid Jet
+    - Cure
+    - Remove Curse
+    - Unshakable Chill
+    - Viper Strike
+    armor:
+    - Armored Kilt
+    item:
+    - Compass
+    - Osirion History Guide
+    ally:
+    - Honaire
+    - Porcupine
+    - Tomb Raider
+    blessing:
+    - Blessing of the Ancients
+    - Blessing of the Ancients
+    - Blessing of the Elements
+    - Blessing of the Elements
+
 - name: Ezren
   category: character
   skills:
@@ -119,6 +254,29 @@ characters:
   - Spell Sage
   - Mystic Diviner
   - Wizened Explorer
+  starting_deck:
+    weapon:
+    - Torch
+    spell:
+    - Acid Jet
+    - Elemental Treaty
+    - Immolate
+    - Lightning Touch
+    - Remove Curse
+    - Unshakable Chill
+    armor:
+    - Tussah Silk Coat
+    item:
+    - Fire Ward Gel
+    - Osirion History Guide
+    ally:
+    - Embalmer
+    - Pahmet Clansman
+    - Porcupine
+    blessing:
+    - Blessing of the Elements
+    - Blessing of the Elements
+
 - name: Mavaro
   category: character
   skills:
@@ -136,6 +294,29 @@ characters:
   - Channeler
   - Ghost Hunter
   - Hoarder
+  starting_deck:
+    weapon:
+    - Explorer's Staff
+    - Whip
+    spell:
+    - Cure
+    - Unshakable Chill
+    - Viper Strike
+    armor:
+    - Crocodile Skin Armor
+    item:
+    - Compass
+    - Magnifying Glass
+    - Noxious Bomb
+    ally:
+    - Embalmer
+    - Tomb Raider
+    blessing:
+    - Blessing of the Ancients
+    - Blessing of the Elements
+    - Blessing of the Elements
+    - Blessing of the Elements
+
 - name: Simoun
   category: character
   skills:
@@ -154,6 +335,28 @@ characters:
   roles:
   - Bladewind Role Powers
   - Lightning Thief Role Powers
+  starting_deck:
+    weapon:
+    - Blowgun
+    - Kopis
+    - Kopis
+    - Kopis
+    - Kopis
+    armor:
+    - Tussah Silk Coat
+    item:
+    - Antitoxin
+    - Compass
+    - Magnifying Glass
+    ally:
+    - Embalmer
+    - Shock Lizard
+    - Tomb Raider
+    blessing:
+    - Blessing of the Ancients
+    - Blessing of the Ancients
+    - Blessing of the Elements
+
 - name: Yoon
   category: character
   skills:
@@ -171,6 +374,28 @@ characters:
   - Pan-Elementalist Role Powers
   - Elemental Annihilator Role Powers
   - Herald of Gom-Gom Role Powers
+  starting_deck:
+    weapon:
+    - Blowgun
+    - Torch
+    armor:
+    - Armored Kilt
+    item:
+    - Acid Flask
+    - Flash Freeze
+    ally:
+    - Camel
+    - Dhabba
+    - Porcupine
+    - Shock Lizard
+    blessing:
+    - Blessing of the Ancients
+    - Blessing of the Ancients
+    - Blessing of the Elements
+    - Blessing of the Elements
+    - Blessing of the Elements
+    - Blessing of the Elements
+
 - name: Zadim
   category: character
   skills:
@@ -186,3 +411,24 @@ characters:
   roles:
   - Executioner Role Powers
   - Outrider Role Powers
+  starting_deck:
+    weapon:
+    - Khopesh
+    - Kukri
+    - Kukri
+    - Kukri
+    - Whip
+    armor:
+    - Crocodile Skin Armor
+    - Crocodile Skin Shield
+    item:
+    - Bladeguard
+    - Crowbar
+    - Noxious Bomb
+    ally:
+    - Dhabba
+    - Pahmet Clansman
+    blessing:
+    - Blessing of the Ancients
+    - Blessing of the Ancients
+    - Blessing of the Elements

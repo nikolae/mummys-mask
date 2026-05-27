@@ -7,7 +7,7 @@ export function ToastContainer() {
   return html`
     <div class="toast-container">
       ${state.toasts.map(t => html`
-        <div key=${t.id} class=${'toast' + (t.type === 'error' ? ' error' : '')}>
+        <div key=${t.id} class=${'toast' + (t.type === 'error' ? ' error' : t.type === 'warning' ? ' warning' : '')}>
           ${t.message}
         </div>
       `)}

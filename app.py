@@ -1,6 +1,7 @@
 import glob
 import json
 import os
+import random
 
 import yaml
 from flask import Flask, jsonify, render_template, request
@@ -19,9 +20,13 @@ def _load_yaml(path):
 
 
 def _load_game_data():
-    data = {"adventures": [], "characters": [], "locations": [], "lore": []}
+    data = {"adventures": [], "characters": [], "locations": [], "lore": [], "cards": [], "rules": []}
 
-    for adv_file in sorted(glob.glob(os.path.join(config.DATA_DIR, "adventures", "*.yaml"))):
+    def _adv_sort_key(p):
+        stem = os.path.splitext(os.path.basename(p))[0]
+        return (0, 0) if stem == "B" else (1, int(stem))
+
+    for adv_file in sorted(glob.glob(os.path.join(config.DATA_DIR, "adventures", "*.yaml")), key=_adv_sort_key):
         adv = _load_yaml(adv_file)
         data["adventures"].append(adv)
 
@@ -37,6 +42,18 @@ def _load_game_data():
     if os.path.exists(lore_file):
         data["lore"] = _load_yaml(lore_file).get("entries", [])
 
+    rules_file = os.path.join(config.DATA_DIR, "rules", "core.yaml")
+    if os.path.exists(rules_file):
+        data["rules"] = _load_yaml(rules_file).get("topics", [])
+
+    # Load all card types (banes + boons + support, skip locations)
+    for card_file in glob.glob(os.path.join(config.DATA_DIR, "cards", "**", "*.yaml")):
+        if "locations" in os.path.basename(card_file):
+            continue
+        file_data = _load_yaml(card_file)
+        if isinstance(file_data, dict) and "cards" in file_data:
+            data["cards"].extend(file_data["cards"])
+
     return data
 
 
@@ -44,6 +61,50 @@ GAME_DATA = _load_game_data()
 
 _location_map = {loc["name"]: loc for loc in GAME_DATA["locations"]}
 _adventure_map = {adv["id"]: adv for adv in GAME_DATA["adventures"]}
+_card_map = {c["name"].lower(): c for c in GAME_DATA["cards"]}
+_rules_map = {r["id"]: r for r in GAME_DATA["rules"]}
+_lore_map = {}
+for entry in GAME_DATA["lore"]:
+    key = (entry.get("card_name") or "").lower()
+    _lore_map.setdefault(key, []).append(entry)
+
+
+def _get_scenario_villain(scenario_id):
+    """Return the villain card name for a scenario id like '1-1', or None."""
+    if not scenario_id:
+        return None
+    adv_id, *_ = str(scenario_id).split("-")
+    adv = _adventure_map.get(adv_id)
+    if not adv:
+        return None
+    for scenario in adv.get("scenarios", []):
+        if str(scenario.get("id")) == str(scenario_id):
+            return scenario.get("villain")
+    return None
+
+
+# Ordered list of all scenario IDs across all adventures: B-1, B-2, ..., 1-1, 1-2, ...
+_ALL_SCENARIO_IDS = [
+    str(s["id"])
+    for adv in sorted(GAME_DATA["adventures"], key=lambda a: (0 if str(a["id"]) == "B" else int(str(a["id"]))))
+    for s in adv.get("scenarios", [])
+]
+
+
+def _next_scenario_id(current_scenario_id):
+    """Return the scenario ID that follows current_scenario_id, or None if it's the last."""
+    try:
+        idx = _ALL_SCENARIO_IDS.index(str(current_scenario_id))
+        return _ALL_SCENARIO_IDS[idx + 1] if idx + 1 < len(_ALL_SCENARIO_IDS) else None
+    except ValueError:
+        return None
+
+
+def _scenario_adventure_id(scenario_id):
+    """Return the adventure ID for a given scenario ID."""
+    if not scenario_id:
+        return None
+    return str(scenario_id).split("-")[0]
 
 
 def _location_card_count(location_name):
@@ -51,6 +112,80 @@ def _location_card_count(location_name):
     if loc and loc.get("deck_list"):
         return sum(v for v in loc["deck_list"].values() if isinstance(v, int))
     return 9
+
+
+def _location_detail(loc_name):
+    """Return full location detail dict for API responses."""
+    loc = _location_map.get(loc_name, {})
+    deck_list = loc.get("deck_list") or {}
+    return {
+        "name":          loc_name,
+        "flavor":        loc.get("flavor", ""),
+        "at_location":   loc.get("at_location", ""),
+        "to_close":      loc.get("when_closing", ""),
+        "when_closed":   loc.get("when_closed", ""),
+        "deck_list":     deck_list,
+        "cards_remaining": sum(v for v in deck_list.values() if isinstance(v, int)) or 9,
+    }
+
+
+def _build_virtual_decks(scenario, selected_location_names):
+    """Build shuffled virtual decks for hybrid mode.
+
+    Each deck is a list of card-entry dicts:
+      {"name": "Sand Thief",   "type": "villain"}   ← actual villain
+      {"name": "Warrior Dolls","type": "henchman"}  ← actual henchman
+      {"name": None,           "type": "monster"}   ← physical card drawn by player
+
+    Placement rules (mirrors physical setup):
+      - Villain: placed in exactly one randomly chosen location.
+      - Henchmen: each henchman placed in a different location (round-robin across
+        locations that don't already have the villain, cycling if more henchmen
+        than locations).
+      - Remaining slots: typed placeholders in deck_list proportions.
+
+    Returns dict: {location_name: [card_entry, ...]}
+    """
+    villain_name = scenario.get("villain")
+    henchmen = scenario.get("henchmen") or []
+
+    # Build typed placeholder decks from each location's deck_list
+    decks = {}
+    for loc_name in selected_location_names:
+        loc_data = _location_map.get(loc_name, {})
+        deck_list = loc_data.get("deck_list") or {}
+        entries = []
+        for card_type, count in deck_list.items():
+            if isinstance(count, int):
+                for _ in range(count):
+                    entries.append({"name": None, "type": card_type})
+        random.shuffle(entries)
+        decks[loc_name] = entries
+
+    if not selected_location_names:
+        return decks
+
+    # Place villain in one randomly chosen location
+    villain_loc = None
+    if villain_name:
+        villain_loc = random.choice(selected_location_names)
+        deck = decks[villain_loc]
+        insert_pos = random.randint(0, len(deck))
+        deck.insert(insert_pos, {"name": villain_name, "type": "villain"})
+
+    # Distribute henchmen: prefer locations without the villain first
+    non_villain_locs = [l for l in selected_location_names if l != villain_loc]
+    if not non_villain_locs:
+        non_villain_locs = list(selected_location_names)
+    random.shuffle(non_villain_locs)
+
+    for i, henchman in enumerate(henchmen):
+        target = non_villain_locs[i % len(non_villain_locs)]
+        deck = decks[target]
+        insert_pos = random.randint(0, len(deck))
+        deck.insert(insert_pos, {"name": henchman, "type": "henchman"})
+
+    return decks
 
 
 # ── Frontend ───────────────────────────────────────────────────────────────────
@@ -134,6 +269,30 @@ def delete_character(campaign_id, char_id):
     return "", 204
 
 
+# ── Rules API ─────────────────────────────────────────────────────────────────
+
+@app.route("/api/rules")
+def list_rules():
+    tag = request.args.get("tag")
+    topics = GAME_DATA["rules"]
+    if tag:
+        topics = [t for t in topics if tag in t.get("tags", [])]
+    # Return lightweight summaries for the list view
+    return jsonify([
+        {"id": t["id"], "title": t["title"], "icon": t.get("icon", "📖"),
+         "short": t.get("short", ""), "tags": t.get("tags", [])}
+        for t in topics
+    ])
+
+
+@app.route("/api/rules/<topic_id>")
+def get_rule(topic_id):
+    topic = _rules_map.get(topic_id)
+    if not topic:
+        return jsonify({"error": "not found"}), 404
+    return jsonify(topic)
+
+
 # ── Game Data API ──────────────────────────────────────────────────────────────
 
 @app.route("/api/adventures")
@@ -168,18 +327,21 @@ def get_scenario(adv_id, scenario_id):
         return jsonify({"error": "not found"}), 404
     for scenario in adv.get("scenarios", []):
         if scenario["id"] == scenario_id:
-            loc_details = []
-            for loc_name in scenario.get("locations", []):
-                loc = _location_map.get(loc_name, {})
-                loc_details.append({
-                    "name": loc_name,
-                    "cards_remaining": _location_card_count(loc_name),
-                    "deck_list": loc.get("deck_list", {}),
-                    "when_closing": loc.get("when_closing", ""),
-                    "at_location": loc.get("at_location", ""),
-                })
+            loc_details = [_location_detail(n) for n in scenario.get("locations", [])]
             return jsonify({**scenario, "location_details": loc_details})
     return jsonify({"error": "not found"}), 404
+
+
+@app.route("/api/locations")
+def list_locations():
+    return jsonify([_location_detail(loc["name"]) for loc in GAME_DATA["locations"]])
+
+
+@app.route("/api/locations/<path:loc_name>")
+def get_location(loc_name):
+    if loc_name not in _location_map:
+        return jsonify({"error": "not found"}), 404
+    return jsonify(_location_detail(loc_name))
 
 
 @app.route("/api/characters")
@@ -193,6 +355,29 @@ def get_lore(card_name):
     return jsonify(entries)
 
 
+@app.route("/api/cards/search")
+def search_cards():
+    q = request.args.get("q", "").strip().lower()
+    if not q:
+        return jsonify([])
+    results = [
+        c for c in GAME_DATA["cards"]
+        if q in c["name"].lower()
+    ]
+    # Exact match first, then alphabetical
+    results.sort(key=lambda c: (0 if c["name"].lower().startswith(q) else 1, c["name"]))
+    return jsonify(results[:20])
+
+
+@app.route("/api/cards/<path:card_name>")
+def get_card(card_name):
+    card = _card_map.get(card_name.lower())
+    if not card:
+        return jsonify({"error": "not found"}), 404
+    lore = _lore_map.get(card_name.lower(), [])
+    return jsonify({**card, "lore": lore})
+
+
 # ── Session API ────────────────────────────────────────────────────────────────
 
 @app.route("/api/sessions", methods=["POST"])
@@ -203,22 +388,55 @@ def create_session():
     # Accept either "locations" (list of dicts) or "location_names" (list of strings)
     locations = body.get("locations") or body.get("location_names", [])
     character_locations = body.get("character_locations", {})
+    is_hybrid = bool(body.get("hybrid", False) or body.get("is_hybrid", False))
 
     if not campaign_id or not scenario_id:
         return jsonify({"error": "campaign_id and scenario_id required"}), 400
 
+    # Normalize location names list (used for deck building)
+    selected_names = [loc if isinstance(loc, str) else loc["name"] for loc in locations]
+
+    # In hybrid mode, build virtual decks (villain + henchmen placed randomly)
+    virtual_decks = {}
+    if is_hybrid:
+        adv_id = _scenario_adventure_id(scenario_id)
+        adv = _adventure_map.get(adv_id)
+        scenario_data = None
+        if adv:
+            for s in adv.get("scenarios", []):
+                if str(s.get("id")) == str(scenario_id):
+                    scenario_data = s
+                    break
+        if scenario_data:
+            virtual_decks = _build_virtual_decks(scenario_data, selected_names)
+
     location_configs = []
     for loc in locations:
         name = loc if isinstance(loc, str) else loc["name"]
+        deck = virtual_decks.get(name, [])
+        if deck:
+            cards_remaining = len(deck)
+        else:
+            fallback = _location_card_count(name)
+            cards_remaining = loc.get("cards_remaining", fallback) if isinstance(loc, dict) else fallback
         location_configs.append({
             "name": name,
-            "cards_remaining": loc.get("cards_remaining", _location_card_count(name))
-            if isinstance(loc, dict) else _location_card_count(name),
+            "cards_remaining": cards_remaining,
+            "deck": deck,
         })
 
     session = storage.create_session(
-        campaign_id, scenario_id, location_configs, character_locations
+        campaign_id, scenario_id, location_configs, character_locations,
+        is_hybrid=is_hybrid,
     )
+    # Record the campaign's current scenario if it isn't set yet
+    campaign = storage.get_campaign(campaign_id)
+    if campaign and not campaign.get("current_scenario"):
+        storage.update_campaign(
+            campaign_id,
+            current_scenario=scenario_id,
+            current_adventure=_scenario_adventure_id(scenario_id),
+        )
     return jsonify(session), 201
 
 
@@ -227,6 +445,12 @@ def get_session(session_id):
     sess = storage.get_session(session_id)
     if not sess:
         return jsonify({"error": "not found"}), 404
+    # Enrich each location with rules text and deck data
+    for loc in sess.get("locations", []):
+        detail = _location_detail(loc["name"])
+        loc.setdefault("at_location", detail["at_location"])
+        loc.setdefault("to_close",    detail["to_close"])
+        loc.setdefault("when_closed", detail["when_closed"])
     return jsonify(sess)
 
 
@@ -271,6 +495,63 @@ def action_end_turn(session_id):
 def action_close_location(session_id):
     body = request.get_json(force=True)
     return _action(session_id, storage.action_close_location, body["location_id"])
+
+
+@app.route("/api/sessions/<session_id>/actions/damage", methods=["POST"])
+def action_damage(session_id):
+    body = request.get_json(force=True)
+    return _action(session_id, storage.action_damage,
+                   body["character_id"], int(body.get("amount", 1)))
+
+
+@app.route("/api/sessions/<session_id>/actions/set-hand", methods=["POST"])
+def action_set_hand(session_id):
+    body = request.get_json(force=True)
+    return _action(session_id, storage.action_set_hand,
+                   body["character_id"], int(body.get("count", 0)))
+
+
+@app.route("/api/sessions/<session_id>/actions/encounter", methods=["POST"])
+def action_encounter(session_id):
+    body = request.get_json(force=True)
+    # Determine whether the card being resolved is the scenario villain
+    sess = storage.get_session(session_id)
+    if not sess:
+        return jsonify({"error": "session not found"}), 404
+    if sess["status"] not in ("playing",):
+        return jsonify({"error": f"session is {sess['status']}"}), 400
+    villain = _get_scenario_villain(sess.get("scenario_id"))
+    card_name = body.get("card_name", "").strip()
+    is_villain = bool(villain and card_name.lower() == villain.lower())
+    result, error = storage.action_encounter(
+        session_id,
+        body.get("location_id"),
+        card_name,
+        body.get("result"),
+        body.get("dice_total"),
+        is_villain,
+    )
+    if error:
+        return jsonify({"error": error}), 400
+
+    # If the session just transitioned to 'won', advance the campaign's tracked scenario
+    updated_sess = storage.get_session(session_id)
+    if updated_sess and updated_sess.get("status") == "won":
+        scenario_id = updated_sess.get("scenario_id")
+        next_id = _next_scenario_id(scenario_id)
+        storage.update_campaign(
+            updated_sess["campaign_id"],
+            current_scenario=next_id or scenario_id,  # stay on last if campaign complete
+            current_adventure=_scenario_adventure_id(next_id or scenario_id),
+        )
+
+    return jsonify(result)
+
+
+@app.route("/api/sessions/<session_id>/actions/temp-close", methods=["POST"])
+def action_temp_close(session_id):
+    body = request.get_json(force=True)
+    return _action(session_id, storage.action_temp_close_location, body["location_id"])
 
 
 if __name__ == "__main__":

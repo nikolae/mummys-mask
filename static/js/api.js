@@ -11,6 +11,7 @@ async function req(method, path, body) {
     const text = await res.text();
     throw new Error(text || res.statusText);
   }
+  if (res.status === 204 || res.headers.get('content-length') === '0') return null;
   return res.json();
 }
 
@@ -37,6 +38,10 @@ export const getAdventure      = (id)                  => get(`/api/adventures/$
 export const getScenario       = (aid, sid)            => get(`/api/adventures/${aid}/scenarios/${sid}`);
 export const getLore           = (cardName)            => get(`/api/lore/${encodeURIComponent(cardName)}`);
 
+// Locations
+export const getLocations      = ()                    => get('/api/locations');
+export const getLocation       = (name)                => get(`/api/locations/${encodeURIComponent(name)}`);
+
 // Sessions
 export const createSession     = (data)                => post('/api/sessions', data);
 export const getSession        = (id)                  => get(`/api/sessions/${id}`);
@@ -47,3 +52,11 @@ export const actionExplore       = (id, data)          => post(`/api/sessions/${
 export const actionMove          = (id, data)          => post(`/api/sessions/${id}/actions/move`,           data);
 export const actionEndTurn       = (id)                => post(`/api/sessions/${id}/actions/end-turn`,       {});
 export const actionCloseLocation = (id, data)          => post(`/api/sessions/${id}/actions/close-location`, data);
+export const actionEncounter     = (id, data)          => post(`/api/sessions/${id}/actions/encounter`,       data);
+export const actionDamage        = (id, data)          => post(`/api/sessions/${id}/actions/damage`,          data);
+export const actionSetHand       = (id, data)          => post(`/api/sessions/${id}/actions/set-hand`,        data);
+export const actionTempClose     = (id, data)          => post(`/api/sessions/${id}/actions/temp-close`,      data);
+
+// Card search
+export const searchCards = (q)           => get(`/api/cards/search?q=${encodeURIComponent(q)}`);
+export const getCard     = (name)        => get(`/api/cards/${encodeURIComponent(name)}`);

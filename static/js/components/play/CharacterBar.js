@@ -2,7 +2,7 @@ import { html } from '/static/js/html.js';
 import { useApp } from '/static/js/state.js';
 import * as api from '/static/js/api.js';
 
-export function CharacterBar({ session, currentCharId, onSelectChar, onUpdate }) {
+export function CharacterBar({ session, currentCharId, onSelectChar, onOpenSheet, onUpdate }) {
   const { toast } = useApp();
   const { characters, current_player, current_phase, turn_number, id: sessionId } = session;
 
@@ -15,17 +15,52 @@ export function CharacterBar({ session, currentCharId, onSelectChar, onUpdate })
     }
   }
 
+  async function adjustHand(charId, delta, currentCount) {
+    const newCount = Math.max(0, currentCount + delta);
+    try {
+      await api.actionSetHand(sessionId, { character_id: charId, count: newCount });
+      onUpdate();
+    } catch (e) {
+      toast('Failed to update hand', 'error');
+    }
+  }
+
   return html`
     <div class="character-bar">
-      ${characters.map(c => html`
-        <div key=${c.id}
-          class=${'character-chip' + (c.id === currentCharId ? ' active' : '')}
-          onClick=${() => onSelectChar(c.id)}>
-          <div class="char-type">${c.character_type}</div>
-          <div class="char-name">${c.name}</div>
-          <div class="char-hand">Hand: ${c.hand_size}</div>
-        </div>
-      `)}
+      ${characters.map(c => {
+        const handCount = c.cards_in_hand ?? c.hand_size;
+        const handLow   = handCount <= 2;
+        const handEmpty = handCount === 0;
+
+        return html`
+          <div key=${c.id}
+            class=${'character-chip' + (c.id === currentCharId ? ' active' : '') + (c.is_dead ? ' dead' : '')}
+            onClick=${() => onSelectChar(c.id)}>
+            <div class="char-type">${c.character_type}</div>
+            <div class="char-name">${c.name}</div>
+
+            <!-- Hand count tracker -->
+            <div class="char-hand-track" onClick=${e => e.stopPropagation()}>
+              <button class="hand-adj-btn" title="Discard / take damage"
+                onClick=${() => adjustHand(c.id, -1, handCount)}
+                disabled=${handCount <= 0}>−</button>
+              <span class=${'hand-count' + (handEmpty ? ' hand-empty' : handLow ? ' hand-low' : '')}
+                title="Cards in hand / max hand size">
+                ${handCount}/${c.hand_size}
+              </span>
+              <button class="hand-adj-btn" title="Draw / heal a card"
+                onClick=${() => adjustHand(c.id, +1, handCount)}
+                disabled=${handCount >= c.hand_size}>+</button>
+            </div>
+
+            ${c.role ? html`<span class="char-role-badge">${c.role.split(' ')[0]}</span>` : null}
+            <button class="char-info-btn" title="Character sheet"
+              onClick=${e => { e.stopPropagation(); onOpenSheet && onOpenSheet(c); }}>
+              ℹ
+            </button>
+          </div>
+        `;
+      })}
       <div class="character-bar-actions">
         <div class="phase-indicator">
           <div class="phase-dot"></div>

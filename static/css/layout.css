@@ -29,7 +29,24 @@
   padding: 12px 20px;
   border-top: 1px solid var(--tomb-light);
   background: var(--tomb-mid);
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
 }
+
+.resume-banner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  background: rgba(74,160,99,0.12);
+  border: 1px solid var(--green);
+  border-radius: var(--radius);
+  padding: 10px 14px;
+}
+.resume-info { display: flex; flex-direction: column; gap: 2px; }
+.resume-label { font-size: 11px; font-weight: 700; color: var(--green-light); text-transform: uppercase; letter-spacing: 0.05em; }
+.resume-detail { font-size: 13px; color: var(--text-mid); }
 
 /* ── Play Board Layout ────────────────────────────────────────────────────── */
 
@@ -208,6 +225,7 @@
 }
 
 /* Location chips for setup */
+/* Legacy pill chips (kept for compatibility) */
 .location-chips {
   display: flex;
   flex-wrap: wrap;
@@ -234,4 +252,143 @@
 .location-chip-count {
   font-size: 11px;
   color: var(--text-dim);
+}
+
+/* ── New expandable location chip rows ────────────────────────────────────── */
+.location-chip-list {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+.location-chip-row {
+  border: 1px solid var(--tomb-light);
+  border-radius: var(--radius);
+  overflow: hidden;
+  transition: border-color 0.15s;
+}
+.location-chip-row.selected { border-color: var(--gold); }
+
+.location-chip-main {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 10px;
+  cursor: pointer;
+  background: var(--tomb-mid);
+  min-height: 42px;
+  user-select: none;
+}
+.location-chip-row.selected .location-chip-main {
+  background: rgba(201,162,39,0.08);
+}
+.location-chip-check {
+  font-size: 13px;
+  color: var(--text-dim);
+  min-width: 16px;
+  text-align: center;
+}
+.location-chip-row.selected .location-chip-check { color: var(--gold); }
+.location-chip-name {
+  flex: 1;
+  font-size: 13px;
+  color: var(--text-bright);
+}
+.location-chip-row.selected .location-chip-name { color: var(--gold-light); }
+
+.loc-chip-info-btn {
+  background: none;
+  border: 1px solid var(--tomb-light);
+  border-radius: 50%;
+  width: 24px;
+  height: 24px;
+  min-height: unset;
+  padding: 0;
+  font-size: 12px;
+  color: var(--text-dim);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: border-color 0.15s, color 0.15s;
+  flex-shrink: 0;
+}
+.loc-chip-info-btn:hover,
+.loc-chip-info-btn.active { border-color: var(--gold); color: var(--gold); }
+
+/* ── Location deck guide (in setup) ──────────────────────────────────────── */
+.loc-deck-guide {
+  padding: 10px 12px;
+  background: rgba(0,0,0,0.2);
+  border-top: 1px solid var(--gold-dark);
+}
+.loc-deck-guide-header {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  margin-bottom: 6px;
+}
+.loc-deck-guide-title {
+  font-size: 12px;
+  font-weight: 700;
+  color: var(--gold-light);
+}
+.loc-deck-guide-size {
+  font-size: 11px;
+  color: var(--text-dim);
+}
+
+
+.loc-deck-breakdown {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 5px;
+  margin-bottom: 8px;
+}
+.loc-deck-type {
+  display: inline-flex;
+  align-items: center;
+  gap: 3px;
+  font-size: 11px;
+  padding: 2px 7px;
+  border-radius: 4px;
+  white-space: nowrap;
+}
+.loc-deck-bane {
+  background: rgba(139,32,32,0.2);
+  border: 1px solid rgba(196,64,64,0.3);
+  color: var(--red-light);
+}
+.loc-deck-boon {
+  background: rgba(201,162,39,0.08);
+  border: 1px solid rgba(201,162,39,0.2);
+  color: var(--text-mid);
+}
+
+/* Rules rows inside deck guide */
+.loc-rules-mini {
+  border-top: 1px solid rgba(201,162,39,0.12);
+  padding-top: 7px;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+.loc-rule-mini-row {
+  display: flex;
+  gap: 6px;
+  align-items: flex-start;
+}
+.loc-rule-mini-label {
+  font-size: 10px;
+  font-weight: 700;
+  color: var(--text-dim);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  min-width: 48px;
+  padding-top: 1px;
+  flex-shrink: 0;
+}
+.loc-rule-mini-text {
+  font-size: 11px;
+  color: var(--text-mid);
+  line-height: 1.45;
 }
