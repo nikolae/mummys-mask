@@ -164,21 +164,52 @@ function CharacterPanel({ campaignId, characters, characterTemplates, onChange }
 
 // ── Scenario selector ────────────────────────────────────────────────────────
 
-function ScenarioPanel({ adventures, selectedId, onSelect }) {
+function ScenarioPanel({ adventures, selectedId, scenarioDetail, onSelect }) {
   // Auto-expand the adventure that contains the currently selected scenario
   const defaultOpen = selectedId ? selectedId.split('-')[0] : null;
   const [openAdv, setOpenAdv] = useState(defaultOpen);
 
+  const henchmen = scenarioDetail?.henchmen || [];
+
   return html`
     <div class="card">
       <div class="card-header"><h2>Scenario</h2></div>
-      ${selectedId
-        ? html`<p style="color:var(--gold-light); font-size:14px; margin-bottom:8px;">
-            Selected: ${selectedId}
-            <button class="btn-ghost btn-sm" style="margin-left:8px;"
-              onClick=${() => onSelect(null)}>Change</button>
-          </p>`
-        : null
+      ${selectedId && scenarioDetail
+        ? html`
+          <div class="scenario-selected-summary">
+            <div class="scenario-selected-id-row">
+              <span class="scenario-selected-id">${selectedId}</span>
+              <span class="scenario-selected-name">${scenarioDetail.name}</span>
+              <button class="btn-ghost btn-sm" onClick=${() => onSelect(null)}>Change</button>
+            </div>
+            <div class="scenario-selected-detail">
+              <div class="scenario-selected-row">
+                <span class="scenario-detail-label">⚡ Villain</span>
+                <span class="scenario-detail-villain">${scenarioDetail.villain || '—'}</span>
+              </div>
+              ${henchmen.length > 0 && html`
+                <div class="scenario-selected-row">
+                  <span class="scenario-detail-label">⚔ Henchmen</span>
+                  <div class="scenario-detail-henchmen">
+                    ${henchmen.map(h => html`<span key=${h} class="scenario-henchman-tag">${h}</span>`)}
+                  </div>
+                </div>
+              `}
+              ${scenarioDetail.during && html`
+                <div class="scenario-selected-row scenario-during-row">
+                  <span class="scenario-detail-label">📜 During</span>
+                  <span class="scenario-detail-during">${scenarioDetail.during}</span>
+                </div>
+              `}
+            </div>
+          </div>`
+        : selectedId
+          ? html`<p style="color:var(--gold-light); font-size:14px; margin-bottom:8px;">
+              Selected: ${selectedId}
+              <button class="btn-ghost btn-sm" style="margin-left:8px;"
+                onClick=${() => onSelect(null)}>Change</button>
+            </p>`
+          : null
       }
       ${(adventures || []).map(adv => html`
         <div key=${adv.id} style="margin-bottom:4px;">
@@ -261,10 +292,155 @@ function LocationDeckGuide({ detail }) {
   `;
 }
 
+// ── Scenario setup checklist ─────────────────────────────────────────────────
+
+function ScenarioSetupGuide({ scenario, selectedLocations, hybridMode }) {
+  if (!scenario || selectedLocations.length === 0) return null;
+
+  const [advId] = scenario.id.split('-');
+  const henchmen = scenario.henchmen || [];
+
+  // Build location detail map for fast lookup
+  const detailMap = {};
+  for (const d of (scenario.location_details || [])) detailMap[d.name] = d;
+
+  let stepNum = 1;
+
+  return html`
+    <div class="card setup-guide-card">
+      <div class="card-header">
+        <h2>📋 Physical Setup</h2>
+        <span class="setup-guide-adv-badge">Adventure Deck ${advId}</span>
+      </div>
+
+      <!-- Step 1: Build Location Decks (must exist before villain/henchmen are placed) -->
+      <div class="setup-guide-step">
+        <div class="setup-guide-step-num">${stepNum++}</div>
+        <div class="setup-guide-step-body">
+          <div class="setup-guide-step-title">
+            Build Location Decks
+            <span class="setup-guide-adv-inline">use cards marked "${advId}"</span>
+          </div>
+          <div class="setup-guide-step-text">
+            For each location, find the card types below from your Adventure Deck ${advId} cards and shuffle them together:
+          </div>
+          <div class="setup-guide-loc-list">
+            ${selectedLocations.map(locName => {
+              const detail   = detailMap[locName];
+              const deckList = detail?.deck_list || {};
+              const total    = Object.values(deckList).reduce((s, v) => s + (v || 0), 0);
+              const groups   = DECK_ORDER.filter(t => deckList[t] > 0);
+              return html`
+                <div key=${locName} class="setup-guide-loc-row">
+                  <div class="setup-guide-loc-header">
+                    <span class="setup-guide-loc-name">${locName}</span>
+                    <span class="setup-guide-loc-count">${total} cards</span>
+                  </div>
+                  <div class="setup-guide-loc-deck">
+                    ${groups.map(type => html`
+                      <span key=${type} class=${'setup-guide-deck-chip ' + (BANE_ICON[type] ? 'bane' : 'boon')}>
+                        ${BANE_ICON[type] || BOON_ICON[type]} ${deckList[type]} ${type}
+                      </span>
+                    `)}
+                    ${total === 0 && html`<span style="color:var(--text-dim); font-size:11px;">No deck data</span>`}
+                  </div>
+                </div>
+              `;
+            })}
+          </div>
+        </div>
+      </div>
+
+      <!-- Step 2: Place Villain -->
+      <div class="setup-guide-step">
+        <div class="setup-guide-step-num">${stepNum++}</div>
+        <div class="setup-guide-step-body">
+          <div class="setup-guide-step-title">Place the Villain</div>
+          ${hybridMode
+            ? html`<div class="setup-guide-hybrid-note">✓ App places the villain digitally — skip this step</div>`
+            : html`<div class="setup-guide-step-text">
+                Shuffle <strong class="setup-guide-villain-name">${scenario.villain || '—'}</strong>${' '}
+                face-down into any one location deck. Don't tell the other players which one.
+              </div>`
+          }
+        </div>
+      </div>
+
+      <!-- Step 3: Place Henchmen (if any) -->
+      ${henchmen.length > 0 && html`
+        <div class="setup-guide-step">
+          <div class="setup-guide-step-num">${stepNum++}</div>
+          <div class="setup-guide-step-body">
+            <div class="setup-guide-step-title">Place the Henchmen</div>
+            ${hybridMode
+              ? html`<div class="setup-guide-hybrid-note">✓ App places henchmen digitally — skip this step</div>`
+              : (() => {
+                  // Non-villain locations available = total - 1 (the villain's)
+                  const nonVillainCount = selectedLocations.length - 1;
+                  const canSpread = nonVillainCount >= henchmen.length;
+                  return html`<div class="setup-guide-step-text">
+                    ${canSpread
+                      ? html`Shuffle each henchman face-down into a <em>different</em> location deck (not the villain's):`
+                      : nonVillainCount <= 1
+                        ? html`Shuffle all henchmen face-down into the <em>one remaining</em> location deck (not the villain's):`
+                        : html`Shuffle the henchmen face-down into the remaining ${nonVillainCount} location decks — distribute them as evenly as possible:`
+                    }
+                    <div class="setup-guide-henchmen-list">
+                      ${henchmen.map(h => html`<span key=${h} class="setup-guide-henchman-tag">⚔ ${h}</span>`)}
+                    </div>
+                  </div>`;
+                })()
+            }
+          </div>
+        </div>
+      `}
+
+      <!-- Step 4: Blessings Deck -->
+      <div class="setup-guide-step">
+        <div class="setup-guide-step-num">${stepNum++}</div>
+        <div class="setup-guide-step-body">
+          <div class="setup-guide-step-title">Build the Blessings Deck <span class="setup-guide-step-subtitle">(the timer)</span></div>
+          <div class="setup-guide-step-text">
+            Shuffle 30 random Blessing cards face-down into a separate deck and set it beside the table.
+            When the last card is flipped, the scenario is lost.
+          </div>
+        </div>
+      </div>
+
+      <!-- Step 5: Draw Starting Hands -->
+      <div class="setup-guide-step">
+        <div class="setup-guide-step-num">${stepNum++}</div>
+        <div class="setup-guide-step-body">
+          <div class="setup-guide-step-title">Draw Starting Hands</div>
+          <div class="setup-guide-step-text">
+            Each character shuffles their personal deck, then draws cards up to their hand size.
+            At least one drawn card must match a Favored Card Type — reshuffle and redraw if needed.
+          </div>
+        </div>
+      </div>
+
+      <!-- Scenario reward (reminder) -->
+      ${scenario.reward && html`
+        <div class="setup-guide-reward-row">
+          <span class="setup-guide-reward-label">🎁 Reward on win:</span>
+          <span class="setup-guide-reward-text">${scenario.reward}</span>
+        </div>
+      `}
+    </div>
+  `;
+}
+
 // ── Location selector ────────────────────────────────────────────────────────
 
 function LocationPanel({ scenario, playerCount, selectedLocations, onToggle }) {
-  const [expandedLoc, setExpandedLoc] = useState(null);
+  // Track which locations have their deck guide open.
+  // Selected locations start expanded; others can be opened manually via ℹ.
+  const [expandedLocs, setExpandedLocs] = useState(() => new Set(selectedLocations));
+
+  // Keep in sync with selectedLocations: add newly selected, remove deselected/bumped.
+  useEffect(() => {
+    setExpandedLocs(new Set(selectedLocations));
+  }, [selectedLocations.join(',')]);
 
   if (!scenario) {
     return html`<div class="card">
@@ -281,17 +457,22 @@ function LocationPanel({ scenario, playerCount, selectedLocations, onToggle }) {
   for (const d of (scenario.location_details || [])) detailMap[d.name] = d;
 
   function handleChipClick(loc) {
-    if (expandedLoc === loc) {
-      setExpandedLoc(null);
-    } else {
-      setExpandedLoc(loc);
-    }
+    const willSelect = !selectedLocations.includes(loc);
+    setExpandedLocs(prev => {
+      const next = new Set(prev);
+      if (willSelect) next.add(loc); else next.delete(loc);
+      return next;
+    });
     onToggle(loc);
   }
 
   function handleInfoClick(e, loc) {
     e.stopPropagation();
-    setExpandedLoc(expandedLoc === loc ? null : loc);
+    setExpandedLocs(prev => {
+      const next = new Set(prev);
+      if (next.has(loc)) next.delete(loc); else next.add(loc);
+      return next;
+    });
   }
 
   return html`
@@ -302,16 +483,16 @@ function LocationPanel({ scenario, playerCount, selectedLocations, onToggle }) {
       </div>
       <p style="color:var(--text-dim); font-size:12px; margin-bottom:10px;">
         Select ${required} locations for ${playerCount} player${playerCount !== 1 ? 's' : ''}.
-        Tap a name to select/deselect, tap ℹ to see deck details.
+        Tap a name to select/deselect; deck details expand automatically when selected.
       </p>
       <div class="location-chip-list">
         ${(scenario.locations || []).map(loc => {
           const sel      = selectedLocations.includes(loc);
-          const expanded = expandedLoc === loc;
+          const expanded = expandedLocs.has(loc);
           const detail   = detailMap[loc];
           return html`
             <div key=${loc} class=${'location-chip-row' + (sel ? ' selected' : '')}>
-              <div class="location-chip-main" onClick=${() => onToggle(loc)}>
+              <div class="location-chip-main" onClick=${() => handleChipClick(loc)}>
                 <span class="location-chip-check">${sel ? '✓' : '○'}</span>
                 <span class="location-chip-name">${loc}</span>
                 ${detail && html`
@@ -333,8 +514,8 @@ function LocationPanel({ scenario, playerCount, selectedLocations, onToggle }) {
 // ── Main SetupView ───────────────────────────────────────────────────────────
 
 export function SetupView() {
-  const { state, patch, navigate, toast } = useApp();
-  const { campaignId, guidedMode } = state;
+  const { state, patch, navigate, toast, toggleGuided } = useApp();
+  const { campaignId, guidedMode, ownedProducts } = state;
 
   const [campaign, setCampaign] = useState(null);
   const [characters, setCharacters] = useState([]);
@@ -501,10 +682,15 @@ export function SetupView() {
       <div class="page-header">
         <button class="btn-icon btn-ghost" style="font-size:18px;"
           onClick=${() => navigate('campaigns')}>←</button>
-        <div>
+        <div style="flex:1;">
           <h1 style="font-size:18px;">${campaign?.name ?? '…'}</h1>
           <div style="font-size:12px; color:var(--text-dim);">Scenario Setup</div>
         </div>
+        <button class=${'btn-ghost play-guided-btn' + (guidedMode ? ' active' : '')}
+          title=${guidedMode ? 'Guided mode on — tap to disable' : 'Guided mode off — tap to enable'}
+          onClick=${toggleGuided}>
+          ${guidedMode ? '🎓 Guided' : '🎓'}
+        </button>
       </div>
       <div class="page-body">
         ${guidedMode && html`
@@ -520,12 +706,15 @@ export function SetupView() {
             <${CharacterPanel}
               campaignId=${campaignId}
               characters=${characters}
-              characterTemplates=${characterTemplates}
+              characterTemplates=${(characterTemplates || []).filter(t =>
+                !ownedProducts || ownedProducts.includes(t.source || 'base')
+              )}
               onChange=${loadCampaign}
             />
             <${ScenarioPanel}
               adventures=${adventures}
               selectedId=${scenarioId}
+              scenarioDetail=${scenarioDetail}
               onSelect=${selectScenario}
             />
           </div>
@@ -538,6 +727,15 @@ export function SetupView() {
             />
           </div>
         </div>
+        ${scenarioDetail && selectedLocations.length > 0 && html`
+          <div style="margin-top:20px;">
+            <${ScenarioSetupGuide}
+              scenario=${scenarioDetail}
+              selectedLocations=${selectedLocations}
+              hybridMode=${hybridMode}
+            />
+          </div>
+        `}
       </div>
       <div class="page-footer">
         ${activeSession && html`

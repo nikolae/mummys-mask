@@ -3,16 +3,20 @@ import { useApp } from '/static/js/state.js';
 import { Modal } from '/static/js/components/common/Modal.js';
 import { NewGameGuide } from '/static/js/components/common/NewGameGuide.js';
 import { GuidedBanner } from '/static/js/components/common/GuidedBanner.js';
+import { LoreBriefingModal } from '/static/js/components/common/LoreBriefingModal.js';
+import { SettingsModal } from '/static/js/components/common/SettingsModal.js';
 import { useState, useEffect, useCallback } from '/static/js/vendor/hooks.module.js';
 import * as api from '/static/js/api.js';
 
 export function CampaignHome() {
   const { state, patch, navigate, toast, toggleGuided } = useApp();
   const { guidedMode } = state;
-  const [showNew, setShowNew] = useState(false);
-  const [showGuide, setShowGuide] = useState(false);
-  const [newName, setNewName] = useState('');
-  const [busy, setBusy] = useState(false);
+  const [showNew, setShowNew]         = useState(false);
+  const [showGuide, setShowGuide]     = useState(false);
+  const [showSettings, setShowSettings] = useState(false);
+  const [newName, setNewName]         = useState('');
+  const [busy, setBusy]               = useState(false);
+  const [prologueEntries, setPrologueEntries] = useState(null); // campaign prologue lore
 
   const load = useCallback(async () => {
     try {
@@ -33,6 +37,19 @@ export function CampaignHome() {
       setShowNew(false);
       setNewName('');
       await load();
+      // Show campaign prologue lore if we haven't shown it for this campaign yet
+      const seenKey = `prologue-${c.id}`;
+      if (!localStorage.getItem(seenKey)) {
+        localStorage.setItem(seenKey, '1');
+        try {
+          const rawEntries = await api.queryLore({ trigger: 'before_campaign' });
+          const entries = (rawEntries || []).filter(e => !/epilogue/i.test(e.title || ''));
+          if (entries?.length) {
+            setPrologueEntries({ entries, campaign: c });
+            return; // defer openCampaign until prologue is dismissed
+          }
+        } catch { /* non-fatal */ }
+      }
       openCampaign(c);
     } catch (e) {
       toast('Failed to create campaign', 'error');
@@ -77,11 +94,18 @@ export function CampaignHome() {
     <div class="page">
       <div class="page-header">
         <h1>⚱ Mummy's Mask</h1>
-        <button class=${'btn-ghost btn-sm guided-toggle' + (guidedMode ? ' guided-toggle--on' : '')}
-          onClick=${toggleGuided}
-          title=${guidedMode ? 'Guided mode is on — tap to turn off' : 'Turn on step-by-step guidance'}>
-          🎓 ${guidedMode ? 'Guided: On' : 'New Player?'}
-        </button>
+        <div class="page-header-actions">
+          <button class="btn-ghost btn-sm settings-btn"
+            onClick=${() => setShowSettings(true)}
+            title="Content ownership settings">
+            ⚙
+          </button>
+          <button class=${'btn-ghost btn-sm guided-toggle' + (guidedMode ? ' guided-toggle--on' : '')}
+            onClick=${toggleGuided}
+            title=${guidedMode ? 'Guided mode is on — tap to turn off' : 'Turn on step-by-step guidance'}>
+            🎓 ${guidedMode ? 'Guided: On' : 'New Player?'}
+          </button>
+        </div>
       </div>
       <div class="page-body">
         ${guidedMode && html`
@@ -131,8 +155,20 @@ export function CampaignHome() {
         <button class="btn-primary" onClick=${() => setShowNew(true)}>+ New Campaign</button>
       </div>
 
+      ${showSettings && html`
+        <${SettingsModal} onClose=${() => setShowSettings(false)} />
+      `}
+
       ${showGuide && html`
         <${NewGameGuide} initialSection="characters" onClose=${() => setShowGuide(false)} />
+      `}
+
+      ${prologueEntries && html`
+        <${LoreBriefingModal}
+          entries=${prologueEntries.entries}
+          doneLabel="Begin Campaign"
+          onClose=${() => { setPrologueEntries(null); openCampaign(prologueEntries.campaign); }}
+        />
       `}
 
       ${showNew && html`

@@ -7,11 +7,21 @@ import * as api from '/static/js/api.js';
 
 // ── Card Search with autocomplete ────────────────────────────────────────────
 
-function CardSearch({ onSelect }) {
-  const [query, setQuery]       = useState('');
+function CardSearch({ onSelect, initialQuery, ownedProducts }) {
+  const [query, setQuery]       = useState(initialQuery || '');
   const [results, setResults]   = useState([]);
   const [open, setOpen]         = useState(false);
   const debounce                = useRef(null);
+
+  // If an initialQuery is provided (e.g. card type from hybrid reveal), run it immediately
+  useEffect(() => {
+    if (initialQuery && initialQuery.length >= 2) {
+      api.searchCards(initialQuery, ownedProducts).then(r => {
+        setResults(r);
+        setOpen(r.length > 0);
+      });
+    }
+  }, []);
 
   function handleInput(e) {
     const val = e.target.value;
@@ -19,7 +29,7 @@ function CardSearch({ onSelect }) {
     clearTimeout(debounce.current);
     if (val.length < 2) { setResults([]); setOpen(false); return; }
     debounce.current = setTimeout(async () => {
-      const r = await api.searchCards(val);
+      const r = await api.searchCards(val, ownedProducts);
       setResults(r);
       setOpen(r.length > 0);
     }, 200);
@@ -101,11 +111,45 @@ function CardInfo({ card }) {
 
 function LoreSection({ entries }) {
   if (!entries?.length) return null;
-  const entry = entries.find(e => e.trigger === 'when_encountering') || entries[0];
+  // Only show during-encounter entries; never fall back to a different trigger type
+  const entry = entries.find(e => e.trigger === 'when_encountering');
+  if (!entry) return null;
   return html`
     <div class="lore-panel">
       <div class="lore-label">⚱ Adventure Journal</div>
       <div class="lore-text">${entry.text}</div>
+    </div>
+  `;
+}
+
+// ── Post-encounter lore interstitial ─────────────────────────────────────────
+
+const BOON_TYPES = new Set(['weapon', 'spell', 'armor', 'item', 'ally', 'blessing']);
+
+function PostEncounterLore({ card, loreEntries, onContinue }) {
+  const isAcquire = BOON_TYPES.has(card?.type);
+  const trigger   = isAcquire ? 'after_acquiring' : 'after_defeating';
+  const entry     = loreEntries?.find(e => e.trigger === trigger);
+  // If somehow no entry (shouldn't happen since caller checks first), just show continue
+  if (!entry) return html`
+    <div class="post-encounter-lore">
+      <button class="btn-primary btn-sm post-lore-continue" onClick=${onContinue}>Continue</button>
+    </div>
+  `;
+
+  return html`
+    <div class="post-encounter-lore">
+      <div class="post-encounter-lore-header">
+        ${isAcquire
+          ? html`<span class="post-lore-acquire-badge">✦ Acquired: ${card.name}</span>`
+          : html`<span class="post-lore-defeat-badge">⚔ ${card.name} defeated</span>`
+        }
+      </div>
+      <div class="lore-label" style="margin-top:8px;">⚱ Adventure Journal</div>
+      <div class="lore-text">${entry.text}</div>
+      <button class="btn-primary btn-sm post-lore-continue" onClick=${onContinue}>
+        Continue
+      </button>
     </div>
   `;
 }
@@ -212,9 +256,9 @@ function DamageRecorder({ card, sessionId, characters, currentCharId, guidedMode
 export function EncounterPanel({ location, sessionId, blessingsRemaining,
                                   characters, currentCharId,
                                   revealedCard,
-                                  onClose, onUpdate }) {
+                                  onClose, onUpdate, onVillainSpotted }) {
   const { state, toast } = useApp();
-  const { guidedMode } = state;
+  const { guidedMode, ownedProducts } = state;
   const [selectedCard, setSelectedCard] = useState(null);
   const [lore, setLore]                 = useState(null);
   const [diceTotal, setDiceTotal]       = useState(null);
@@ -222,6 +266,8 @@ export function EncounterPanel({ location, sessionId, blessingsRemaining,
   // After defeating a henchman, ask whether to attempt closing the location
   const [showHenchmanClose, setShowHenchmanClose] = useState(false);
   const [henchmanCloseBusy, setHenchmanCloseBusy] = useState(false);
+  // Post-defeat / post-acquire lore interstitial
+  const [showPostLore, setShowPostLore] = useState(false);
 
   // Auto-populate card search when a revealed card comes in from hybrid explore
   useEffect(() => {
@@ -244,6 +290,10 @@ export function EncounterPanel({ location, sessionId, blessingsRemaining,
     api.getLore(selectedCard.name).then(entries => {
       setLore(entries.length ? entries : null);
     }).catch(() => setLore(null));
+    // Fire villain broadcast for physical mode (hybrid mode fires it before the panel opens)
+    if (selectedCard.type === 'villain' && onVillainSpotted) {
+      onVillainSpotted();
+    }
   }, [selectedCard?.name]);
 
   async function resolve(result) {
@@ -259,11 +309,22 @@ export function EncounterPanel({ location, sessionId, blessingsRemaining,
         toast(`The villain escaped to ${data._escaped_to}!`, 'warning');
       }
       onUpdate();
-      // After defeating a henchman, offer to attempt closing the location
-      if (result === 'defeated' && selectedCard?.type === 'henchman') {
-        setBusy(false);
-        setShowHenchmanClose(true);
-        return;
+      if (result === 'defeated') {
+        // Henchman: prompt to close location
+        if (selectedCard?.type === 'henchman') {
+          setBusy(false);
+          setShowHenchmanClose(true);
+          return;
+        }
+        // Any other card: show post-encounter lore if available
+        const hasPostLore = lore?.some(e =>
+          BOON_TYPES.has(selectedCard?.type) ? e.trigger === 'after_acquiring' : e.trigger === 'after_defeating'
+        );
+        if (hasPostLore) {
+          setBusy(false);
+          setShowPostLore(true);
+          return;
+        }
       }
       onClose();
     } catch (e) {
@@ -298,7 +359,18 @@ export function EncounterPanel({ location, sessionId, blessingsRemaining,
     if (e.target === e.currentTarget) onClose();
   }
 
-  const isBane = selectedCard && BANE_TYPES.has(selectedCard.type);
+  const isBane   = selectedCard && BANE_TYPES.has(selectedCard.type);
+  const isBoon   = selectedCard && BOON_TYPES.has(selectedCard.type);
+
+  // For hybrid mode: if a card was revealed, show a banner explaining what happened.
+  // Named reveal (villain/henchman): card is auto-loaded into selectedCard.
+  // Typed placeholder (name: null): pre-fill CardSearch with the type so results appear immediately.
+  const hybridNamed = revealedCard?.name;
+  const hybridTyped = !hybridNamed && revealedCard?.type;
+  const cardSearchInitialQuery = hybridTyped ? revealedCard.type : '';
+
+  const TYPE_ICON = { monster: '👹', barrier: '🚧', weapon: '⚔', spell: '✨',
+                      armor: '🛡', item: '🎒', ally: '👥', blessing: '🙏' };
 
   return html`
     <div class="encounter-backdrop" onClick=${handleBackdrop}>
@@ -321,7 +393,24 @@ export function EncounterPanel({ location, sessionId, blessingsRemaining,
             </div>
           `}
 
-          <${CardSearch} onSelect=${setSelectedCard} />
+          ${hybridNamed && html`
+            <div class="hybrid-reveal-banner named">
+              ${revealedCard.type === 'villain' ? '⚡' : '⚔'}
+              <span class="hybrid-reveal-type-badge">${revealedCard.type}</span>
+              drawn from deck —
+              <strong>${revealedCard.name}</strong>
+            </div>
+          `}
+          ${hybridTyped && html`
+            <div class="hybrid-reveal-banner typed">
+              ${TYPE_ICON[revealedCard.type] || '📋'}
+              <span class="hybrid-reveal-type-badge">${revealedCard.type}</span>
+              drawn from deck
+              <span class="hybrid-reveal-hint">— draw the matching physical card, then select it below</span>
+            </div>
+          `}
+
+          <${CardSearch} onSelect=${setSelectedCard} initialQuery=${cardSearchInitialQuery} ownedProducts=${ownedProducts} />
 
           ${selectedCard && html`<${CardInfo} card=${selectedCard} />`}
 
@@ -349,7 +438,15 @@ export function EncounterPanel({ location, sessionId, blessingsRemaining,
           <${DiceRoller} onResult=${setDiceTotal} />
         </div>
 
-        ${showHenchmanClose
+        ${showPostLore
+          ? html`
+            <${PostEncounterLore}
+              card=${selectedCard}
+              loreEntries=${lore}
+              onContinue=${onClose}
+            />
+          `
+          : showHenchmanClose
           ? html`
             <div class="henchman-close-prompt">
               <div class="henchman-close-title">
@@ -385,7 +482,7 @@ export function EncounterPanel({ location, sessionId, blessingsRemaining,
             <div class="encounter-actions">
               <button class="btn-defeated" onClick=${() => resolve('defeated')}
                 disabled=${busy}>
-                ✓ Defeated
+                ${isBoon ? '✦ Acquired' : '✓ Defeated'}
               </button>
               <button class="btn-evaded" onClick=${() => resolve('evaded')}
                 disabled=${busy}>

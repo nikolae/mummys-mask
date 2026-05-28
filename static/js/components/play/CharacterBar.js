@@ -67,9 +67,21 @@ export function CharacterBar({ session, currentCharId, onSelectChar, onOpenSheet
           ${current_phase?.toUpperCase() ?? 'EXPLORE'}
         </div>
         <span class="turn-num">Turn <span>${turn_number}</span></span>
-        ${current_player === currentCharId && html`
-          <button class="btn-primary btn-sm" onClick=${endTurn}>End Turn</button>
-        `}
+        ${current_player === currentCharId && (() => {
+          const activeChar = characters?.find(c => c.id === current_player);
+          const handCount  = activeChar?.cards_in_hand ?? activeChar?.hand_size ?? 0;
+          const toDraw     = (activeChar?.hand_size ?? 0) - handCount;
+          return html`
+            <div class="end-turn-wrap">
+              ${toDraw > 0 && html`
+                <div class="draw-hint">
+                  Draw ${toDraw} card${toDraw !== 1 ? 's' : ''} to refill hand
+                </div>
+              `}
+              <button class="btn-primary btn-sm" onClick=${endTurn}>End Turn</button>
+            </div>
+          `;
+        })()}
       </div>
     </div>
   `;

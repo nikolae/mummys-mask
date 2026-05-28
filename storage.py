@@ -106,11 +106,17 @@ def init_db():
             CREATE INDEX IF NOT EXISTS idx_sessions_campaign ON game_sessions(campaign_id);
             CREATE INDEX IF NOT EXISTS idx_locations_session ON session_locations(session_id);
             CREATE INDEX IF NOT EXISTS idx_log_session ON turn_log(session_id);
+
+            CREATE TABLE IF NOT EXISTS settings (
+                key   TEXT PRIMARY KEY,
+                value TEXT NOT NULL DEFAULT 'null'
+            );
         """)
         # Schema migrations — safe to run on every startup
         for migration in [
             "ALTER TABLE game_sessions ADD COLUMN char_hand_counts TEXT NOT NULL DEFAULT '{}'",
             "ALTER TABLE game_sessions ADD COLUMN is_hybrid INTEGER NOT NULL DEFAULT 0",
+            "ALTER TABLE game_sessions ADD COLUMN explored_this_turn INTEGER NOT NULL DEFAULT 0",
         ]:
             try:
                 conn.execute(migration)
@@ -376,6 +382,10 @@ def action_explore(session_id, location_id):
                 (new_count, location_id),
             )
 
+        conn.execute(
+            "UPDATE game_sessions SET explored_this_turn = 1 WHERE id = ?",
+            (session_id,),
+        )
         _log_action(conn, session_id, sess["current_turn"],
                     sess["current_player_id"], "explore",
                     {"location_id": location_id, "cards_remaining": new_count,
@@ -465,7 +475,7 @@ def action_end_turn(session_id):
             """UPDATE game_sessions SET
                blessings_remaining = ?, current_player_id = ?,
                current_turn = ?, status = ?, finished_at = ?,
-               char_hand_counts = ?
+               char_hand_counts = ?, explored_this_turn = 0
                WHERE id = ?""",
             (new_blessings, next_player, new_turn, status, finished_at,
              json.dumps(hand_counts), session_id),
@@ -684,3 +694,27 @@ def get_turn_log(session_id, limit=50):
             (session_id, limit),
         ).fetchall()
         return [dict(r) for r in rows]
+
+
+# ── Settings ───────────────────────────────────────────────────────────────────
+
+_DEFAULT_SETTINGS = {
+    "owned_products": ["base", "class_deck"],
+}
+
+def get_settings():
+    with _connect() as conn:
+        rows = conn.execute("SELECT key, value FROM settings").fetchall()
+        result = dict(_DEFAULT_SETTINGS)
+        for row in rows:
+            result[row["key"]] = json.loads(row["value"])
+        return result
+
+def update_settings(updates):
+    with _connect() as conn:
+        for key, value in updates.items():
+            conn.execute(
+                "INSERT OR REPLACE INTO settings (key, value) VALUES (?, ?)",
+                (key, json.dumps(value)),
+            )
+    return get_settings()

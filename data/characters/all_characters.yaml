@@ -1,5 +1,6 @@
 characters:
 - name: Ahmotep
+  source: character_addon
   category: character
   skills:
     Melee:
@@ -39,6 +40,7 @@ characters:
     - Blessing of the Elements
 
 - name: Alahazra
+  source: class_deck
   category: character
   skills:
     Knowledge:
@@ -78,6 +80,7 @@ characters:
     - Blessing of the Ancients
 
 - name: Channa Ti
+  source: character_addon
   category: character
   skills:
     Craft:
@@ -116,6 +119,7 @@ characters:
     - Blessing of the Elements
 
 - name: Damiel
+  source: class_deck
   category: character
   skills:
     Disable:
@@ -157,6 +161,7 @@ characters:
     - Blessing of the Elements
 
 - name: Drelm
+  source: character_addon
   category: character
   skills:
     Melee:
@@ -197,6 +202,7 @@ characters:
     - Blessing of the Ancients
 
 - name: Estra
+  source: class_deck
   category: character
   skills:
     Divine:
@@ -236,6 +242,7 @@ characters:
     - Blessing of the Elements
 
 - name: Ezren
+  source: base
   category: character
   skills:
     Arcane:
@@ -278,6 +285,7 @@ characters:
     - Blessing of the Elements
 
 - name: Mavaro
+  source: character_addon
   category: character
   skills:
     Disable:
@@ -318,6 +326,7 @@ characters:
     - Blessing of the Elements
 
 - name: Simoun
+  source: base
   category: character
   skills:
     Disable:
@@ -358,6 +367,7 @@ characters:
     - Blessing of the Elements
 
 - name: Yoon
+  source: base
   category: character
   skills:
     Acrobatics:
@@ -397,6 +407,7 @@ characters:
     - Blessing of the Elements
 
 - name: Zadim
+  source: base
   category: character
   skills:
     Acrobatics:

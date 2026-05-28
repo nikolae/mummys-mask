@@ -33,6 +33,9 @@ export function makeInitialState() {
     // Guided (new player) mode — persisted in localStorage
     guidedMode: typeof localStorage !== 'undefined' && localStorage.getItem('mm_guided') === 'true',
 
+    // Owned products (loaded from server on startup)
+    ownedProducts: ['base', 'class_deck'],
+
     // Toast queue
     toasts: [],
   };

@@ -90,18 +90,60 @@ which characters are where, and when/how the villain escapes.
 - **`action_encounter` double-decrement fix**: explore decrements on draw; encounter no longer
   also decrements on defeat/evade
 
-### ✅ Phase 5 (partial) — Rules Reference & Guided Mode (complete)
+### ✅ Phase 5 (core) — Character Progression & Lore System (complete)
+- Post-scenario feat recording: skill feat, card feat, power feat per character
+- Role card selection prompt at Adventure 3+
+- Draw-to-hand-size reminder in the character bar (pulsing hint before End Turn)
+- Campaign `current_scenario` / `current_adventure` advancement after each scenario
+
+### ✅ Phase 5b — Complete Lore System (complete)
+- `GET /api/lore` query endpoint with `trigger`, `scenario`, `adventure` filter params
+- **`LoreBriefingModal`**: full-screen parchment-styled narrative overlay, supports multi-entry pagination
+- **Campaign prologue**: `before_campaign` lore shown as cinematic moment when creating a new campaign (shown once, tracked per campaign in localStorage)
+- **Adventure briefing**: `before_adventure` prologue shown at first scenario of each adventure
+- **Scenario briefing**: `before_scenario` lore shown at session start (shown once per session, tracked in sessionStorage)
+- **`after_defeating` interstitial**: Adventure Journal entry surfaces after defeating any non-henchman card
+- **`after_acquiring` interstitial**: flavour text shown when a boon card is acquired; "Defeated" button relabelled "Acquired" for boon cards
+- **Lore bug fix**: `when_encountering` lore no longer falls back to entries with wrong trigger types
+
+### ✅ Phase 6 — Rules Reference, Guided Mode & Game Aids (complete)
 - Searchable rules reference drawer (`?` button on play board)
 - Context-sensitive rules chips in encounter panel (barrier, henchman, villain, closing, etc.)
-- Guided mode banner: step-by-step instructions derived from current game state; appears on
-  setup and play screens and updates as state progresses
+- Guided mode banner: step-by-step instructions derived from current game state
 - "How to Play" game teacher walkthrough overlay
 - New game guide for character selection
+- **Guided mode toggle** 🎓 button in play board top bar and setup screen — re-enable mid-scenario without leaving
+- **Scenario briefing modal** on session start: villain, henchmen, special rules, reward (once per session)
+- **Villain-spotted broadcast**: full-screen alert when villain is encountered (hybrid or physical);
+  lists every open location with its closing condition and characters present; stays until dismissed
+- **Blessing urgency banner**: persistent yellow banner at ≤10 blessings, pulsing red crisis banner at ≤5
+- **`explored_this_turn` enforcement**: Explore button changes to "✓ Explored" after first explore; resets on End Turn
+- **Low-hand token highlights**: character tokens on location cards turn red with ⚠ when ≤2 cards in hand
+
+### ✅ Content Ownership Settings (complete)
+- ⚙ gear button on Campaign Home opens an ownership modal
+- Products: Base Set (always required), Class Decks, Character Add-On Deck, Adventure Decks 1–6
+- Defaults: Base + Class Decks on; Character Add-On and Adventure Decks 1–6 off
+- Character picker in setup filters to characters from owned products only
+- Card search (`/api/cards/search`) accepts `sets` param and filters results to cards
+  whose source codes (`MM-B`, `MM-C`, `MM-1`…`MM-6`) match owned products
+- Settings persisted in SQLite; loaded from server on app startup
+- Adventure deck tiles are tap-to-toggle buttons (no native checkboxes)
+
+### ✅ Setup Guidance Improvements (complete)
+- **ScenarioSetupGuide**: numbered physical setup checklist shown below location/character
+  columns — build decks → place villain → place henchmen → blessings deck → draw hands
+- Per-location deck breakdown with bane/boon chips and adventure deck badge
+- Hybrid mode shows green "skip" callouts on villain/henchman placement steps
+- Henchmen placement instruction adapts to available locations: "one remaining deck" /
+  "distribute evenly" / "a different deck each" based on actual location count
+- Scenario detail (villain name, henchmen tags, special during rules) shown inline after selection
+- Hybrid explore reveals: named villain/henchman shows a red banner; typed placeholder
+  (e.g. monster) pre-fills the card search with the card type
 
 ### 🔲 Upcoming
-- Character progression: post-scenario feat/card rewards, deck rebuilding, role card selection
+- Phase 5 remaining: deck rebuilding between scenarios, character deck depth warning
 - Audio: ambient soundscapes per scenario, SFX, TTS narration of lore entries
-- Content ownership settings (base set vs. add-on vs. adventure decks)
 - PWA manifest for iPad home screen install
 
 ---
@@ -144,7 +186,7 @@ mummys-mask/
         encounter/    EncounterPanel, DiceRoller
         character/    CharacterSheet
         common/       Modal, Toast, RulesPanel, RulesChip, GameTeacher,
-                      GuidedBanner, NewGameGuide
+                      GuidedBanner, NewGameGuide, LoreBriefingModal, SettingsModal
 
   templates/
     index.html        Single HTML shell (loads Preact app)
@@ -179,9 +221,10 @@ GET  /api/adventures/:adv_id/scenarios/:scenario_id
 GET  /api/locations
 GET  /api/locations/:name
 GET  /api/characters
-GET  /api/cards/search?q=
+GET  /api/cards/search?q=&sets=   (sets: comma-separated product IDs, filters by MM source code)
 GET  /api/cards/:name
 GET  /api/lore/:card_name
+GET  /api/lore?trigger=&scenario=&adventure=   (flexible query; trigger e.g. before_scenario)
 GET  /api/rules
 GET  /api/rules/:topic_id
 ```
@@ -192,6 +235,12 @@ POST /api/sessions                    { campaign_id, scenario_id, location_names
                                         character_locations, hybrid? }
 GET  /api/sessions/:id
 GET  /api/sessions/:id/log
+```
+
+### Settings
+```
+GET /api/settings
+PUT /api/settings   { owned_products: ["base", "class_deck", "adv_1", ...] }
 ```
 
 ### Session Actions
@@ -221,8 +270,9 @@ Each location entry includes:
 - `flavor`: flavor text from the location card
 
 ### Character starting decks (`data/characters/all_characters.yaml`)
-All 11 base-game characters (Ahmotep, Channa Ti, Drelm, Ezren, Harsk, Mavaro, Mummy's Mask
-Seoni, Simoun, Tarlin, Yoon, Zadim) with verified 15-card starting decks from the rulebook.
+All 11 characters (Ahmotep, Alahazra, Channa Ti, Damiel, Drelm, Estra, Ezren, Mavaro, Simoun,
+Yoon, Zadim) with verified 15-card starting decks from the rulebook. Each character has a
+`source` field (`base` / `character_addon` / `class_deck`) used by the content ownership filter.
 
 ### Hybrid deck building
 When a session is created with `hybrid: true`, each location deck is assembled as:

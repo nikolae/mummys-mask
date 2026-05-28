@@ -349,10 +349,54 @@ def list_characters():
     return jsonify(GAME_DATA["characters"])
 
 
+@app.route("/api/lore")
+def query_lore():
+    """Flexible lore query by trigger, scenario, or adventure.
+    e.g. /api/lore?trigger=before_scenario&scenario=B-1
+         /api/lore?trigger=before_adventure&adventure=B
+         /api/lore?trigger=before_campaign
+    """
+    trigger   = request.args.get("trigger",   "").strip()
+    scenario  = request.args.get("scenario",  "").strip()
+    adventure = request.args.get("adventure", "").strip()
+    entries = GAME_DATA["lore"]
+    if trigger:
+        entries = [e for e in entries if e.get("trigger") == trigger]
+    if scenario:
+        entries = [e for e in entries if e.get("scenario") == scenario]
+    elif adventure:
+        entries = [e for e in entries if e.get("adventure") == adventure]
+    return jsonify(entries)
+
+
 @app.route("/api/lore/<path:card_name>")
 def get_lore(card_name):
     entries = [e for e in GAME_DATA["lore"] if e.get("card_name") == card_name]
     return jsonify(entries)
+
+
+# Maps owned_product IDs → MM source-code prefixes
+_PRODUCT_SOURCE_MAP = {
+    "base":            "MM-B",
+    "character_addon": "MM-C",
+    "adv_1":           "MM-1",
+    "adv_2":           "MM-2",
+    "adv_3":           "MM-3",
+    "adv_4":           "MM-4",
+    "adv_5":           "MM-5",
+    "adv_6":           "MM-6",
+}
+
+
+def _card_is_owned(card, owned_mm_codes):
+    """Return True if ANY of the card's source tokens are in owned_mm_codes."""
+    if not owned_mm_codes:
+        return True  # no filter applied
+    raw = card.get("source", "")
+    if not raw:
+        return True  # no source tag → always include
+    tokens = {t.strip() for t in str(raw).split(",")}
+    return bool(tokens & owned_mm_codes)
 
 
 @app.route("/api/cards/search")
@@ -360,9 +404,18 @@ def search_cards():
     q = request.args.get("q", "").strip().lower()
     if not q:
         return jsonify([])
+
+    # Optional ownership filter: comma-separated product IDs, e.g. "base,class_deck,adv_1"
+    sets_param = request.args.get("sets", "").strip()
+    if sets_param:
+        owned_products = {p.strip() for p in sets_param.split(",") if p.strip()}
+        owned_mm_codes = {_PRODUCT_SOURCE_MAP[p] for p in owned_products if p in _PRODUCT_SOURCE_MAP}
+    else:
+        owned_mm_codes = set()  # empty = no filter
+
     results = [
         c for c in GAME_DATA["cards"]
-        if q in c["name"].lower()
+        if q in c["name"].lower() and _card_is_owned(c, owned_mm_codes)
     ]
     # Exact match first, then alphabetical
     results.sort(key=lambda c: (0 if c["name"].lower().startswith(q) else 1, c["name"]))
@@ -552,6 +605,19 @@ def action_encounter(session_id):
 def action_temp_close(session_id):
     body = request.get_json(force=True)
     return _action(session_id, storage.action_temp_close_location, body["location_id"])
+
+
+# ── Settings API ───────────────────────────────────────────────────────────────
+
+@app.route("/api/settings", methods=["GET"])
+def get_settings():
+    return jsonify(storage.get_settings())
+
+
+@app.route("/api/settings", methods=["PUT"])
+def update_settings():
+    body = request.get_json(force=True)
+    return jsonify(storage.update_settings(body))
 
 
 if __name__ == "__main__":

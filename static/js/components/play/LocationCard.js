@@ -8,7 +8,7 @@ function isAutoClose(to_close) {
   return /automatically/i.test(to_close || '');
 }
 
-export function LocationCard({ location, characters, currentCharId, sessionId, onUpdate, onExplore }) {
+export function LocationCard({ location, characters, currentCharId, sessionId, onUpdate, onExplore, exploredThisTurn }) {
   const { toast } = useApp();
   const { id, name, cards_remaining, is_open, is_permanently_closed, characters_here,
           at_location, to_close, when_closed, has_villain } = location;
@@ -127,9 +127,11 @@ export function LocationCard({ location, characters, currentCharId, sessionId, o
           ${(characters_here || []).map(cid => {
             const ch = characters?.find(c => c.id === cid);
             if (!ch) return null;
+            const hand   = ch.cards_in_hand ?? ch.hand_size ?? 0;
+            const lowHand = hand <= 2;
             return html`
-              <span key=${cid} class=${'char-token' + (cid === currentCharId ? ' current' : '')}>
-                ${ch.name}
+              <span key=${cid} class=${'char-token' + (cid === currentCharId ? ' current' : '') + (lowHand ? ' low-hand' : '')}>
+                ${ch.name}${lowHand ? html`<span class="char-token-warn" title="${hand === 0 ? 'Out of cards!' : `Only ${hand} card${hand !== 1 ? 's' : ''} left`}">⚠</span>` : null}
               </span>
             `;
           })}
@@ -142,10 +144,11 @@ export function LocationCard({ location, characters, currentCharId, sessionId, o
             <button class="btn-secondary btn-sm" onClick=${moveHere}>Move Here</button>
           `}
           ${currentCharHere && open && html`
-            <button class="btn-primary btn-sm"
-              onClick=${() => onExplore && onExplore(location)}
-              disabled=${cards_remaining === 0}>
-              Explore
+            <button class=${'btn-primary btn-sm' + (exploredThisTurn ? ' btn-explored' : '')}
+              onClick=${() => !exploredThisTurn && onExplore && onExplore(location)}
+              disabled=${cards_remaining === 0 || exploredThisTurn}
+              title=${exploredThisTurn ? 'Already explored this turn' : ''}>
+              ${exploredThisTurn ? '✓ Explored' : 'Explore'}
             </button>
           `}
           ${canShowClose && currentCharHere && html`

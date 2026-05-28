@@ -392,3 +392,267 @@
   color: var(--text-mid);
   line-height: 1.45;
 }
+
+/* ── Scenario selected summary (in ScenarioPanel) ─────────────────────────── */
+.scenario-selected-summary {
+  background: rgba(201,162,39,0.06);
+  border: 1px solid rgba(201,162,39,0.25);
+  border-radius: var(--radius);
+  padding: 10px 12px;
+  margin-bottom: 12px;
+}
+.scenario-selected-id-row {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 8px;
+  flex-wrap: wrap;
+}
+.scenario-selected-id {
+  font-size: 12px;
+  font-weight: 700;
+  color: var(--gold);
+  background: rgba(201,162,39,0.15);
+  padding: 2px 7px;
+  border-radius: 4px;
+  flex-shrink: 0;
+}
+.scenario-selected-name {
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--text-bright);
+  flex: 1;
+  min-width: 0;
+}
+.scenario-selected-detail {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+.scenario-selected-row {
+  display: flex;
+  gap: 8px;
+  align-items: flex-start;
+}
+.scenario-detail-label {
+  font-size: 11px;
+  font-weight: 700;
+  color: var(--text-dim);
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  min-width: 70px;
+  flex-shrink: 0;
+  padding-top: 2px;
+}
+.scenario-detail-villain {
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--red-light);
+}
+.scenario-detail-henchmen {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px;
+}
+.scenario-henchman-tag {
+  font-size: 12px;
+  color: var(--text-mid);
+  background: rgba(255,255,255,0.05);
+  border: 1px solid var(--tomb-light);
+  border-radius: 4px;
+  padding: 2px 6px;
+}
+.scenario-detail-during {
+  font-size: 12px;
+  color: var(--text-mid);
+  line-height: 1.4;
+  font-style: italic;
+}
+.scenario-during-row { align-items: flex-start; }
+
+/* ── Physical setup checklist ─────────────────────────────────────────────── */
+.setup-guide-card {
+  margin-top: 0; /* handled by wrapper div margin */
+}
+.setup-guide-card .card-header {
+  align-items: center;
+}
+.setup-guide-adv-badge {
+  font-size: 11px;
+  font-weight: 700;
+  color: var(--gold);
+  background: rgba(201,162,39,0.12);
+  border: 1px solid rgba(201,162,39,0.3);
+  border-radius: 4px;
+  padding: 3px 8px;
+  letter-spacing: 0.03em;
+  text-transform: uppercase;
+}
+
+.setup-guide-step {
+  display: flex;
+  gap: 14px;
+  padding: 12px 0;
+  border-top: 1px solid var(--tomb-light);
+  align-items: flex-start;
+}
+.setup-guide-step:first-of-type { border-top: none; }
+
+.setup-guide-step-num {
+  width: 28px;
+  height: 28px;
+  min-width: 28px;
+  border-radius: 50%;
+  background: rgba(201,162,39,0.15);
+  border: 1px solid rgba(201,162,39,0.35);
+  color: var(--gold);
+  font-size: 13px;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  margin-top: 1px;
+}
+
+.setup-guide-step-body {
+  flex: 1;
+  min-width: 0;
+}
+.setup-guide-step-title {
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--text-bright);
+  margin-bottom: 4px;
+  display: flex;
+  align-items: baseline;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+.setup-guide-step-subtitle {
+  font-size: 11px;
+  font-weight: 400;
+  color: var(--text-dim);
+}
+.setup-guide-adv-inline {
+  font-size: 11px;
+  font-weight: 600;
+  color: var(--gold);
+  background: rgba(201,162,39,0.1);
+  border: 1px solid rgba(201,162,39,0.25);
+  border-radius: 4px;
+  padding: 1px 6px;
+}
+.setup-guide-step-text {
+  font-size: 13px;
+  color: var(--text-mid);
+  line-height: 1.5;
+  margin-bottom: 6px;
+}
+.setup-guide-villain-name {
+  color: var(--red-light);
+}
+.setup-guide-hybrid-note {
+  font-size: 12px;
+  color: var(--green-light);
+  background: rgba(74,160,99,0.1);
+  border: 1px solid rgba(74,160,99,0.25);
+  border-radius: 4px;
+  padding: 5px 10px;
+  display: inline-block;
+}
+.setup-guide-henchmen-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 5px;
+  margin-top: 6px;
+}
+.setup-guide-henchman-tag {
+  font-size: 12px;
+  color: var(--text-mid);
+  background: rgba(255,255,255,0.05);
+  border: 1px solid var(--tomb-light);
+  border-radius: 4px;
+  padding: 3px 8px;
+}
+
+/* Location rows inside setup guide */
+.setup-guide-loc-list {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin-top: 8px;
+}
+.setup-guide-loc-row {
+  background: rgba(0,0,0,0.15);
+  border: 1px solid var(--tomb-light);
+  border-radius: var(--radius);
+  padding: 8px 10px;
+}
+.setup-guide-loc-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  margin-bottom: 5px;
+}
+.setup-guide-loc-name {
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--gold-light);
+}
+.setup-guide-loc-count {
+  font-size: 11px;
+  color: var(--text-dim);
+  font-weight: 600;
+}
+.setup-guide-loc-deck {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px;
+}
+.setup-guide-deck-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 3px;
+  font-size: 11px;
+  padding: 2px 7px;
+  border-radius: 4px;
+  white-space: nowrap;
+}
+.setup-guide-deck-chip.bane {
+  background: rgba(139,32,32,0.2);
+  border: 1px solid rgba(196,64,64,0.3);
+  color: var(--red-light);
+}
+.setup-guide-deck-chip.boon {
+  background: rgba(201,162,39,0.08);
+  border: 1px solid rgba(201,162,39,0.2);
+  color: var(--text-mid);
+}
+
+/* Reward row at the bottom of setup guide */
+.setup-guide-reward-row {
+  margin-top: 4px;
+  padding: 8px 10px;
+  background: rgba(74,160,99,0.08);
+  border: 1px solid rgba(74,160,99,0.2);
+  border-radius: var(--radius);
+  display: flex;
+  gap: 8px;
+  align-items: flex-start;
+  flex-wrap: wrap;
+}
+.setup-guide-reward-label {
+  font-size: 11px;
+  font-weight: 700;
+  color: var(--green-light);
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  flex-shrink: 0;
+  padding-top: 1px;
+}
+.setup-guide-reward-text {
+  font-size: 12px;
+  color: var(--text-mid);
+  line-height: 1.4;
+}

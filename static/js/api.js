@@ -37,6 +37,7 @@ export const getAdventures     = ()                    => get('/api/adventures')
 export const getAdventure      = (id)                  => get(`/api/adventures/${id}`);
 export const getScenario       = (aid, sid)            => get(`/api/adventures/${aid}/scenarios/${sid}`);
 export const getLore           = (cardName)            => get(`/api/lore/${encodeURIComponent(cardName)}`);
+export const queryLore         = (params)              => get('/api/lore?' + new URLSearchParams(params).toString());
 
 // Locations
 export const getLocations      = ()                    => get('/api/locations');
@@ -57,6 +58,14 @@ export const actionDamage        = (id, data)          => post(`/api/sessions/${
 export const actionSetHand       = (id, data)          => post(`/api/sessions/${id}/actions/set-hand`,        data);
 export const actionTempClose     = (id, data)          => post(`/api/sessions/${id}/actions/temp-close`,      data);
 
-// Card search
-export const searchCards = (q)           => get(`/api/cards/search?q=${encodeURIComponent(q)}`);
+// Card search — pass owned product array to filter results to cards the player has
+export const searchCards = (q, ownedProducts) => {
+  const params = new URLSearchParams({ q });
+  if (ownedProducts && ownedProducts.length) params.set('sets', ownedProducts.join(','));
+  return get(`/api/cards/search?${params}`);
+};
 export const getCard     = (name)        => get(`/api/cards/${encodeURIComponent(name)}`);
+
+// Settings
+export const getSettings    = ()         => get('/api/settings');
+export const updateSettings = (data)     => put('/api/settings', data);
