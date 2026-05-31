@@ -25,6 +25,9 @@ scenarios:
   during: When you defeat a bane that has the Construct trait, draw an item from the
     box.
   reward: 'Traders: Falsin Deek, Hadden Hoppert'
+  tips: Defeating Constructs rewards items — prioritise bane-heavy locations early to
+    stock up before cornering the villain. Explosives and weapons with the Slashing trait
+    help against the Mining Constructs.
 - id: B-2
   name: A Sandstorm of Malevolent Will
   flavor: The skies rumble ominously, and your camels spit to express their displeasure
@@ -46,6 +49,10 @@ scenarios:
   - Caravanserai
   during: When building the blessings deck, replace 4 blessings with the villain Sandstorm.
   reward: 'Loot: Scarab Buckler'
+  tips: 'The Sandstorm villain card lurks in the blessings deck. When it flips, it
+    acts as a villain encounter — be ready to fight it wherever it appears. With only
+    one henchman (Aghash), closing locations quickly is vital: fewer open locations
+    means fewer escape routes.'
 - id: B-3
   name: Dessicated Delirium
 - id: B-4
@@ -73,6 +80,10 @@ scenarios:
     then recharge any number of cards.
   reward: Each character gains a card feat, then chooses a type of boon other than
     loot and draws a random non-Basic boon of that type from the box.
+  tips: The poison mechanic means your first explore each turn is wasted — plan around
+    it. Station characters with high Combat at bane-heavy locations; characters with
+    good Dexterity/Stealth handle barriers better. The free recharge at end of turn
+    helps manage hand size.
 - id: B-5
   name: Forged in Flames
   flavor: At last, your caravan arrives in Wati, only to find the smithy district
@@ -95,3 +106,7 @@ scenarios:
   during: All banes gain the Fire trait. When building the blessings deck, replace
     5 blessings with the henchman Conflagration.
   reward: 'Trader: Smiths of Wati'
+  tips: Five Conflagrations hidden in the blessings deck make this scenario a constant
+    fire fight. Cold/Ice spells and the Liquid trait counter Fire banes. Save your
+    strongest combat characters for when the Ifreeti surfaces — you only get one shot
+    before it escapes.

@@ -1,8 +1,14 @@
 import { html } from '/static/js/html.js';
 import { useApp } from '/static/js/state.js';
 import { Modal } from '/static/js/components/common/Modal.js';
-import { useState, useCallback } from '/static/js/vendor/hooks.module.js';
+import { useState } from '/static/js/vendor/hooks.module.js';
 import * as api from '/static/js/api.js';
+
+const THEMES = [
+  { id: 'dark',          label: 'Dark',      icon: '🌑', desc: 'Egyptian tomb (default)' },
+  { id: 'light',         label: 'Parchment', icon: '☀️', desc: 'Light papyrus scroll' },
+  { id: 'high-contrast', label: 'High Contrast', icon: '⬛', desc: 'Maximum legibility' },
+];
 
 // Character-unlocking products
 const CHAR_PRODUCTS = [
@@ -38,7 +44,7 @@ const ADV_DECKS = [
 ];
 
 export function SettingsModal({ onClose }) {
-  const { state, patch } = useApp();
+  const { state, patch, setTheme, setAmbientEnabled, setAmbientVolume } = useApp();
   const [owned, setOwned] = useState(() => new Set(state.ownedProducts || ['base', 'class_deck']));
   const [saving, setSaving] = useState(false);
 
@@ -94,6 +100,48 @@ export function SettingsModal({ onClose }) {
         </button>
       `}
     >
+      <!-- Theme picker -->
+      <div class="settings-section-label">Theme</div>
+      <div class="settings-theme-grid">
+        ${THEMES.map(t => html`
+          <button key=${t.id}
+            type="button"
+            class=${'settings-theme-tile' + (state.theme === t.id ? ' settings-theme-active' : '')}
+            onClick=${() => setTheme(t.id)}
+          >
+            <span class="settings-theme-icon">${t.icon}</span>
+            <span class="settings-theme-label">${t.label}</span>
+            <span class="settings-theme-desc">${t.desc}</span>
+          </button>
+        `)}
+      </div>
+
+      <!-- Ambient audio -->
+      <div class="settings-section-label" style="margin-top:16px;">Ambient Audio</div>
+      <div class="settings-audio-row"
+        onClick=${() => setAmbientEnabled(!state.ambientEnabled)}>
+        <span class=${'settings-audio-check' + (state.ambientEnabled ? ' on' : '')}>
+          ${state.ambientEnabled ? '🔊' : '🔇'}
+        </span>
+        <span class="settings-audio-label">
+          ${state.ambientEnabled ? 'On' : 'Off'} — atmospheric ambient soundscapes
+        </span>
+      </div>
+      ${state.ambientEnabled && html`
+        <div class="settings-audio-volume">
+          <span class="settings-volume-label">Volume</span>
+          <input type="range" class="settings-volume-slider"
+            min="0" max="1" step="0.05"
+            value=${state.ambientVolume ?? 0.55}
+            onInput=${e => setAmbientVolume(parseFloat(e.target.value))}
+          />
+          <span class="settings-volume-val">${Math.round((state.ambientVolume ?? 0.55) * 100)}%</span>
+        </div>
+      `}
+      <p class="settings-note" style="margin-bottom:16px;">
+        Synthesised in-browser — no files, works offline. Audio starts on first tap after opening the play board.
+      </p>
+
       <p class="settings-intro">
         Tell the app which products you own. This filters the character picker and card search to only show cards you actually have.
       </p>

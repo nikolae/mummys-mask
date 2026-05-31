@@ -12,6 +12,16 @@ function App() {
   const appState = useAppState();
   const { state, patch } = appState;
 
+  // Apply persisted theme on startup
+  useEffect(() => {
+    const saved = localStorage.getItem('mm_theme') || 'dark';
+    if (saved === 'dark') {
+      document.body.removeAttribute('data-theme');
+    } else {
+      document.body.setAttribute('data-theme', saved);
+    }
+  }, []);
+
   // Load settings from server on startup
   useEffect(() => {
     api.getSettings().then(settings => {

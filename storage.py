@@ -117,6 +117,9 @@ def init_db():
             "ALTER TABLE game_sessions ADD COLUMN char_hand_counts TEXT NOT NULL DEFAULT '{}'",
             "ALTER TABLE game_sessions ADD COLUMN is_hybrid INTEGER NOT NULL DEFAULT 0",
             "ALTER TABLE game_sessions ADD COLUMN explored_this_turn INTEGER NOT NULL DEFAULT 0",
+            "ALTER TABLE game_sessions ADD COLUMN char_deck_counts TEXT NOT NULL DEFAULT '{}'",
+            "ALTER TABLE game_sessions ADD COLUMN villain_last_seen TEXT",
+            "ALTER TABLE game_sessions ADD COLUMN moved_this_turn TEXT",
         ]:
             try:
                 conn.execute(migration)
@@ -247,16 +250,24 @@ def create_session(campaign_id, scenario_id, location_configs, character_locatio
     turn_order = [c["id"] for c in chars if not c["is_dead"]]
     first_player = turn_order[0] if turn_order else None
     initial_hand_counts = json.dumps({c["id"]: c["hand_size"] for c in chars})
+    # Deck depth: number of cards in each character's personal card pool
+    initial_deck_counts = {}
+    for c in chars:
+        deck = json.loads(c.get("deck_contents") or "[]") if isinstance(c.get("deck_contents"), str) else (c.get("deck_contents") or [])
+        initial_deck_counts[c["id"]] = len(deck) if deck else 15
+    initial_deck_counts_json = json.dumps(initial_deck_counts)
 
     with _connect() as conn:
         conn.execute(
             """INSERT INTO game_sessions
                (id, campaign_id, scenario_id, status, started_at,
                 blessings_remaining, blessings_total, current_turn,
-                current_player_id, current_phase, turn_order, char_hand_counts, is_hybrid)
-               VALUES (?, ?, ?, 'playing', ?, 30, 30, 1, ?, 'explore', ?, ?, ?)""",
+                current_player_id, current_phase, turn_order, char_hand_counts,
+                char_deck_counts, is_hybrid)
+               VALUES (?, ?, ?, 'playing', ?, 30, 30, 1, ?, 'explore', ?, ?, ?, ?)""",
             (session_id, campaign_id, scenario_id, now, first_player,
-             json.dumps(turn_order), initial_hand_counts, 1 if is_hybrid else 0),
+             json.dumps(turn_order), initial_hand_counts,
+             initial_deck_counts_json, 1 if is_hybrid else 0),
         )
 
         for idx, loc_cfg in enumerate(location_configs):
@@ -316,15 +327,28 @@ def get_session(session_id):
             (session_id,),
         ).fetchall()
         hand_counts = json.loads(session.get("char_hand_counts") or "{}")
+        deck_counts = json.loads(session.get("char_deck_counts") or "{}")
         session["characters"] = []
         for c in chars:
             char = _parse_char(c)
             char["cards_in_hand"] = hand_counts.get(char["id"], char["hand_size"])
+            # Deck depth: use session counter if set, otherwise fall back to deck_contents length
+            deck_list = char.get("deck_contents") or []
+            default_depth = len(deck_list) if deck_list else 15
+            char["cards_in_deck"] = deck_counts.get(char["id"], default_depth)
             session["characters"].append(char)
 
         # Normalize field names for the frontend
         session["current_player"] = session.get("current_player_id")
         session["turn_number"] = session.get("current_turn", 1)
+        # Parse villain_last_seen from JSON if present (legacy plain-string values are kept as-is)
+        vls = session.get("villain_last_seen")
+        if vls and vls.startswith("{"):
+            try:
+                session["villain_last_seen"] = json.loads(vls)
+            except Exception:
+                pass
+        # started_at is already present from SELECT *
 
         return session
 
@@ -438,6 +462,11 @@ def action_move(session_id, character_id, to_location_id):
                     character_id, "move",
                     {"to_location_id": to_location_id})
 
+        conn.execute(
+            "UPDATE game_sessions SET moved_this_turn = ? WHERE id = ?",
+            (character_id, session_id),
+        )
+
     return get_session(session_id), None
 
 
@@ -475,7 +504,7 @@ def action_end_turn(session_id):
             """UPDATE game_sessions SET
                blessings_remaining = ?, current_player_id = ?,
                current_turn = ?, status = ?, finished_at = ?,
-               char_hand_counts = ?, explored_this_turn = 0
+               char_hand_counts = ?, explored_this_turn = 0, moved_this_turn = NULL
                WHERE id = ?""",
             (new_blessings, next_player, new_turn, status, finished_at,
              json.dumps(hand_counts), session_id),
@@ -626,6 +655,15 @@ def action_encounter(session_id, location_id, card_name, result, dice_total=None
                         (target["id"],),
                     )
                 escaped_to = target["location_name"]
+                # Persist the villain's last known location (JSON: location + turn)
+                villain_seen = json.dumps({
+                    "location": escaped_to,
+                    "turn": sess["current_turn"],
+                })
+                conn.execute(
+                    "UPDATE game_sessions SET villain_last_seen = ? WHERE id = ?",
+                    (villain_seen, session_id),
+                )
 
         _log_action(conn, session_id, sess["current_turn"],
                     sess["current_player_id"], f"encounter_{result}",
@@ -686,14 +724,46 @@ def action_set_hand(session_id, char_id, count):
     return get_session(session_id), None
 
 
-def get_turn_log(session_id, limit=50):
+def action_set_deck_count(session_id, char_id, count):
+    """Manually set a character's deck depth (used when cards are permanently banished/buried)."""
+    with _connect() as conn:
+        sess = conn.execute(
+            "SELECT current_turn, char_deck_counts FROM game_sessions WHERE id = ?",
+            (session_id,),
+        ).fetchone()
+        if not sess:
+            return None, "Session not found"
+        counts = json.loads(sess["char_deck_counts"] or "{}")
+        new_count = max(0, int(count))
+        counts[char_id] = new_count
+        conn.execute(
+            "UPDATE game_sessions SET char_deck_counts = ? WHERE id = ?",
+            (json.dumps(counts), session_id),
+        )
+        _log_action(conn, session_id, sess["current_turn"],
+                    char_id, "set_deck_count", {"cards_in_deck": new_count})
+    return get_session(session_id), None
+
+
+def get_turn_log(session_id, limit=200):
     with _connect() as conn:
         rows = conn.execute(
             """SELECT * FROM turn_log WHERE session_id = ?
                ORDER BY id DESC LIMIT ?""",
             (session_id, limit),
         ).fetchall()
-        return [dict(r) for r in rows]
+        result = []
+        for r in rows:
+            entry = dict(r)
+            if entry.get("details"):
+                try:
+                    entry["details"] = json.loads(entry["details"])
+                except Exception:
+                    entry["details"] = {}
+            else:
+                entry["details"] = {}
+            result.append(entry)
+        return result
 
 
 # ── Settings ───────────────────────────────────────────────────────────────────

@@ -81,11 +81,31 @@ export function ScenarioBriefModal({ scenarioId, onClose }) {
             </div>
           `}
 
+          <!-- GM Tips -->
+          ${scenario.tips && html`
+            <div class="scenario-brief-section">
+              <div class="scenario-brief-section-label">💡 Tips</div>
+              <div class="scenario-brief-tips">${scenario.tips}</div>
+            </div>
+          `}
+
           <!-- Reward -->
           ${scenario.reward && html`
             <div class="scenario-brief-section scenario-brief-reward-section">
-              <div class="scenario-brief-section-label">🎁 Reward</div>
+              <div class="scenario-brief-section-label">🎁 Reward — if you win</div>
               <div class="scenario-brief-reward">${scenario.reward}</div>
+              <div class="scenario-brief-reward-hint">
+                ${/Traders?:/i.test(scenario.reward)
+                  ? '🏪 Unlocks traders — each character may acquire one card per trader during future Deck Rebuilding.'
+                  : /Loot:/i.test(scenario.reward)
+                  ? '📦 Find this card in the game box after winning — one character adds it to their deck.'
+                  : /draws?\s+a\s+random/i.test(scenario.reward)
+                  ? '🎲 Each character randomly draws the specified card type from the game box.'
+                  : /feat/i.test(scenario.reward)
+                  ? '⭐ Each character marks a feat on their character card after the session.'
+                  : '→ Full instructions shown on the victory screen.'
+                }
+              </div>
             </div>
           `}
 

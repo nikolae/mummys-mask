@@ -3,6 +3,8 @@ import { useApp } from '/static/js/state.js';
 import { Modal } from '/static/js/components/common/Modal.js';
 import { NewGameGuide } from '/static/js/components/common/NewGameGuide.js';
 import { GuidedBanner } from '/static/js/components/common/GuidedBanner.js';
+import { ThemeToggle } from '/static/js/components/common/ThemeToggle.js';
+import { AudioToggle } from '/static/js/components/common/AudioToggle.js';
 import { useState, useEffect, useCallback } from '/static/js/vendor/hooks.module.js';
 import * as api from '/static/js/api.js';
 
@@ -201,6 +203,12 @@ function ScenarioPanel({ adventures, selectedId, scenarioDetail, onSelect }) {
                   <span class="scenario-detail-during">${scenarioDetail.during}</span>
                 </div>
               `}
+              ${scenarioDetail.tips && html`
+                <div class="scenario-selected-row">
+                  <span class="scenario-detail-label">💡 Tips</span>
+                  <span class="scenario-detail-tips">${scenarioDetail.tips}</span>
+                </div>
+              `}
             </div>
           </div>`
         : selectedId
@@ -247,9 +255,11 @@ const DECK_ORDER = ['monster', 'barrier', 'weapon', 'spell', 'armor', 'item', 'a
 function LocationDeckGuide({ detail }) {
   if (!detail) return null;
 
-  const deckList = detail.deck_list || {};
-  const total    = Object.values(deckList).reduce((s, v) => s + (v || 0), 0);
-  const groups   = DECK_ORDER.filter(t => deckList[t] > 0);
+  const deckList  = detail.deck_list || {};
+  const total     = Object.values(deckList).reduce((s, v) => s + (v || 0), 0);
+  const groups    = DECK_ORDER.filter(t => deckList[t] > 0);
+  const banes     = (deckList.monster || 0) + (deckList.barrier || 0);
+  const baneHeavy = total >= 4 && banes / total > 0.55;
 
   return html`
     <div class="loc-deck-guide">
@@ -265,6 +275,12 @@ function LocationDeckGuide({ detail }) {
           </span>
         `)}
       </div>
+
+      ${baneHeavy && html`
+        <div class="deck-bane-warning">
+          ⚠ ${banes} of ${total} cards are banes — expect tough encounters here.
+        </div>
+      `}
 
       ${(detail.at_location || detail.to_close) && html`
         <div class="loc-rules-mini">
@@ -686,6 +702,8 @@ export function SetupView() {
           <h1 style="font-size:18px;">${campaign?.name ?? '…'}</h1>
           <div style="font-size:12px; color:var(--text-dim);">Scenario Setup</div>
         </div>
+        <${AudioToggle} small=${true} />
+        <${ThemeToggle} small=${true} />
         <button class=${'btn-ghost play-guided-btn' + (guidedMode ? ' active' : '')}
           title=${guidedMode ? 'Guided mode on — tap to disable' : 'Guided mode off — tap to enable'}
           onClick=${toggleGuided}>

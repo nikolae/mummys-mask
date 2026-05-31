@@ -9,9 +9,19 @@
   --tomb-mid:    #2C1F0E;
   --tomb-light:  #3D2D15;
   --tomb-card:   #231A0A;
+  --tomb-dark:   #0F0A04;   /* deepest dark, for drawers / always-dark surfaces */
+  --tomb-bg:     #2C1F0E;   /* alias for tomb-mid — panel backgrounds */
+  --tomb-border: #3D2D15;   /* alias for tomb-light — borders */
   --text-bright: #F0E8D5;
+  --text:        #F0E8D5;   /* alias for text-bright */
+  --text-main:   #F0E8D5;   /* alias for text-bright */
+  --text-primary:#F0E8D5;   /* alias for text-bright */
   --text-mid:    #C4AA7A;
   --text-dim:    #7A6040;
+  --gold-dim:    #8B6914;   /* alias for gold-dark — dimmed gold */
+  --accent-blue: #3A6BAB;   /* alias for blue-light */
+  --danger:      #C44040;   /* alias for red-light */
+  --success:     #4A9B5A;   /* alias for green-light */
   --red:         #8B2020;
   --red-light:   #C44040;
   --green:       #2A6B3A;
@@ -29,6 +39,66 @@
   --font-sm:     13px;
   --font-lg:     20px;
   --font-xl:     26px;
+}
+
+/* ── Light / Parchment theme ──────────────────────────────────────────────── */
+[data-theme="light"] {
+  --tomb:        #FAF5E4;
+  --tomb-mid:    #EDE0C4;
+  --tomb-light:  #D4C49A;
+  --tomb-card:   #F5EDD5;
+  --tomb-dark:   #FAF5E4;
+  --tomb-bg:     #EDE0C4;
+  --tomb-border: #D4C49A;
+  --text-bright: #2C1A08;
+  --text:        #2C1A08;
+  --text-main:   #2C1A08;
+  --text-primary:#2C1A08;
+  --text-mid:    #5C3D18;
+  --text-dim:    #9A7A50;
+  /* Gold must darken dramatically — #C9A227 is near-invisible on parchment */
+  --gold:        #8B5A00;
+  --gold-light:  #6B4300;
+  --gold-dark:   #4A2D00;
+  --gold-dim:    #8B5A00;
+  /* Red/green darken slightly for contrast on light bg */
+  --red-light:   #B02020;
+  --green-light: #2A7A3A;
+  --shadow:      0 2px 8px rgba(0,0,0,0.12);
+  --shadow-lg:   0 4px 20px rgba(0,0,0,0.18);
+}
+[data-theme="light"] body,
+[data-theme="light"] #app {
+  background: var(--tomb);
+  color: var(--text-bright);
+}
+
+/* ── High Contrast theme ──────────────────────────────────────────────────── */
+[data-theme="high-contrast"] {
+  --tomb:        #000000;
+  --tomb-mid:    #111111;
+  --tomb-light:  #333333;
+  --tomb-card:   #0A0A0A;
+  --tomb-dark:   #000000;
+  --tomb-bg:     #111111;
+  --tomb-border: #444444;
+  --text-bright: #FFFFFF;
+  --text:        #FFFFFF;
+  --text-main:   #FFFFFF;
+  --text-primary:#FFFFFF;
+  --text-mid:    #EEEEEE;
+  --text-dim:    #AAAAAA;
+  --gold:        #FFD700;
+  --gold-light:  #FFE84D;
+  --gold-dark:   #CCAA00;
+  --gold-dim:    #CCAA00;
+  --shadow:      0 2px 8px rgba(0,0,0,0.8);
+  --shadow-lg:   0 4px 20px rgba(0,0,0,0.9);
+}
+[data-theme="high-contrast"] body,
+[data-theme="high-contrast"] #app {
+  background: var(--tomb);
+  color: var(--text-bright);
 }
 
 *, *::before, *::after {
@@ -348,6 +418,27 @@ label {
   opacity: 0.7;
 }
 .guided-off-link:hover { opacity: 1; color: var(--text-mid); }
+
+.guided-collapse-btn {
+  margin-left: auto;
+  background: none;
+  border: none;
+  color: var(--text-dim);
+  font-size: 11px;
+  padding: 0 2px;
+  cursor: pointer;
+  line-height: 1;
+  opacity: 0.6;
+  flex-shrink: 0;
+}
+.guided-collapse-btn:hover { opacity: 1; }
+
+.guided-banner--collapsed {
+  padding-bottom: 12px;
+}
+.guided-banner--collapsed .guided-banner-head {
+  margin-bottom: 0;
+}
 
 /* Toggle button in page header */
 .guided-toggle {

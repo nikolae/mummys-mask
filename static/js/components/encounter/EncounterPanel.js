@@ -3,6 +3,7 @@ import { useState, useEffect, useRef, useCallback } from '/static/js/vendor/hook
 import { useApp } from '/static/js/state.js';
 import { DiceRoller } from '/static/js/components/encounter/DiceRoller.js';
 import { ContextualRules } from '/static/js/components/common/RulesChip.js';
+import { LoreBriefingModal } from '/static/js/components/common/LoreBriefingModal.js';
 import * as api from '/static/js/api.js';
 
 // ── Card Search with autocomplete ────────────────────────────────────────────
@@ -154,6 +155,121 @@ function PostEncounterLore({ card, loreEntries, onContinue }) {
   `;
 }
 
+// ── Skill check calculator ────────────────────────────────────────────────────
+
+function parseFlatBonus(derivedFrom) {
+  if (!derivedFrom) return 0;
+  const m = String(derivedFrom).match(/[+](\d+)/);
+  return m ? parseInt(m[1]) : 0;
+}
+
+// Resolve card check skill name → matching character skills.
+// Handles: exact match, "Combat" (= Melee or Ranged), attribute names (Strength → skills
+// derived from Strength), and special non-check values.
+const SKIP_SKILLS = new Set(['n/a', 'none', 'see below', 'bury a card', 'bury an armor']);
+
+function resolveSkills(checkSkillName, charSkillMap) {
+  const key = checkSkillName.toLowerCase().trim();
+  if (SKIP_SKILLS.has(key)) return [];
+
+  // Direct name match
+  if (charSkillMap[key]) return [charSkillMap[key]];
+
+  // "Combat" = Melee OR Ranged (player's choice of better option).
+  // If neither exists, fall back to bare Strength +0 / Dexterity +0 as a reminder
+  // that the character still rolls a base attribute die.
+  if (key === 'combat') {
+    const found = ['melee', 'ranged'].map(k => charSkillMap[k]).filter(Boolean);
+    if (found.length) return found;
+    return [
+      { name: 'Strength (no skill)', bonus: 0, derivedFrom: '' },
+      { name: 'Dexterity (no skill)', bonus: 0, derivedFrom: '' },
+    ];
+  }
+
+  // Attribute check (e.g. "Strength", "Dexterity"): find skills whose derived_from
+  // begins with that attribute name
+  const byAttr = Object.values(charSkillMap).filter(s =>
+    s.derivedFrom.toLowerCase().startsWith(key)
+  );
+  if (byAttr.length) return byAttr;
+
+  return [];
+}
+
+function SkillCalc({ card, character }) {
+  const [open, setOpen] = useState(false);
+  const checks = card?.checks;
+  const skills = character?.skills;
+  if (!checks?.length || !skills) return null;
+
+  // Build { nameLower → { name, bonus, derivedFrom } }
+  const charSkillMap = {};
+  for (const [name, data] of Object.entries(skills)) {
+    charSkillMap[name.toLowerCase()] = {
+      name,
+      bonus: parseFlatBonus(data?.derived_from),
+      derivedFrom: data?.derived_from || '',
+    };
+  }
+
+  // Pre-process checks — skip ones with no usable skill rows
+  const processedChecks = checks.map((chk, i) => {
+    const difficulty = parseInt(chk.difficulty) || 0;
+    const skillNames = chk.skills || [];
+    const rows = [];
+    for (const sn of skillNames) {
+      const matches = resolveSkills(sn, charSkillMap);
+      if (matches.length) {
+        for (const m of matches) {
+          const needed = difficulty - m.bonus;
+          let resultText, resultClass;
+          if (needed <= 0)      { resultText = 'Auto-pass';          resultClass = 'skill-result--easy'; }
+          else if (needed <= 4) { resultText = `Roll ${needed}+`;    resultClass = 'skill-result--easy'; }
+          else if (needed <= 8) { resultText = `Roll ${needed}+`;    resultClass = 'skill-result--ok';   }
+          else                  { resultText = `Roll ${needed}+ ⚠`; resultClass = 'skill-result--hard'; }
+          rows.push({ label: m.name, bonus: m.bonus, resultText, resultClass });
+        }
+      } else {
+        // Unknown skill — show the name with a ? so it's still informative
+        const skip = SKIP_SKILLS.has(sn.toLowerCase().trim());
+        if (!skip) rows.push({ label: sn, bonus: null, resultText: '—', resultClass: '' });
+      }
+    }
+    return { i, difficulty, skillNames, rows };
+  }).filter(c => c.rows.length > 0);
+
+  if (!processedChecks.length) return null;
+
+  return html`
+    <div class="skill-calc">
+      <div class="skill-calc-head" onClick=${() => setOpen(o => !o)}>
+        <span>🎲 ${character.name}'s check</span>
+        <span class="skill-calc-chevron">${open ? '▲' : '▼'}</span>
+      </div>
+      ${open && processedChecks.map(chk => html`
+        <div key=${chk.i} class="skill-calc-check">
+          ${chk.rows.length > 1
+            ? html`<div class="skill-calc-label">Choose highest:</div>`
+            : null
+          }
+          ${chk.rows.map(r => html`
+            <div key=${r.label} class="skill-calc-row">
+              <span class="skill-calc-name">${r.label}</span>
+              ${r.bonus != null
+                ? html`<span class="skill-calc-bonus">+${r.bonus}</span>`
+                : html`<span class="skill-calc-bonus skill-calc-bonus--unknown">?</span>`
+              }
+              <span class="skill-calc-vs">vs ${chk.difficulty}</span>
+              <span class=${'skill-calc-result ' + r.resultClass}>${r.resultText}</span>
+            </div>
+          `)}
+        </div>
+      `)}
+    </div>
+  `;
+}
+
 // ── Damage recorder ───────────────────────────────────────────────────────────
 
 const BANE_TYPES = new Set(['monster', 'barrier', 'henchman', 'villain']);
@@ -175,7 +291,6 @@ function DamageRecorder({ card, sessionId, characters, currentCharId, guidedMode
     if (suggestedAmount > 0) setAmount(suggestedAmount);
   }, [card.name]);
 
-  const isTrigger = card.traits?.some(t => t.toLowerCase() === 'trigger');
   const currentChar = characters?.find(c => c.id === charId);
   const handCount = currentChar?.cards_in_hand ?? currentChar?.hand_size ?? 0;
 
@@ -195,16 +310,6 @@ function DamageRecorder({ card, sessionId, characters, currentCharId, guidedMode
 
   return html`
     <div class="damage-recorder">
-      ${isTrigger && html`
-        <div class="trigger-banner">
-          <span class="trigger-banner-label">⚡ Trigger</span>
-          <span class="trigger-banner-text">
-            This card deals its examine effect <strong>before</strong> you attempt the check.
-            Record and discard those cards from your hand first.
-          </span>
-        </div>
-      `}
-
       <div class="damage-recorder-body">
         <div class="damage-recorder-head">
           💔 Damage
@@ -253,21 +358,25 @@ function DamageRecorder({ card, sessionId, characters, currentCharId, guidedMode
 
 // ── Main EncounterPanel ───────────────────────────────────────────────────────
 
-export function EncounterPanel({ location, sessionId, blessingsRemaining,
+export function EncounterPanel({ location, sessionId, scenarioId, blessingsRemaining,
                                   characters, currentCharId,
                                   revealedCard,
                                   onClose, onUpdate, onVillainSpotted }) {
   const { state, toast } = useApp();
   const { guidedMode, ownedProducts } = state;
-  const [selectedCard, setSelectedCard] = useState(null);
-  const [lore, setLore]                 = useState(null);
-  const [diceTotal, setDiceTotal]       = useState(null);
-  const [busy, setBusy]                 = useState(false);
+  const [selectedCard, setSelectedCard]         = useState(null);
+  const [lore, setLore]                         = useState(null);
+  const [diceTotal, setDiceTotal]               = useState(null);
+  const [busy, setBusy]                         = useState(false);
   // After defeating a henchman, ask whether to attempt closing the location
   const [showHenchmanClose, setShowHenchmanClose] = useState(false);
   const [henchmanCloseBusy, setHenchmanCloseBusy] = useState(false);
   // Post-defeat / post-acquire lore interstitial
-  const [showPostLore, setShowPostLore] = useState(false);
+  const [showPostLore, setShowPostLore]           = useState(false);
+  // Pre-encounter lore (when_appears / when triggered) — shown once when card is first selected
+  const [showPreLore, setShowPreLore]             = useState(false);
+  // Post-close lore (when permanently closed / after_closing)
+  const [closeLore, setCloseLore]                 = useState(null);
 
   // Auto-populate card search when a revealed card comes in from hybrid explore
   useEffect(() => {
@@ -284,11 +393,18 @@ export function EncounterPanel({ location, sessionId, blessingsRemaining,
     });
   }, [revealedCard?.name]);
 
-  // Load lore whenever a card is selected
+  // Load lore whenever a card is selected; filter to current scenario
   useEffect(() => {
-    if (!selectedCard) { setLore(null); return; }
+    if (!selectedCard) { setLore(null); setShowPreLore(false); return; }
     api.getLore(selectedCard.name).then(entries => {
-      setLore(entries.length ? entries : null);
+      // Keep only entries that apply to this scenario (or have no scenario restriction)
+      const relevant = entries.filter(e => !e.scenario || e.scenario === scenarioId);
+      setLore(relevant.length ? relevant : null);
+      // Show pre-encounter interstitial for when_appears / when triggered entries
+      const hasPreLore = relevant.some(
+        e => e.trigger === 'when_appears' || e.trigger === 'when triggered'
+      );
+      if (hasPreLore) setShowPreLore(true);
     }).catch(() => setLore(null));
     // Fire villain broadcast for physical mode (hybrid mode fires it before the panel opens)
     if (selectedCard.type === 'villain' && onVillainSpotted) {
@@ -347,7 +463,19 @@ export function EncounterPanel({ location, sessionId, blessingsRemaining,
         toast(`${location.name} permanently closed.`);
       }
       onUpdate();
-      onClose();
+
+      // Check for when_permanently_closed / after_closing lore for this location
+      const locEntries = await api.getLore(location.name).catch(() => []);
+      const closeable = locEntries.filter(e =>
+        (e.trigger === 'when permanently closed' || e.trigger === 'after_closing') &&
+        (!e.scenario || e.scenario === scenarioId)
+      );
+      if (closeable.length) {
+        setCloseLore(closeable);
+        // don't call onClose() yet — wait for user to dismiss lore
+      } else {
+        onClose();
+      }
     } catch (e) {
       toast('Close failed: ' + e.message, 'error');
     } finally {
@@ -361,6 +489,7 @@ export function EncounterPanel({ location, sessionId, blessingsRemaining,
 
   const isBane   = selectedCard && BANE_TYPES.has(selectedCard.type);
   const isBoon   = selectedCard && BOON_TYPES.has(selectedCard.type);
+  const currentChar = characters?.find(c => c.id === currentCharId);
 
   // For hybrid mode: if a card was revealed, show a banner explaining what happened.
   // Named reveal (villain/henchman): card is auto-loaded into selectedCard.
@@ -414,6 +543,8 @@ export function EncounterPanel({ location, sessionId, blessingsRemaining,
 
           ${selectedCard && html`<${CardInfo} card=${selectedCard} />`}
 
+          ${selectedCard && html`<${SkillCalc} card=${selectedCard} character=${currentChar} />`}
+
           ${lore && html`<${LoreSection} entries=${lore} />`}
 
           ${selectedCard && html`
@@ -422,6 +553,16 @@ export function EncounterPanel({ location, sessionId, blessingsRemaining,
               cardTraits=${selectedCard.traits || []}
               blessingsLow=${blessingsRemaining != null && blessingsRemaining <= 5}
             />
+          `}
+
+          ${isBane && selectedCard?.traits?.some(t => t.toLowerCase() === 'trigger') && html`
+            <div class="trigger-banner">
+              <span class="trigger-banner-label">⚡ Trigger</span>
+              <span class="trigger-banner-text">
+                This card deals its examine effect <strong>before</strong> you attempt the check.
+                Record and discard those cards from your hand first.
+              </span>
+            </div>
           `}
 
           ${isBane && html`
@@ -438,7 +579,21 @@ export function EncounterPanel({ location, sessionId, blessingsRemaining,
           <${DiceRoller} onResult=${setDiceTotal} />
         </div>
 
-        ${showPostLore
+        ${showPreLore
+          ? html`
+            <div class="pre-encounter-lore">
+              <div class="pre-lore-header">
+                <span class="pre-lore-badge">⚱ Adventure Journal</span>
+                <span class="pre-lore-card-name">${selectedCard?.name} appears…</span>
+              </div>
+              <div class="lore-text">${lore?.find(e => e.trigger === 'when_appears' || e.trigger === 'when triggered')?.text}</div>
+              <button class="btn-primary btn-sm pre-lore-continue"
+                onClick=${() => setShowPreLore(false)}>
+                Begin Encounter
+              </button>
+            </div>
+          `
+          : showPostLore
           ? html`
             <${PostEncounterLore}
               card=${selectedCard}
@@ -497,5 +652,12 @@ export function EncounterPanel({ location, sessionId, blessingsRemaining,
         }
       </div>
     </div>
+
+    ${closeLore && html`
+      <${LoreBriefingModal}
+        entries=${closeLore}
+        onClose=${() => { setCloseLore(null); onClose(); }}
+      />
+    `}
   `;
 }

@@ -56,6 +56,7 @@ export const actionCloseLocation = (id, data)          => post(`/api/sessions/${
 export const actionEncounter     = (id, data)          => post(`/api/sessions/${id}/actions/encounter`,       data);
 export const actionDamage        = (id, data)          => post(`/api/sessions/${id}/actions/damage`,          data);
 export const actionSetHand       = (id, data)          => post(`/api/sessions/${id}/actions/set-hand`,        data);
+export const actionSetDeckCount  = (id, data)          => post(`/api/sessions/${id}/actions/set-deck-count`,  data);
 export const actionTempClose     = (id, data)          => post(`/api/sessions/${id}/actions/temp-close`,      data);
 
 // Card search — pass owned product array to filter results to cards the player has

@@ -5,6 +5,8 @@ import { NewGameGuide } from '/static/js/components/common/NewGameGuide.js';
 import { GuidedBanner } from '/static/js/components/common/GuidedBanner.js';
 import { LoreBriefingModal } from '/static/js/components/common/LoreBriefingModal.js';
 import { SettingsModal } from '/static/js/components/common/SettingsModal.js';
+import { ThemeToggle } from '/static/js/components/common/ThemeToggle.js';
+import { AudioToggle } from '/static/js/components/common/AudioToggle.js';
 import { useState, useEffect, useCallback } from '/static/js/vendor/hooks.module.js';
 import * as api from '/static/js/api.js';
 
@@ -95,6 +97,8 @@ export function CampaignHome() {
       <div class="page-header">
         <h1>⚱ Mummy's Mask</h1>
         <div class="page-header-actions">
+          <${AudioToggle} small=${true} />
+          <${ThemeToggle} small=${true} />
           <button class="btn-ghost btn-sm settings-btn"
             onClick=${() => setShowSettings(true)}
             title="Content ownership settings">

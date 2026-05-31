@@ -33,6 +33,13 @@ export function makeInitialState() {
     // Guided (new player) mode — persisted in localStorage
     guidedMode: typeof localStorage !== 'undefined' && localStorage.getItem('mm_guided') === 'true',
 
+    // UI theme — 'dark' | 'light' | 'high-contrast', persisted in localStorage
+    theme: typeof localStorage !== 'undefined' ? (localStorage.getItem('mm_theme') || 'dark') : 'dark',
+
+    // Ambient audio — persisted in localStorage
+    ambientEnabled: typeof localStorage !== 'undefined' ? (localStorage.getItem('mm_ambient_enabled') !== 'false') : true,
+    ambientVolume:  typeof localStorage !== 'undefined' ? parseFloat(localStorage.getItem('mm_ambient_volume') || '0.55') : 0.55,
+
     // Owned products (loaded from server on startup)
     ownedProducts: ['base', 'class_deck'],
 
@@ -78,5 +85,26 @@ export function useAppState() {
     });
   }, []);
 
-  return { state, patch, navigate, toast, patchSetup, patchSession, toggleGuided };
+  const setTheme = useCallback((theme) => {
+    localStorage.setItem('mm_theme', theme);
+    if (theme === 'dark') {
+      document.body.removeAttribute('data-theme');
+    } else {
+      document.body.setAttribute('data-theme', theme);
+    }
+    setState(s => ({ ...s, theme }));
+  }, []);
+
+  const setAmbientEnabled = useCallback((on) => {
+    localStorage.setItem('mm_ambient_enabled', String(on));
+    setState(s => ({ ...s, ambientEnabled: on }));
+  }, []);
+
+  const setAmbientVolume = useCallback((v) => {
+    const val = Math.max(0, Math.min(1, v));
+    localStorage.setItem('mm_ambient_volume', String(val));
+    setState(s => ({ ...s, ambientVolume: val }));
+  }, []);
+
+  return { state, patch, navigate, toast, patchSetup, patchSession, toggleGuided, setTheme, setAmbientEnabled, setAmbientVolume };
 }

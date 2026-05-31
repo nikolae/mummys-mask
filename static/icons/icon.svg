@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 192 192">
+  <rect width="192" height="192" rx="40" fill="#1A1208"/>
+  <!-- Ankh body -->
+  <rect x="89" y="96" width="14" height="56" rx="4" fill="#C9A227"/>
+  <!-- Ankh crossbar -->
+  <rect x="60" y="110" width="72" height="13" rx="4" fill="#C9A227"/>
+  <!-- Ankh loop -->
+  <ellipse cx="96" cy="86" rx="22" ry="26" fill="none" stroke="#C9A227" stroke-width="13"/>
+  <!-- Eye of Horus dots -->
+  <circle cx="96" cy="52" r="5" fill="#C9A227" opacity="0.6"/>
+</svg>

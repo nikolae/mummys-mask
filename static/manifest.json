@@ -1,0 +1,18 @@
+{
+  "name": "Mummy's Mask GM",
+  "short_name": "MM PACG",
+  "description": "Pathfinder Adventure Card Game: Mummy's Mask — GM companion app",
+  "start_url": "/",
+  "display": "standalone",
+  "orientation": "any",
+  "background_color": "#1A1208",
+  "theme_color": "#1A1208",
+  "icons": [
+    {
+      "src": "/static/icons/icon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    }
+  ]
+}

@@ -493,18 +493,29 @@ def create_session():
     return jsonify(session), 201
 
 
-@app.route("/api/sessions/<session_id>")
-def get_session(session_id):
-    sess = storage.get_session(session_id)
-    if not sess:
-        return jsonify({"error": "not found"}), 404
-    # Enrich each location with rules text and deck data
+def _enrich_session(sess):
+    """Merge location rules text and character template skills into a session dict."""
+    # Location rules text
     for loc in sess.get("locations", []):
         detail = _location_detail(loc["name"])
         loc.setdefault("at_location", detail["at_location"])
         loc.setdefault("to_close",    detail["to_close"])
         loc.setdefault("when_closed", detail["when_closed"])
-    return jsonify(sess)
+    # Merge template skills into campaign characters (skills aren't stored per-character)
+    char_template_map = {t["name"]: t for t in GAME_DATA.get("characters", [])}
+    for char in sess.get("characters", []):
+        tmpl = char_template_map.get(char.get("character_type"), {})
+        if not char.get("skills"):
+            char["skills"] = tmpl.get("skills", {})
+    return sess
+
+
+@app.route("/api/sessions/<session_id>")
+def get_session(session_id):
+    sess = storage.get_session(session_id)
+    if not sess:
+        return jsonify({"error": "not found"}), 404
+    return jsonify(_enrich_session(sess))
 
 
 @app.route("/api/sessions/<session_id>/log")
@@ -523,7 +534,7 @@ def _action(session_id, fn, *args, **kwargs):
     result, error = fn(session_id, *args, **kwargs)
     if error:
         return jsonify({"error": error}), 400
-    return jsonify(result)
+    return jsonify(_enrich_session(result))
 
 
 @app.route("/api/sessions/<session_id>/actions/explore", methods=["POST"])
@@ -605,6 +616,13 @@ def action_encounter(session_id):
 def action_temp_close(session_id):
     body = request.get_json(force=True)
     return _action(session_id, storage.action_temp_close_location, body["location_id"])
+
+
+@app.route("/api/sessions/<session_id>/actions/set-deck-count", methods=["POST"])
+def action_set_deck_count(session_id):
+    body = request.get_json(force=True)
+    return _action(session_id, storage.action_set_deck_count,
+                   body["character_id"], int(body.get("count", 0)))
 
 
 # ── Settings API ───────────────────────────────────────────────────────────────

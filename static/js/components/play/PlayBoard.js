@@ -12,8 +12,76 @@ import { CharacterSheet } from '/static/js/components/character/CharacterSheet.j
 import { LoreBriefingModal } from '/static/js/components/common/LoreBriefingModal.js';
 import { VillainBroadcast } from '/static/js/components/play/VillainBroadcast.js';
 import { ScenarioBriefModal } from '/static/js/components/play/ScenarioBriefModal.js';
-import { useState, useEffect, useCallback } from '/static/js/vendor/hooks.module.js';
+import { TurnLogDrawer } from '/static/js/components/play/TurnLogDrawer.js';
+import { ThemeToggle } from '/static/js/components/common/ThemeToggle.js';
+import { AudioToggle } from '/static/js/components/common/AudioToggle.js';
+import { audioManager, SCENARIO_ENV } from '/static/js/audio.js';
+import { useState, useEffect, useCallback, useRef } from '/static/js/vendor/hooks.module.js';
 import * as api from '/static/js/api.js';
+
+// ── Session timer hook ────────────────────────────────────────────────────────
+
+function useSessionTimer(startedAt) {
+  const [elapsed, setElapsed] = useState(0);
+  const rafRef = useRef(null);
+
+  useEffect(() => {
+    if (!startedAt) return;
+    const startMs = new Date(startedAt).getTime();
+    function tick() {
+      setElapsed(Math.floor((Date.now() - startMs) / 1000));
+      rafRef.current = setTimeout(tick, 1000);
+    }
+    tick();
+    return () => clearTimeout(rafRef.current);
+  }, [startedAt]);
+
+  const h = Math.floor(elapsed / 3600);
+  const m = Math.floor((elapsed % 3600) / 60);
+  const s = elapsed % 60;
+  return h > 0
+    ? `${h}:${String(m).padStart(2, '0')}:${String(s).padStart(2, '0')}`
+    : `${m}:${String(s).padStart(2, '0')}`;
+}
+
+// ── "What now?" lightweight context chip (shown when guided mode is OFF) ──────
+
+function WhatNowChip({ blessingsRemaining, exploredThisTurn, openLocations, currentChar, movedThisTurn }) {
+  let icon, text, urgent = false;
+
+  if (blessingsRemaining <= 5) {
+    icon = '⚡';
+    text = `Only ${blessingsRemaining} blessing${blessingsRemaining !== 1 ? 's' : ''} left — find and trap the villain now!`;
+    urgent = true;
+  } else if (blessingsRemaining <= 10) {
+    icon = '⚠️';
+    text = `${blessingsRemaining} blessings left — start closing locations.`;
+    urgent = true;
+  } else if (exploredThisTurn) {
+    const hs = currentChar?.hand_size ?? '?';
+    text = `✓ Explored! Refill ${currentChar?.name ?? 'your'} hand to ${hs}, then end the turn.`;
+    icon = null;
+  } else {
+    text = `${currentChar?.name ?? 'Current player'}: explore your location deck, then end your turn.`;
+    icon = '👉';
+  }
+
+  return html`
+    <div class="what-now-wrap">
+      <div class=${'what-now-chip' + (urgent ? ' what-now-chip--urgent' : '')}>
+        ${icon ? html`<span class="what-now-icon">${icon}</span>` : null}
+        ${text}
+      </div>
+      ${movedThisTurn && !exploredThisTurn && html`
+        <div class="move-timing-note">
+          🚶 Moved this turn — you may still explore once at your new location.
+        </div>
+      `}
+    </div>
+  `;
+}
+
+// ── Main PlayBoard ────────────────────────────────────────────────────────────
 
 export function PlayBoard() {
   const { state, navigate, toast, toggleGuided } = useApp();
@@ -27,10 +95,13 @@ export function PlayBoard() {
   const [revealedCard, setRevealedCard] = useState(null); // card revealed by hybrid explore
   const [showRules, setShowRules]       = useState(false);
   const [showTeacher, setShowTeacher]   = useState(false);
+  const [showLog, setShowLog]           = useState(false);
   const [sheetChar, setSheetChar]       = useState(null); // character sheet overlay
   const [briefingEntries, setBriefingEntries] = useState(null);   // lore briefing on session start
   const [showScenarioBrief, setShowScenarioBrief] = useState(false); // rules briefing on session start
   const [villainBroadcast, setVillainBroadcast] = useState(null);    // villain found alert
+
+  const timerStr = useSessionTimer(session?.started_at);
 
   const loadSession = useCallback(async () => {
     try {
@@ -95,6 +166,21 @@ export function PlayBoard() {
     if (session?.current_player) setCurrentCharId(session.current_player);
   }, [session?.current_player]);
 
+  // ── Ambient audio ─────────────────────────────────────────────────────────
+  // Start when scenario is known; stop on unmount (navigating away).
+  useEffect(() => {
+    if (!session?.scenario_id) return;
+    audioManager.setEnabled(state.ambientEnabled !== false);
+    audioManager.setAmbientVolume(state.ambientVolume ?? 0.55);
+    const env = SCENARIO_ENV[session.scenario_id];
+    if (env) audioManager.startAmbient(env);
+    return () => audioManager.stopAmbient(1.5);
+  }, [session?.scenario_id]);
+
+  // Sync enabled/volume changes from Settings without restarting audio
+  useEffect(() => { audioManager.setEnabled(state.ambientEnabled !== false); }, [state.ambientEnabled]);
+  useEffect(() => { audioManager.setAmbientVolume(state.ambientVolume ?? 0.55); }, [state.ambientVolume]);
+
   async function handleExplore(loc) {
     try {
       const updated = await api.actionExplore(sessionId, { location_id: loc.id });
@@ -128,8 +214,16 @@ export function PlayBoard() {
   }
 
   const { status, blessings_remaining, scenario_id, locations, characters,
-          current_player, turn_number, explored_this_turn } = session;
+          current_player, turn_number, explored_this_turn, villain_last_seen,
+          moved_this_turn } = session;
   const campaignId = session.campaign_id;
+
+  // Parse villain last-seen indicator
+  const villainSeen = villain_last_seen
+    ? (typeof villain_last_seen === 'object'
+        ? villain_last_seen
+        : { location: villain_last_seen, turn: null })
+    : null;
 
   // Blessing urgency levels
   const blessingCrisis  = blessings_remaining <= 5;
@@ -182,7 +276,23 @@ export function PlayBoard() {
           <div class="scenario-name">Scenario ${scenario_id}</div>
           <div class="adventure-name">Adventure ${advId}</div>
         </div>
+
+        <!-- Villain last-seen indicator -->
+        ${villainSeen && html`
+          <div class="villain-seen-chip" title="Villain last seen">
+            <span class="villain-seen-icon">⚡</span>
+            <span class="villain-seen-text">
+              ${villainSeen.location}${villainSeen.turn ? ` (T${villainSeen.turn})` : ''}
+            </span>
+          </div>
+        `}
+
+        <!-- Session timer -->
+        <div class="session-timer" title="Session time">${timerStr}</div>
+
         <${BlessingDeck} remaining=${blessings_remaining} total=${30} />
+        <button class="btn-icon btn-ghost play-log-btn" title="Action Log"
+          onClick=${() => setShowLog(true)}>📋</button>
         <button class="btn-icon btn-ghost play-help-btn" title="Rules Reference"
           onClick=${() => setShowRules(true)}>?</button>
         <button class=${'btn-ghost play-guided-btn' + (guidedMode ? ' active' : '')}
@@ -192,6 +302,8 @@ export function PlayBoard() {
         </button>
         <button class="btn-ghost play-teach-btn" title="How to Play"
           onClick=${() => setShowTeacher(true)}>How to Play</button>
+        <${AudioToggle} small=${true} />
+        <${ThemeToggle} small=${true} />
       </div>
 
       <!-- Blessing urgency banner -->
@@ -223,7 +335,20 @@ export function PlayBoard() {
         `)}
       </div>
 
-      <!-- Guided mode banner -->
+      <!-- "What now?" chip — visible when guided mode is OFF -->
+      ${!guidedMode && !encounter && html`
+        <div class="play-guided-wrap">
+          <${WhatNowChip}
+            blessingsRemaining=${blessings_remaining}
+            exploredThisTurn=${!!explored_this_turn}
+            openLocations=${openLocations}
+            currentChar=${currentChar}
+            movedThisTurn=${moved_this_turn === current_player}
+          />
+        </div>
+      `}
+
+      <!-- Guided mode banner — full step-by-step (guided mode ON) -->
       ${guidedMode && !encounter && html`
         <div class="play-guided-wrap">
           <${GuidedBanner}
@@ -249,6 +374,7 @@ export function PlayBoard() {
         <${EncounterPanel}
           location=${encounter}
           sessionId=${sessionId}
+          scenarioId=${scenario_id}
           blessingsRemaining=${blessings_remaining}
           characters=${characters}
           currentCharId=${currentCharId}
@@ -300,6 +426,16 @@ export function PlayBoard() {
         <${LoreBriefingModal}
           entries=${briefingEntries}
           onClose=${() => setBriefingEntries(null)}
+        />
+      `}
+
+      <!-- Turn / action log drawer -->
+      ${showLog && html`
+        <${TurnLogDrawer}
+          sessionId=${sessionId}
+          characters=${characters}
+          locations=${locations}
+          onClose=${() => setShowLog(false)}
         />
       `}
     </div>
