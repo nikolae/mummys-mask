@@ -1,0 +1,38 @@
+# Portainer stack for Mummy's Mask GM App
+#
+# Workflow (image is built elsewhere, transferred, and loaded on the host):
+#   On your machine:
+#     docker build -t mummys-mask:latest .
+#     docker save mummys-mask:latest | gzip > mummys-mask.tar.gz
+#   Copy mummys-mask.tar.gz to the server, then on the server:
+#     docker load -i mummys-mask.tar.gz
+#   In Portainer: Stacks → Add stack → paste this file → Deploy.
+#
+# The stack references the locally-loaded image by tag and never contacts a
+# registry (pull_policy: never). Rebuild + re-load with the same tag, then
+# Pull and redeploy / Recreate the stack in Portainer to update.
+
+services:
+  app:
+    image: mummys-mask-app:latest
+    pull_policy: never          # image is loaded locally via `docker load`, not pulled
+    container_name: mummys-mask-app
+    ports:
+      - "5050:5050"             # host:container — change the host side to relocate the port
+    environment:
+      - PORT=5050
+      - DB_PATH=/data/mummys_mask.db
+      - FLASK_DEBUG=0
+    volumes:
+      - mummys-mask-data:/data
+    restart: unless-stopped
+    healthcheck:
+      # python is in the image; the slim base has no curl/wget
+      test: ["CMD", "python", "-c", "import urllib.request,sys; sys.exit(0 if urllib.request.urlopen('http://localhost:5050/').status==200 else 1)"]
+      interval: 30s
+      timeout: 5s
+      retries: 3
+      start_period: 10s
+
+volumes:
+  mummys-mask-data:
