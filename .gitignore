@@ -224,3 +224,4 @@ data/_unparsed.yaml
 
 # Local preview database (created by preview_start)
 .preview-data/
+*.gz
