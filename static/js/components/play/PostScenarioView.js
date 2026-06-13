@@ -3,6 +3,7 @@ import { useState, useEffect } from '/static/js/vendor/hooks.module.js';
 import { useApp } from '/static/js/state.js';
 import { DeckRebuildView } from '/static/js/components/play/DeckRebuildView.js';
 import { LoreBriefingModal } from '/static/js/components/common/LoreBriefingModal.js';
+import { audioManager } from '/static/js/audio.js';
 import * as api from '/static/js/api.js';
 
 // ── Constants ─────────────────────────────────────────────────────────────────
@@ -350,6 +351,12 @@ export function PostScenarioView({ session, campaignId, onDone }) {
   const [epilogueLore,  setEpilogueLore]  = useState(null);
 
   const won = status === 'won';
+
+  // Victory / defeat sting — fire once when the result screen appears
+  useEffect(() => {
+    if (status === 'won')  audioManager.playSfx('victory');
+    if (status === 'lost') audioManager.playSfx('defeat');
+  }, [status]);
 
   useEffect(() => {
     if (!scenario_id) return;

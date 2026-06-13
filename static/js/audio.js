@@ -521,18 +521,116 @@ const ENV_BUILDERS = {
   sky:         buildSky,
 };
 
+// ── SFX synthesis ─────────────────────────────────────────────────────────────
+// Each SFX is a short (<1.5 s) one-shot synthesised on demand and connected to
+// the shared sfx gain. Nodes auto-stop and are garbage-collected — no cleanup.
+
+// A single enveloped oscillator voice. Exponential ramps avoid click artefacts.
+function sfxTone(ctx, dest, t, opts) {
+  const { freq, freqEnd, dur, type = 'sine', peak = 0.3, attack = 0.005 } = opts;
+  const osc = ctx.createOscillator();
+  osc.type = type;
+  osc.frequency.setValueAtTime(freq, t);
+  if (freqEnd != null) osc.frequency.exponentialRampToValueAtTime(Math.max(1, freqEnd), t + dur);
+  const g = ctx.createGain();
+  g.gain.setValueAtTime(0.0001, t);
+  g.gain.exponentialRampToValueAtTime(peak, t + attack);
+  g.gain.exponentialRampToValueAtTime(0.0001, t + dur);
+  osc.connect(g);
+  g.connect(dest);
+  osc.start(t);
+  osc.stop(t + dur + 0.03);
+}
+
+// A single enveloped noise burst through a biquad filter (optional sweep).
+function sfxNoise(ctx, dest, t, opts) {
+  const { dur, type = 'highpass', freq = 2000, freqEnd, q = 0.7, peak = 0.3, attack = 0.004 } = opts;
+  const frames = Math.max(1, Math.floor(ctx.sampleRate * dur));
+  const buf = ctx.createBuffer(1, frames, ctx.sampleRate);
+  const data = buf.getChannelData(0);
+  for (let i = 0; i < frames; i++) data[i] = Math.random() * 2 - 1;
+  const src = ctx.createBufferSource();
+  src.buffer = buf;
+  const filt = ctx.createBiquadFilter();
+  filt.type = type;
+  filt.frequency.setValueAtTime(freq, t);
+  filt.Q.value = q;
+  if (freqEnd != null) filt.frequency.exponentialRampToValueAtTime(Math.max(1, freqEnd), t + dur);
+  const g = ctx.createGain();
+  g.gain.setValueAtTime(0.0001, t);
+  g.gain.exponentialRampToValueAtTime(peak, t + attack);
+  g.gain.exponentialRampToValueAtTime(0.0001, t + dur);
+  src.connect(filt);
+  filt.connect(g);
+  g.connect(dest);
+  src.start(t);
+  src.stop(t + dur + 0.03);
+}
+
+const SFX_BUILDERS = {
+  // Tumbling dice — accelerating-then-settling bandpass noise taps + final thunk
+  diceRoll(ctx, dest, t) {
+    let tt = t;
+    for (let i = 0; i < 7; i++) {
+      sfxNoise(ctx, dest, tt, {
+        dur: 0.035, type: 'bandpass', freq: 1200 + Math.random() * 900, q: 2.2, peak: 0.22,
+      });
+      tt += 0.04 + i * 0.012; // widening gaps → coming to rest
+    }
+    sfxNoise(ctx, dest, tt, { dur: 0.08, type: 'lowpass', freq: 500, peak: 0.16 });
+  },
+
+  // Card flip — quick upward-sweeping highpass swish
+  cardFlip(ctx, dest, t) {
+    sfxNoise(ctx, dest, t, {
+      dur: 0.13, type: 'highpass', freq: 1800, freqEnd: 5000, q: 0.6, peak: 0.15,
+    });
+  },
+
+  // Blessing tick — clean bell ping (fundamental + octave) as the deck advances
+  blessingTick(ctx, dest, t) {
+    sfxTone(ctx, dest, t, { freq: 880, dur: 0.18, type: 'sine', peak: 0.18, attack: 0.002 });
+    sfxTone(ctx, dest, t, { freq: 1760, dur: 0.12, type: 'sine', peak: 0.06, attack: 0.002 });
+  },
+
+  // Location close — stone scrape + descending low thud
+  locationClose(ctx, dest, t) {
+    sfxNoise(ctx, dest, t, { dur: 0.22, type: 'lowpass', freq: 700, freqEnd: 200, q: 0.5, peak: 0.15 });
+    sfxTone(ctx, dest, t + 0.12, { freq: 140, freqEnd: 55, dur: 0.34, type: 'sine', peak: 0.3, attack: 0.006 });
+  },
+
+  // Victory — ascending C-major arpeggio with a shimmering sustain
+  victory(ctx, dest, t) {
+    const notes = [523.25, 659.25, 783.99, 1046.5]; // C5 E5 G5 C6
+    notes.forEach((f, i) =>
+      sfxTone(ctx, dest, t + i * 0.12, { freq: f, dur: 0.55, type: 'triangle', peak: 0.2, attack: 0.008 }));
+    sfxTone(ctx, dest, t + 0.36, { freq: 1567.98, dur: 0.7, type: 'sine', peak: 0.08, attack: 0.02 });
+  },
+
+  // Defeat — descending minor tones over a low funeral toll
+  defeat(ctx, dest, t) {
+    const notes = [392, 311.13, 233.08]; // G4 Eb4 Bb3
+    notes.forEach((f, i) =>
+      sfxTone(ctx, dest, t + i * 0.2, { freq: f, dur: 0.7, type: 'sine', peak: 0.22, attack: 0.012 }));
+    sfxTone(ctx, dest, t, { freq: 62, dur: 1.3, type: 'sine', peak: 0.16, attack: 0.03 });
+  },
+};
+
 // ── AudioManager ──────────────────────────────────────────────────────────────
 
 class AudioManager {
   constructor() {
-    this._ctx         = null;
-    this._masterGain  = null;
-    this._ambientGain = null;
-    this._activeNodes = [];     // currently running ambient nodes
-    this._activeEnv   = null;
-    this._enabled     = true;
-    this._ambientVol  = 0.55;   // default ambient volume
-    this._fadeTimer   = null;
+    this._ctx            = null;
+    this._masterGain     = null;
+    this._ambientGain    = null;
+    this._sfxGain        = null;
+    this._activeNodes    = [];      // currently running ambient nodes
+    this._activeEnv      = null;
+    this._ambientEnabled = true;
+    this._ambientVol     = 0.55;    // default ambient volume
+    this._sfxEnabled     = true;
+    this._sfxVol         = 0.6;     // default SFX volume
+    this._fadeTimer      = null;
   }
 
   // ── Internal ───────────────────────────────────────────────────────────────
@@ -544,11 +642,14 @@ class AudioManager {
       if (!AC) return;
       this._ctx = new AC();
       this._masterGain = this._ctx.createGain();
-      this._masterGain.gain.value = this._enabled ? 1 : 0;
+      this._masterGain.gain.value = 1;
       this._masterGain.connect(this._ctx.destination);
       this._ambientGain = this._ctx.createGain();
-      this._ambientGain.gain.value = this._ambientVol;
+      this._ambientGain.gain.value = this._ambientEnabled ? this._ambientVol : 0;
       this._ambientGain.connect(this._masterGain);
+      this._sfxGain = this._ctx.createGain();
+      this._sfxGain.gain.value = this._sfxEnabled ? this._sfxVol : 0;
+      this._sfxGain.connect(this._masterGain);
     } catch (e) {
       console.warn('[audio] Web Audio API unavailable:', e);
     }
@@ -579,7 +680,7 @@ class AudioManager {
     if (envTag === this._activeEnv) return; // already playing this env
 
     this._init();
-    if (!this._ctx || !this._enabled) return;
+    if (!this._ctx || !this._ambientEnabled) return;
     this._resume();
 
     const builder = ENV_BUILDERS[envTag];
@@ -637,26 +738,63 @@ class AudioManager {
     this._activeEnv = null;
   }
 
-  /** 0–1. Takes effect immediately and is persisted externally by the caller. */
+  /** Ambient volume, 0–1. Takes effect immediately; persisted externally by the caller. */
   setAmbientVolume(v) {
     this._ambientVol = Math.max(0, Math.min(1, v));
     if (this._ambientGain) {
-      this._ambientGain.gain.value = this._enabled ? this._ambientVol : 0;
+      this._ambientGain.gain.value = this._ambientEnabled ? this._ambientVol : 0;
     }
   }
 
-  /** Enable / disable all audio (master mute). */
-  setEnabled(on) {
-    this._enabled = on;
-    if (this._masterGain) {
-      this._masterGain.gain.value = on ? 1 : 0;
+  /** Enable / disable ambient soundscapes. */
+  setAmbientEnabled(on) {
+    this._ambientEnabled = on;
+    if (this._ambientGain) {
+      this._ambientGain.gain.value = on ? this._ambientVol : 0;
     }
     if (on && this._ctx) this._resume();
   }
 
-  get enabled()     { return this._enabled; }
-  get ambientVolume() { return this._ambientVol; }
-  get activeEnv()   { return this._activeEnv; }
+  /** Back-compat alias — ambient was the only category historically. */
+  setEnabled(on) { this.setAmbientEnabled(on); }
+
+  /** SFX volume, 0–1. */
+  setSfxVolume(v) {
+    this._sfxVol = Math.max(0, Math.min(1, v));
+    if (this._sfxGain) {
+      this._sfxGain.gain.value = this._sfxEnabled ? this._sfxVol : 0;
+    }
+  }
+
+  /** Enable / disable sound effects. */
+  setSfxEnabled(on) {
+    this._sfxEnabled = on;
+    if (this._sfxGain) {
+      this._sfxGain.gain.value = on ? this._sfxVol : 0;
+    }
+    if (on && this._ctx) this._resume();
+  }
+
+  /** Fire a one-shot sound effect by name (see SFX_BUILDERS). No-op if SFX disabled. */
+  playSfx(name) {
+    if (!this._sfxEnabled) return;
+    this._init();
+    if (!this._ctx || !this._sfxGain) return;
+    this._resume();
+    const builder = SFX_BUILDERS[name];
+    if (!builder) return;
+    try {
+      builder(this._ctx, this._sfxGain, this._ctx.currentTime);
+    } catch (e) {
+      console.warn('[audio] SFX failed:', name, e);
+    }
+  }
+
+  get ambientEnabled() { return this._ambientEnabled; }
+  get ambientVolume()  { return this._ambientVol; }
+  get sfxEnabled()     { return this._sfxEnabled; }
+  get sfxVolume()      { return this._sfxVol; }
+  get activeEnv()      { return this._activeEnv; }
 }
 
 export const audioManager = new AudioManager();

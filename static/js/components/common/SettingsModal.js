@@ -44,7 +44,7 @@ const ADV_DECKS = [
 ];
 
 export function SettingsModal({ onClose }) {
-  const { state, patch, setTheme, setAmbientEnabled, setAmbientVolume } = useApp();
+  const { state, patch, setTheme, setAmbientEnabled, setAmbientVolume, setSfxEnabled, setSfxVolume } = useApp();
   const [owned, setOwned] = useState(() => new Set(state.ownedProducts || ['base', 'class_deck']));
   const [saving, setSaving] = useState(false);
 
@@ -136,6 +136,29 @@ export function SettingsModal({ onClose }) {
             onInput=${e => setAmbientVolume(parseFloat(e.target.value))}
           />
           <span class="settings-volume-val">${Math.round((state.ambientVolume ?? 0.55) * 100)}%</span>
+        </div>
+      `}
+
+      <!-- Sound effects -->
+      <div class="settings-section-label" style="margin-top:14px;">Sound Effects</div>
+      <div class="settings-audio-row"
+        onClick=${() => setSfxEnabled(!state.sfxEnabled)}>
+        <span class=${'settings-audio-check' + (state.sfxEnabled ? ' on' : '')}>
+          ${state.sfxEnabled ? '🔔' : '🔕'}
+        </span>
+        <span class="settings-audio-label">
+          ${state.sfxEnabled ? 'On' : 'Off'} — dice, card flips, blessing tick, victory & defeat
+        </span>
+      </div>
+      ${state.sfxEnabled && html`
+        <div class="settings-audio-volume">
+          <span class="settings-volume-label">Volume</span>
+          <input type="range" class="settings-volume-slider"
+            min="0" max="1" step="0.05"
+            value=${state.sfxVolume ?? 0.6}
+            onInput=${e => setSfxVolume(parseFloat(e.target.value))}
+          />
+          <span class="settings-volume-val">${Math.round((state.sfxVolume ?? 0.6) * 100)}%</span>
         </div>
       `}
       <p class="settings-note" style="margin-bottom:16px;">

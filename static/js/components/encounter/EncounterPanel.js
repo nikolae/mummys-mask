@@ -4,6 +4,7 @@ import { useApp } from '/static/js/state.js';
 import { DiceRoller } from '/static/js/components/encounter/DiceRoller.js';
 import { ContextualRules } from '/static/js/components/common/RulesChip.js';
 import { LoreBriefingModal } from '/static/js/components/common/LoreBriefingModal.js';
+import { audioManager } from '/static/js/audio.js';
 import * as api from '/static/js/api.js';
 
 // ── Card Search with autocomplete ────────────────────────────────────────────
@@ -456,6 +457,7 @@ export function EncounterPanel({ location, sessionId, scenarioId, blessingsRemai
     setHenchmanCloseBusy(true);
     try {
       await api.actionCloseLocation(sessionId, { location_id: location.id, success: true });
+      audioManager.playSfx('locationClose');
       const when = location.when_closed;
       if (when && when !== 'No effect.') {
         toast(`${location.name} closed — ${when}`, 'warning');

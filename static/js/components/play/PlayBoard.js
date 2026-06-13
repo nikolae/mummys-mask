@@ -170,19 +170,22 @@ export function PlayBoard() {
   // Start when scenario is known; stop on unmount (navigating away).
   useEffect(() => {
     if (!session?.scenario_id) return;
-    audioManager.setEnabled(state.ambientEnabled !== false);
+    audioManager.setAmbientEnabled(state.ambientEnabled !== false);
     audioManager.setAmbientVolume(state.ambientVolume ?? 0.55);
     const env = SCENARIO_ENV[session.scenario_id];
     if (env) audioManager.startAmbient(env);
     return () => audioManager.stopAmbient(1.5);
   }, [session?.scenario_id]);
 
-  // Sync enabled/volume changes from Settings without restarting audio
-  useEffect(() => { audioManager.setEnabled(state.ambientEnabled !== false); }, [state.ambientEnabled]);
+  // Sync audio settings from Settings without restarting audio
+  useEffect(() => { audioManager.setAmbientEnabled(state.ambientEnabled !== false); }, [state.ambientEnabled]);
   useEffect(() => { audioManager.setAmbientVolume(state.ambientVolume ?? 0.55); }, [state.ambientVolume]);
+  useEffect(() => { audioManager.setSfxEnabled(state.sfxEnabled !== false); }, [state.sfxEnabled]);
+  useEffect(() => { audioManager.setSfxVolume(state.sfxVolume ?? 0.6); }, [state.sfxVolume]);
 
   async function handleExplore(loc) {
     try {
+      audioManager.playSfx('cardFlip');
       const updated = await api.actionExplore(sessionId, { location_id: loc.id });
       setSession(updated);
       const revealed = updated?._revealed_card ?? null;

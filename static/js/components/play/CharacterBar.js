@@ -1,6 +1,7 @@
 import { html } from '/static/js/html.js';
 import { useState } from '/static/js/vendor/hooks.module.js';
 import { useApp } from '/static/js/state.js';
+import { audioManager } from '/static/js/audio.js';
 import * as api from '/static/js/api.js';
 
 export function CharacterBar({ session, currentCharId, onSelectChar, onOpenSheet, onUpdate }) {
@@ -13,6 +14,7 @@ export function CharacterBar({ session, currentCharId, onSelectChar, onOpenSheet
     setConfirmEndTurn(false);
     try {
       await api.actionEndTurn(sessionId);
+      audioManager.playSfx('blessingTick'); // blessings deck advances
       onUpdate();
     } catch (e) {
       toast('End turn failed: ' + e.message, 'error');

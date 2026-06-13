@@ -1,5 +1,6 @@
 import { html } from '/static/js/html.js';
 import { useState, useRef, useCallback } from '/static/js/vendor/hooks.module.js';
+import { audioManager } from '/static/js/audio.js';
 
 const DICE = [4, 6, 8, 10, 12, 20];
 
@@ -54,6 +55,8 @@ export function DiceRoller({ onResult }) {
 
   function roll() {
     if (rolling) return;
+
+    audioManager.playSfx('diceRoll');
 
     // Build the final roll values first
     const rolls = [];

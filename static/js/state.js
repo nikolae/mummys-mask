@@ -40,6 +40,10 @@ export function makeInitialState() {
     ambientEnabled: typeof localStorage !== 'undefined' ? (localStorage.getItem('mm_ambient_enabled') !== 'false') : true,
     ambientVolume:  typeof localStorage !== 'undefined' ? parseFloat(localStorage.getItem('mm_ambient_volume') || '0.55') : 0.55,
 
+    // Sound effects — persisted in localStorage
+    sfxEnabled: typeof localStorage !== 'undefined' ? (localStorage.getItem('mm_sfx_enabled') !== 'false') : true,
+    sfxVolume:  typeof localStorage !== 'undefined' ? parseFloat(localStorage.getItem('mm_sfx_volume') || '0.6') : 0.6,
+
     // Owned products (loaded from server on startup)
     ownedProducts: ['base', 'class_deck'],
 
@@ -106,5 +110,16 @@ export function useAppState() {
     setState(s => ({ ...s, ambientVolume: val }));
   }, []);
 
-  return { state, patch, navigate, toast, patchSetup, patchSession, toggleGuided, setTheme, setAmbientEnabled, setAmbientVolume };
+  const setSfxEnabled = useCallback((on) => {
+    localStorage.setItem('mm_sfx_enabled', String(on));
+    setState(s => ({ ...s, sfxEnabled: on }));
+  }, []);
+
+  const setSfxVolume = useCallback((v) => {
+    const val = Math.max(0, Math.min(1, v));
+    localStorage.setItem('mm_sfx_volume', String(val));
+    setState(s => ({ ...s, sfxVolume: val }));
+  }, []);
+
+  return { state, patch, navigate, toast, patchSetup, patchSession, toggleGuided, setTheme, setAmbientEnabled, setAmbientVolume, setSfxEnabled, setSfxVolume };
 }
