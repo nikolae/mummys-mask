@@ -1,25 +1,37 @@
 import { html } from '/static/js/html.js';
 import { useState, useEffect } from '/static/js/vendor/hooks.module.js';
+import { useApp } from '/static/js/state.js';
+
+// Maps a character's `set` to product labels (base is always owned).
+// SET_BADGE — short inline tag next to the class; SET_LABEL — full product name for the note.
+const SET_BADGE = {
+  class_deck:      'Class Deck',
+  character_addon: 'Add-On',
+};
+const SET_LABEL = {
+  class_deck:      'Class Deck',
+  character_addon: 'Character Add-On Deck',
+};
 
 // ── Static data ───────────────────────────────────────────────────────────────
 
 const CHARACTERS = [
   {
-    name: 'Alahazra', classLabel: 'Oracle', set: 'base',
+    name: 'Alahazra', classLabel: 'Oracle', set: 'class_deck',
     description: 'A seer who can glimpse the future. Strong with Divine spells and can scan location decks. Excellent at supporting allies at range.',
     strengths: ['Knowledge & Divine skills', 'Scry ahead in location decks', 'Remove curses'],
     difficulty: 'Moderate',
     deck: { weapon: 0, spell: 2, armor: 1, item: 2, ally: 2, blessing: 5 },
   },
   {
-    name: 'Damiel', classLabel: 'Alchemist', set: 'base',
+    name: 'Damiel', classLabel: 'Alchemist', set: 'class_deck',
     description: 'Bomb-tossing treasure-hunter who excels at acquiring boons and exploiting the marketplace. Manipulates traders better than anyone.',
     strengths: ['Dexterity & Craft skills', 'Acquire extra boons from traders', 'Poison & bomb attacks'],
     difficulty: 'Moderate',
     deck: { weapon: 2, spell: 0, armor: 2, item: 3, ally: 2, blessing: 4 },
   },
   {
-    name: 'Estra', classLabel: 'Spiritualist', set: 'base',
+    name: 'Estra', classLabel: 'Spiritualist', set: 'class_deck',
     description: 'Spirit medium with a ghostly husband as a permanent companion. Strong self-healer, good against Undead, and hard to kill.',
     strengths: ['Divine & Fortitude checks', 'Reduce all damage types', 'Undead expertise'],
     difficulty: 'Easy (survivable)',
@@ -54,28 +66,28 @@ const CHARACTERS = [
     deck: { weapon: 3, spell: 0, armor: 2, item: 1, ally: 2, blessing: 3 },
   },
   {
-    name: 'Ahmotep', classLabel: 'Magus', set: 'addon',
+    name: 'Ahmotep', classLabel: 'Magus', set: 'character_addon',
     description: 'Staff-wielding hybrid fighter-caster. Can blend physical and magical attacks. Master of barriers and traps.',
     strengths: ['Arcane & Melee', 'Disarm barriers', 'Versatile spell-sword'],
     difficulty: 'Moderate',
     deck: { weapon: 2, spell: 3, armor: 1, item: 1, ally: 3, blessing: 2 },
   },
   {
-    name: 'Channa Ti', classLabel: 'Druid', set: 'addon',
+    name: 'Channa Ti', classLabel: 'Druid', set: 'character_addon',
     description: 'Water druid who calls upon spirits of land and water. Thrives as a utility support character — she does a bit of everything.',
     strengths: ['Divine & Nature checks', 'Animal allies', 'Elemental healing'],
     difficulty: 'Moderate',
     deck: { weapon: 1, spell: 2, armor: 1, item: 1, ally: 4, blessing: 2 },
   },
   {
-    name: 'Drelm', classLabel: 'Cleric', set: 'addon',
+    name: 'Drelm', classLabel: 'Cleric', set: 'character_addon',
     description: 'Tank cleric with the blessing of Abadar. Can wring an extra boon from any trader. Makes the party richer.',
     strengths: ['Divine & Strength', 'Heavy armors', 'Trader manipulation'],
     difficulty: 'Easy',
     deck: { weapon: 2, spell: 3, armor: 2, item: 1, ally: 1, blessing: 4 },
   },
   {
-    name: 'Mavaro', classLabel: 'Occultist', set: 'addon',
+    name: 'Mavaro', classLabel: 'Occultist', set: 'character_addon',
     description: 'A collector of implements who adapts to any situation. Changes approach mid-scenario. Starts slow but becomes extraordinarily flexible.',
     strengths: ['Any skill via implements', 'Recharge almost anything', 'Deck flexibility'],
     difficulty: 'Hard (complex to play)',
@@ -179,21 +191,29 @@ const SECTIONS = [
 
 // ── Helper sub-components ─────────────────────────────────────────────────────
 
-function CharacterCard({ char, selected, onSelect }) {
+function CharacterCard({ char, selected, onSelect, ownedProducts }) {
   const difficultyColor = { 'Easy': 'var(--accent-green, #4caf50)', 'Easy (survivable)': 'var(--accent-green, #4caf50)', 'Easy (luck-based)': 'var(--accent-green, #4caf50)', 'Moderate': 'var(--accent-yellow, #ffc107)', 'Hard (early game fragile)': 'var(--accent-red, #f44336)', 'Hard (complex to play)': 'var(--accent-red, #f44336)' };
   const col = difficultyColor[char.difficulty] || 'var(--text-dim)';
+  const setLabel = SET_LABEL[char.set];
+  const setBadge = SET_BADGE[char.set];
+  const owned = char.set === 'base' || (ownedProducts || []).includes(char.set);
   return html`
-    <div class=${'ng-char-card' + (selected ? ' selected' : '')}
+    <div class=${'ng-char-card' + (selected ? ' selected' : '') + (owned ? '' : ' unowned')}
       onClick=${() => onSelect(char.name)}>
       <div class="ng-char-avatar">${char.name[0]}</div>
       <div class="ng-char-body">
         <div class="ng-char-name">${char.name}</div>
         <div class="ng-char-class">${char.classLabel}
-          ${char.set === 'addon' ? html`<span class="ng-char-set-badge">Add-On</span>` : null}
+          ${setBadge ? html`<span class="ng-char-set-badge">${setBadge}</span>` : null}
         </div>
         <div class="ng-char-difficulty" style="color:${col}; font-size:11px; margin-top:2px;">
           ${char.difficulty}
         </div>
+        ${!owned && html`
+          <div class="ng-char-ownership-note">
+            🔒 Requires the ${setLabel} — not in your owned products.
+          </div>
+        `}
         ${selected && html`
           <div class="ng-char-detail">
             <p>${char.description}</p>
@@ -212,7 +232,7 @@ function CharacterCard({ char, selected, onSelect }) {
   `;
 }
 
-function GuideSection({ section }) {
+function GuideSection({ section, ownedProducts }) {
   const [selChar, setSelChar] = useState(null);
 
   function toggleChar(name) {
@@ -246,6 +266,7 @@ function GuideSection({ section }) {
               char=${c}
               selected=${selChar === c.name}
               onSelect=${toggleChar}
+              ownedProducts=${ownedProducts}
             />
           `)}
         </div>
@@ -290,6 +311,9 @@ function GuideSection({ section }) {
 // ── Main NewGameGuide ─────────────────────────────────────────────────────────
 
 export function NewGameGuide({ onClose, initialSection = null }) {
+  const { state } = useApp();
+  const ownedProducts = state.ownedProducts || ['base', 'class_deck'];
+
   useEffect(() => {
     if (!initialSection) return;
     // rAF ensures the panel has painted before we scroll
@@ -317,7 +341,7 @@ export function NewGameGuide({ onClose, initialSection = null }) {
         </div>
 
         <div class="ng-panel-body">
-          ${SECTIONS.map(s => html`<${GuideSection} key=${s.id} section=${s} />`)}
+          ${SECTIONS.map(s => html`<${GuideSection} key=${s.id} section=${s} ownedProducts=${ownedProducts} />`)}
         </div>
 
         <div class="ng-panel-footer">

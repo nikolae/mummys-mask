@@ -221,3 +221,6 @@ __marimo__/
 .wiki_cache/
 data/_unparsed.yaml
 .DS_Store
+
+# Local preview database (created by preview_start)
+.preview-data/

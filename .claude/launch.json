@@ -5,7 +5,10 @@
       "name": "mummys-mask",
       "runtimeExecutable": "python3",
       "runtimeArgs": ["app.py"],
-      "port": 5050
+      "port": 5050,
+      "env": {
+        "DB_PATH": ".preview-data/mummys_mask.db"
+      }
     }
   ]
 }

@@ -2418,6 +2418,21 @@
   box-shadow: 0 0 0 1px var(--gold);
   background: var(--tomb-light);
 }
+/* Unowned characters stay readable but visually de-emphasised (informational) */
+.ng-char-card.unowned { opacity: 0.7; }
+.ng-char-card.unowned .ng-char-avatar { filter: grayscale(0.5); }
+.ng-char-card.unowned:hover { opacity: 1; }
+
+.ng-char-ownership-note {
+  font-size: 10px;
+  color: var(--text-dim);
+  margin-top: 4px;
+  padding: 3px 6px;
+  border-radius: 4px;
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px dashed var(--tomb-light);
+  line-height: 1.4;
+}
 
 .ng-char-avatar {
   width: 32px;
